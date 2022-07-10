@@ -9,17 +9,29 @@ export class ShapeCatalogue {
     // attributes
 
     constructor(element: Element) {
-        // not implemented
+        // children - I also need to make a map of these... since position will be relative
+        //
+        // Equipment
+        // PipingComponent
+        // Nozzle
+        // ProcessInstrument
+        // InstrumentComponent
+        // Component
+        // PipeConnector
+        // SignalConnectorSymbol
+        // InsulationSymbol
+        // PropertyBreak
+        // Label
+        // PipeFlowArrow
+        //
+        // attributes
+        //
+        // Name
+        // Version
+        // Units
+        // Date
     }
 
-    /**
-     * draw element/children if any primitives
-     * @param unit
-     * @param pageOriginX
-     * @param pageOriginY
-     */
-    public draw(unit: number, pageOriginX: number, pageOriginY: number) {
-        // not implemented
-        // not every element will have primitives or children
-    }
+    // this is not elements we will draw, just lookup
+    // draw(){}
 }

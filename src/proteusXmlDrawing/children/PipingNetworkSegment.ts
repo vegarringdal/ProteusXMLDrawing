@@ -1,27 +1,33 @@
+import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
+import { CenterLine } from "./CenterLine";
 import { Line } from "./Line";
-import { PipingNetworkSegment } from "./PipingNetworkSegment";
 import { PolyLine } from "./PolyLine";
 
 /**
- * A PipingNetworkSystem contains the information for a physical PipingNetworkSystem
- * in the plant or a section thereof as contained within a module. The PipingNetworkSystem
- * contains all of the PlantItems that belong to it. A PipingNetworkSystem may have multiple
- * sources and multiple destinations.’
+ * See ‘2.2.1’ for details on the use of PipingNetworkSegments.
  *
- * A PipingNetworkSystem element inherits elements and attributes from the base type ‘PlantItem’.
+ * A PipingNetworkSegment element inherits elements and attributes from the base type ‘PlantItem’.
  * See ‘PlantItem’ for the definitions of the inherited contents.
  *
+ * PipeConnectorSymbol elements representing on and off page connectivity are contained by the
+ * PipingNetworkSegment.  See for details of PipingNetworkSegment connectivity.
+ *
+ * If a PipingNetworkSegment represents the connectivity between an instrument and a process
+ * line then the ComponentClass attribute will be given the value ‘ProcessInstrumentConnection’.
+ *
+ *
  */
-export class PipingNetworkSystem {
+export class PipingNetworkSegment {
     public readonly isChild = true;
-    
+   
 
     // children
+    public readonly centerLine: CenterLine[];
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
-    pipingNetworkSegment: unknown[];
+    public readonly component: Component[];
 
     // attributes
 
@@ -47,8 +53,18 @@ export class PipingNetworkSystem {
         // MinimumOperatingTemperature
         // MaximumOperatingTemperature
         // WallThickness
-        this.pipingNetworkSegment = getElements(element, "PipingNetworkSegment", PipingNetworkSegment);
-        // PropertyBreak
+        // Connection
+        this.centerLine = getElements(element, "CenterLine", CenterLine);
+        this.component = getElements(element, "Component", Component);
+        // InstrumentComponent
+        // Equipment
+        // InstrumentConnection
+        // PipingComponent
+        // ProcessInstrument
+        // PipeConnectorSymbol
+        // PipeFlowArrow
+        // Label
+        // InsulationSymbol
         //
         // children plantItem **********TODO:***********
         // Presentation
@@ -79,6 +95,9 @@ export class PipingNetworkSystem {
         // GenericAttributes
         // Association
         // History
+        //
+        // attributes  **********TODO:***********
+        // DualFlow
         //
         // attributes plantItem **********TODO:***********
         // ID

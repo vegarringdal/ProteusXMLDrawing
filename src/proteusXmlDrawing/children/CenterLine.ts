@@ -8,7 +8,7 @@ import { Presentation } from "./Presentation";
 /**
  * A geometric primitive
  */
-export class Line {
+export class CenterLine {
     public readonly isChild = true;
     public readonly element: Element;
 
@@ -19,7 +19,7 @@ export class Line {
     public readonly genericAttributes: GenericAttributes[];
 
     // attributes
-    // no attributes on this element
+
 
     constructor(element: Element) {
         this.element = element;
@@ -27,6 +27,10 @@ export class Line {
         this.extent = getElements(element, "Extent", Extent);
         this.coordinate = getElements(element, "Coordinate", Coordinate);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+
+        // TODO attributes
+        // NumPoints
+        // ID
     }
 
     /**
@@ -41,7 +45,7 @@ export class Line {
         const Color = getPaper().Color;
         const segments: any[] = [];
         this.coordinate.forEach((coordinate) => {
-         
+           
             const point = new Point(
                 coordinate.x.value * unit,
                 pageOriginY * unit - coordinate.y.value * unit

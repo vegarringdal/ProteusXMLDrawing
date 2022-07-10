@@ -1,54 +1,29 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
 import { Line } from "./Line";
-import { PipingNetworkSegment } from "./PipingNetworkSegment";
 import { PolyLine } from "./PolyLine";
 
 /**
- * A PipingNetworkSystem contains the information for a physical PipingNetworkSystem
- * in the plant or a section thereof as contained within a module. The PipingNetworkSystem
- * contains all of the PlantItems that belong to it. A PipingNetworkSystem may have multiple
- * sources and multiple destinations.’
- *
- * A PipingNetworkSystem element inherits elements and attributes from the base type ‘PlantItem’.
- * See ‘PlantItem’ for the definitions of the inherited contents.
+ * Used to group geometric and text primitives within a Drawing element.  
+ * This inherits all elements and attributes from the base type ‘PlantItem’.  
+ * See ‘PlantItem’ for the definitions of the inherited contents..
  *
  */
-export class PipingNetworkSystem {
+export class Component {
     public readonly isChild = true;
     
 
     // children
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
-    pipingNetworkSegment: unknown[];
+    public readonly component: Component[];
 
     // attributes
 
     constructor(element: Element) {
         // will only start with geometry elements
-        // children **********TODO:***********
-        // NominalDiameter
-        // InsideDiameter
-        // OutsideDiameter
-        // StartDiameter
-        // EndDiameter
-        // NormalDesignPressure
-        // MinimumDesignPressure
-        // MaximumDesignPressure
-        // NormalDesignTemperature
-        // MinimumDesignTemperature
-        // MaximumDesignTemperature
-        // NormalOperatingPressure
-        // MinimumOperatingPressure
-        // MaximumOperatingPressure
-        // TestPressure
-        // NormalOperatingTemperature
-        // MinimumOperatingTemperature
-        // MaximumOperatingTemperature
-        // WallThickness
-        this.pipingNetworkSegment = getElements(element, "PipingNetworkSegment", PipingNetworkSegment);
-        // PropertyBreak
+        //
+        this.component = getElements(element, "Component", Component);
         //
         // children plantItem **********TODO:***********
         // Presentation
