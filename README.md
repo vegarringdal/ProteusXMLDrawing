@@ -1,15 +1,12 @@
-# web-dexpi
+# ProteusXMLDrawing
 
-experiment on trying to take dexpi xml and convert to draowing suign svg/or canvas lib
+Experiment on trying to take dexpi xml and convert to drawing using svg/or canvas lib
 
-Will implement this:
-* https://github.com/ProteusXML/proteusxml/blob/master/additional_documents/P%26ID%20Profile%20file%20specification%203.3.3.dochttps://github.com/ProteusXML/proteusxml/blob/master/additional_documents/P%26ID%20Profile%20file%20specification%203.3.3.doc
-
-* https://dexpi.org/wp-content/uploads/2020/09/DEXPI-PID-Specification-1.3.pdf
+See spec folder under public for more info
 
 How to get started
-* `git clone git@github.com:vegarringdal/web-dexpi.git` or `https://github.com/vegarringdal/web-dexpi`
-* `cd web-dexpi`
+* `git clone git@github.com:vegarringdal/ProteusXMLDrawing.git` or `https://github.com/vegarringdal/vegarringdal/ProteusXMLDrawing`
+* `cd vegarringdal/ProteusXMLDrawing`
 * `npm install`
 * `npm start` <- dev server during development
 
