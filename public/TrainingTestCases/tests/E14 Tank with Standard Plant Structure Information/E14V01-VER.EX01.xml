@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<PlantModel>
+  <PlantInformation Application="Dexpi" ApplicationVersion="1.3.1" Date="2022-06-12" Discipline="PID" Is3D="no" OriginatingSystem="DEXPI Example" OriginatingSystemVendor="pnb plants &amp; bytes GmbH, Aachen, Germany" OriginatingSystemVersion="0.9" SchemaVersion="4.1.1" Time="12:34:01" Units="mm">
+    <UnitsOfMeasure/>
+  </PlantInformation>
+  <PlantStructureItem ID="Enterprise-1" ComponentClass="Isa95Enterprise" ComponentClassURI="http://data.posccaesar.org/rdl/RDS10418236543">
+    <GenericAttributes Set="DexpiAttributes" Number="1">
+      <GenericAttribute Name="EnterpriseNameAssignmentClass" AttributeURI="http://sandbox.dexpi.org/rdl/EnterpriseNameAssignmentClass" Format="string" Value="DEXPI Beer Inc."/>
+    </GenericAttributes>
+    <Association Type="is a collection including" ItemID="Site-1"/>
+  </PlantStructureItem>
+  <PlantStructureItem ID="Site-1" ComponentClass="SiteIsa95" ComponentClassURI="http://data.posccaesar.org/rdl/RDS10418236632">
+    <GenericAttributes Set="DexpiAttributes" Number="1">
+      <GenericAttribute Name="SiteNameAssignmentClass" AttributeURI="http://sandbox.dexpi.org/rdl/SiteNameAssignmentClass" Format="string" Value="Cologne"/>
+    </GenericAttributes>
+    <Association Type="is a part of" ItemID="Enterprise-1"/>
+    <Association Type="is a collection including" ItemID="IndustrialComplex-1"/>
+  </PlantStructureItem>
+  <PlantStructureItem ID="IndustrialComplex-1" ComponentClass="IndustrialComplexIso10209-2012" ComponentClassURI="http://sandbox.dexpi.org/rdl/IndustrialComplexIso10209-2012">
+    <GenericAttributes Set="DexpiAttributes" Number="1">
+      <GenericAttribute Name="IndustrialComplexNameAssignmentClass" AttributeURI="http://sandbox.dexpi.org/rdl/IndustrialComplexNameAssignmentClass" Format="string" Value="C1"/>
+    </GenericAttributes>
+    <Association Type="is a part of" ItemID="Site-1"/>
+    <Association Type="is a collection including" ItemID="ProcessPlant-1"/>
+  </PlantStructureItem>
+  <PlantStructureItem ID="ProcessPlant-1" ComponentClass="ProcessPlant" ComponentClassURI="http://data.posccaesar.org/rdl/RDS7151859">
+    <GenericAttributes Set="DexpiAttributes" Number="1">
+      <GenericAttribute Name="ProcessPlantNameAssignmentClass" AttributeURI="http://sandbox.dexpi.org/rdl/ProcessPlantNameAssignmentClass" Format="string" Value="Kölsch Plant"/>
+    </GenericAttributes>
+    <Association Type="is a part of" ItemID="IndustrialComplex-1"/>
+    <Association Type="is a collection including" ItemID="PlantSection-1"/>
+  </PlantStructureItem>
+  <PlantStructureItem ID="PlantSection-1" ComponentClass="PlantSectionIso10209-2012" ComponentClassURI="http://sandbox.dexpi.org/rdl/PlantSectionIso10209-2012">
+    <GenericAttributes Set="DexpiAttributes" Number="1">
+      <GenericAttribute Name="PlantSectionNameAssignmentClass" AttributeURI="http://sandbox.dexpi.org/rdl/PlantSectionNameAssignmentClass" Format="string" Value="Brewing Section"/>
+    </GenericAttributes>
+    <Association Type="is a part of" ItemID="ProcessPlant-1"/>
+    <Association Type="is a collection including" ItemID="Tank-1"/>
+  </PlantStructureItem>
+  <Equipment ID="Tank-1" ComponentClass="Tank" ComponentClassURI="http://data.posccaesar.org/rdl/RDS445139">
+    <GenericAttributes Set="DexpiAttributes" Number="1">
+      <GenericAttribute Name="TagNameAssignmentClass" AttributeURI="http://sandbox.dexpi.org/rdl/TagNameAssignmentClass" Format="string" Value="T1301"/>
+    </GenericAttributes>
+    <Association Type="is a part of" ItemID="PlantSection-1"/>
+  </Equipment>
+</PlantModel>

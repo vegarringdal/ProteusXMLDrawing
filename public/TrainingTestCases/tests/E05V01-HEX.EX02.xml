@@ -1,0 +1,1872 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PlantModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../ProteusPIDSchema_4.0.1.xsd">
+  <!--Created with INGR ISO15926 PostProc V0.0.7.8 and ConfigurationFileVersion 7.0008 by HFD-PPMV-2012\Administrator on HFD-PPMV-2012 at 9/30/2019 9:30:35 AM-->
+  <PlantInformation SchemaVersion="4.0.1" OriginatingSystem="SPPID" Date="2019-09-30" Time="07:20:09.0000000+02:00" Is3D="no" Units="Metre" Discipline="PID">
+    <UnitsOfMeasure Distance="Metre" />
+  </PlantInformation>
+  <PlantStructureItem ID="PBS0D9331D91F4D4144B93903B01D5C7F4A" ComponentClass="ProcessPlant" ComponentName="DEXPI" ComponentClassURI="http://data.posccaesar.org/rdl/RDS7151859">
+    <Association Type="is a collection including" ItemID="PBS21965A6820724688BB443B3EB454E19E" />
+    <Association Type="is a collection including" ItemID="PBS9954520295954053888DFE44D61B3FCB" />
+    <GenericAttributes Number="2" Set="DexpiAttributes">
+      <GenericAttribute Name="ProcessPlantIdentificationCodeAssignmentClass" Value="DEXPI" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/ProcessPlantIdentificationCodeAssignmentClass" />
+      <GenericAttribute Name="ProcessPlantNameAssignmentClass" Value="DEXPI" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/ProcessPlantNameAssignmentClass" />
+    </GenericAttributes>
+    <GenericAttributes Set="SPPID_orig" Number="6">
+      <GenericAttribute Name="SP_ID" Value="0D9331D91F4D4144B93903B01D5C7F4A" />
+      <GenericAttribute Name="ParentID" Value="-1" />
+      <GenericAttribute Name="Depth" Value="0" />
+      <GenericAttribute Name="PlantGroupType" Value="Plant" />
+      <GenericAttribute Name="Name" Value="DEXPI" />
+      <GenericAttribute Name="Description" Value="" />
+    </GenericAttributes>
+  </PlantStructureItem>
+  <PlantStructureItem ID="PBS21965A6820724688BB443B3EB454E19E" ComponentClass="PlantSectionIso10209-2012" ComponentName="UNIT1" ComponentClassURI="http://sandbox.dexpi.org/rdl/PlantSectionIso10209-2012">
+    <GenericAttributes Number="2" Set="DexpiAttributes">
+      <GenericAttribute Name="PlantSectionIdentificationCodeAssignmentClass" Value="UNIT1" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/PlantSectionIdentificationCodeAssignmentClass" />
+      <GenericAttribute Name="PlantSectionNameAssignmentClass" Value="UNIT1" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/PlantSectionNameAssignmentClass" />
+    </GenericAttributes>
+    <GenericAttributes Set="SPPID_orig" Number="6">
+      <GenericAttribute Name="SP_ID" Value="21965A6820724688BB443B3EB454E19E" />
+      <GenericAttribute Name="ParentID" Value="0D9331D91F4D4144B93903B01D5C7F4A" />
+      <GenericAttribute Name="Depth" Value="1" />
+      <GenericAttribute Name="PlantGroupType" Value="Unit" />
+      <GenericAttribute Name="Name" Value="UNIT1" />
+      <GenericAttribute Name="Description" Value="DEXPI" />
+    </GenericAttributes>
+    <Association Type="is a part of" ItemID="PBS0D9331D91F4D4144B93903B01D5C7F4A" />
+    <Association Type="is a collection including" ItemID="SP5510B35996834764A80B76BA8E951EE8" />
+    <Association Type="is a collection including" ItemID="SP067621AFDC7E4F25BF922CAEEB445A0F" />
+  </PlantStructureItem>
+  <PlantStructureItem ID="PBS9954520295954053888DFE44D61B3FCB" ComponentClass="PlantSectionIso10209-2012" ComponentName="UNIT2" ComponentClassURI="http://sandbox.dexpi.org/rdl/PlantSectionIso10209-2012">
+    <GenericAttributes Number="2" Set="DexpiAttributes">
+      <GenericAttribute Name="PlantSectionIdentificationCodeAssignmentClass" Value="UNIT2" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/PlantSectionIdentificationCodeAssignmentClass" />
+      <GenericAttribute Name="PlantSectionNameAssignmentClass" Value="UNIT2" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/PlantSectionNameAssignmentClass" />
+    </GenericAttributes>
+    <GenericAttributes Set="SPPID_orig" Number="6">
+      <GenericAttribute Name="SP_ID" Value="9954520295954053888DFE44D61B3FCB" />
+      <GenericAttribute Name="ParentID" Value="0D9331D91F4D4144B93903B01D5C7F4A" />
+      <GenericAttribute Name="Depth" Value="1" />
+      <GenericAttribute Name="PlantGroupType" Value="Unit" />
+      <GenericAttribute Name="Name" Value="UNIT2" />
+      <GenericAttribute Name="Description" Value="" />
+    </GenericAttributes>
+    <Association Type="is a part of" ItemID="PBS0D9331D91F4D4144B93903B01D5C7F4A" />
+  </PlantStructureItem>
+  <Extent>
+    <Min X="0" Y="0" />
+    <Max X="0.841" Y="0.594" />
+  </Extent>
+  <Drawing Name="E05V01-HEX.EX02" Type="PID" Title="PUMP AND HEATEXCHANGER WITH NOZZLES" Size="A1">
+    <Presentation Layer="" Color="White" LineType="" LineWeight="" R="1" G="1" B="1" />
+    <Extent>
+      <Min X="0" Y="0" />
+      <Max X="0.841" Y="0.594" />
+    </Extent>
+    <GenericAttributes Number="24">
+      <GenericAttribute Name="Revision" Value="V01" Format="string" />
+      <GenericAttribute Name="Version" Value="02" Format="string" />
+      <GenericAttribute Name="Description" Value="TEST CASE" Format="string" />
+      <GenericAttribute Name="SP_ID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+      <GenericAttribute Name="DocumentType" Value="P&amp;IDs" Format="string" />
+      <GenericAttribute Name="DocumentCategory" Value="Piping Documents" Format="string" />
+      <GenericAttribute Name="UpdateCount" Value="9" Format="string" />
+      <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+      <GenericAttribute Name="SP_PlantGroupID" Value="21965A6820724688BB443B3EB454E19E" Format="string" />
+      <GenericAttribute Name="Path" Value="\UNIT1\E05V01-HEX.EX02.pid" Format="string" />
+      <GenericAttribute Name="DateCreated" Value="2/26/2018 1:49:56 PM" Format="string" />
+      <GenericAttribute Name="DrawingNumber" Value="E05" Format="string" />
+      <GenericAttribute Name="Template" Value="A1-Groesse.pid" Format="string" />
+      <GenericAttribute Name="SP_RulesUID" Value="F4738AE93F8542A2905571BEB6BA9BAE" Format="string" />
+      <GenericAttribute Name="SP_FormatsUID" Value="7AAADD007B4C41F197DADA983354F3EE" Format="string" />
+      <GenericAttribute Name="SP_GappingUID" Value="D5D2765EF5AB4F7DAD74CB0D8FD250D5" Format="string" />
+      <GenericAttribute Name="SP_SymbologyUID" Value="D6AEF0450E0D42F5A2CA6B8DBD6C67DC" Format="string" />
+      <GenericAttribute Name="SP_HTraceUID" Value="C48CC28329714990A91C4867457BE7F8" Format="string" />
+      <GenericAttribute Name="SP_SelectListVersion" Value="63649F1C117349D2B32605E6E7CDFC4FBFC5BDDD8E054239B592A1498040A787" Format="string" />
+      <GenericAttribute Name="SP_DefaultFormatsUID" Value="13E10564E7EA46AC8B620D7D925BF460" Format="string" />
+      <GenericAttribute Name="SP_ArePropertiesModified" Value="True" Format="string" />
+      <GenericAttribute Name="SP_AccessedBy" Value="Administrator" Format="string" />
+      <GenericAttribute Name="Title" Value="PUMP AND HEATEXCHANGER WITH NOZZLES" Format="string" />
+      <GenericAttribute Name="DEXPI_REVISION" Value="" Format="string" />
+    </GenericAttributes>
+    <Label ID="SP30530AB173604D5995E9065EAF7BF3A2" ComponentClass="Eq Nozzle Diameter Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="6F2366C6B9754393BFC2C8821C383F07" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="159" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen Nennweite.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="11/5/2013 9:38:36 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.190253489197864" Y="0.316452939968035" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.18817163846082971" Y="0.31355037830316251" />
+        <Max X="0.19226065618810243" Y="0.320000022649765" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="50" Font="Intergraph ISO" Justification="CenterCenter" Width="0.00352778" Height="0.00352778" TextAngle="0" DependantAttribute="[NominalDiameterNumericalValueRepresentationAssignmentClass]" ItemID="SP95218BFC40B84E6F853D2F982D4B250B_1">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.18817163846082971" Y="0.31355037830316251" />
+          <Max X="0.19226065618810243" Y="0.31932310921225343" />
+        </Extent>
+        <Position>
+          <Location X="0.19021614732446607" Y="0.31643674375770797" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SP6AF824C0E07D4E5DBBB269FE9577894E" ComponentClass="Eq Nozzle Tag Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="6F2366C6B9754393BFC2C8821C383F07" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="89" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen ItemTag.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="1/26/2006 5:50:38 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.19" Y="0.322499999999999" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.18797402176296571" Y="0.31962016742603555" />
+        <Max X="0.19195129449023843" Y="0.3253474401533083" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="N3" Font="Intergraph ISO" Justification="CenterCenter" Width="0.0035" Height="0.0035" TextAngle="0" DependantAttribute="[TagName]" ItemID="SP95218BFC40B84E6F853D2F982D4B250B">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.18797402176296571" Y="0.31962016742603555" />
+          <Max X="0.19195129449023843" Y="0.3253474401533083" />
+        </Extent>
+        <Position>
+          <Location X="0.18996265812660207" Y="0.32248380378967195" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SP4A1214DFF06146E9A97DED89EE2B5EF7" ComponentClass="Eq Nozzle Tag Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="0EB56AC0F8FD4285BFFFF3DCCDDEAC66" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="125" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen ItemTag.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="1/26/2006 5:50:38 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.19" Y="0.282499999999999" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.18817288539932933" Y="0.27962016742603557" />
+        <Max X="0.19175243085387478" Y="0.28534744015330832" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="N1" Font="Intergraph ISO" Justification="CenterCenter" Width="0.0035" Height="0.0035" TextAngle="0" DependantAttribute="[TagName]" ItemID="SP94DCBA85C638438E8B4ED5C0DD7C72AA">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.18817288539932933" Y="0.27962016742603557" />
+          <Max X="0.19175243085387478" Y="0.28534744015330832" />
+        </Extent>
+        <Position>
+          <Location X="0.18996265812660207" Y="0.282483803789672" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SP09D3103FAA864A618D953224DD32E2DF" ComponentClass="Eq Nozzle Diameter Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="2B5135D56D2C4243A788A739A609F179" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="74" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen Nennweite.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="11/5/2013 9:38:36 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.219773265475972" Y="0.316207588074977" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.21757114951166498" Y="0.31330502641010449" />
+        <Max X="0.22190069769348317" Y="0.320000022649765" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="80" Font="Intergraph ISO" Justification="CenterCenter" Width="0.00352778" Height="0.00352778" TextAngle="0" DependantAttribute="[NominalDiameterNumericalValueRepresentationAssignmentClass]" ItemID="SP815DC0E7E8DC4F54A3E254AEC3C0DB22_1">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.21757114951166498" Y="0.31330502641010449" />
+          <Max X="0.22190069769348317" Y="0.31907775731919541" />
+        </Extent>
+        <Position>
+          <Location X="0.21973592360257407" Y="0.31619139186464995" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SP53BB6A3A58D74C9CB66E936001A5038E" ComponentClass="Eq Nozzle Tag Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="2B5135D56D2C4243A788A739A609F179" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="63" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen ItemTag.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="1/26/2006 5:50:38 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.219999999999999" Y="0.3225" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.2174999862909317" Y="0.31962016742603655" />
+        <Max X="0.22211038539932834" Y="0.3253474401533093" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="N2" Font="Intergraph ISO" Justification="CenterCenter" Width="0.0035" Height="0.0035" TextAngle="0" DependantAttribute="[TagName]" ItemID="SP815DC0E7E8DC4F54A3E254AEC3C0DB22">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.2178149308538738" Y="0.31962016742603655" />
+          <Max X="0.22211038539932834" Y="0.3253474401533093" />
+        </Extent>
+        <Position>
+          <Location X="0.21996265812660107" Y="0.32248380378967295" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SP2579698942C14CDA8CD50D9F584F82E2" ComponentClass="Equipment Tag Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="85115CFC9C1E4E8C9E83241437094EC3" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="137" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Beschriftungen - Equipment\Equipment Item Tag.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="10/26/2015 8:35:18 PM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.204742730309555" Y="0.329485716204764" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.19683950626410002" Y="0.27249997854232788" />
+        <Max X="0.2126459543550091" Y="0.33427662784112733" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="H1005" Font="Intergraph ISO" Justification="CenterCenter" Width="0.004938892" Height="0.004938892" TextAngle="0" DependantAttribute="[TagNamePrefixAssignmentClass][TagNameSequenceNumberAssignmentClass]" ItemID="SP067621AFDC7E4F25BF922CAEEB445A0F">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.19683950626410002" Y="0.32469480456840005" />
+          <Max X="0.2126459543550091" Y="0.33427662784112733" />
+        </Extent>
+        <Position>
+          <Location X="0.20474273030955456" Y="0.32948571620476369" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SPA635554B90464E08B33EAA563FF31308" ComponentClass="Eq Nozzle Diameter Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="5908051A507947FD9F771341EA62AEFB" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="171" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen Nennweite.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="11/5/2013 9:38:36 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.219886632737986" Y="0.2767064291659" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.21780478200095171" Y="0.27380386750102748" />
+        <Max X="0.22189379972822443" Y="0.28000003099441528" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="50" Font="Intergraph ISO" Justification="CenterCenter" Width="0.00352778" Height="0.00352778" TextAngle="0" DependantAttribute="[NominalDiameterNumericalValueRepresentationAssignmentClass]" ItemID="SPCD5097089ADA4BE8A3507A324EE0A82B_1">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.21780478200095171" Y="0.27380386750102748" />
+          <Max X="0.22189379972822443" Y="0.27957659841011839" />
+        </Extent>
+        <Position>
+          <Location X="0.21984929086458807" Y="0.27669023295557293" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SPE0C3961CCCAC44A5835758F424FDE845" ComponentClass="Eq Nozzle Tag Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="5908051A507947FD9F771341EA62AEFB" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="160" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen ItemTag.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="1/26/2006 5:50:38 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.220000000000001" Y="0.2825" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.21785470358114853" Y="0.27962016742603657" />
+        <Max X="0.22207061267205763" Y="0.28534744015330932" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="N4" Font="Intergraph ISO" Justification="CenterCenter" Width="0.0035" Height="0.0035" TextAngle="0" DependantAttribute="[TagName]" ItemID="SPCD5097089ADA4BE8A3507A324EE0A82B">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.21785470358114853" Y="0.27962016742603657" />
+          <Max X="0.22207061267205763" Y="0.28534744015330932" />
+        </Extent>
+        <Position>
+          <Location X="0.21996265812660307" Y="0.28248380378967297" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SPC3A300D7A3D94A53AF881FEB08A12FF5" ComponentClass="Eq Nozzle Diameter Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="0EB56AC0F8FD4285BFFFF3DCCDDEAC66" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="87" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen Nennweite.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="11/5/2013 9:38:36 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.19" Y="0.276706429165899" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.18779788403569298" Y="0.27380386750102648" />
+        <Max X="0.19212743221751116" Y="0.28000003099441528" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="80" Font="Intergraph ISO" Justification="CenterCenter" Width="0.00352778" Height="0.00352778" TextAngle="0" DependantAttribute="[NominalDiameterNumericalValueRepresentationAssignmentClass]" ItemID="SP94DCBA85C638438E8B4ED5C0DD7C72AA_1">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.18779788403569298" Y="0.27380386750102648" />
+          <Max X="0.19212743221751116" Y="0.27957659841011739" />
+        </Extent>
+        <Position>
+          <Location X="0.18996265812660207" Y="0.27669023295557194" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SP3DAD4D53E1204A90B978839BF470BBC6" ComponentClass="Eq Nozzle Tag Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="475CBC1C6F0045A09F6AE309C34F3D6F" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="235" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen ItemTag.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="1/26/2006 5:50:38 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.100000000000001" Y="0.274999999999999" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.097854703581148228" Y="0.27212016742603579" />
+        <Max X="0.10207061267205732" Y="0.28000003099441528" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="N1." Font="Intergraph ISO" Justification="CenterCenter" Width="0.0035" Height="0.0035" TextAngle="0" DependantAttribute="[TagName]" ItemID="SP653FA56663934020B6326323032D82DD">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.097854703581148228" Y="0.27212016742603579" />
+          <Max X="0.10207061267205732" Y="0.27784744015330853" />
+        </Extent>
+        <Position>
+          <Location X="0.09996265812660278" Y="0.27498380378967219" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SPD42241F6BE874598ACC2403F4B60C0BC" ComponentClass="Eq Nozzle Diameter Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="475CBC1C6F0045A09F6AE309C34F3D6F" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="237" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen Nennweite.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="11/5/2013 9:38:36 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.100000000000001" Y="0.284999999999999" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.097797884035693686" Y="0.27999997138977051" />
+        <Max X="0.10212743221751187" Y="0.28787016924421766" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="80" Font="Intergraph ISO" Justification="CenterCenter" Width="0.00352778" Height="0.00352778" TextAngle="0" DependantAttribute="[NominalDiameterNumericalValueRepresentationAssignmentClass]" ItemID="SP653FA56663934020B6326323032D82DD_1">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.097797884035693686" Y="0.28209743833512674" />
+          <Max X="0.10212743221751187" Y="0.28787016924421766" />
+        </Extent>
+        <Position>
+          <Location X="0.09996265812660278" Y="0.2849838037896722" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SP0833A91A0038493D90E86BD75B2F9BA7" ComponentClass="Equipment Tag Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="AFE4950A6A46458A82F829ACF7648264" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="234" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Beschriftungen - Equipment\Equipment Item Tag.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="10/26/2015 8:35:18 PM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.110000000000001" Y="0.2925" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.10226514727272833" Y="0.28749996423721313" />
+        <Max X="0.11773485272727378" Y="0.29729091163636362" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="P4713" Font="Intergraph ISO" Justification="CenterCenter" Width="0.004938892" Height="0.004938892" TextAngle="0" DependantAttribute="[TagNamePrefixAssignmentClass][TagNameSequenceNumberAssignmentClass]" ItemID="SP5510B35996834764A80B76BA8E951EE8">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.10226514727272833" Y="0.28770908836363634" />
+          <Max X="0.11773485272727378" Y="0.29729091163636362" />
+        </Extent>
+        <Position>
+          <Location X="0.11000000000000106" Y="0.2925" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SPD15EA08B14E8404CB60B4474ECEA5C0D" ComponentClass="Eq Nozzle Tag Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="83BC530518834348AF6309270808416B" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="236" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen ItemTag.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="1/26/2006 5:50:38 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.12" Y="0.275" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.11749674903569325" Y="0.27212016742603606" />
+        <Max X="0.12242856721751143" Y="0.28000003099441528" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="N2." Font="Intergraph ISO" Justification="CenterCenter" Width="0.0035" Height="0.0035" TextAngle="0" DependantAttribute="[TagName]" ItemID="SP4C46F38DE8DF427FB4267AB558824450">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.11749674903569325" Y="0.27212016742603606" />
+          <Max X="0.12242856721751143" Y="0.27784744015330881" />
+        </Extent>
+        <Position>
+          <Location X="0.11996265812660234" Y="0.27498380378967247" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+    <Label ID="SP043F8BBB53B040F0980D61B6B1A39505" ComponentClass="Eq Nozzle Diameter Info">
+      <GenericAttributes Set="SPPID_orig" Number="20">
+        <GenericAttribute Name="Angle" Value="0" Format="string" />
+        <GenericAttribute Name="LabelType" Value="Component" Format="string" />
+        <GenericAttribute Name="LeaderCount" Value="1" Format="string" />
+        <GenericAttribute Name="LeaderStyle" Value="Normal" Format="string" />
+        <GenericAttribute Name="IsLeaderVisible" Value="False" Format="string" />
+        <GenericAttribute Name="IsMirrored" Value="False" Format="string" />
+        <GenericAttribute Name="IsFitToText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_RepresentationID" Value="83BC530518834348AF6309270808416B" Format="string" />
+        <GenericAttribute Name="TerminatorStyle" Value="None" Format="string" />
+        <GenericAttribute Name="TextLabelJustification" Value="Baseline" Format="string" />
+        <GenericAttribute Name="SP_DisableFlipText" Value="False" Format="string" />
+        <GenericAttribute Name="SP_LeaderConnectPointType" Value="Connect On Element" Format="string" />
+        <GenericAttribute Name="RepresentationType" Value="Label" Format="string" />
+        <GenericAttribute Name="GraphicOID" Value="238" Format="string" />
+        <GenericAttribute Name="InStockpile" Value="False" Format="string" />
+        <GenericAttribute Name="FileName" Value="\Equipment_28004\Equipment Komponenten\Beschriftungen - Equipment Komponenten\Stutzen Nennweite.sym" Format="string" />
+        <GenericAttribute Name="SP_DrawingID" Value="894376FC8EEF43E98295636085F8FD73" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="RepresentationClass" Value="Label" Format="string" />
+        <GenericAttribute Name="SP_FileLastModifiedTime" Value="11/5/2013 9:38:36 AM" Format="string" />
+      </GenericAttributes>
+      <Position>
+        <Location X="0.12" Y="0.285" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Extent>
+        <Min X="0.11779788403569325" Y="0.27999997138977051" />
+        <Max X="0.12212743221751143" Y="0.28787016924421793" />
+      </Extent>
+      <Presentation Color="Black" LineType="Solid" LineWeight="0.00035" />
+      <Text String="80" Font="Intergraph ISO" Justification="CenterCenter" Width="0.00352778" Height="0.00352778" TextAngle="0" DependantAttribute="[NominalDiameterNumericalValueRepresentationAssignmentClass]" ItemID="SP4C46F38DE8DF427FB4267AB558824450_1">
+        <Presentation Layer="Labels" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.11779788403569325" Y="0.282097438335127" />
+          <Max X="0.12212743221751143" Y="0.28787016924421793" />
+        </Extent>
+        <Position>
+          <Location X="0.11996265812660234" Y="0.28498380378967247" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Text>
+    </Label>
+  </Drawing>
+  <ShapeCatalogue Name="Symbol Library">
+    <Nozzle ComponentName="Nozzle_5c91d303-5091-44f6-884d-c48567447944" ID="_5c91d303-5091-44f6-884d-c48567447944" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <Position>
+        <Location X="0.000000" Y="0.000000" Z="0.000000" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="0.000000" Y="-0.001279" />
+        <Max X="0.002503" Y="0.002505" />
+      </Extent>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00013" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.000000" Y="0.000000" />
+          <Max X="0.002500" Y="0.000000" />
+        </Extent>
+        <Coordinate X="0.000000" Y="0.000000" />
+        <Coordinate X="0.002500" Y="0.000000" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00013" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.002500" Y="-0.001250" />
+          <Max X="0.002500" Y="0.001250" />
+        </Extent>
+        <Coordinate X="0.002500" Y="-0.001250" />
+        <Coordinate X="0.002500" Y="0.001250" />
+      </Line>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.000000" Y="-0.001279" />
+          <Max X="0.002503" Y="0.002505" />
+        </Extent>
+        <Node ID="_SP4C46F38DE8DF427FB4267AB558824450_0">
+          <Position>
+            <Location X="0.000000" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="_SP4C46F38DE8DF427FB4267AB558824450_1" Name="1" Type="process">
+          <Position>
+            <Location X="0.002500" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+    <Nozzle ComponentName="Nozzle_ea2d1649-79ae-431e-a12b-ed35e4b19f12" ID="_ea2d1649-79ae-431e-a12b-ed35e4b19f12" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <Position>
+        <Location X="0.000000" Y="0.000000" Z="0.000000" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="-0.002503" Y="-0.002505" />
+        <Max X="0.000000" Y="0.001279" />
+      </Extent>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00013" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.002500" Y="0.000000" />
+          <Max X="0.000000" Y="0.000000" />
+        </Extent>
+        <Coordinate X="0.000000" Y="0.000000" />
+        <Coordinate X="-0.002500" Y="0.000000" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00013" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.002500" Y="-0.001250" />
+          <Max X="-0.002500" Y="0.001250" />
+        </Extent>
+        <Coordinate X="-0.002500" Y="0.001250" />
+        <Coordinate X="-0.002500" Y="-0.001250" />
+      </Line>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.002503" Y="-0.002505" />
+          <Max X="0.000000" Y="0.001279" />
+        </Extent>
+        <Node ID="_SP653FA56663934020B6326323032D82DD_0">
+          <Position>
+            <Location X="0.000000" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="_SP653FA56663934020B6326323032D82DD_1" Name="1" Type="process">
+          <Position>
+            <Location X="-0.002500" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+    <Equipment ComponentName="Equipment_9016b52c-af60-4655-adf5-1ec82650b085" ID="_9016b52c-af60-4655-adf5-1ec82650b085" ComponentClass="CentrifugalPump" ComponentClassURI="http://data.posccaesar.org/rdl/RDS416834">
+      <Description>CENTRIFUGAL PUMP</Description>
+      <Position>
+        <Location X="0.000000" Y="0.000000" Z="0.000000" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="-0.007509" Y="-0.007508" />
+        <Max X="0.007507" Y="0.007508" />
+      </Extent>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.007501" Y="0.000000" />
+          <Max X="0.007501" Y="0.000000" />
+        </Extent>
+        <Coordinate X="-0.007501" Y="0.000000" />
+        <Coordinate X="0.007501" Y="0.000000" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.000000" Y="0.000000" />
+          <Max X="0.007501" Y="0.007500" />
+        </Extent>
+        <Coordinate X="0.000000" Y="0.007500" />
+        <Coordinate X="0.007501" Y="0.000000" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.000000" Y="-0.007500" />
+          <Max X="0.007501" Y="0.000000" />
+        </Extent>
+        <Coordinate X="0.007501" Y="0.000000" />
+        <Coordinate X="0.000000" Y="-0.007500" />
+      </Line>
+      <Circle Radius="0.0075">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.007500" Y="-0.007500" />
+          <Max X="0.007500" Y="0.007500" />
+        </Extent>
+        <Position>
+          <Location X="0.000000" Y="0.000000" />
+          <Axis X="0" Y="0" Z="1" />
+          <Reference X="1" Y="0" Z="0" />
+        </Position>
+      </Circle>
+    </Equipment>
+    <Nozzle ComponentName="Nozzle_be47c3f1-6d0c-4326-abf6-30214244f55d" ID="_be47c3f1-6d0c-4326-abf6-30214244f55d" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <Position>
+        <Location X="0.000000" Y="0.000000" Z="0.000000" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="-0.010010" Y="-0.002503" />
+        <Max X="0.000000" Y="0.001251" />
+      </Extent>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.010000" Y="0.000000" />
+          <Max X="0.000000" Y="0.000000" />
+        </Extent>
+        <Coordinate X="0.000000" Y="0.000000" />
+        <Coordinate X="-0.010000" Y="0.000000" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.010000" Y="-0.001250" />
+          <Max X="-0.010000" Y="0.001250" />
+        </Extent>
+        <Coordinate X="-0.010000" Y="0.001250" />
+        <Coordinate X="-0.010000" Y="-0.001250" />
+      </Line>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.010010" Y="-0.002503" />
+          <Max X="0.000000" Y="0.001251" />
+        </Extent>
+        <Node ID="_SP94DCBA85C638438E8B4ED5C0DD7C72AA_0">
+          <Position>
+            <Location X="0.000000" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="_SP94DCBA85C638438E8B4ED5C0DD7C72AA_1" Name="1" Type="process">
+          <Position>
+            <Location X="-0.010000" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+    <Nozzle ComponentName="Nozzle_7d9b46ae-27cb-4816-af6e-f87b2932ec71" ID="_7d9b46ae-27cb-4816-af6e-f87b2932ec71" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <Position>
+        <Location X="0.000000" Y="0.000000" Z="0.000000" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="-0.010010" Y="-0.002503" />
+        <Max X="0.000000" Y="0.001251" />
+      </Extent>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.010000" Y="0.000000" />
+          <Max X="0.000000" Y="0.000000" />
+        </Extent>
+        <Coordinate X="0.000000" Y="0.000000" />
+        <Coordinate X="-0.010000" Y="0.000000" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.010000" Y="-0.001250" />
+          <Max X="-0.010000" Y="0.001250" />
+        </Extent>
+        <Coordinate X="-0.010000" Y="0.001250" />
+        <Coordinate X="-0.010000" Y="-0.001250" />
+      </Line>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.010010" Y="-0.002503" />
+          <Max X="0.000000" Y="0.001251" />
+        </Extent>
+        <Node ID="_SP95218BFC40B84E6F853D2F982D4B250B_0">
+          <Position>
+            <Location X="0.000000" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="_SP95218BFC40B84E6F853D2F982D4B250B_1" Name="1" Type="process">
+          <Position>
+            <Location X="-0.010000" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+    <Nozzle ComponentName="Nozzle_ea57d1c4-7ecf-4022-b9e6-cb6aedcacc54" ID="_ea57d1c4-7ecf-4022-b9e6-cb6aedcacc54" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <Position>
+        <Location X="0.000000" Y="0.000000" Z="0.000000" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="0.000000" Y="-0.001251" />
+        <Max X="0.010010" Y="0.002503" />
+      </Extent>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.000000" Y="0.000000" />
+          <Max X="0.010000" Y="0.000000" />
+        </Extent>
+        <Coordinate X="0.000000" Y="0.000000" />
+        <Coordinate X="0.010000" Y="0.000000" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.010000" Y="-0.001250" />
+          <Max X="0.010000" Y="0.001250" />
+        </Extent>
+        <Coordinate X="0.010000" Y="-0.001250" />
+        <Coordinate X="0.010000" Y="0.001250" />
+      </Line>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.000000" Y="-0.001251" />
+          <Max X="0.010010" Y="0.002503" />
+        </Extent>
+        <Node ID="_SP815DC0E7E8DC4F54A3E254AEC3C0DB22_0">
+          <Position>
+            <Location X="0.000000" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="_SP815DC0E7E8DC4F54A3E254AEC3C0DB22_1" Name="1" Type="process">
+          <Position>
+            <Location X="0.010000" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+    <Nozzle ComponentName="Nozzle_409e7a6a-c946-465b-91ae-1ebf49fbaa25" ID="_409e7a6a-c946-465b-91ae-1ebf49fbaa25" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <Position>
+        <Location X="0.000000" Y="0.000000" Z="0.000000" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="0.000000" Y="-0.001251" />
+        <Max X="0.010010" Y="0.002503" />
+      </Extent>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.000000" Y="0.000000" />
+          <Max X="0.010000" Y="0.000000" />
+        </Extent>
+        <Coordinate X="0.000000" Y="0.000000" />
+        <Coordinate X="0.010000" Y="0.000000" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.010000" Y="-0.001250" />
+          <Max X="0.010000" Y="0.001250" />
+        </Extent>
+        <Coordinate X="0.010000" Y="-0.001250" />
+        <Coordinate X="0.010000" Y="0.001250" />
+      </Line>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.000000" Y="-0.001251" />
+          <Max X="0.010010" Y="0.002503" />
+        </Extent>
+        <Node ID="_SPCD5097089ADA4BE8A3507A324EE0A82B_0">
+          <Position>
+            <Location X="0.000000" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="_SPCD5097089ADA4BE8A3507A324EE0A82B_1" Name="1" Type="process">
+          <Position>
+            <Location X="0.010000" Y="0.000000" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+    <Equipment ComponentName="Equipment_96a690b7-ccb3-4046-bb5c-1fb3fd7827b2" ID="_96a690b7-ccb3-4046-bb5c-1fb3fd7827b2" ComponentClass="PlateAndShellHeatExchanger" ComponentClassURI="http://data.posccaesar.org/rdl/RDS441719">
+      <Description>PLATE HEAT EXCHANGER</Description>
+      <Position>
+        <Location X="0.000000" Y="0.000000" Z="0.000000" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="-0.009431" Y="-0.000037" />
+        <Max X="0.009439" Y="0.052501" />
+      </Extent>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.009397" Y="0.026250" />
+          <Max X="0.009397" Y="0.026250" />
+        </Extent>
+        <Coordinate X="-0.009397" Y="0.026250" />
+        <Coordinate X="0.009397" Y="0.026250" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.009397" Y="0.015750" />
+          <Max X="0.009397" Y="0.015750" />
+        </Extent>
+        <Coordinate X="-0.009397" Y="0.015750" />
+        <Coordinate X="0.009397" Y="0.015750" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.009397" Y="0.036750" />
+          <Max X="0.009397" Y="0.036750" />
+        </Extent>
+        <Coordinate X="-0.009397" Y="0.036750" />
+        <Coordinate X="0.009397" Y="0.036750" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.009397" Y="0.007517" />
+          <Max X="0.009397" Y="0.044983" />
+        </Extent>
+        <Coordinate X="-0.009397" Y="0.007517" />
+        <Coordinate X="0.009397" Y="0.044983" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.009397" Y="0.007517" />
+          <Max X="0.009397" Y="0.044983" />
+        </Extent>
+        <Coordinate X="-0.009397" Y="0.044983" />
+        <Coordinate X="0.009397" Y="0.007517" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.009397" Y="0.000000" />
+          <Max X="0.009397" Y="0.052500" />
+        </Extent>
+        <Coordinate X="0.009397" Y="0.000000" />
+        <Coordinate X="0.009397" Y="0.052500" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.009397" Y="0.052500" />
+          <Max X="0.009397" Y="0.052500" />
+        </Extent>
+        <Coordinate X="0.009397" Y="0.052500" />
+        <Coordinate X="-0.009397" Y="0.052500" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.009397" Y="0.000000" />
+          <Max X="-0.009397" Y="0.052500" />
+        </Extent>
+        <Coordinate X="-0.009397" Y="0.052500" />
+        <Coordinate X="-0.009397" Y="0.000000" />
+      </Line>
+      <Line>
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="-0.009397" Y="0.000000" />
+          <Max X="0.009397" Y="0.000000" />
+        </Extent>
+        <Coordinate X="-0.009397" Y="0.000000" />
+        <Coordinate X="0.009397" Y="0.000000" />
+      </Line>
+    </Equipment>
+  </ShapeCatalogue>
+  <Equipment ComponentName="Equipment_9016b52c-af60-4655-adf5-1ec82650b085" ID="SP5510B35996834764A80B76BA8E951EE8" TagName="P4713" ComponentClass="CentrifugalPump" ComponentClassURI="http://data.posccaesar.org/rdl/RDS416834">
+    <GenericAttributes Number="10" Set="DexpiAttributes">
+      <GenericAttribute Name="TagNamePrefixAssignmentClass" Value="P" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNamePrefixAssignmentClass" />
+      <GenericAttribute Name="TagNameSequenceNumberAssignmentClass" Value="4713" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNameSequenceNumberAssignmentClass" />
+      <GenericAttribute Name="TagNameSuffixAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNameSuffixAssignmentClass" />
+      <GenericAttribute Name="SymbolRegistrationNumberAssignmentClass" Value="ISO10628_2:2012-2322-A" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SymbolRegistrationNumberAssigmentClass" />
+      <GenericAttribute Name="EquipmentDescriptionAssignmentClass" Value="CENTRIFUGAL PUMP" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS2181987301" />
+      <GenericAttribute Name="DesignPressureHead" Value="10" Format="double" Units="Metre" AttributeURI="http://sandbox.dexpi.org/rdl/DesignPressureHead" UnitsURI="http://data.posccaesar.org/rdl/RDS1332674" />
+      <GenericAttribute Name="DesignVolumeFlowRate" Value="200" Format="double" Units="MetreCubedPerHour" AttributeURI="http://data.posccaesar.org/rdl/RDS14286227" UnitsURI="http://data.posccaesar.org/rdl/RDS1321064" />
+      <GenericAttribute Name="DifferentialPressure" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS361574" />
+      <GenericAttribute Name="DesignRotationalSpeed" Value="600.00" Format="double" Units="RevolutionPerMinute" AttributeURI="http://sandbox.dexpi.org/rdl/DesignRotationalSpeed" UnitsURI="http://data.posccaesar.org/rdl/RDS1342304" />
+      <GenericAttribute Name="DesignShaftPower" Value="60" Format="double" Units="Kilowatt" AttributeURI="http://sandbox.dexpi.org/rdl/DesignShaftPower" UnitsURI="http://data.posccaesar.org/rdl/RDS1330919" />
+    </GenericAttributes>
+    <GenericAttributes Set="SPPID_orig" Number="46">
+      <GenericAttribute Name="SP_PowerConsumptionSI" Value="60000" Format="string" />
+      <GenericAttribute Name="PowerConsumption" Value="60" Units="kW" Format="string" />
+      <GenericAttribute Name="RatedCapacity" Value="200" Units="m^3/hr" Format="string" />
+      <GenericAttribute Name="SP_RatedCapacitySI" Value="0.0555555454612" Format="string" />
+      <GenericAttribute Name="MaterialOfConstClassInternal" Value="1.4308" Format="string" />
+      <GenericAttribute Name="DesignPressureHead" Value="10" Units="m" Format="string" />
+      <GenericAttribute Name="SP_DesignPressureHeadSI" Value="10" Format="string" />
+      <GenericAttribute Name="DesignMaxRotationSpeed" Value="600" Units="rpm" Format="string" />
+      <GenericAttribute Name="SP_DesignMaxRotationSpeedSI" Value="62.8318530717959" Format="string" />
+      <GenericAttribute Name="Class" Value="Mechanical Equipment" Format="string" />
+      <GenericAttribute Name="TagPrefix" Value="P" Format="string" />
+      <GenericAttribute Name="TagSequenceNo" Value="4713" Format="string" />
+      <GenericAttribute Name="MaterialOfConstClass" Value="1.4306" Format="string" />
+      <GenericAttribute Name="ComponentDescription2" Value="Impeller Chamber" Format="string" />
+      <GenericAttribute Name="ComponentDescription1" Value="Pump Casing" Format="string" />
+      <GenericAttribute Name="ComponentFunction1" Value="Processing" Format="string" />
+      <GenericAttribute Name="ComponentFunction2" Value="Processing" Format="string" />
+      <GenericAttribute Name="MaterialOfConstClass1" Value="1.4306" Format="string" />
+      <GenericAttribute Name="ComponentName2" Value="Chamber 2" Format="string" />
+      <GenericAttribute Name="ComponentName1" Value="Chamber 1" Format="string" />
+      <GenericAttribute Name="PlantItemType" Value="Equipment" Format="string" />
+      <GenericAttribute Name="TagReqdFlag" Value="True" Format="string" />
+      <GenericAttribute Name="aabbcc_code" Value="AD4A05" Format="string" />
+      <GenericAttribute Name="Name" Value="Pumpe 1" Format="string" />
+      <GenericAttribute Name="IsBulkItem" Value="False" Format="string" />
+      <GenericAttribute Name="ConstructionStatus" Value="New" Format="string" />
+      <GenericAttribute Name="SP_PlantGroupID" Value="21965A6820724688BB443B3EB454E19E" Format="string" />
+      <GenericAttribute Name="ModelItemType" Value="Plant Item" Format="string" />
+      <GenericAttribute Name="UpdateCount" Value="55" Format="string" />
+      <GenericAttribute Name="Description" Value="CENTRIFUGAL PUMP" Format="string" />
+      <GenericAttribute Name="ItemTypeName" Value="Mechanical" Format="string" />
+      <GenericAttribute Name="SP_IsTypical" Value="False" Format="string" />
+      <GenericAttribute Name="ProcessDesign.CaseType" Value="Design" Format="string" />
+      <GenericAttribute Name="ProcessDesign.SP_ID" Value="95DDE1163D5148AC837225AB98759EF2" Format="string" />
+      <GenericAttribute Name="ProcessDesign.CaseClass" Value="Process Case" Format="string" />
+      <GenericAttribute Name="ProcessDesign.SP_ModelItemID" Value="5510B35996834764A80B76BA8E951EE8" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Min.SP_TemperatureSI" Value="228.15" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Min.SP_PressureSI" Value="51325" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Min.Quality" Value="Minimum" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Min.SP_CaseID" Value="95DDE1163D5148AC837225AB98759EF2" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Min.SP_ID" Value="9158516C27D84B92AF1C259D7FEB0E1C" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Max.SP_TemperatureSI" Value="353.15" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Max.SP_PressureSI" Value="6101325" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Max.Quality" Value="Maximum" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Max.SP_CaseID" Value="95DDE1163D5148AC837225AB98759EF2" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Max.SP_ID" Value="6BF370E48DE541BFB71C4818BF4B0149" Format="string" />
+    </GenericAttributes>
+    <Association Type="is a part of" ItemID="PBS21965A6820724688BB443B3EB454E19E" />
+    <Description>CENTRIFUGAL PUMP</Description>
+    <PersistentID Identifier="SP5510B35996834764A80B76BA8E951EE8" Context="SmartPID - DEXPI" />
+    <Position>
+      <Location X="0.110000000000001" Y="0.28" Z="0" />
+      <Axis X="0" Y="0" Z="1" />
+      <Reference X="1" Y="0" Z="0" />
+    </Position>
+    <Scale X="1.0" Y="1.0" Z="1.0" />
+    <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+    <Extent>
+      <Min X="0.10249109240189576" Y="0.27249221757053693" />
+      <Max X="0.11750665726080918" Y="0.28750778242945035" />
+    </Extent>
+    <Equipment ID="SP5510B35996834764A80B76BA8E951EE8_SE001" ComponentClass="Chamber" ComponentClassURI="http://data.posccaesar.org/rdl/RDS903151421">
+      <GenericAttributes Number="15" Set="DexpiAttributes">
+        <GenericAttribute Name="ChamberDescriptionAssignmentClass" Value="Pump Casing" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/ChamberDescriptionAssignmentClass" />
+        <GenericAttribute Name="ChamberFunctionAssignmentClass" Value="Processing" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/ChamberFunctionAssignmentClass" />
+        <GenericAttribute Name="ChamberFunctionSpecialization" ValueURI="http://data.posccaesar.org/rdl/RDS9658367" Value="Processing" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/ChamberFunctionSpecialization" />
+        <GenericAttribute Name="Height" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS357704" />
+        <GenericAttribute Name="InsideDiameter" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS357209" />
+        <GenericAttribute Name="Length" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS373094" />
+        <GenericAttribute Name="LowerLimitDesignPressure" Value="-0.50" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS360674" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+        <GenericAttribute Name="LowerLimitDesignTemperature" Value="-45.00" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360494" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684" />
+        <GenericAttribute Name="MaterialOfConstructionCodeAssignmentClass" Value="1.4306" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS1460719741" />
+        <GenericAttribute Name="NominalDiameter" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS366794" />
+        <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />
+        <GenericAttribute Name="SubTagNameAssignmentClass" Value="Chamber 1" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubTagNameAssignmentClass" />
+        <GenericAttribute Name="UpperLimitDesignPressure" Value="60.00" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS1470835011" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+        <GenericAttribute Name="UpperLimitDesignTemperature" Value="80.00" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360449" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684" />
+        <GenericAttribute Name="Width" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS361709" />
+      </GenericAttributes>
+    </Equipment>
+    <Equipment ID="SP5510B35996834764A80B76BA8E951EE8_SE002" ComponentClass="Impeller" ComponentClassURI="http://data.posccaesar.org/rdl/RDS414539">
+      <GenericAttributes Number="3" Set="DexpiAttributes">
+        <GenericAttribute Name="MaterialOfConstructionCodeAssignmentClass" Value="1.4308" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS1460719741" />
+        <GenericAttribute Name="StageIdentifierAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/StageIdentifierAssignmentClass" />
+        <GenericAttribute Name="Diameter" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS350954" />
+      </GenericAttributes>
+    </Equipment>
+    <Nozzle ComponentName="Nozzle_5c91d303-5091-44f6-884d-c48567447944" ID="SP4C46F38DE8DF427FB4267AB558824450" TagName="N2." ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <GenericAttributes Number="6" Set="DexpiAttributes">
+        <GenericAttribute Name="NominalPressureNumericalValueRepresentationAssignmentClass" Value="50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureNumericalValueRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureTypeRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureTypeRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureStandardSpecialization" Value="" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureStandardSpecialization" />
+        <GenericAttribute Name="SubTagNameAssignmentClass" Value="N2." Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubTagNameAssignmentClass" />
+        <GenericAttribute Name="SymbolRegistrationNumberAssignmentClass" Value="Stutzen 2_5mm,gefl" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SymbolRegistrationNumberAssigmentClass" />
+      </GenericAttributes>
+      <GenericAttributes Set="SPPID_orig" Number="25">
+        <GenericAttribute Name="NominalDiameter" Value="80" Units="mm" Format="string" />
+        <GenericAttribute Name="MaterialOfConstClass" Value="1.4306" Format="string" />
+        <GenericAttribute Name="SP_EquipmentID" Value="5510B35996834764A80B76BA8E951EE8" Format="string" />
+        <GenericAttribute Name="TagSequenceNo" Value="2." Format="string" />
+        <GenericAttribute Name="TagPrefix" Value="N" Format="string" />
+        <GenericAttribute Name="TagReqdFlag" Value="True" Format="string" />
+        <GenericAttribute Name="aabbcc_code" Value="AN1A06" Format="string" />
+        <GenericAttribute Name="IsBulkItem" Value="False" Format="string" />
+        <GenericAttribute Name="ConstructionStatus" Value="New" Format="string" />
+        <GenericAttribute Name="ModelItemType" Value="Plant Item" Format="string" />
+        <GenericAttribute Name="UpdateCount" Value="8" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="ItemTypeName" Value="Nozzle" Format="string" />
+        <GenericAttribute Name="SP_IsTypical" Value="False" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseType" Value="Design" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ID" Value="93974D4E59D845BC9DE087CB0ECB9364" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseClass" Value="Process Case" Format="string" />
+        <GenericAttribute Name="ProcessDesign.UpdateCount" Value="0" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ModelItemID" Value="4C46F38DE8DF427FB4267AB558824450" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_PressureSI" Value="5101325" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.Pressure" Value="50" Units="barg" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.Quality" Value="Maximum" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.UpdateCount" Value="0" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_CaseID" Value="93974D4E59D845BC9DE087CB0ECB9364" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_ID" Value="DA1A69828C0A4E66BD576AA74A5D7290" Format="string" />
+      </GenericAttributes>
+      <PersistentID Identifier="SP4C46F38DE8DF427FB4267AB558824450" Context="SmartPID - DEXPI" />
+      <Position>
+        <Location X="0.117500000000001" Y="0.280000000000001" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Scale X="1.0" Y="1.0" Z="1.0" />
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="0.11750000000000077" Y="0.27872077763080721" />
+        <Max X="0.12000259414315301" Y="0.28250518828630572" />
+      </Extent>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.11750000000000077" Y="0.27872077763080721" />
+          <Max X="0.12000259414315301" Y="0.28250518828630572" />
+        </Extent>
+        <Node ID="SP4C46F38DE8DF427FB4267AB558824450_0">
+          <Position>
+            <Location X="0.11750000000000077" Y="0.28000000000000125" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="SP4C46F38DE8DF427FB4267AB558824450_1" Name="1" Type="process">
+          <GenericAttributes Number="4" Set="DexpiAttributes">
+            <GenericAttribute Name="NominalDiameterStandardSpecialization" ValueURI="http://sandbox.dexpi.org/rdl/Din2448ObjectDn80" Value="Din2448ObjectDn80" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" />
+            <GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />
+          </GenericAttributes>
+          <Position>
+            <Location X="0.12000000000000072" Y="0.28000000000000125" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+    <Nozzle ComponentName="Nozzle_ea2d1649-79ae-431e-a12b-ed35e4b19f12" ID="SP653FA56663934020B6326323032D82DD" TagName="N1." ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <GenericAttributes Number="6" Set="DexpiAttributes">
+        <GenericAttribute Name="NominalPressureNumericalValueRepresentationAssignmentClass" Value="50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureNumericalValueRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureTypeRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureTypeRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureStandardSpecialization" Value="" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureStandardSpecialization" />
+        <GenericAttribute Name="SubTagNameAssignmentClass" Value="N1." Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubTagNameAssignmentClass" />
+        <GenericAttribute Name="SymbolRegistrationNumberAssignmentClass" Value="Stutzen 2_5mm,gefl" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SymbolRegistrationNumberAssigmentClass" />
+      </GenericAttributes>
+      <GenericAttributes Set="SPPID_orig" Number="25">
+        <GenericAttribute Name="NominalDiameter" Value="80" Units="mm" Format="string" />
+        <GenericAttribute Name="MaterialOfConstClass" Value="1.4306" Format="string" />
+        <GenericAttribute Name="SP_EquipmentID" Value="5510B35996834764A80B76BA8E951EE8" Format="string" />
+        <GenericAttribute Name="TagSequenceNo" Value="1." Format="string" />
+        <GenericAttribute Name="TagPrefix" Value="N" Format="string" />
+        <GenericAttribute Name="TagReqdFlag" Value="True" Format="string" />
+        <GenericAttribute Name="aabbcc_code" Value="AN1A06" Format="string" />
+        <GenericAttribute Name="IsBulkItem" Value="False" Format="string" />
+        <GenericAttribute Name="ConstructionStatus" Value="New" Format="string" />
+        <GenericAttribute Name="ModelItemType" Value="Plant Item" Format="string" />
+        <GenericAttribute Name="UpdateCount" Value="9" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="ItemTypeName" Value="Nozzle" Format="string" />
+        <GenericAttribute Name="SP_IsTypical" Value="False" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseType" Value="Design" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ID" Value="3DF302DF1E6F417FAFB36CFF85B682F5" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseClass" Value="Process Case" Format="string" />
+        <GenericAttribute Name="ProcessDesign.UpdateCount" Value="0" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ModelItemID" Value="653FA56663934020B6326323032D82DD" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_PressureSI" Value="5101325" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.Pressure" Value="50" Units="barg" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.Quality" Value="Maximum" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.UpdateCount" Value="0" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_CaseID" Value="3DF302DF1E6F417FAFB36CFF85B682F5" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_ID" Value="C20EAD23FC1D4E1994FE7D33103E37CF" Format="string" />
+      </GenericAttributes>
+      <PersistentID Identifier="SP653FA56663934020B6326323032D82DD" Context="SmartPID - DEXPI" />
+      <Position>
+        <Location X="0.102500000000001" Y="0.28" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Scale X="1.0" Y="1.0" Z="1.0" />
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="0.0999974058568482" Y="0.27749481171369528" />
+        <Max X="0.10250000000000123" Y="0.28127922236919428" />
+      </Extent>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.0999974058568482" Y="0.27749481171369528" />
+          <Max X="0.10250000000000123" Y="0.28127922236919428" />
+        </Extent>
+        <Node ID="SP653FA56663934020B6326323032D82DD_0">
+          <Position>
+            <Location X="0.1025000000000007" Y="0.28000000000000025" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="SP653FA56663934020B6326323032D82DD_1" Name="1" Type="process">
+          <GenericAttributes Number="4" Set="DexpiAttributes">
+            <GenericAttribute Name="NominalDiameterStandardSpecialization" ValueURI="http://sandbox.dexpi.org/rdl/Din2448ObjectDn80" Value="Din2448ObjectDn80" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" />
+            <GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />
+          </GenericAttributes>
+          <Position>
+            <Location X="0.10000000000000076" Y="0.27999999999999975" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+  </Equipment>
+  <Equipment ComponentName="Equipment_96a690b7-ccb3-4046-bb5c-1fb3fd7827b2" ID="SP067621AFDC7E4F25BF922CAEEB445A0F" TagName="H1005" ComponentClass="PlateAndShellHeatExchanger" ComponentClassURI="http://data.posccaesar.org/rdl/RDS441719">
+    <GenericAttributes Number="11" Set="DexpiAttributes">
+      <GenericAttribute Name="TagNamePrefixAssignmentClass" Value="H" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNamePrefixAssignmentClass" />
+      <GenericAttribute Name="TagNameSequenceNumberAssignmentClass" Value="1005" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNameSequenceNumberAssignmentClass" />
+      <GenericAttribute Name="TagNameSuffixAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNameSuffixAssignmentClass" />
+      <GenericAttribute Name="SymbolRegistrationNumberAssignmentClass" Value="ISO10628_2:2012-2516-A" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SymbolRegistrationNumberAssigmentClass" />
+      <GenericAttribute Name="EquipmentDescriptionAssignmentClass" Value="PLATE HEAT EXCHANGER" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS2181987301" />
+      <GenericAttribute Name="DesignHeatFlowRate" Value="313" Format="double" Units="Kilowatt" AttributeURI="http://sandbox.dexpi.org/rdl/DesignHeatFlowRate" UnitsURI="http://data.posccaesar.org/rdl/RDS1330919" />
+      <GenericAttribute Name="DesignHeatTransferArea" Value="46.8" Format="double" Units="MetreSquared" AttributeURI="http://sandbox.dexpi.org/rdl/DesignHeatTransferArea" UnitsURI="http://data.posccaesar.org/rdl/RDS1358009" />
+      <GenericAttribute Name="DesignHeatTransferCoefficient" Format="double" AttributeURI="http://sandbox.dexpi.org/rdl/DesignHeatTransferCoefficient" />
+      <GenericAttribute Name="NumberOfPlates" Value="1" Format="integer" AttributeURI="http://data.posccaesar.org/rdl/RDS364229" />
+      <GenericAttribute Name="PlateHeight" Format="double" AttributeURI="http://sandbox.dexpi.org/rdl/PlateHeight" />
+      <GenericAttribute Name="PlateWidth" Format="double" AttributeURI="http://sandbox.dexpi.org/rdl/PlateWidth" />
+    </GenericAttributes>
+    <GenericAttributes Set="SPPID_orig" Number="59">
+      <GenericAttribute Name="SP_HeatTransferRatingSI" Value="313000" Format="string" />
+      <GenericAttribute Name="HeatTransferRating" Value="313" Units="kW" Format="string" />
+      <GenericAttribute Name="HeatTransferAreaPerUnit" Value="46.8" Units="m^2" Format="string" />
+      <GenericAttribute Name="SP_HeatTransferAreaPerUnitSI" Value="46.8" Format="string" />
+      <GenericAttribute Name="Class" Value="Heat Transfer Equipment" Format="string" />
+      <GenericAttribute Name="TagPrefix" Value="H" Format="string" />
+      <GenericAttribute Name="TagSequenceNo" Value="1005" Format="string" />
+      <GenericAttribute Name="MaterialOfConstClass" Value="1.4306" Format="string" />
+      <GenericAttribute Name="ComponentDescription2" Value="Plate Chamber" Format="string" />
+      <GenericAttribute Name="ComponentDescription1" Value="Shell Chamber" Format="string" />
+      <GenericAttribute Name="ComponentFunction1" Value="Processing" Format="string" />
+      <GenericAttribute Name="ComponentFunction2" Value="Heating" Format="string" />
+      <GenericAttribute Name="MaterialOfConstClass1" Value="1.4306" Format="string" />
+      <GenericAttribute Name="ComponentName2" Value="Chamber 2" Format="string" />
+      <GenericAttribute Name="ComponentName1" Value="Chamber 1" Format="string" />
+      <GenericAttribute Name="PlantItemType" Value="Equipment" Format="string" />
+      <GenericAttribute Name="TagReqdFlag" Value="True" Format="string" />
+      <GenericAttribute Name="aabbcc_code" Value="AC3A13" Format="string" />
+      <GenericAttribute Name="Name" Value="Wärmetauscher 1" Format="string" />
+      <GenericAttribute Name="IsBulkItem" Value="False" Format="string" />
+      <GenericAttribute Name="ConstructionStatus" Value="New" Format="string" />
+      <GenericAttribute Name="SP_PlantGroupID" Value="21965A6820724688BB443B3EB454E19E" Format="string" />
+      <GenericAttribute Name="ModelItemType" Value="Plant Item" Format="string" />
+      <GenericAttribute Name="UpdateCount" Value="48" Format="string" />
+      <GenericAttribute Name="Description" Value="PLATE HEAT EXCHANGER" Format="string" />
+      <GenericAttribute Name="ItemTypeName" Value="Exchanger" Format="string" />
+      <GenericAttribute Name="SP_IsTypical" Value="False" Format="string" />
+      <GenericAttribute Name="ProcessDesign.CaseType" Value="Design" Format="string" />
+      <GenericAttribute Name="ProcessDesign.SP_ID" Value="8F288712E68E485FBF2B1ED8FE22C613" Format="string" />
+      <GenericAttribute Name="ProcessDesign.CaseClass" Value="Process Case" Format="string" />
+      <GenericAttribute Name="ProcessDesign.SP_ModelItemID" Value="067621AFDC7E4F25BF922CAEEB445A0F" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Min.SP_TemperatureSI" Value="228.15" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Min.SP_PressureSI" Value="1325" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Min.Quality" Value="Minimum" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Min.SP_CaseID" Value="8F288712E68E485FBF2B1ED8FE22C613" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Min.SP_ID" Value="ABD5CAA6041240C6AE5A41D78D8ECE42" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Max.SP_TemperatureSI" Value="373.15" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Max.SP_PressureSI" Value="6101325" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Max.Quality" Value="Maximum" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Max.SP_CaseID" Value="8F288712E68E485FBF2B1ED8FE22C613" Format="string" />
+      <GenericAttribute Name="ProcessDesign.Max.SP_ID" Value="08499776698141D2AF0CBDFCABF90DD9" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.CaseType" Value="Alt. Design" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.SP_ID" Value="2D67A8E76E3940DA92E414C9E832C206" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.CaseClass" Value="Process Case" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.SP_ModelItemID" Value="067621AFDC7E4F25BF922CAEEB445A0F" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Min.SP_TemperatureSI" Value="228.15" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Min.Temperature" Value="-45" Units="C" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Min.SP_PressureSI" Value="1325" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Min.Pressure" Value="-1" Units="barg" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Min.Quality" Value="Minimum" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Min.SP_CaseID" Value="2D67A8E76E3940DA92E414C9E832C206" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Min.SP_ID" Value="F498EA79C9B64F528BA24DBFDF5FF970" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Max.SP_TemperatureSI" Value="373.15" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Max.Temperature" Value="100" Units="C" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Max.SP_PressureSI" Value="3101325" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Max.Pressure" Value="30" Units="barg" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Max.Quality" Value="Maximum" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Max.SP_CaseID" Value="2D67A8E76E3940DA92E414C9E832C206" Format="string" />
+      <GenericAttribute Name="ProcessAlternateDesign.Max.SP_ID" Value="8F10D92864B348C88A5BBEAF359EFD85" Format="string" />
+    </GenericAttributes>
+    <Association Type="is a part of" ItemID="PBS21965A6820724688BB443B3EB454E19E" />
+    <Description>PLATE HEAT EXCHANGER</Description>
+    <PersistentID Identifier="SP067621AFDC7E4F25BF922CAEEB445A0F" Context="SmartPID - DEXPI" />
+    <Position>
+      <Location X="0.204396550897642" Y="0.272500004061851" Z="0" />
+      <Axis X="0" Y="0" Z="1" />
+      <Reference X="1" Y="0" Z="0" />
+    </Position>
+    <Scale X="1.0" Y="1.0" Z="1.0" />
+    <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.00035" R="0" G="0" B="0" />
+    <Extent>
+      <Min X="0.19496587531210524" Y="0.27246329627120897" />
+      <Max X="0.21383582998099524" Y="0.32500092782142043" />
+    </Extent>
+    <Equipment ID="SP067621AFDC7E4F25BF922CAEEB445A0F_SE001" ComponentClass="Chamber" ComponentClassURI="http://data.posccaesar.org/rdl/RDS903151421">
+      <GenericAttributes Number="15" Set="DexpiAttributes">
+        <GenericAttribute Name="ChamberDescriptionAssignmentClass" Value="Shell Chamber" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/ChamberDescriptionAssignmentClass" />
+        <GenericAttribute Name="ChamberFunctionAssignmentClass" Value="Processing" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/ChamberFunctionAssignmentClass" />
+        <GenericAttribute Name="ChamberFunctionSpecialization" ValueURI="http://data.posccaesar.org/rdl/RDS9658367" Value="Processing" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/ChamberFunctionSpecialization" />
+        <GenericAttribute Name="Height" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS357704" />
+        <GenericAttribute Name="InsideDiameter" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS357209" />
+        <GenericAttribute Name="Length" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS373094" />
+        <GenericAttribute Name="LowerLimitDesignPressure" Value="-1.00" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS360674" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+        <GenericAttribute Name="LowerLimitDesignTemperature" Value="-45.00" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360494" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684" />
+        <GenericAttribute Name="MaterialOfConstructionCodeAssignmentClass" Value="1.4306" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS1460719741" />
+        <GenericAttribute Name="NominalDiameter" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS366794" />
+        <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />
+        <GenericAttribute Name="SubTagNameAssignmentClass" Value="Chamber 1" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubTagNameAssignmentClass" />
+        <GenericAttribute Name="UpperLimitDesignPressure" Value="60.00" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS1470835011" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+        <GenericAttribute Name="UpperLimitDesignTemperature" Value="100.00" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360449" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684" />
+        <GenericAttribute Name="Width" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS361709" />
+      </GenericAttributes>
+    </Equipment>
+    <Equipment ID="SP067621AFDC7E4F25BF922CAEEB445A0F_SE002" ComponentClass="Chamber" ComponentClassURI="http://data.posccaesar.org/rdl/RDS903151421">
+      <GenericAttributes Number="15" Set="DexpiAttributes">
+        <GenericAttribute Name="ChamberDescriptionAssignmentClass" Value="Plate Chamber" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/ChamberDescriptionAssignmentClass" />
+        <GenericAttribute Name="ChamberFunctionAssignmentClass" Value="Heating" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/ChamberFunctionAssignmentClass" />
+        <GenericAttribute Name="ChamberFunctionSpecialization" ValueURI="http://data.posccaesar.org/rdl/RDS9666872" Value="Heating" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/ChamberFunctionSpecialization" />
+        <GenericAttribute Name="Height" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS357704" />
+        <GenericAttribute Name="InsideDiameter" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS357209" />
+        <GenericAttribute Name="Length" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS373094" />
+        <GenericAttribute Name="LowerLimitDesignPressure" Value="-1.00" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS360674" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+        <GenericAttribute Name="LowerLimitDesignTemperature" Value="-45.00" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360494" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684" />
+        <GenericAttribute Name="MaterialOfConstructionCodeAssignmentClass" Value="" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS1460719741" />
+        <GenericAttribute Name="NominalDiameter" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS366794" />
+        <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />
+        <GenericAttribute Name="SubTagNameAssignmentClass" Value="Chamber 2" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubTagNameAssignmentClass" />
+        <GenericAttribute Name="UpperLimitDesignPressure" Value="30.00" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS1470835011" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+        <GenericAttribute Name="UpperLimitDesignTemperature" Value="100.00" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360449" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684" />
+        <GenericAttribute Name="Width" Format="double" AttributeURI="http://data.posccaesar.org/rdl/RDS361709" />
+      </GenericAttributes>
+    </Equipment>
+    <Nozzle ComponentName="Nozzle_be47c3f1-6d0c-4326-abf6-30214244f55d" ID="SP94DCBA85C638438E8B4ED5C0DD7C72AA" TagName="N1" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <GenericAttributes Number="6" Set="DexpiAttributes">
+        <GenericAttribute Name="NominalPressureNumericalValueRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureNumericalValueRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureTypeRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureTypeRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureStandardSpecialization" Value="" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureStandardSpecialization" />
+        <GenericAttribute Name="SubTagNameAssignmentClass" Value="N1" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubTagNameAssignmentClass" />
+        <GenericAttribute Name="SymbolRegistrationNumberAssignmentClass" Value="ISO10628_2:2012-X8160A-A" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SymbolRegistrationNumberAssigmentClass" />
+      </GenericAttributes>
+      <GenericAttributes Set="SPPID_orig" Number="24">
+        <GenericAttribute Name="NominalDiameter" Value="80" Units="mm" Format="string" />
+        <GenericAttribute Name="OperFluidCode" Value="MNb" Format="string" />
+        <GenericAttribute Name="PipingMaterialsClass" Value="75HB13" Format="string" />
+        <GenericAttribute Name="MaterialOfConstClass" Value="1.4306" Format="string" />
+        <GenericAttribute Name="SP_EquipmentID" Value="067621AFDC7E4F25BF922CAEEB445A0F" Format="string" />
+        <GenericAttribute Name="FluidSystem" Value="Chemical" Format="string" />
+        <GenericAttribute Name="TagSequenceNo" Value="1" Format="string" />
+        <GenericAttribute Name="TagPrefix" Value="N" Format="string" />
+        <GenericAttribute Name="TagReqdFlag" Value="True" Format="string" />
+        <GenericAttribute Name="aabbcc_code" Value="AN1A11" Format="string" />
+        <GenericAttribute Name="IsBulkItem" Value="False" Format="string" />
+        <GenericAttribute Name="ConstructionStatus" Value="New" Format="string" />
+        <GenericAttribute Name="ModelItemType" Value="Plant Item" Format="string" />
+        <GenericAttribute Name="UpdateCount" Value="10" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="ItemTypeName" Value="Nozzle" Format="string" />
+        <GenericAttribute Name="SP_IsTypical" Value="False" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseType" Value="Design" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ID" Value="357599B09F4A4F5F9890C4BA3A16922B" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseClass" Value="Process Case" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ModelItemID" Value="94DCBA85C638438E8B4ED5C0DD7C72AA" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.Quality" Value="Maximum" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_CaseID" Value="357599B09F4A4F5F9890C4BA3A16922B" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_ID" Value="533FBDBF5A9E4B3EA20E1FCA0F73CCFF" Format="string" />
+      </GenericAttributes>
+      <PersistentID Identifier="SP94DCBA85C638438E8B4ED5C0DD7C72AA" Context="SmartPID - DEXPI" />
+      <Position>
+        <Location X="0.195000001703356" Y="0.279999999999999" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Scale X="1.0" Y="1.0" Z="1.0" />
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="0.18498962513074677" Y="0.27749740585684479" />
+        <Max X="0.19500000170335646" Y="0.2812512970715752" />
+      </Extent>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.18498962513074677" Y="0.27749740585684479" />
+          <Max X="0.19500000170335646" Y="0.2812512970715752" />
+        </Extent>
+        <Node ID="SP94DCBA85C638438E8B4ED5C0DD7C72AA_0">
+          <Position>
+            <Location X="0.19500000170335596" Y="0.27999999999999908" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="SP94DCBA85C638438E8B4ED5C0DD7C72AA_1" Name="1" Type="process">
+          <GenericAttributes Number="4" Set="DexpiAttributes">
+            <GenericAttribute Name="NominalDiameterStandardSpecialization" ValueURI="http://sandbox.dexpi.org/rdl/Din2448ObjectDn80" Value="Din2448ObjectDn80" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" />
+            <GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />
+          </GenericAttributes>
+          <Position>
+            <Location X="0.18500000170335595" Y="0.27999999999999703" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+    <Nozzle ComponentName="Nozzle_7d9b46ae-27cb-4816-af6e-f87b2932ec71" ID="SP95218BFC40B84E6F853D2F982D4B250B" TagName="N3" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <GenericAttributes Number="6" Set="DexpiAttributes">
+        <GenericAttribute Name="NominalPressureNumericalValueRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureNumericalValueRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureTypeRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureTypeRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureStandardSpecialization" Value="" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureStandardSpecialization" />
+        <GenericAttribute Name="SubTagNameAssignmentClass" Value="N3" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubTagNameAssignmentClass" />
+        <GenericAttribute Name="SymbolRegistrationNumberAssignmentClass" Value="ISO10628_2:2012-X8160A-A" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SymbolRegistrationNumberAssigmentClass" />
+      </GenericAttributes>
+      <GenericAttributes Set="SPPID_orig" Number="24">
+        <GenericAttribute Name="NominalDiameter" Value="50" Units="mm" Format="string" />
+        <GenericAttribute Name="OperFluidCode" Value="WKa" Format="string" />
+        <GenericAttribute Name="PipingMaterialsClass" Value="75HB13" Format="string" />
+        <GenericAttribute Name="MaterialOfConstClass" Value="1.4306" Format="string" />
+        <GenericAttribute Name="SP_EquipmentID" Value="067621AFDC7E4F25BF922CAEEB445A0F" Format="string" />
+        <GenericAttribute Name="FluidSystem" Value="Water" Format="string" />
+        <GenericAttribute Name="TagSequenceNo" Value="3" Format="string" />
+        <GenericAttribute Name="TagPrefix" Value="N" Format="string" />
+        <GenericAttribute Name="TagReqdFlag" Value="True" Format="string" />
+        <GenericAttribute Name="aabbcc_code" Value="AN1A11" Format="string" />
+        <GenericAttribute Name="IsBulkItem" Value="False" Format="string" />
+        <GenericAttribute Name="ConstructionStatus" Value="New" Format="string" />
+        <GenericAttribute Name="ModelItemType" Value="Plant Item" Format="string" />
+        <GenericAttribute Name="UpdateCount" Value="16" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="ItemTypeName" Value="Nozzle" Format="string" />
+        <GenericAttribute Name="SP_IsTypical" Value="False" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseType" Value="Design" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ID" Value="B803240C4FFF40768799A1B1E0214938" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseClass" Value="Process Case" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ModelItemID" Value="95218BFC40B84E6F853D2F982D4B250B" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.Quality" Value="Maximum" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_CaseID" Value="B803240C4FFF40768799A1B1E0214938" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_ID" Value="607EB9053CC44959A54BAC0A4C6A96B8" Format="string" />
+      </GenericAttributes>
+      <PersistentID Identifier="SP95218BFC40B84E6F853D2F982D4B250B" Context="SmartPID - DEXPI" />
+      <Position>
+        <Location X="0.195000001703351" Y="0.32" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Scale X="1.0" Y="1.0" Z="1.0" />
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="0.1849896251307418" Y="0.31749740585684566" />
+        <Max X="0.19500000170335149" Y="0.32125129707157607" />
+      </Extent>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.1849896251307418" Y="0.31749740585684566" />
+          <Max X="0.19500000170335149" Y="0.32125129707157607" />
+        </Extent>
+        <Node ID="SP95218BFC40B84E6F853D2F982D4B250B_0">
+          <Position>
+            <Location X="0.195000001703351" Y="0.31999999999999995" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="SP95218BFC40B84E6F853D2F982D4B250B_1" Name="1" Type="process">
+          <GenericAttributes Number="4" Set="DexpiAttributes">
+            <GenericAttribute Name="NominalDiameterStandardSpecialization" ValueURI="http://sandbox.dexpi.org/rdl/Din2448ObjectDn50" Value="Din2448ObjectDn50" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" />
+            <GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />
+          </GenericAttributes>
+          <Position>
+            <Location X="0.18500000170335099" Y="0.3199999999999979" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+    <Nozzle ComponentName="Nozzle_ea57d1c4-7ecf-4022-b9e6-cb6aedcacc54" ID="SP815DC0E7E8DC4F54A3E254AEC3C0DB22" TagName="N2" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <GenericAttributes Number="6" Set="DexpiAttributes">
+        <GenericAttribute Name="NominalPressureNumericalValueRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureNumericalValueRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureTypeRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureTypeRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureStandardSpecialization" Value="" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureStandardSpecialization" />
+        <GenericAttribute Name="SubTagNameAssignmentClass" Value="N2" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubTagNameAssignmentClass" />
+        <GenericAttribute Name="SymbolRegistrationNumberAssignmentClass" Value="ISO10628_2:2012-X8160A-A" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SymbolRegistrationNumberAssigmentClass" />
+      </GenericAttributes>
+      <GenericAttributes Set="SPPID_orig" Number="24">
+        <GenericAttribute Name="NominalDiameter" Value="80" Units="mm" Format="string" />
+        <GenericAttribute Name="OperFluidCode" Value="MNb" Format="string" />
+        <GenericAttribute Name="PipingMaterialsClass" Value="75HB13" Format="string" />
+        <GenericAttribute Name="MaterialOfConstClass" Value="1.4306" Format="string" />
+        <GenericAttribute Name="SP_EquipmentID" Value="067621AFDC7E4F25BF922CAEEB445A0F" Format="string" />
+        <GenericAttribute Name="FluidSystem" Value="Chemical" Format="string" />
+        <GenericAttribute Name="TagSequenceNo" Value="2" Format="string" />
+        <GenericAttribute Name="TagPrefix" Value="N" Format="string" />
+        <GenericAttribute Name="TagReqdFlag" Value="True" Format="string" />
+        <GenericAttribute Name="aabbcc_code" Value="AN1A11" Format="string" />
+        <GenericAttribute Name="IsBulkItem" Value="False" Format="string" />
+        <GenericAttribute Name="ConstructionStatus" Value="New" Format="string" />
+        <GenericAttribute Name="ModelItemType" Value="Plant Item" Format="string" />
+        <GenericAttribute Name="UpdateCount" Value="15" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="ItemTypeName" Value="Nozzle" Format="string" />
+        <GenericAttribute Name="SP_IsTypical" Value="False" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseType" Value="Design" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ID" Value="9F7EB9D28C254E58A06D10F1AF69A579" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseClass" Value="Process Case" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ModelItemID" Value="815DC0E7E8DC4F54A3E254AEC3C0DB22" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.Quality" Value="Maximum" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_CaseID" Value="9F7EB9D28C254E58A06D10F1AF69A579" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_ID" Value="42EF5A0AE8214625BC30413F31D9D24E" Format="string" />
+      </GenericAttributes>
+      <PersistentID Identifier="SP815DC0E7E8DC4F54A3E254AEC3C0DB22" Context="SmartPID - DEXPI" />
+      <Position>
+        <Location X="0.213793100091923" Y="0.32" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Scale X="1.0" Y="1.0" Z="1.0" />
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="0.213793100091923" Y="0.31874870292842389" />
+        <Max X="0.22380347666453196" Y="0.32250259414315224" />
+      </Extent>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.213793100091923" Y="0.31874870292842389" />
+          <Max X="0.22380347666453196" Y="0.32250259414315224" />
+        </Extent>
+        <Node ID="SP815DC0E7E8DC4F54A3E254AEC3C0DB22_0">
+          <Position>
+            <Location X="0.213793100091923" Y="0.32" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="SP815DC0E7E8DC4F54A3E254AEC3C0DB22_1" Name="1" Type="process">
+          <GenericAttributes Number="4" Set="DexpiAttributes">
+            <GenericAttribute Name="NominalDiameterStandardSpecialization" ValueURI="http://sandbox.dexpi.org/rdl/Din2448ObjectDn80" Value="Din2448ObjectDn80" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" />
+            <GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />
+          </GenericAttributes>
+          <Position>
+            <Location X="0.22379310009192302" Y="0.32" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+    <Nozzle ComponentName="Nozzle_409e7a6a-c946-465b-91ae-1ebf49fbaa25" ID="SPCD5097089ADA4BE8A3507A324EE0A82B" TagName="N4" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214">
+      <GenericAttributes Number="6" Set="DexpiAttributes">
+        <GenericAttribute Name="NominalPressureNumericalValueRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureNumericalValueRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureTypeRepresentationAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureTypeRepresentationAssignmentClass" />
+        <GenericAttribute Name="NominalPressureStandardSpecialization" Value="" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalPressureStandardSpecialization" />
+        <GenericAttribute Name="SubTagNameAssignmentClass" Value="N4" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubTagNameAssignmentClass" />
+        <GenericAttribute Name="SymbolRegistrationNumberAssignmentClass" Value="ISO10628_2:2012-X8160A-A" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SymbolRegistrationNumberAssigmentClass" />
+      </GenericAttributes>
+      <GenericAttributes Set="SPPID_orig" Number="24">
+        <GenericAttribute Name="NominalDiameter" Value="50" Units="mm" Format="string" />
+        <GenericAttribute Name="OperFluidCode" Value="WKb" Format="string" />
+        <GenericAttribute Name="PipingMaterialsClass" Value="75HB13" Format="string" />
+        <GenericAttribute Name="MaterialOfConstClass" Value="1.4306" Format="string" />
+        <GenericAttribute Name="SP_EquipmentID" Value="067621AFDC7E4F25BF922CAEEB445A0F" Format="string" />
+        <GenericAttribute Name="FluidSystem" Value="Water" Format="string" />
+        <GenericAttribute Name="TagSequenceNo" Value="4" Format="string" />
+        <GenericAttribute Name="TagPrefix" Value="N" Format="string" />
+        <GenericAttribute Name="TagReqdFlag" Value="True" Format="string" />
+        <GenericAttribute Name="aabbcc_code" Value="AN1A11" Format="string" />
+        <GenericAttribute Name="IsBulkItem" Value="False" Format="string" />
+        <GenericAttribute Name="ConstructionStatus" Value="New" Format="string" />
+        <GenericAttribute Name="ModelItemType" Value="Plant Item" Format="string" />
+        <GenericAttribute Name="UpdateCount" Value="13" Format="string" />
+        <GenericAttribute Name="ItemStatus" Value="Active" Format="string" />
+        <GenericAttribute Name="ItemTypeName" Value="Nozzle" Format="string" />
+        <GenericAttribute Name="SP_IsTypical" Value="False" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseType" Value="Design" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ID" Value="1DB214A8000F4973A47C0F2031C847AB" Format="string" />
+        <GenericAttribute Name="ProcessDesign.CaseClass" Value="Process Case" Format="string" />
+        <GenericAttribute Name="ProcessDesign.SP_ModelItemID" Value="CD5097089ADA4BE8A3507A324EE0A82B" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.Quality" Value="Maximum" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_CaseID" Value="1DB214A8000F4973A47C0F2031C847AB" Format="string" />
+        <GenericAttribute Name="ProcessDesign.Max.SP_ID" Value="C91AD85D7AE04992A6B40B661D11FE96" Format="string" />
+      </GenericAttributes>
+      <PersistentID Identifier="SPCD5097089ADA4BE8A3507A324EE0A82B" Context="SmartPID - DEXPI" />
+      <Position>
+        <Location X="0.213793100091927" Y="0.279999999999999" Z="0" />
+        <Axis X="0" Y="0" Z="1" />
+        <Reference X="1" Y="0" Z="0" />
+      </Position>
+      <Scale X="1.0" Y="1.0" Z="1.0" />
+      <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="0.0005" R="0" G="0" B="0" />
+      <Extent>
+        <Min X="0.213793100091927" Y="0.27874870292842291" />
+        <Max X="0.22380347666453596" Y="0.28250259414315126" />
+      </Extent>
+      <ConnectionPoints NumPoints="2">
+        <Presentation Layer="Default" Color="Black" LineType="Solid" LineWeight="" R="0" G="0" B="0" />
+        <Extent>
+          <Min X="0.213793100091927" Y="0.27874870292842291" />
+          <Max X="0.22380347666453596" Y="0.28250259414315126" />
+        </Extent>
+        <Node ID="SPCD5097089ADA4BE8A3507A324EE0A82B_0">
+          <Position>
+            <Location X="0.213793100091927" Y="0.279999999999999" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+        <Node ID="SPCD5097089ADA4BE8A3507A324EE0A82B_1" Name="1" Type="process">
+          <GenericAttributes Number="4" Set="DexpiAttributes">
+            <GenericAttribute Name="NominalDiameterStandardSpecialization" ValueURI="http://sandbox.dexpi.org/rdl/Din2448ObjectDn50" Value="Din2448ObjectDn50" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" />
+            <GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />
+            <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />
+          </GenericAttributes>
+          <Position>
+            <Location X="0.22379310009192702" Y="0.279999999999999" />
+            <Axis X="0" Y="0" Z="1" />
+            <Reference X="1" Y="0" Z="0" />
+          </Position>
+        </Node>
+      </ConnectionPoints>
+    </Nozzle>
+  </Equipment>
+</PlantModel>
