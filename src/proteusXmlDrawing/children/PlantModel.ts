@@ -105,7 +105,7 @@ export class PlanModel {
     }
 
     draw() {
-        const unit = 1000;
+        const unit = 1000*1.5;
         const x = this.drawing[0].extend[0].max[0].x.value;
         const y = this.drawing[0].extend[0].max[0].y.value;
         const drawables = getDrawable(this);

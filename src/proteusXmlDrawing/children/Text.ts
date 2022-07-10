@@ -1,5 +1,6 @@
 import { getElements } from "../utils/getElement";
 import { NumberAttribute } from "../utils/NumberAttribute";
+import { getPaper } from "../utils/paper";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
@@ -17,9 +18,9 @@ export class Text {
     // children
     public readonly presentation: Presentation[];
     public readonly extent: Extent[];
-    public readonly position: unknown[];
+    public readonly position: Position[];
     public readonly strings: String[];
-    public readonly genericAttributes: unknown[];
+    public readonly genericAttributes: GenericAttributes[];
 
     // attributes
     public readonly numLines: NumberAttribute;
@@ -65,7 +66,46 @@ export class Text {
      * @param pageOriginY
      */
     public draw(unit: number, pageOriginX: number, pageOriginY: number) {
-        // not implemented
-        // not every element will have primitives or children
+        const PointText = getPaper().PointText;
+        const Point = getPaper().Point;
+        const x = this.position[0].location[0].x.value * unit;
+        const y = pageOriginY * unit - this.position[0].location[0].y.value * unit;
+        var text = new PointText(new Point(x, y));
+
+        // height and width attribute just cant be right, need to use extent
+        const width = (this.extent[0].max[0].x.value - this.extent[0].min[0].x.value) * 1000;
+        const height = (this.extent[0].max[0].y.value - this.extent[0].min[0].y.value) * 1000;
+
+        text.content = this.string.value;
+        text.fontSize = height;
+        text.fontFamily = this.font.value;
+
+        // todo, I need to adjust text, but looks like PDF and SVG does not render the same..
+        // need to render more before and adjustments, also have no rotation made
+
+        text.bounds.y = text.bounds.y + height;
+
+        switch (this.justification.value) {
+            case "LeftTop":
+                break;
+            case "LeftCenter":
+                break;
+            case "LeftBottom":
+                break;
+            case "CenterTop":
+                break;
+            case "CenterCenter":
+                break;
+            case "CenterBottom":
+                break;
+            case "RightTop":
+                break;
+            case "RightCenter":
+                break;
+            case "RightBottom":
+                break;
+            default:
+            // LeftBottom
+        }
     }
 }
