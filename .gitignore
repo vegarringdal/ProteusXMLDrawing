@@ -2,5 +2,3 @@
 *dist*
 *.env*
 *.local*
-*temp*
-*public*
