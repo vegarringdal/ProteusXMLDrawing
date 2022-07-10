@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { ProteusXmlDrawing } from "./ProteusXmlDrawing/ProteusXmlDrawing";
+import { ProteusXmlDrawing } from "./proteusXmlDrawing/ProteusXmlDrawing";
 
 // keep react happy for now...
 export function App() {
@@ -10,9 +10,12 @@ export default App;
 
 // experiment
 async function getXml() {
-    const response = await fetch("TrainingTestCases/tests/E01 Tank/E01V01-AUD.EX01.xml");
+    const response = await fetch(
+        "/TrainingTestCases/tests/C01 the complete DEXPI PnID/C01V01-HEX.EX02.xml"
+    );
     const xmlstring = await response.text();
-    const xmlReader = new ProteusXmlDrawing(xmlstring);
+    const proteusXmlDrawing = new ProteusXmlDrawing(xmlstring, "pidCanvas");
+    proteusXmlDrawing.draw(); 
 }
 
 getXml();
