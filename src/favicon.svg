@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="410"
+   height="404"
+   viewBox="0 0 410 404"
+   fill="none"
+   version="1.1"
+   id="svg20"
+   sodipodi:docname="favicon.svg"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview22"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="2.1608911"
+     inkscape:cx="204.77663"
+     inkscape:cy="202"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg20" />
+  <defs
+     id="defs18">
+    <rect
+       x="88.389462"
+       y="57.383734"
+       width="87.463919"
+       height="145.31042"
+       id="rect4300" />
+    <linearGradient
+       id="paint0_linear"
+       x1="6.00017"
+       y1="32.9999"
+       x2="235"
+       y2="344"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#41D1FF"
+         id="stop6" />
+      <stop
+         offset="1"
+         stop-color="#BD34FE"
+         id="stop8" />
+    </linearGradient>
+    <linearGradient
+       id="paint1_linear"
+       x1="194.651"
+       y1="8.81818"
+       x2="236.076"
+       y2="292.989"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#FFEA83"
+         id="stop11" />
+      <stop
+         offset="0.0833333"
+         stop-color="#FFDD35"
+         id="stop13" />
+      <stop
+         offset="1"
+         stop-color="#FFA800"
+         id="stop15" />
+    </linearGradient>
+  </defs>
+  <text
+     xml:space="preserve"
+     id="text4298"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect4300);fill:#000000;fill-opacity:1;stroke:none" />
+  <path
+     sodipodi:type="spiral"
+     style="fill:none;fill-rule:evenodd;stroke:#000000"
+     id="path29694"
+     sodipodi:cx="190.19931"
+     sodipodi:cy="190.66209"
+     sodipodi:expansion="1"
+     sodipodi:revolution="3"
+     sodipodi:radius="137.82918"
+     sodipodi:argument="-18.033289"
+     sodipodi:t0="0"
+     d="m 190.19931,190.66209 c 4.73334,5.03498 -4.45178,8.86453 -8.36846,7.86713 -10.61395,-2.7029 -11.9093,-16.44496 -7.36579,-24.60404 8.12726,-14.5947 28.09638,-15.71724 40.83963,-6.86447 18.70123,12.99181 19.64376,39.90794 6.36313,57.07522 -17.701,22.88128 -51.77661,23.62116 -73.31081,5.8618 -27.09858,-22.34834 -27.62493,-63.67256 -5.36046,-89.54639 26.96525,-31.33667 75.5839,-31.644 105.78197,-4.85913 35.58739,31.56503 35.67267,87.50482 4.3578,122.01756 -36.15424,39.84631 -99.43216,39.70773 -138.25314,3.85647 -44.110875,-40.73649 -43.74729,-111.36399 -3.35514,-154.48874 45.31389,-48.379444 123.2991,-47.790089 170.72432,-2.8538 52.65099,49.8878 51.83533,135.23667 2.35247,186.9599"
+     transform="matrix(1.4353053,0,0,1.5395199,-83.832243,-82.704132)" />
+</svg>
