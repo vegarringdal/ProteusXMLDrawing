@@ -41,9 +41,11 @@ export class Line {
         const Color = getPaper().Color;
         const segments: any[] = [];
         this.coordinate.forEach((coordinate) => {
+            const x = coordinate.x.value + offsetX
+            const y = coordinate.y.value + offsetY
             const point = new Point(
-                coordinate.x.value * unit,
-                pageOriginY * unit - coordinate.y.value * unit
+                x * unit,
+                pageOriginY * unit - y * unit
             );
             segments.push(point);
         });
