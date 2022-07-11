@@ -18,6 +18,7 @@ import { Scale } from "./Scale";
 import { ConnectionPoints } from "./ConnectionPoints";
 import { Description } from "./Description";
 import { Association } from "./Association";
+import { getDrawable } from "../utils/callDrawOnChildren";
 
 /**
  * This element is a base abstract type of many elements within an XMpLant file, it defines the
@@ -96,7 +97,9 @@ export class AnnotationItem {
      * @param pageOriginY
      */
     public draw(unit: number, pageOriginX: number, pageOriginY: number) {
-        // not implemented
-        // not every element will have primitives or children
+        const drawables = getDrawable(this);
+        drawables.forEach((drawable) => {
+            drawable.draw(unit, pageOriginX, pageOriginY);
+        });
     }
 }

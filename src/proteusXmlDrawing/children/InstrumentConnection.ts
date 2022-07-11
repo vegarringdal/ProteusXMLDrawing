@@ -1,36 +1,33 @@
 import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
+import { CenterLine } from "./CenterLine";
+import { Label } from "./Label";
 import { Line } from "./Line";
+import { PipingComponent } from "./PipingComponent";
 import { PolyLine } from "./PolyLine";
 
 /**
- * An offline instrument
+ *This represents a connection for purposes of instrumentation to a process line.  
+ Even though this is a topological break this doesn’t terminate the PipingNetworkSegment 
+ (see PipingNetworkSegment Topology (Connection element))
+ *
+ *An InstrumentConnection element inherits elements and attributes from the base type ‘PlantItem’.  
+ See ‘PlantItem’ for the definitions of the inherited contents.
  */
-export class InstrumentComponent {
+export class InstrumentConnection {
     public readonly isChild = true;
     public readonly element: Element;
-   
 
     // children
-    public readonly instrumentComponent: InstrumentComponent[];
-    public readonly component: Component<unknown, unknown, unknown>[];
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
+
 
     // attributes
 
     constructor(element: Element) {
         this.element = element;
-
-        // children
-        this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
-        // NominalDiameter
-        // InsideDiameter
-        // OutsideDiameter
-        // OperatorType
-        // WallThickness
-        this.component = getElements(element, "Component", Component);
 
         // children -> plantItem
         // Presentation
@@ -61,10 +58,6 @@ export class InstrumentComponent {
         // GenericAttributes
         // Association
         // History
-
-        // attributes
-        // ProcessArea
-        // Purpose
 
         // attributes -> plantItem
         // ID

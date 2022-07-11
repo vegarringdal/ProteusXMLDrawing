@@ -2,8 +2,17 @@ import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
 import { CenterLine } from "./CenterLine";
+import { Equipment } from "./Equipment";
+import { InstrumentComponent } from "./InstrumentComponent";
+import { InstrumentConnection } from "./InstrumentConnection";
+import { InsulationSymbol } from "./InsulationSymbol";
+import { Label } from "./Label";
 import { Line } from "./Line";
+import { PipeConnectorSymbol } from "./PipeConnectorSymbol";
+import { PipeFlowArrow } from "./PipeFlowArrow";
+import { PipingComponent } from "./PipingComponent";
 import { PolyLine } from "./PolyLine";
+import { ProcessInstrument } from "./ProcessInstrument";
 
 /**
  * See ‘2.2.1’ for details on the use of PipingNetworkSegments.
@@ -21,13 +30,21 @@ import { PolyLine } from "./PolyLine";
  */
 export class PipingNetworkSegment {
     public readonly isChild = true;
-   
 
     // children
     public readonly centerLine: CenterLine[];
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
     public readonly component: Component[];
+    public readonly label: Label[];
+    public readonly pipingComponent: PipingComponent[];
+    public readonly instrumentConnection: InstrumentConnection[];
+    public readonly instrumentComponent: InstrumentComponent[];
+    public readonly equipment: Equipment[];
+    public readonly processInstrument: ProcessInstrument[];
+    public readonly pipeConnectorSymbol: PipeConnectorSymbol[];
+    public readonly pipeFlowArrow: PipeFlowArrow[];
+    public readonly insulationSymbol: InsulationSymbol[];
 
     // attributes
 
@@ -56,15 +73,15 @@ export class PipingNetworkSegment {
         // Connection
         this.centerLine = getElements(element, "CenterLine", CenterLine);
         this.component = getElements(element, "Component", Component);
-        // InstrumentComponent
-        // Equipment
-        // InstrumentConnection
-        // PipingComponent
-        // ProcessInstrument
-        // PipeConnectorSymbol
-        // PipeFlowArrow
-        // Label
-        // InsulationSymbol
+        this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
+        this.equipment = getElements(element, "Equipment", Equipment);
+        this.instrumentConnection = getElements(element, "InstrumentConnection", InstrumentConnection);
+        this.pipingComponent = getElements(element, "PipingComponent", PipingComponent);
+        this.processInstrument = getElements(element, "ProcessInstrument", ProcessInstrument);
+        this.pipeConnectorSymbol = getElements(element, "PipeConnectorSymbol", PipeConnectorSymbol);
+        this.pipeFlowArrow = getElements(element, "PipeFlowArrow", PipeFlowArrow);
+        this.label = getElements(element, "Label", Label);
+        this.insulationSymbol = getElements(element, "InsulationSymbol", InsulationSymbol);
         //
         // children plantItem **********TODO:***********
         // Presentation

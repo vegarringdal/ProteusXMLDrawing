@@ -72,12 +72,12 @@ export class Text {
         const y = pageOriginY * unit - this.position[0].location[0].y.value * unit;
         var text = new PointText(new Point(x, y));
 
-        // height and width attribute just cant be right, need to use extent
+        // height and width attribute just cant be right, need to use extent or a combo?
         const width = (this.extent[0].max[0].x.value - this.extent[0].min[0].x.value) * 1000;
         const height = (this.extent[0].max[0].y.value - this.extent[0].min[0].y.value) * 1000;
 
         text.content = this.string.value;
-        text.fontSize = height;
+        text.fontSize = this.height.value * unit;
         text.fontFamily = this.font.value;
 
         // todo, I need to adjust text, but looks like PDF and SVG does not render the same..

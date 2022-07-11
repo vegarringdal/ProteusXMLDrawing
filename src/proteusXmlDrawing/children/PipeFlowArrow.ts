@@ -18,6 +18,7 @@ import { Scale } from "./Scale";
 import { Shape } from "./Shape";
 import { TrimmedCurve } from "./TrimmedCurve";
 import { Text } from "./Text";
+import { getDrawable } from "../utils/callDrawOnChildren";
 
 /**
  * This element is an annotation primitive to represent the direction of flow of a PipingNetworkSegment.
@@ -98,7 +99,9 @@ export class PipeFlowArrow {
      * @param pageOriginY
      */
     public draw(unit: number, pageOriginX: number, pageOriginY: number) {
-        // not implemented
-        // not every element will have primitives or children
+        const drawables = getDrawable(this);
+        drawables.forEach((drawable) => {
+            drawable.draw(unit, pageOriginX, pageOriginY);
+        });
     }
 }
