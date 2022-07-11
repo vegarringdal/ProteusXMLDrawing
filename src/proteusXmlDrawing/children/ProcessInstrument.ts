@@ -1,15 +1,131 @@
+import { Component } from "react";
+import { getDrawable } from "../utils/callDrawOnChildren";
+import { getElements } from "../utils/getElement";
+import { StringAttribute } from "../utils/StringAttribute";
+import { CenterLine } from "./CenterLine";
+import { Equipment } from "./Equipment";
+import { InstrumentComponent } from "./InstrumentComponent";
+import { InstrumentConnection } from "./InstrumentConnection";
+import { InsulationSymbol } from "./InsulationSymbol";
+import { Label } from "./Label";
+import { Line } from "./Line";
+import { PipeConnectorSymbol } from "./PipeConnectorSymbol";
+import { PipeFlowArrow } from "./PipeFlowArrow";
+import { PipingComponent } from "./PipingComponent";
+import { PolyLine } from "./PolyLine";
+
 /**
  * Offline instruments connected to the process line.
  */
 export class ProcessInstrument {
     public readonly isChild = true;
+    public readonly element: Element;
 
     // children
+    public readonly centerLine: CenterLine[];
+    public readonly component: Component<unknown, unknown, unknown>[];
+    public readonly instrumentComponent: InstrumentComponent[];
+    public readonly equipment: Equipment[];
+    public readonly instrumentConnection: InstrumentConnection[];
+    public readonly pipingComponent: PipingComponent[];
+    public readonly processInstrument: ProcessInstrument[];
+    public readonly pipeConnectorSymbol: PipeConnectorSymbol[];
+    public readonly pipeFlowArrow: PipeFlowArrow[];
+    public readonly label: Label[];
+    public readonly insulationSymbol: InsulationSymbol[];
+    public readonly line: Line[];
+    public readonly polyLine: PolyLine[];
 
     // attributes
+    public readonly id: StringAttribute;
+    public readonly componentClass: StringAttribute;
+    public readonly componentName: StringAttribute;
+    public readonly componentType: StringAttribute;
 
     constructor(element: Element) {
-        // not implemented
+        this.element = element;
+
+        // children
+        // NominalDiameter
+        // InsideDiameter
+        // OutsideDiameter
+        // StartDiameter
+        // EndDiameter
+        // NormalDesignPressure
+        // MinimumDesignPressure
+        // MaximumDesignPressure
+        // NormalDesignTemperature
+        // MinimumDesignTemperature
+        // MaximumDesignTemperature
+        // NormalOperatingPressure
+        // MinimumOperatingPressure
+        // MaximumOperatingPressure
+        // TestPressure
+        // NormalOperatingTemperature
+        // MinimumOperatingTemperature
+        // MaximumOperatingTemperature
+        // WallThickness
+        // Connection
+        // CenterLine
+        this.centerLine = getElements(element, "CenterLine", CenterLine);
+        this.component = getElements(element, "Component", Component);
+        this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
+        this.equipment = getElements(element, "Equipment", Equipment);
+        this.instrumentConnection = getElements(
+            element,
+            "InstrumentConnection",
+            InstrumentConnection
+        );
+        this.pipingComponent = getElements(element, "PipingComponent", PipingComponent);
+        this.processInstrument = getElements(element, "ProcessInstrument", ProcessInstrument);
+        this.pipeConnectorSymbol = getElements(element, "PipeConnectorSymbol", PipeConnectorSymbol);
+        this.pipeFlowArrow = getElements(element, "PipeFlowArrow", PipeFlowArrow);
+        this.label = getElements(element, "Label", Label);
+        this.insulationSymbol = getElements(element, "InsulationSymbol", InsulationSymbol);
+
+        // children -> plantItem
+        // Presentation
+        // Extent
+        // PersistentID
+        // Extent
+        // Position
+        // Scale
+        // Surface
+        // Circle
+        // CompositeCurve
+        // Ellipse
+        this.line = getElements(element, "Line", Line);
+        this.polyLine = getElements(element, "PolyLine", PolyLine);
+        // Shape
+        // TrimmedCurve
+        // BsplineCurve
+        // ConnectionPoints
+        // PConnectionPoints
+        // Identifier
+        // Description
+        // Weight
+        // Material
+        // MaterialDescription
+        // ModelNumber
+        // Supplier
+        // Manufacturer
+        // GenericAttributes
+        // Association
+        // History
+
+        // attributes
+        // DualFlow
+
+        // attributes -> plantItem
+        this.id = new StringAttribute(element, "ID");
+        // TagName
+        // Specification
+        // StockNumber
+        this.componentClass = new StringAttribute(element, "ComponentClass");
+        this.componentName = new StringAttribute(element, "ComponentName");
+        this.componentType = new StringAttribute(element, "ComponentType");
+        // Revision
+        // Status
     }
 
     /**
@@ -19,7 +135,9 @@ export class ProcessInstrument {
      * @param pageOriginY
      */
     public draw(unit: number, pageOriginX: number, pageOriginY: number) {
-        // not implemented
-        // not every element will have primitives or children
+        const drawables = getDrawable(this);
+        drawables.forEach((drawable) => {
+            drawable.draw(unit, pageOriginX, pageOriginY);
+        });
     }
 }

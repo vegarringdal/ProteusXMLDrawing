@@ -1,5 +1,6 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
+import { StringAttribute } from "../utils/StringAttribute";
 import { Component } from "./Component";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
@@ -10,7 +11,6 @@ import { PolyLine } from "./PolyLine";
 export class Equipment {
     public readonly isChild = true;
     public readonly element: Element;
- 
 
     // children
     public readonly line: Line[];
@@ -18,8 +18,11 @@ export class Equipment {
     public readonly component: Component[];
     public readonly equipment: Equipment[];
 
-
     // attributes
+    public readonly id: StringAttribute;
+    public readonly componentClass: StringAttribute;
+    public readonly componentName: StringAttribute;
+    public readonly componentType: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
@@ -33,7 +36,6 @@ export class Equipment {
         this.equipment = getElements(element, "Equipment", Equipment);
         // Nozzle
         this.component = getElements(element, "Component", Component);
-
 
         // children -> plantItem
         // Presentation
@@ -64,19 +66,19 @@ export class Equipment {
         // GenericAttributes
         // Association
         // History
-        
+
         // attributes
         // ProcessArea
         // Purpose
 
         // attributes -> plantItem
-        // ID
+        this.id = new StringAttribute(element, "ID");
         // TagName
         // Specification
         // StockNumber
-        // ComponentClass
-        // ComponentName
-        // ComponentType
+        this.componentClass = new StringAttribute(element, "ComponentClass");
+        this.componentName = new StringAttribute(element, "ComponentName");
+        this.componentType = new StringAttribute(element, "ComponentType");
         // Revision
         // Status
     }

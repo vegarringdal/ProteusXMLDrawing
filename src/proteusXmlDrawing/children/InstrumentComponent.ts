@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
+import { StringAttribute } from "../utils/StringAttribute";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 
@@ -10,7 +11,6 @@ import { PolyLine } from "./PolyLine";
 export class InstrumentComponent {
     public readonly isChild = true;
     public readonly element: Element;
-   
 
     // children
     public readonly instrumentComponent: InstrumentComponent[];
@@ -19,6 +19,10 @@ export class InstrumentComponent {
     public readonly polyLine: PolyLine[];
 
     // attributes
+    public readonly id: StringAttribute;
+    public readonly componentClass: StringAttribute;
+    public readonly componentName: StringAttribute;
+    public readonly componentType: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
@@ -67,13 +71,13 @@ export class InstrumentComponent {
         // Purpose
 
         // attributes -> plantItem
-        // ID
+        this.id = new StringAttribute(element, "ID");
         // TagName
         // Specification
         // StockNumber
-        // ComponentClass
-        // ComponentName
-        // ComponentType
+        this.componentClass = new StringAttribute(element, "ComponentClass");
+        this.componentName = new StringAttribute(element, "ComponentName");
+        this.componentType = new StringAttribute(element, "ComponentType");
         // Revision
         // Status
     }

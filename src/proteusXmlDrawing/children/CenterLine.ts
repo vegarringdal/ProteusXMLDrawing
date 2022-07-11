@@ -1,5 +1,6 @@
 import { getElements } from "../utils/getElement";
 import { getPaper } from "../utils/paper";
+import { StringAttribute } from "../utils/StringAttribute";
 import { Coordinate } from "./Coordinate";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
@@ -17,9 +18,10 @@ export class CenterLine {
     public readonly extent: Extent[];
     public readonly coordinate: Coordinate[];
     public readonly genericAttributes: GenericAttributes[];
+   
 
     // attributes
-
+    public readonly id: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
@@ -30,7 +32,7 @@ export class CenterLine {
 
         // TODO attributes
         // NumPoints
-        // ID
+        this.id = new StringAttribute(element, "ID");
     }
 
     /**
