@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component } from "./Component";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
@@ -9,6 +9,7 @@ import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
+import { Shape } from "./Shape";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -27,12 +28,16 @@ export class PipingComponent {
     public readonly presentation: Presentation[];
     public readonly extent: Extent[];
     public readonly position: Position[];
-
+    public readonly component: Component[];
+    public readonly shape: Shape[];
+    
     // attributes
     public readonly id: StringAttribute;
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
+
+
 
     constructor(element: Element) {
         // will only start with geometry elements
@@ -45,8 +50,7 @@ export class PipingComponent {
         // OperatorType
         // WallThickness
         // FabricationCategory
-        // PipingComponent
-        // Component
+        this.component = getElements(element, "Component", Component);
         //
         // children plantItem **********TODO:***********
         this.presentation = getElements(element, "Presentation", Presentation);
@@ -60,7 +64,8 @@ export class PipingComponent {
         // Ellipse
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
-        // Shape
+
+        this.shape = getElements(element, "Shape", Shape);
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints

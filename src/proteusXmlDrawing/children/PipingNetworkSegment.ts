@@ -13,6 +13,7 @@ import { PipeFlowArrow } from "./PipeFlowArrow";
 import { PipingComponent } from "./PipingComponent";
 import { PolyLine } from "./PolyLine";
 import { ProcessInstrument } from "./ProcessInstrument";
+import { Shape } from "./Shape";
 
 /**
  * See ‘2.2.1’ for details on the use of PipingNetworkSegments.
@@ -45,6 +46,7 @@ export class PipingNetworkSegment {
     public readonly pipeConnectorSymbol: PipeConnectorSymbol[];
     public readonly pipeFlowArrow: PipeFlowArrow[];
     public readonly insulationSymbol: InsulationSymbol[];
+    public readonly shape: Shape[];
 
     // attributes
 
@@ -96,7 +98,7 @@ export class PipingNetworkSegment {
         // Ellipse
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
-        // Shape
+        this.shape = getElements(element, "Shape", Shape);
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints

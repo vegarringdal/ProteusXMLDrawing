@@ -17,6 +17,7 @@ import { PipingComponent } from "./PipingComponent";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
+import { Shape } from "./Shape";
 
 /**
  * Offline instruments connected to the process line.
@@ -42,12 +43,14 @@ export class ProcessInstrument {
     public readonly presentation: Presentation[];
     public readonly extent: Extent[];
     public readonly position: Position[];
+    public readonly shape: Shape[];
 
     // attributes
     public readonly id: StringAttribute;
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
+    
 
 
     constructor(element: Element) {
@@ -74,7 +77,6 @@ export class ProcessInstrument {
         // MaximumOperatingTemperature
         // WallThickness
         // Connection
-        // CenterLine
         this.centerLine = getElements(element, "CenterLine", CenterLine);
         this.component = getElements(element, "Component", Component);
         this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
@@ -103,7 +105,7 @@ export class ProcessInstrument {
         // Ellipse
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
-        // Shape
+        this.shape = getElements(element, "Shape", Shape);
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints

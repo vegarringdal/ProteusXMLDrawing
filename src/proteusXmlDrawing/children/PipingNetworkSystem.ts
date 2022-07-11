@@ -3,6 +3,7 @@ import { getElements } from "../utils/getElement";
 import { Line } from "./Line";
 import { PipingNetworkSegment } from "./PipingNetworkSegment";
 import { PolyLine } from "./PolyLine";
+import { Shape } from "./Shape";
 
 /**
  * A PipingNetworkSystem contains the information for a physical PipingNetworkSystem
@@ -21,7 +22,8 @@ export class PipingNetworkSystem {
     // children
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
-    pipingNetworkSegment: unknown[];
+    public readonly pipingNetworkSegment: unknown[];
+    public readonly shape: Shape[];
 
     // attributes
 
@@ -63,7 +65,7 @@ export class PipingNetworkSystem {
         // Ellipse
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
-        // Shape
+        this.shape = getElements(element, "Shape", Shape);
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints

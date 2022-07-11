@@ -6,6 +6,7 @@ import { Label } from "./Label";
 import { Line } from "./Line";
 import { PipingComponent } from "./PipingComponent";
 import { PolyLine } from "./PolyLine";
+import { Shape } from "./Shape";
 
 /**
  *This represents a connection for purposes of instrumentation to a process line.  
@@ -22,6 +23,7 @@ export class InstrumentConnection {
     // children
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
+    public readonly shape: Shape[];
 
 
     // attributes
@@ -42,7 +44,7 @@ export class InstrumentConnection {
         // Ellipse
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
-        // Shape
+        this.shape = getElements(element, "Shape", Shape);
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints
