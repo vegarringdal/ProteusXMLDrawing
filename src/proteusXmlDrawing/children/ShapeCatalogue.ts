@@ -7,6 +7,7 @@ import { Equipment } from "./Equipment";
 import { InstrumentComponent } from "./InstrumentComponent";
 import { InsulationSymbol } from "./InsulationSymbol";
 import { Label } from "./Label";
+import { Nozzle } from "./Nozzle";
 import { PipeConnectorSymbol } from "./PipeConnectorSymbol";
 import { PipeFlowArrow } from "./PipeFlowArrow";
 import { PipingComponent } from "./PipingComponent";
@@ -25,7 +26,6 @@ export class ShapeCatalogue {
     // children
     public readonly equipment: Equipment[];
     public readonly pipingComponent: PipingComponent[];
-    public readonly centerLine: CenterLine[];
     public readonly processInstrument: ProcessInstrument[];
     public readonly instrumentComponent: InstrumentComponent[];
     public readonly pipeConnectorSymbol: PipeConnectorSymbol[];
@@ -35,6 +35,7 @@ export class ShapeCatalogue {
     public readonly label: Label[];
     public readonly pipeFlowArrow: PipeFlowArrow[];
     public readonly component: Component[];
+    public readonly nozzle: Nozzle[];
 
     // attributes
     public readonly name: StringAttribute;
@@ -46,7 +47,8 @@ export class ShapeCatalogue {
         // children
         this.equipment = getElements(element, "Equipment", Equipment);
         this.pipingComponent = getElements(element, "PipingComponent", PipingComponent);
-        this.centerLine = getElements(element, "centerLine", CenterLine);
+        this.nozzle = getElements(element, "Nozzle", Nozzle);
+
         this.processInstrument = getElements(element, "ProcessInstrument", ProcessInstrument);
         this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
         this.component = getElements(element, "centerLine", Component);

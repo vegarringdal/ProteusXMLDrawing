@@ -103,7 +103,7 @@ export class PropertyBreak {
             if (shapeCatalogItem && shapeCatalogItem !== this) {
                 const x = this.position[0].location[0].x.value;
                 const y = this.position[0].location[0].y.value;
-                 console.log("Drawing shape", this.componentName.value);
+                 //console.log("Drawing shape", this.componentName.value);
                 if (typeof (shapeCatalogItem as any).draw === "function") {
                     (shapeCatalogItem as any).draw(
                         unit,

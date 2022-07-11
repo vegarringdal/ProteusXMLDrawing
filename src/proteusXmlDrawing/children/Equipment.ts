@@ -8,6 +8,8 @@ import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
+import { Shape } from "./Shape";
+import { Nozzle } from "./Nozzle";
 
 /**
  * A geometric primitive
@@ -24,12 +26,14 @@ export class Equipment {
     public readonly presentation: Presentation[];
     public readonly extent: Extent[];
     public readonly position: Position[];
+    public readonly shape: Shape[];
 
     // attributes
     public readonly id: StringAttribute;
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
+    public readonly nozzle: Nozzle[];
 
     constructor(element: Element) {
         this.element = element;
@@ -41,7 +45,7 @@ export class Equipment {
         // MinimumDesignTemperature
         // MaximumDesignTemperature
         this.equipment = getElements(element, "Equipment", Equipment);
-        // Nozzle
+        this.nozzle = getElements(element, "Nozzle", Nozzle);
         this.component = getElements(element, "Component", Component);
 
         // children -> plantItem
@@ -56,7 +60,7 @@ export class Equipment {
         // Ellipse
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
-        // Shape
+        this.shape = getElements(element, "Shape", Shape);
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints
@@ -98,7 +102,7 @@ export class Equipment {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
 
         if (this.componentName.value) {
@@ -106,7 +110,7 @@ export class Equipment {
             if (shapeCatalogItem && shapeCatalogItem !== this) {
                 const x = this.position[0].location[0].x.value;
                 const y = this.position[0].location[0].y.value;
-                 console.log("Drawing shape", this.componentName.value);
+                //console.log("Drawing shape", this.componentName.value);
                 if (typeof (shapeCatalogItem as any).draw === "function") {
                     (shapeCatalogItem as any).draw(
                         unit,
