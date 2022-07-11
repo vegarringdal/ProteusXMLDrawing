@@ -1,8 +1,12 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
+import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
+import { Extent } from "./Extent";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
+import { Position } from "./Position";
+import { Presentation } from "./Presentation";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -17,24 +21,28 @@ export class PipeConnectorSymbol {
     // children
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
+    public readonly presentation: Presentation[];
+    public readonly extent: Extent[];
+    public readonly position: Position[];
 
     // attributes
     public readonly id: StringAttribute;
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
+  
 
     constructor(element: Element) {
+    
         // will only start with geometry elements
         // children **********TODO:***********
         // CrossPageConnection
         //
         // children plantItem **********TODO:***********
-        // Presentation
-        // Extent
+        this.presentation = getElements(element, "Presentation", Presentation);
+        this.extent = getElements(element, "Extent", Extent);
         // PersistentID
-        // Extent
-        // Position
+        this.position = getElements(element, "Position", Position);
         // Scale
         // Surface
         // Circle
@@ -83,5 +91,12 @@ export class PipeConnectorSymbol {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY);
         });
+
+        if (this.componentName.value) {
+            const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
+            if (shapeCatalogItem) {
+                console.log("need to draw this item with offset ?");
+            }
+        }
     }
 }

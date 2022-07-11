@@ -19,6 +19,7 @@ import { Shape } from "./Shape";
 import { TrimmedCurve } from "./TrimmedCurve";
 import { Text } from "./Text";
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 
 /**
  * This element is an annotation primitive to represent the direction of flow of a PipingNetworkSegment.
@@ -103,5 +104,12 @@ export class PipeFlowArrow {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY);
         });
+
+        if (this.componentName.value) {
+            const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
+            if (shapeCatalogItem) {
+                console.log("need to draw this item with offset ?");
+            }
+        }
     }
 }

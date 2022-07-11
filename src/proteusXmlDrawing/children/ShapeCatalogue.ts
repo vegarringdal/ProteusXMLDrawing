@@ -1,4 +1,5 @@
 import { getElements } from "../utils/getElement";
+import { addToShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { CenterLine } from "./CenterLine";
 import { Component } from "./Component";
@@ -14,8 +15,8 @@ import { PropertyBreak } from "./PropertyBreak";
 import { SignalConnectorSymbol } from "./SignalConnectorSymbol";
 
 /**
- * A Shape Catalogue defines a symbol library for a file.  
- * See ComponentName for how to reference and name a symbol in the catalogue. 
+ * A Shape Catalogue defines a symbol library for a file.
+ * See ComponentName for how to reference and name a symbol in the catalogue.
  * See Scale for how to scale symbols when drawn.  See Position for how to rotate a symbol.
  */
 export class ShapeCatalogue {
@@ -66,7 +67,20 @@ export class ShapeCatalogue {
         this.units = new StringAttribute(element, "Units");
         this.date = new StringAttribute(element, "Date");
 
+        const keys = Object.keys(this);
+        keys.forEach((key: any) => {
+            const that = this as any;
 
+            if (Array.isArray(that[key])) {
+                that[key].forEach((child: any) => {
+                    if (child.isChild) {
+                        if (child.componentName?.value) {
+                            addToShapeCatalogStore(child.componentName?.value, child);
+                        }
+                    }
+                });
+            }
+        });
         //TODO: I also need to make a map of children... since position will be relative
     }
 

@@ -19,6 +19,7 @@ import { ConnectionPoints } from "./ConnectionPoints";
 import { Description } from "./Description";
 import { Association } from "./Association";
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 /**
  * A geometric primitive
  */
@@ -102,5 +103,12 @@ export class SignalConnectorSymbol {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY);
         });
+
+        if (this.componentName.value) {
+            const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
+            if (shapeCatalogItem) {
+                console.log("need to draw this item with offset ?");
+            }
+        }
     }
 }

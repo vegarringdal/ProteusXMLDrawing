@@ -1,5 +1,6 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
+import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Association } from "./Association";
 import { BsplineCurve } from "./BsplineCurve";
@@ -134,5 +135,12 @@ export class Component {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY);
         });
+
+        if (this.componentName.value) {
+            const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
+            if (shapeCatalogItem) {
+                console.log("need to draw this item with offset ?");
+            }
+        }
     }
 }

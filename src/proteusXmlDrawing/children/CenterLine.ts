@@ -18,7 +18,6 @@ export class CenterLine {
     public readonly extent: Extent[];
     public readonly coordinate: Coordinate[];
     public readonly genericAttributes: GenericAttributes[];
-   
 
     // attributes
     public readonly id: StringAttribute;
@@ -47,7 +46,6 @@ export class CenterLine {
         const Color = getPaper().Color;
         const segments: any[] = [];
         this.coordinate.forEach((coordinate) => {
-           
             const point = new Point(
                 coordinate.x.value * unit,
                 pageOriginY * unit - coordinate.y.value * unit

@@ -1,9 +1,13 @@
 import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
+import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
+import { Extent } from "./Extent";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
+import { Position } from "./Position";
+import { Presentation } from "./Presentation";
 
 /**
  * An offline instrument
@@ -17,6 +21,9 @@ export class InstrumentComponent {
     public readonly component: Component<unknown, unknown, unknown>[];
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
+    public readonly presentation: Presentation[];
+    public readonly extent: Extent[];
+    public readonly position: Position[];
 
     // attributes
     public readonly id: StringAttribute;
@@ -37,10 +44,10 @@ export class InstrumentComponent {
         this.component = getElements(element, "Component", Component);
 
         // children -> plantItem
-        // Presentation
-        // Extent
+        this.presentation = getElements(element, "Presentation", Presentation);
+        this.extent = getElements(element, "Extent", Extent);
         // PersistentID
-        // Extent
+        this.position = getElements(element, "Position", Position);
         // Position
         // Scale
         // Surface
@@ -93,5 +100,13 @@ export class InstrumentComponent {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY);
         });
+
+
+        if (this.componentName.value) {
+            const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
+            if (shapeCatalogItem) {
+                console.log("need to draw this item with offset ?");
+            }
+        }
     }
 }

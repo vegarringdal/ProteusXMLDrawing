@@ -1,9 +1,11 @@
 import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
+import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { CenterLine } from "./CenterLine";
 import { Equipment } from "./Equipment";
+import { Extent } from "./Extent";
 import { InstrumentComponent } from "./InstrumentComponent";
 import { InstrumentConnection } from "./InstrumentConnection";
 import { InsulationSymbol } from "./InsulationSymbol";
@@ -13,6 +15,8 @@ import { PipeConnectorSymbol } from "./PipeConnectorSymbol";
 import { PipeFlowArrow } from "./PipeFlowArrow";
 import { PipingComponent } from "./PipingComponent";
 import { PolyLine } from "./PolyLine";
+import { Position } from "./Position";
+import { Presentation } from "./Presentation";
 
 /**
  * Offline instruments connected to the process line.
@@ -35,12 +39,16 @@ export class ProcessInstrument {
     public readonly insulationSymbol: InsulationSymbol[];
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
+    public readonly presentation: Presentation[];
+    public readonly extent: Extent[];
+    public readonly position: Position[];
 
     // attributes
     public readonly id: StringAttribute;
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
+
 
     constructor(element: Element) {
         this.element = element;
@@ -84,11 +92,10 @@ export class ProcessInstrument {
         this.insulationSymbol = getElements(element, "InsulationSymbol", InsulationSymbol);
 
         // children -> plantItem
-        // Presentation
-        // Extent
+        this.presentation = getElements(element, "Presentation", Presentation);
+        this.extent = getElements(element, "Extent", Extent);
         // PersistentID
-        // Extent
-        // Position
+        this.position = getElements(element, "Position", Position);
         // Scale
         // Surface
         // Circle
@@ -139,5 +146,12 @@ export class ProcessInstrument {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY);
         });
+
+        if (this.componentName.value) {
+            const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
+            if (shapeCatalogItem) {
+                console.log("need to draw this item with offset ?");
+            }
+        }
     }
 }
