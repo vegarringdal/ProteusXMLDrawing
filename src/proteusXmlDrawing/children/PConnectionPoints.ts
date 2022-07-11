@@ -1,7 +1,7 @@
 /**
  * TODO
  */
-export class System {
+export class PConnectionPoints {
     public readonly isChild = true;
     public readonly element: Element;
 

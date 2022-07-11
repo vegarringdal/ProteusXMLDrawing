@@ -1,7 +1,7 @@
 /**
- * TODO
+ * This element is used to capture the structure of an identifier such as a TagName.  Not usually used.
  */
-export class System {
+export class Identifier {
     public readonly isChild = true;
     public readonly element: Element;
 
@@ -11,7 +11,12 @@ export class System {
 
     constructor(element: Element) {
         this.element = element;
-        // not implemented
+        
+        // children
+        // IdentifierElement
+
+        // attributes
+        // Purpose
     }
 
     /**

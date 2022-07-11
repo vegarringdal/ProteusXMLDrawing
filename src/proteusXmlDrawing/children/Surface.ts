@@ -1,7 +1,7 @@
 /**
  * TODO
  */
-export class System {
+export class Surface {
     public readonly isChild = true;
     public readonly element: Element;
 
