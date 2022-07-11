@@ -51,8 +51,11 @@ export class PolyLine {
         });
         var path = new Path(segments);
 
-        // todo fix styling later, need to get something drawing as POC
-        path.strokeColor = new Color(this.presentation[0].color);
+        path.strokeColor = new Color({
+            red: this.presentation[0].r.value,
+            green: this.presentation[0].g.value,
+            blue: this.presentation[0].b.value
+        });
         path.strokeWidth = this.presentation[0].lineWeight.value * unit;
     }
 }

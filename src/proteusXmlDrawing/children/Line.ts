@@ -41,7 +41,6 @@ export class Line {
         const Color = getPaper().Color;
         const segments: any[] = [];
         this.coordinate.forEach((coordinate) => {
-         
             const point = new Point(
                 coordinate.x.value * unit,
                 pageOriginY * unit - coordinate.y.value * unit
@@ -50,8 +49,12 @@ export class Line {
         });
         var path = new Path(segments);
 
-        // todo fix styling later, need to get something drawing as POC
-        path.strokeColor = new Color(this.presentation[0].color);
+        path.strokeColor = new Color({
+            red: this.presentation[0].r.value,
+            green: this.presentation[0].g.value,
+            blue: this.presentation[0].b.value
+        });
+
         path.strokeWidth = this.presentation[0].lineWeight.value * unit;
     }
 }
