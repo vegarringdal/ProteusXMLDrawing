@@ -130,10 +130,10 @@ export class Component {
      * @param pageOriginX
      * @param pageOriginY
      */
-    public draw(unit: number, pageOriginX: number, pageOriginY: number) {
+    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-            drawable.draw(unit, pageOriginX, pageOriginY);
+             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
 
         if (this.componentName.value) {

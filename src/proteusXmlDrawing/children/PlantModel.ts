@@ -110,7 +110,7 @@ export class PlanModel {
         const y = this.drawing[0].extend[0].max[0].y.value;
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-            drawable.draw(unit, x, y);
+            drawable.draw(unit, x, y, 0, 0);
         });
     }
 }

@@ -65,7 +65,7 @@ export class Text {
      * @param pageOriginX
      * @param pageOriginY
      */
-    public draw(unit: number, pageOriginX: number, pageOriginY: number) {
+    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const PointText = getPaper().PointText;
         const Point = getPaper().Point;
         const x = this.position[0].location[0].x.value * unit;

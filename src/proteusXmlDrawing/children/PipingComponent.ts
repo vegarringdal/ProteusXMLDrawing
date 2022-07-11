@@ -34,7 +34,6 @@ export class PipingComponent {
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
 
-
     constructor(element: Element) {
         // will only start with geometry elements
         // children **********TODO:***********
@@ -102,16 +101,27 @@ export class PipingComponent {
      * @param pageOriginX
      * @param pageOriginY
      */
-    public draw(unit: number, pageOriginX: number, pageOriginY: number) {
+    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-            drawable.draw(unit, pageOriginX, pageOriginY);
+             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
 
         if (this.componentName.value) {
             const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
-            if (shapeCatalogItem) {
-                console.log("need to draw this item with offset ?");
+            if (shapeCatalogItem && shapeCatalogItem !== this) {
+                const x = this.position[0].location[0].x.value;
+                const y = this.position[0].location[0].y.value;
+                 console.log("Drawing shape", this.componentName.value);
+                if (typeof (shapeCatalogItem as any).draw === "function") {
+                    (shapeCatalogItem as any).draw(
+                        unit,
+                        pageOriginX,
+                        pageOriginY,
+                        x + offsetX,
+                        y + offsetY
+                    );
+                }
             }
         }
     }

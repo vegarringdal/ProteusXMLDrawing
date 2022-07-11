@@ -22,7 +22,7 @@ export class PlantInformation {
      * @param pageOriginX
      * @param pageOriginY
      */
-    public draw(unit: number, pageOriginX: number, pageOriginY: number) {
+    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         // not implemented
         // not every element will have primitives or children
     }
