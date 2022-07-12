@@ -20,6 +20,7 @@ import { Description } from "./Description";
 import { Association } from "./Association";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
+import { collectMissingParts } from "../utils/findMissing";
 /**
  * A geometric primitive
  */
@@ -90,6 +91,8 @@ export class SignalConnectorSymbol {
         this.componentType = new StringAttribute(element, "ComponentType");
         this.revision = new StringAttribute(element, "Revision");
         this.status = new StringAttribute(element, "Status");
+        // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

@@ -28,6 +28,7 @@ import { getElements } from "../utils/getElement";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { ProcessInstrumentationFunction } from "./ProcessInstrumentationFunction";
 import { InstrumentationLoopFunction } from "./InstrumentationLoopFunction";
+import { collectMissingParts } from "../utils/findMissing";
 
 /**
  * This is the root node of an XMpLant document and only exists as the root node of an XMpLant file. Other than the first two child elements, PlantInformation and Extent, the ordering of child elements within a PlantModel element is not significant.
@@ -87,7 +88,11 @@ export class PlantModel {
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
         this.instrumentLoop = getElements(element, "InstrumentLoop", InstrumentLoop);
-        this.instrumentationLoopFunction = getElements(element, "InstrumentationLoopFunction", InstrumentationLoopFunction);
+        this.instrumentationLoopFunction = getElements(
+            element,
+            "InstrumentationLoopFunction",
+            InstrumentationLoopFunction
+        );
         this.line = getElements(element, "Line", Line);
         this.pipingNetworkSystem = getElements(element, "PipingNetworkSystem", PipingNetworkSystem);
         this.pipingSystem = getElements(element, "PipingSystem", PipingSystem);
@@ -109,11 +114,13 @@ export class PlantModel {
             ProcessInstrumentationFunction
         );
 
-
         this.signalLine = getElements(element, "SignalLine", SignalLine);
         this.system = getElements(element, "System", System);
         this.text = getElements(element, "Text", Text);
         this.trimmedCurve = getElements(element, "TrimmedCurve", TrimmedCurve);
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     draw() {

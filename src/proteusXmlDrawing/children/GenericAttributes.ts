@@ -1,3 +1,5 @@
+import { collectMissingParts } from "../utils/findMissing";
+
 /**
  * Source system properties that relate to the XMpLant file and plant model.
  * These properties may be grouped into many GenericAttributes elements.
@@ -12,6 +14,9 @@ export class GenericAttributes {
 
     constructor(element: Element) {
         this.element = element;
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

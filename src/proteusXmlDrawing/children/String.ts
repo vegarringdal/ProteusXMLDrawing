@@ -1,3 +1,5 @@
+import { collectMissingParts } from "../utils/findMissing";
+
 /**
  * Axis orientation
  */
@@ -11,6 +13,8 @@ export class String {
 
     constructor(element: Element) {
         this.element = element;
+        // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

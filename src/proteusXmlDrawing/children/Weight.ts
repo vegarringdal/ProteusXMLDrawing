@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { NumberAttribute } from "../utils/NumberAttribute";
 import { StringAttribute } from "../utils/StringAttribute";
 
@@ -15,10 +16,11 @@ export class Weight {
     public readonly value: StringAttribute;
     public readonly units: StringAttribute;
 
-
     constructor(element: Element) {
         this.element = element;
         this.value = new StringAttribute(element, "Value");
         this.units = new StringAttribute(element, "Units");
+        // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 }

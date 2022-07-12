@@ -1,4 +1,5 @@
 import { PlantModel } from "./children/PlantModel";
+import { printMissing } from "./utils/findMissing";
 import { initPaper } from "./utils/paper";
 
 export class ProteusXmlDrawing {
@@ -10,23 +11,12 @@ export class ProteusXmlDrawing {
     constructor(xmlString: string, canvasId: string) {
         this.xml = new window.DOMParser().parseFromString(xmlString, "text/xml");
         this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
-        // just print it for now, need to generate all classes first
-
-        const f = this.xml.getElementsByTagName("PlantModel");
-
-        for (let i = 0; i < f.length; i++) {
-            const u = f[i];
-
-            for (let y = 0; y < u.children.length; y++) {
-                const uu = u.children[y];
-                console.log(uu.tagName);
-            }
-        }
 
         initPaper(canvasId);
 
         this.plantModelElement = this.xml.getElementsByTagName("PlantModel")[0];
         this.plantModel = new PlantModel(this.plantModelElement);
+        printMissing()
     }
 
     public draw() {

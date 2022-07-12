@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { StringAttribute } from "../utils/StringAttribute";
 
 export class PersistentID {
@@ -20,5 +21,8 @@ export class PersistentID {
         // attributes
         this.identifier = new StringAttribute(element, "Identifier");
         this.context = new StringAttribute(element, "Context");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 }

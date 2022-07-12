@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { NumberAttribute } from "../utils/NumberAttribute";
 import { getPaper } from "../utils/paper";
@@ -19,7 +20,7 @@ export class Text {
     public readonly presentation: Presentation[];
     public readonly extent: Extent[];
     public readonly position: Position[];
-    public readonly strings: String[];
+    public readonly strings: string[];
     public readonly genericAttributes: GenericAttributes[];
 
     // attributes
@@ -57,6 +58,8 @@ export class Text {
         this.itemID = new StringAttribute(element, "ItemID");
         this.set = new StringAttribute(element, "Set");
         this.dependantAttribute = new StringAttribute(element, "DependantAttribute");
+        // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**
@@ -70,7 +73,7 @@ export class Text {
         const Point = getPaper().Point;
         const x = this.position[0].location[0].x.value * unit;
         const y = pageOriginY * unit - this.position[0].location[0].y.value * unit;
-        var text = new PointText(new Point(x, y));
+        const text = new PointText(new Point(x, y));
 
         // height and width attribute just cant be right, need to use extent or a combo?
         const width = (this.extent[0].max[0].x.value - this.extent[0].min[0].x.value) * 1000;

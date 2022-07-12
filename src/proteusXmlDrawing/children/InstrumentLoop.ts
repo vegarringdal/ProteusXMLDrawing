@@ -1,4 +1,5 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
@@ -77,6 +78,9 @@ export class InstrumentLoop {
         // ComponentType
         // Revision
         // Status
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

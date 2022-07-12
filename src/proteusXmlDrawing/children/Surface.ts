@@ -1,3 +1,5 @@
+import { collectMissingParts } from "../utils/findMissing";
+
 /**
  * TODO
  */
@@ -12,6 +14,8 @@ export class Surface {
     constructor(element: Element) {
         this.element = element;
         // not implemented
+        // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { CenterLine } from "./CenterLine";
 import { Circle } from "./Circle";
@@ -74,6 +75,9 @@ export class InstrumentConnection {
         // ComponentType
         // Revision
         // Status
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

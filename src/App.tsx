@@ -15,7 +15,7 @@ async function getXml() {
     );
     const xmlstring = await response.text();
     const proteusXmlDrawing = new ProteusXmlDrawing(xmlstring, "pidCanvas");
-    proteusXmlDrawing.draw(); 
+    proteusXmlDrawing.draw();
 }
 
 getXml();

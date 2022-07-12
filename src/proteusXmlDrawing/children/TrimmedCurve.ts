@@ -1,3 +1,5 @@
+import { collectMissingParts } from "../utils/findMissing";
+
 /**
  * A geometric primitive
  */
@@ -10,7 +12,9 @@ export class TrimmedCurve {
     // attributes
 
     constructor(element: Element) {
-        this.element = element
+        this.element = element;
+        // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

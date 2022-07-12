@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { StringAttribute } from "../utils/StringAttribute";
 
 /**
@@ -33,5 +34,7 @@ export class UnitsOfMeasure {
         this.pressure = new StringAttribute(element, "Pressure");
         this.volume = new StringAttribute(element, "Volume");
         this.weight = new StringAttribute(element, "Weight");
+        // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 }

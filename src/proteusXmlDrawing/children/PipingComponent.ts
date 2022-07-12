@@ -12,6 +12,7 @@ import { Presentation } from "./Presentation";
 import { Shape } from "./Shape";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
+import { collectMissingParts } from "../utils/findMissing";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -41,7 +42,6 @@ export class PipingComponent {
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
-
 
     constructor(element: Element) {
         this.element = element;
@@ -103,6 +103,9 @@ export class PipingComponent {
         this.componentType = new StringAttribute(element, "ComponentType");
         // Revision
         // Status
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

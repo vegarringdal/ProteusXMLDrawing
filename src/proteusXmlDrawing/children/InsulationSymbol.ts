@@ -21,6 +21,7 @@ import { TrimmedCurve } from "./TrimmedCurve";
 import { Text } from "./Text";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
+import { collectMissingParts } from "../utils/findMissing";
 
 /**
  * This element is an annotation primitive to represent a label on a P&ID.
@@ -91,6 +92,9 @@ export class InsulationSymbol {
         this.componentType = new StringAttribute(element, "ComponentType");
         this.revision = new StringAttribute(element, "Revision");
         this.status = new StringAttribute(element, "Status");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**
@@ -102,7 +106,7 @@ export class InsulationSymbol {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
 
         if (this.componentName.value) {
@@ -110,7 +114,7 @@ export class InsulationSymbol {
             if (shapeCatalogItem && shapeCatalogItem !== this) {
                 const x = this.position[0].location[0].x.value;
                 const y = this.position[0].location[0].y.value;
-                 //console.log("Drawing shape", this.componentName.value);
+                //console.log("Drawing shape", this.componentName.value);
                 if (typeof (shapeCatalogItem as any).draw === "function") {
                     (shapeCatalogItem as any).draw(
                         unit,

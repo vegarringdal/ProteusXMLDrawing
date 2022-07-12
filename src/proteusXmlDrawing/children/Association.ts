@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { StringAttribute } from "../utils/StringAttribute";
 
 /**
@@ -36,5 +37,8 @@ export class Association {
         this.name = new StringAttribute(element, "Name");
         this.uri = new StringAttribute(element, "URI");
         this.context = new StringAttribute(element, "Context");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 }

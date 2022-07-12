@@ -12,13 +12,13 @@ export function initPaper(canvasId: string) {
     // ref:https://codepen.io/hichem147/pen/dExxNK<- thank you...
 
     // Create a simple drawing tool:
-    var tool = new paper.Tool();
+    const tool = new paper.Tool();
 
     // Define a mousedown and mousedrag handler
     tool.onMouseDown = function () {};
 
     tool.onMouseDrag = function (event: any) {
-        var pan_offset = event.point.subtract(event.downPoint);
+        const pan_offset = event.point.subtract(event.downPoint);
         paper.view.center = paper.view.center.subtract(pan_offset);
     };
 
@@ -26,8 +26,8 @@ export function initPaper(canvasId: string) {
 
     element?.addEventListener("mousewheel", function (event: any) {
         const paper = getPaper();
-        var newZoom = paper.view.zoom;
-        var oldZoom = paper.view.zoom;
+        let newZoom = paper.view.zoom;
+        const oldZoom = paper.view.zoom;
 
         if (event.deltaY < 0) {
             newZoom = paper.view.zoom * 1.05;
@@ -35,17 +35,17 @@ export function initPaper(canvasId: string) {
             newZoom = paper.view.zoom * 0.95;
         }
 
-        var beta = oldZoom / newZoom;
+        const beta = oldZoom / newZoom;
 
-        var mousePosition = new paper.Point(event.offsetX, event.offsetY);
+        const mousePosition = new paper.Point(event.offsetX, event.offsetY);
 
-        var viewPosition = paper.view.viewToProject(mousePosition);
+        const viewPosition = paper.view.viewToProject(mousePosition);
 
-        var mpos = viewPosition;
-        var ctr = paper.view.center;
+        const mpos = viewPosition;
+        const ctr = paper.view.center;
 
-        var pc = mpos.subtract(ctr);
-        var offset = mpos.subtract(pc.multiply(beta)).subtract(ctr);
+        const pc = mpos.subtract(ctr);
+        const offset = mpos.subtract(pc.multiply(beta)).subtract(ctr);
 
         paper.view.zoom = newZoom;
         paper.view.center = paper.view.center.add(offset);

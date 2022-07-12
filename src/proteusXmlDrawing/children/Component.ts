@@ -1,4 +1,5 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
@@ -122,6 +123,9 @@ export class Component {
         this.componentType = new StringAttribute(element, "ComponentType");
         this.revision = new StringAttribute(element, "Revision");
         this.status = new StringAttribute(element, "Status");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**
@@ -133,7 +137,7 @@ export class Component {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
 
         if (this.componentName.value) {

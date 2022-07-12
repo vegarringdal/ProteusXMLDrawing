@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { getPaper } from "../utils/paper";
 import { Coordinate } from "./Coordinate";
@@ -27,6 +28,9 @@ export class Line {
         this.extent = getElements(element, "Extent", Extent);
         this.coordinate = getElements(element, "Coordinate", Coordinate);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**
@@ -46,7 +50,7 @@ export class Line {
             const point = new Point(x * unit, pageOriginY * unit - y * unit);
             segments.push(point);
         });
-        var path = new Path(segments);
+        const path = new Path(segments);
 
         path.strokeColor = new Color({
             red: this.presentation[0].r.value,

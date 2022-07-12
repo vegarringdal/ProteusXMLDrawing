@@ -1,4 +1,5 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
@@ -19,6 +20,7 @@ import { Shape } from "./Shape";
  */
 export class PipingNetworkSystem {
     public readonly isChild = true;
+    public readonly element: Element;
 
     // children
     public readonly line: Line[];
@@ -31,6 +33,7 @@ export class PipingNetworkSystem {
     // attributes
 
     constructor(element: Element) {
+        this.element = element;
         // will only start with geometry elements
         // children **********TODO:***********
         // NominalDiameter
@@ -99,6 +102,9 @@ export class PipingNetworkSystem {
         // ComponentType
         // Revision
         // Status
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

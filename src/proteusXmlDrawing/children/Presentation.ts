@@ -1,13 +1,15 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { NumberAttribute } from "../utils/NumberAttribute";
 import { StringAttribute } from "../utils/StringAttribute";
 
 /**
- * The element defines a styles used to draw geometric and textual content. 
- * While all attributes are defined as optional in the schema the R, G, B, LineWeight and LineType attributes are expected for all geometric primitives, 
+ * The element defines a styles used to draw geometric and textual content.
+ * While all attributes are defined as optional in the schema the R, G, B, LineWeight and LineType attributes are expected for all geometric primitives,
  * otherwise the  behaviour is undefined.
  */
 export class Presentation {
     public readonly isChild = true;
+    public readonly element: Element;
 
     // children
     // no children on this element
@@ -53,7 +55,7 @@ export class Presentation {
     public readonly lineWeight: NumberAttribute;
 
     /**
-     * 0 to 1 (double) 1 = maximum intensity of Red component. 
+     * 0 to 1 (double) 1 = maximum intensity of Red component.
      */
     public readonly r: NumberAttribute;
 
@@ -69,9 +71,10 @@ export class Presentation {
 
     /**
      * constructor
-     * @param element 
+     * @param element
      */
     constructor(element: Element) {
+        this.element = element;
         this.layer = new StringAttribute(element, "Layer");
 
         // color, using rgb might be best
@@ -85,5 +88,8 @@ export class Presentation {
         this.r = new NumberAttribute(element, "R");
         this.g = new NumberAttribute(element, "G");
         this.b = new NumberAttribute(element, "B");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 }

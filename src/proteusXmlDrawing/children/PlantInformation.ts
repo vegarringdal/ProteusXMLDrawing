@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { StringAttribute } from "../utils/StringAttribute";
 import { UnitsOfMeasure } from "./UnitsOfMeasure";
@@ -47,5 +48,8 @@ export class PlantInformation {
         this.is3D = new StringAttribute(element, "Is3D");
         this.units = new StringAttribute(element, "Units");
         this.discipline = new StringAttribute(element, "Discipline");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 }

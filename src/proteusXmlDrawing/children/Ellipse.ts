@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { NumberAttribute } from "../utils/NumberAttribute";
 import { getPaper } from "../utils/paper";
@@ -38,6 +39,9 @@ export class Ellipse {
         this.primaryAxis = new NumberAttribute(element, "PrimaryAxis");
         this.secondaryAxis = new NumberAttribute(element, "SecondaryAxis");
         this.filled = new StringAttribute(element, "Filled");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**
@@ -58,11 +62,11 @@ export class Ellipse {
         const y = this.position[0].location[0].y.value + offsetY;
         const point = new Point(x * unit, pageOriginY * unit - y * unit);
 
-        var rectangle = new Rectangle(
+        const rectangle = new Rectangle(
             point,
             new Size(this.primaryAxis.value * unit, this.secondaryAxis.value * unit)
         );
-        var ellipse = new Path.Ellipse(rectangle);
+        const ellipse = new Path.Ellipse(rectangle);
 
         ellipse.strokeColor = new Color({
             red: this.presentation[0].r.value,

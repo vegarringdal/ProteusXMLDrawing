@@ -13,6 +13,7 @@ import { Text } from "./Text";
 import { StringAttribute } from "../utils/StringAttribute";
 import { getElements } from "../utils/getElement";
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { collectMissingParts } from "../utils/findMissing";
 
 /**
  * A geometric primitive
@@ -59,6 +60,9 @@ export class DrawingBorder {
         // attributes
         this.name = new StringAttribute(element, "Name");
         this.size = new StringAttribute(element, "Size");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**
@@ -70,7 +74,7 @@ export class DrawingBorder {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
     }
 }

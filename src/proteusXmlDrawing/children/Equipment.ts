@@ -12,6 +12,7 @@ import { Shape } from "./Shape";
 import { Nozzle } from "./Nozzle";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
+import { collectMissingParts } from "../utils/findMissing";
 
 /**
  * A geometric primitive
@@ -95,6 +96,9 @@ export class Equipment {
         this.componentType = new StringAttribute(element, "ComponentType");
         // Revision
         // Status
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

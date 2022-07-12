@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { NumberAttribute } from "../utils/NumberAttribute";
 import { getPaper } from "../utils/paper";
@@ -37,6 +38,9 @@ export class Circle {
         // attributes
         this.radius = new NumberAttribute(element, "Radius");
         this.filled = new StringAttribute(element, "Filled");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**
@@ -54,7 +58,7 @@ export class Circle {
         const y = this.position[0].location[0].y.value + offsetY;
         const point = new Point(x * unit, pageOriginY * unit - y * unit);
 
-        var myCircle = new Path.Circle(point, this.radius.value * unit);
+        const myCircle = new Path.Circle(point, this.radius.value * unit);
 
         myCircle.strokeColor = new Color({
             red: this.presentation[0].r.value,

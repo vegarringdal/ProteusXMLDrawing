@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { NumberAttribute } from "../utils/NumberAttribute";
 
 /**
@@ -20,5 +21,8 @@ export class Location {
         this.x = new NumberAttribute(element, "X");
         this.y = new NumberAttribute(element, "Y");
         this.z = new NumberAttribute(element, "Z");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 }

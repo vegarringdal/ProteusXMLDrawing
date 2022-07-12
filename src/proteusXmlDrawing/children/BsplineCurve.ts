@@ -1,3 +1,5 @@
+import { collectMissingParts } from "../utils/findMissing";
+
 /**
  * A geometric primitive
  */
@@ -11,6 +13,9 @@ export class BsplineCurve {
 
     constructor(element: Element) {
         this.element = element;
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

@@ -1,4 +1,5 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
@@ -56,7 +57,7 @@ export class SignalLine {
         // PConnectionPoints
         // Identifier
         // Description
-        // Weight
+        // Weightks
         // Material
         // MaterialDescription
         // ModelNumber
@@ -76,6 +77,8 @@ export class SignalLine {
         // ComponentType
         // Revision
         // Status
+        // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

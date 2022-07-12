@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { CenterLine } from "./CenterLine";
 import { Circle } from "./Circle";
@@ -52,7 +53,6 @@ export class PipingNetworkSegment {
     public readonly shape: Shape[];
     public readonly circle: Circle[];
     public readonly ellipse: Ellipse[];
-  
 
     // attributes
 
@@ -139,6 +139,9 @@ export class PipingNetworkSegment {
         // ComponentType
         // Revision
         // Status
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

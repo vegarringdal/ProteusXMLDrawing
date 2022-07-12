@@ -19,6 +19,7 @@ import { ConnectionPoints } from "./ConnectionPoints";
 import { Description } from "./Description";
 import { Association } from "./Association";
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { collectMissingParts } from "../utils/findMissing";
 
 /**
  * This element is a base abstract type of many elements within an XMpLant file, it defines the
@@ -88,6 +89,9 @@ export class AnnotationItem {
         this.componentType = new StringAttribute(element, "ComponentType");
         this.revision = new StringAttribute(element, "Revision");
         this.status = new StringAttribute(element, "Status");
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**
@@ -99,7 +103,7 @@ export class AnnotationItem {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
     }
 }

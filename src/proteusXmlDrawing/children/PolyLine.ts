@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { getPaper } from "../utils/paper";
 import { Coordinate } from "./Coordinate";
@@ -29,6 +30,9 @@ export class PolyLine {
 
         // TODO attributes
         // NumPoints
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**
@@ -44,15 +48,12 @@ export class PolyLine {
 
         const segments: any[] = [];
         this.coordinate.forEach((coordinate) => {
-            const x = coordinate.x.value + offsetX
-            const y = coordinate.y.value + offsetY
-            const point = new Point(
-                x * unit,
-                pageOriginY * unit - y * unit
-            );
+            const x = coordinate.x.value + offsetX;
+            const y = coordinate.y.value + offsetY;
+            const point = new Point(x * unit, pageOriginY * unit - y * unit);
             segments.push(point);
         });
-        var path = new Path(segments);
+        const path = new Path(segments);
 
         path.strokeColor = new Color({
             red: this.presentation[0].r.value,

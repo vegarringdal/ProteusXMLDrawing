@@ -1,3 +1,5 @@
+import { collectMissingParts } from "../utils/findMissing";
+
 /**
  * This element is used to capture the structure of an identifier such as a TagName.  Not usually used.
  */
@@ -11,12 +13,15 @@ export class Identifier {
 
     constructor(element: Element) {
         this.element = element;
-        
+
         // children
         // IdentifierElement
 
         // attributes
         // Purpose
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

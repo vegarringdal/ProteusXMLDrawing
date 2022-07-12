@@ -1,4 +1,5 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
@@ -42,7 +43,6 @@ export class PropertyBreak {
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
-
 
     constructor(element: Element) {
         this.element = element;
@@ -90,6 +90,8 @@ export class PropertyBreak {
         this.componentType = new StringAttribute(element, "ComponentType");
         // Revision
         // Status
+        // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

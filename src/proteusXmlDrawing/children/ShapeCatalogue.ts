@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { addToShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
@@ -23,6 +24,7 @@ import { SignalConnectorSymbol } from "./SignalConnectorSymbol";
  */
 export class ShapeCatalogue {
     public readonly isChild = true;
+    public readonly element: Element;
 
     // children
     public readonly equipment: Equipment[];
@@ -46,6 +48,7 @@ export class ShapeCatalogue {
     public readonly date: StringAttribute;
 
     constructor(element: Element) {
+        this.element = element;
         // children
         this.equipment = getElements(element, "Equipment", Equipment);
         this.pipingComponent = getElements(element, "PipingComponent", PipingComponent);
@@ -91,7 +94,8 @@ export class ShapeCatalogue {
                 });
             }
         });
-        //TODO: I also need to make a map of children... since position will be relative
+        // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     // this is not elements we will draw, just lookup

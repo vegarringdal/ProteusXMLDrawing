@@ -1,4 +1,5 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
@@ -19,6 +20,7 @@ import { Presentation } from "./Presentation";
  */
 export class PipeConnectorSymbol {
     public readonly isChild = true;
+    public readonly element: Element;
 
     // children
     public readonly line: Line[];
@@ -36,6 +38,7 @@ export class PipeConnectorSymbol {
     public readonly componentType: StringAttribute;
 
     constructor(element: Element) {
+        this.element = element;
         // will only start with geometry elements
         // children **********TODO:***********
         // CrossPageConnection
@@ -80,6 +83,9 @@ export class PipeConnectorSymbol {
         this.componentType = new StringAttribute(element, "ComponentType");
         // Revision
         // Status
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 
     /**

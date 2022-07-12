@@ -1,3 +1,4 @@
+import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { Max } from "./Max";
 import { Min } from "./Min";
@@ -22,5 +23,8 @@ export class Extent {
         // not implemented
         this.min = getElements(element, "Min", Min);
         this.max = getElements(element, "Max", Max);
+
+        // helper to find missing part   // helper to find missing part
+        collectMissingParts(this.element, this);
     }
 }
