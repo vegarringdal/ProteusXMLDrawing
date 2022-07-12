@@ -1,46 +1,31 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
+import { CenterLine } from "./CenterLine";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
-import { InformationFlow } from "./InformationFlow";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Shape } from "./Shape";
-import { SignalConnectorSymbol } from "./SignalConnectorSymbol";
-import { SignalLine } from "./SignalLine";
 
-/**
- * A grouped set of instrument detail
- */
-export class InstrumentationLoopFunction {
+export class InformationFlow {
     public readonly isChild = true;
     public readonly element: Element;
 
     // children
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
-    public readonly signalConnectorSymbol: SignalConnectorSymbol[];
-    public readonly signalLine: SignalLine[];
     public readonly shape: Shape[];
     public readonly circle: Circle[];
     public readonly ellipse: Ellipse[];
-    public readonly informationFlow: InformationFlow[];
+    public readonly centerLine: CenterLine[];
 
     // attributes
 
     constructor(element: Element) {
         this.element = element;
 
-        // children
-        this.signalConnectorSymbol = getElements(
-            element,
-            "SignalConnectorSymbol",
-            SignalConnectorSymbol
-        );
-        this.signalLine = getElements(element, "SignalLine", SignalLine);
-
-        // children -> plantItem
+        // children plantItem **********TODO:***********
         // Presentation
         // Extent
         // PersistentID
@@ -54,7 +39,8 @@ export class InstrumentationLoopFunction {
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
-        this.informationFlow = getElements(element, "InformationFlow", InformationFlow);
+        this.centerLine = getElements(element, "CenterLine", CenterLine);
+        
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints
@@ -70,8 +56,8 @@ export class InstrumentationLoopFunction {
         // GenericAttributes
         // Association
         // History
-
-        // attributes -> plantItem
+        //
+        // attributes plantItem **********TODO:***********
         // ID
         // TagName
         // Specification

@@ -6,6 +6,7 @@ import { StringAttribute } from "../utils/StringAttribute";
 import { ActuatingFunction } from "./ActuatingFunction";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
+import { InformationFlow } from "./InformationFlow";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
@@ -28,12 +29,14 @@ export class ProcessInstrumentationFunction {
     public readonly text: Text[];
     public readonly position: Position[];
     public readonly actuatingFunction: ActuatingFunction[];
+    public readonly informationFlow: InformationFlow[];
 
     // attributes
     public readonly id: StringAttribute;
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
+
 
     constructor(element: Element) {
         this.element = element;
@@ -49,7 +52,8 @@ export class ProcessInstrumentationFunction {
         this.shape = getElements(element, "Shape", Shape);
         this.text = getElements(element, "Text", Text);
         this.actuatingFunction = getElements(element, "ActuatingFunction", ActuatingFunction);
-
+        this.informationFlow = getElements(element, "InformationFlow", InformationFlow);
+        
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints

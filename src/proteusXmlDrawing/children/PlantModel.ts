@@ -29,6 +29,7 @@ import { getDrawable } from "../utils/callDrawOnChildren";
 import { ProcessInstrumentationFunction } from "./ProcessInstrumentationFunction";
 import { InstrumentationLoopFunction } from "./InstrumentationLoopFunction";
 import { collectMissingParts } from "../utils/findMissing";
+import { ActuatingSystem } from "./ActuatingSystem";
 
 /**
  * This is the root node of an XMpLant document and only exists as the root node of an XMpLant file. Other than the first two child elements, PlantInformation and Extent, the ordering of child elements within a PlantModel element is not significant.
@@ -72,6 +73,7 @@ export class PlantModel {
     public readonly trimmedCurve: TrimmedCurve[];
     public readonly processInstrumentationFunction: ProcessInstrumentationFunction[];
     public readonly instrumentationLoopFunction: InstrumentationLoopFunction[];
+    public readonly actuatingSystem: ActuatingSystem[];
 
     // attributes
 
@@ -112,6 +114,11 @@ export class PlantModel {
             element,
             "ProcessInstrumentationFunction",
             ProcessInstrumentationFunction
+        );
+        this.actuatingSystem = getElements(
+            element,
+            "ActuatingSystem",
+            ActuatingSystem
         );
 
         this.signalLine = getElements(element, "SignalLine", SignalLine);
