@@ -1,3 +1,4 @@
+import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 
 /**
@@ -20,7 +21,9 @@ export class BsplineCurve {
      * @param pageOriginY
      */
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
-        // not implemented
-        // not every element will have primitives or children
+        const drawables = getDrawable(this);
+        drawables.forEach((drawable) => {
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+        });
     }
 }

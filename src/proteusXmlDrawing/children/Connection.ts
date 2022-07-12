@@ -1,10 +1,8 @@
 import { collectMissingParts } from "../utils/findMissing";
 
-
 export class Connection {
     isChild = true;
     element: Element;
-
 
     constructor(element: Element) {
         this.element = element;
@@ -18,5 +16,7 @@ export class Connection {
      * @param pageOriginX
      * @param pageOriginY
      */
-    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {}
+    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
+        // needed ?
+    }
 }

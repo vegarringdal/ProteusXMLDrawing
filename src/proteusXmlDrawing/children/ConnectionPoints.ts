@@ -3,6 +3,7 @@ import { getElements } from "../utils/getElement";
 import { Extent } from "./Extent";
 import { Presentation } from "./Presentation";
 import { Node } from "./Node";
+import { getDrawable } from "../utils/callDrawOnChildren";
 
 /**
  * This element is used to describe the potential flow connections from and to the parent of this element.
@@ -26,8 +27,7 @@ export class ConnectionPoints {
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.node = getElements(element, "Node", Node);
-        
-        
+
         collectMissingParts(this.element, this);
     }
 
@@ -37,5 +37,10 @@ export class ConnectionPoints {
      * @param pageOriginX
      * @param pageOriginY
      */
-    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {}
+    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
+        const drawables = getDrawable(this);
+        drawables.forEach((drawable) => {
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+        });
+    }
 }
