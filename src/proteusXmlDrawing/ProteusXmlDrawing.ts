@@ -11,7 +11,7 @@ export class ProteusXmlDrawing {
         this.xml = new window.DOMParser().parseFromString(xmlString, "text/xml");
         this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
         // just print it for now, need to generate all classes first
- 
+
         initPaper(canvasId);
 
         this.plantModelElement = this.xml.getElementsByTagName("PlantModel")[0];

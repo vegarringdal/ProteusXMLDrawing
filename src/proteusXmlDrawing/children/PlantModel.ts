@@ -105,7 +105,13 @@ export class PlanModel {
     }
 
     draw() {
-        const unit = 1000*1.5;
+        // mm is default
+        let unit = 1;
+
+        if (this.plantInformation[0].units.value === "Metre") {
+            unit = 1000;
+        }
+
         const x = this.drawing[0].extend[0].max[0].x.value;
         const y = this.drawing[0].extend[0].max[0].y.value;
         const drawables = getDrawable(this);
