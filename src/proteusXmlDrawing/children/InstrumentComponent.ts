@@ -3,6 +3,7 @@ import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
+import { Circle } from "./Circle";
 import { Extent } from "./Extent";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
@@ -24,13 +25,15 @@ export class InstrumentComponent {
     public readonly presentation: Presentation[];
     public readonly extent: Extent[];
     public readonly position: Position[];
+    public readonly circle: Circle[];
+
 
     // attributes
     public readonly id: StringAttribute;
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
-
+    
     constructor(element: Element) {
         this.element = element;
 
@@ -51,7 +54,7 @@ export class InstrumentComponent {
         // Position
         // Scale
         // Surface
-        // Circle
+        this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
         // Ellipse
         this.line = getElements(element, "Line", Line);

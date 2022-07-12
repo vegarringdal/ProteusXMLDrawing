@@ -4,6 +4,7 @@ import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { CenterLine } from "./CenterLine";
+import { Circle } from "./Circle";
 import { Equipment } from "./Equipment";
 import { Extent } from "./Extent";
 import { InstrumentComponent } from "./InstrumentComponent";
@@ -44,6 +45,7 @@ export class ProcessInstrument {
     public readonly extent: Extent[];
     public readonly position: Position[];
     public readonly shape: Shape[];
+    public readonly circle: Circle[];
 
     // attributes
     public readonly id: StringAttribute;
@@ -100,7 +102,7 @@ export class ProcessInstrument {
         this.position = getElements(element, "Position", Position);
         // Scale
         // Surface
-        // Circle
+         this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
         // Ellipse
         this.line = getElements(element, "Line", Line);

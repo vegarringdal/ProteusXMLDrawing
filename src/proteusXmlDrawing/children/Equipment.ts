@@ -10,6 +10,7 @@ import { Position } from "./Position";
 import { Presentation } from "./Presentation";
 import { Shape } from "./Shape";
 import { Nozzle } from "./Nozzle";
+import { Circle } from "./Circle";
 
 /**
  * A geometric primitive
@@ -34,6 +35,7 @@ export class Equipment {
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
     public readonly nozzle: Nozzle[];
+    public readonly circle: Circle[];
 
     constructor(element: Element) {
         this.element = element;
@@ -55,7 +57,7 @@ export class Equipment {
         this.position = getElements(element, "Position", Position);
         // Scale
         // Surface
-        // Circle
+        this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
         // Ellipse
         this.line = getElements(element, "Line", Line);

@@ -2,6 +2,7 @@ import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
 import { CenterLine } from "./CenterLine";
+import { Circle } from "./Circle";
 import { Label } from "./Label";
 import { Line } from "./Line";
 import { PipingComponent } from "./PipingComponent";
@@ -24,7 +25,7 @@ export class InstrumentConnection {
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
     public readonly shape: Shape[];
-
+    public readonly circle: Circle[];
 
     // attributes
 
@@ -39,7 +40,7 @@ export class InstrumentConnection {
         // Position
         // Scale
         // Surface
-        // Circle
+        this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
         // Ellipse
         this.line = getElements(element, "Line", Line);
@@ -82,7 +83,7 @@ export class InstrumentConnection {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
     }
 }

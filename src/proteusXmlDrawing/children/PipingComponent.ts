@@ -10,6 +10,7 @@ import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
 import { Shape } from "./Shape";
+import { Circle } from "./Circle";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -30,6 +31,7 @@ export class PipingComponent {
     public readonly position: Position[];
     public readonly component: Component[];
     public readonly shape: Shape[];
+    public readonly circle: Circle[];
     
     // attributes
     public readonly id: StringAttribute;
@@ -59,7 +61,7 @@ export class PipingComponent {
         this.position = getElements(element, "Position", Position);
         // Scale
         // Surface
-        // Circle
+        this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
         // Ellipse
         this.line = getElements(element, "Line", Line);

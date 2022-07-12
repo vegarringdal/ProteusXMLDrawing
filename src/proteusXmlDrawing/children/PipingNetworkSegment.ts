@@ -2,6 +2,7 @@ import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
 import { CenterLine } from "./CenterLine";
+import { Circle } from "./Circle";
 import { Equipment } from "./Equipment";
 import { InstrumentComponent } from "./InstrumentComponent";
 import { InstrumentConnection } from "./InstrumentConnection";
@@ -47,6 +48,7 @@ export class PipingNetworkSegment {
     public readonly pipeFlowArrow: PipeFlowArrow[];
     public readonly insulationSymbol: InsulationSymbol[];
     public readonly shape: Shape[];
+    public readonly circle: Circle[];
 
     // attributes
 
@@ -93,7 +95,7 @@ export class PipingNetworkSegment {
         // Position
         // Scale
         // Surface
-        // Circle
+        this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
         // Ellipse
         this.line = getElements(element, "Line", Line);

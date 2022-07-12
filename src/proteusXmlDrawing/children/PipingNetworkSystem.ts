@@ -1,5 +1,6 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
+import { Circle } from "./Circle";
 import { Line } from "./Line";
 import { PipingNetworkSegment } from "./PipingNetworkSegment";
 import { PolyLine } from "./PolyLine";
@@ -24,6 +25,7 @@ export class PipingNetworkSystem {
     public readonly polyLine: PolyLine[];
     public readonly pipingNetworkSegment: unknown[];
     public readonly shape: Shape[];
+    public readonly circle: Circle[];
 
     // attributes
 
@@ -60,7 +62,7 @@ export class PipingNetworkSystem {
         // Position
         // Scale
         // Surface
-        // Circle
+         this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
         // Ellipse
         this.line = getElements(element, "Line", Line);

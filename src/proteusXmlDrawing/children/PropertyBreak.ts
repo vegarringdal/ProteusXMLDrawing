@@ -2,6 +2,7 @@ import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
+import { Circle } from "./Circle";
 import { Extent } from "./Extent";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
@@ -32,6 +33,7 @@ export class PropertyBreak {
     public readonly presentation: Presentation[];
     public readonly extent: Extent[];
     public readonly position: Position[];
+    public readonly circle: Circle[];
 
     // attributes
     public readonly id: StringAttribute;
@@ -51,7 +53,7 @@ export class PropertyBreak {
         this.position = getElements(element, "Position", Position);
         // Scale
         // Surface
-        // Circle
+        this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
         // Ellipse
         this.line = getElements(element, "Line", Line);
@@ -95,7 +97,7 @@ export class PropertyBreak {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
 
         if (this.componentName.value) {
@@ -103,7 +105,7 @@ export class PropertyBreak {
             if (shapeCatalogItem && shapeCatalogItem !== this) {
                 const x = this.position[0].location[0].x.value;
                 const y = this.position[0].location[0].y.value;
-                 //console.log("Drawing shape", this.componentName.value);
+                //console.log("Drawing shape", this.componentName.value);
                 if (typeof (shapeCatalogItem as any).draw === "function") {
                     (shapeCatalogItem as any).draw(
                         unit,
