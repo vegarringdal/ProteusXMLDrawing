@@ -13,7 +13,7 @@ export class Node {
         this.element = element;
 
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
-        this.position = getElements(element, "GenericAttributes", Position);
+        this.position = getElements(element, "Position", Position);
 
         collectMissingParts(this.element, this);
     }
