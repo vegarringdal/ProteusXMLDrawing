@@ -88,7 +88,7 @@ export class Text {
         });
 
         if (this.textAngle.value) {
-            text.rotate(-this.textAngle.value);
+            text.rotate(-this.textAngle.value, new Point(x, y));
         }
 
         // todo, I need to adjust text, but looks like PDF and SVG does not render the same..
