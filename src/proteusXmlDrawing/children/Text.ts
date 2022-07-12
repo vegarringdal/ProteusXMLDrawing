@@ -67,6 +67,7 @@ export class Text {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const PointText = getPaper().PointText;
         const Point = getPaper().Point;
+        const Color = getPaper().Color;
         const x = this.position[0].location[0].x.value * unit;
         const y = pageOriginY * unit - this.position[0].location[0].y.value * unit;
         const text = new PointText(new Point(x + offsetX * unit, y + offsetY * unit));
@@ -78,6 +79,17 @@ export class Text {
         text.content = this.string.value;
         text.fontSize = this.height.value * unit;
         text.fontFamily = this.font.value;
+
+        
+        text.fillColor = new Color({
+            red: this.presentation[0].r.value,
+            green: this.presentation[0].g.value,
+            blue: this.presentation[0].b.value
+        });
+
+        if (this.textAngle.value) {
+            text.rotate(-this.textAngle.value);
+        }
 
         // todo, I need to adjust text, but looks like PDF and SVG does not render the same..
         // need to render more before and adjustments, also have no rotation made
