@@ -17,6 +17,7 @@ import { Text } from "./Text";
 import { TrimmedCurve } from "./TrimmedCurve";
 import { PersistentID } from "./PersistentID";
 import { GenericAttributes } from "./GenericAttributes";
+import { Association } from "./Association";
 
 /**
  * A geometric primitive
@@ -45,6 +46,7 @@ export class Equipment {
     componentType: StringAttribute;
     persistentID: PersistentID[];
     genericAttributes: GenericAttributes[];
+    association: Association[];
 
     constructor(element: Element) {
         this.element = element;
@@ -65,6 +67,7 @@ export class Equipment {
         this.trimmedCurve = getElements(element, "TrimmedCurve", TrimmedCurve);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.association = getElements(element, "Association", Association);
 
         
 

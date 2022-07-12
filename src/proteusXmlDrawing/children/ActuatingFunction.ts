@@ -2,6 +2,7 @@ import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { StringAttribute } from "../utils/StringAttribute";
+import { Association } from "./Association";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { GenericAttributes } from "./GenericAttributes";
@@ -24,6 +25,7 @@ export class ActuatingFunction {
     componentName: StringAttribute;
     componentType: StringAttribute;
     genericAttributes: GenericAttributes[];
+    association: Association[];
 
     constructor(element: Element) {
         this.element = element;
@@ -34,10 +36,12 @@ export class ActuatingFunction {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.association = getElements(element, "Association", Association);
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
+        
 
         collectMissingParts(this.element, this);
     }

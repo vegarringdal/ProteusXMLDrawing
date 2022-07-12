@@ -3,10 +3,12 @@ import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { StringAttribute } from "../utils/StringAttribute";
+import { Association } from "./Association";
 import { CenterLine } from "./CenterLine";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { Equipment } from "./Equipment";
+import { GenericAttributes } from "./GenericAttributes";
 import { InstrumentComponent } from "./InstrumentComponent";
 import { InstrumentConnection } from "./InstrumentConnection";
 import { InsulationSymbol } from "./InsulationSymbol";
@@ -58,6 +60,8 @@ export class PipingNetworkSegment {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    genericAttributes: GenericAttributes[];
+    association: Association[];
 
     constructor(element: Element) {
         this.element = element;
@@ -82,7 +86,8 @@ export class PipingNetworkSegment {
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
-
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.association = getElements(element, "Association", Association);
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

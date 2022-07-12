@@ -15,6 +15,7 @@ import { Text } from "./Text";
 import { collectMissingParts } from "../utils/findMissing";
 import { PersistentID } from "./PersistentID";
 import { GenericAttributes } from "./GenericAttributes";
+import { Association } from "./Association";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -45,6 +46,7 @@ export class PipingComponent {
     componentType: StringAttribute;
     persistentID: PersistentID[];
     genericAttributes: GenericAttributes[];
+    association: Association[];
 
     constructor(element: Element) {
         this.element = element;
@@ -62,6 +64,7 @@ export class PipingComponent {
         this.shape = getElements(element, "Shape", Shape);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.association = getElements(element, "Association", Association);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

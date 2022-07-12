@@ -3,6 +3,7 @@ import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
+import { Association } from "./Association";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
@@ -37,6 +38,7 @@ export class Nozzle {
     presentation: Presentation[];
     extent: Extent[];
     genericAttributes: GenericAttributes[];
+    association: Association[];
 
     constructor(element: Element) {
         this.element = element;
@@ -51,6 +53,7 @@ export class Nozzle {
         this.shape = getElements(element, "Shape", Shape);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.association = getElements(element, "Association", Association);
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

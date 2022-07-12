@@ -3,6 +3,7 @@ import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { StringAttribute } from "../utils/StringAttribute";
 import { ActuatingSystemComponent } from "./ActuatingSystemComponent";
+import { Association } from "./Association";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { GenericAttributes } from "./GenericAttributes";
@@ -26,6 +27,7 @@ export class ActuatingSystem {
     componentName: StringAttribute;
     componentType: StringAttribute;
     genericAttributes: GenericAttributes[];
+    association: Association[];
 
     constructor(element: Element) {
         this.element = element;
@@ -41,6 +43,7 @@ export class ActuatingSystem {
             ActuatingSystemComponent
         );
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.association = getElements(element, "Association", Association);
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
