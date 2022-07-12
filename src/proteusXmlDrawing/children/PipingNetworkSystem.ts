@@ -9,6 +9,7 @@ import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
 import { PipingNetworkSegment } from "./PipingNetworkSegment";
 import { PolyLine } from "./PolyLine";
+import { PropertyBreak } from "./PropertyBreak";
 import { Shape } from "./Shape";
 
 /**
@@ -38,6 +39,7 @@ export class PipingNetworkSystem {
     componentType: StringAttribute;
     extent: Extent[];
     genericAttributes: GenericAttributes[];
+    propertyBreak: PropertyBreak[];
 
     constructor(element: Element) {
         this.element = element;
@@ -55,6 +57,8 @@ export class PipingNetworkSystem {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.propertyBreak = getElements(element, "PropertyBreak", PropertyBreak);
+
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

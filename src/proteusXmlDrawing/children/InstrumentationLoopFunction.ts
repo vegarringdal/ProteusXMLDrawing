@@ -2,6 +2,7 @@ import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { StringAttribute } from "../utils/StringAttribute";
+import { Association } from "./Association";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
@@ -39,6 +40,7 @@ export class InstrumentationLoopFunction {
     presentation: Presentation[];
     extent: Extent[];
     genericAttributes: GenericAttributes[];
+    association: Association[];
 
     constructor(element: Element) {
         this.element = element;
@@ -59,6 +61,7 @@ export class InstrumentationLoopFunction {
         this.informationFlow = getElements(element, "InformationFlow", InformationFlow);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.association = getElements(element, "Association", Association);
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

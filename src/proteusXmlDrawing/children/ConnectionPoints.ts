@@ -1,4 +1,8 @@
 import { collectMissingParts } from "../utils/findMissing";
+import { getElements } from "../utils/getElement";
+import { Extent } from "./Extent";
+import { Presentation } from "./Presentation";
+import { Node } from "./Node";
 
 /**
  * This element is used to describe the potential flow connections from and to the parent of this element.
@@ -12,10 +16,18 @@ import { collectMissingParts } from "../utils/findMissing";
 export class ConnectionPoints {
     isChild = true;
     element: Element;
+    presentation: Presentation[];
+    extent: Extent[];
+    node: Node[];
 
     constructor(element: Element) {
         this.element = element;
 
+        this.presentation = getElements(element, "Presentation", Presentation);
+        this.extent = getElements(element, "Extent", Extent);
+        this.node = getElements(element, "Node", Node);
+        
+        
         collectMissingParts(this.element, this);
     }
 

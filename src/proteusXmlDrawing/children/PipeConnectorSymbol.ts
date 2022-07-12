@@ -4,6 +4,8 @@ import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Circle } from "./Circle";
+import { ConnectionPoints } from "./ConnectionPoints";
+import { CrossPageConnection } from "./CrossPageConnection";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
 import { Line } from "./Line";
@@ -38,6 +40,8 @@ export class PipeConnectorSymbol {
     componentName: StringAttribute;
     componentType: StringAttribute;
     persistentID: PersistentID[];
+    connectionPoints: ConnectionPoints[];
+    crossPageConnection: CrossPageConnection[];
 
     constructor(element: Element) {
         this.element = element;
@@ -51,6 +55,8 @@ export class PipeConnectorSymbol {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.text = getElements(element, "Text", Text);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
+        this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
+        this.crossPageConnection = getElements(element, "CrossPageConnection", CrossPageConnection);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

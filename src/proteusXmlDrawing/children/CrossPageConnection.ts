@@ -1,20 +1,16 @@
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
-import { Circle } from "./Circle";
+import { LinkedPersistentID } from "./LinkedPersistentID";
 
-/**
- * A geometric primitive
- */
-export class TrimmedCurve {
+export class CrossPageConnection {
     isChild = true;
     element: Element;
-    circle: Circle[];
+    linkedPersistentID: LinkedPersistentID[];
 
     constructor(element: Element) {
         this.element = element;
 
-        this.circle = getElements(element, "Circle", Circle);
-
+        this.linkedPersistentID = getElements(element, "LinkedPersistentID", LinkedPersistentID);
         collectMissingParts(this.element, this);
     }
 
@@ -24,8 +20,5 @@ export class TrimmedCurve {
      * @param pageOriginX
      * @param pageOriginY
      */
-    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
-        // not implemented
-        // not every element will have primitives or children
-    }
+    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {}
 }

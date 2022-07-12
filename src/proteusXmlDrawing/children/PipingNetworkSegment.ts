@@ -6,6 +6,7 @@ import { StringAttribute } from "../utils/StringAttribute";
 import { Association } from "./Association";
 import { CenterLine } from "./CenterLine";
 import { Circle } from "./Circle";
+import { Connection } from "./Connection";
 import { Ellipse } from "./Ellipse";
 import { Equipment } from "./Equipment";
 import { GenericAttributes } from "./GenericAttributes";
@@ -62,6 +63,7 @@ export class PipingNetworkSegment {
     componentType: StringAttribute;
     genericAttributes: GenericAttributes[];
     association: Association[];
+    connection: Connection[];
 
     constructor(element: Element) {
         this.element = element;
@@ -88,6 +90,7 @@ export class PipingNetworkSegment {
         this.shape = getElements(element, "Shape", Shape);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.association = getElements(element, "Association", Association);
+        this.connection = getElements(element, "Connection", Connection);
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

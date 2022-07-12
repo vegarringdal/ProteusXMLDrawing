@@ -18,6 +18,8 @@ import { TrimmedCurve } from "./TrimmedCurve";
 import { PersistentID } from "./PersistentID";
 import { GenericAttributes } from "./GenericAttributes";
 import { Association } from "./Association";
+import { Scale } from "./Scale";
+import { Description } from "./Description";
 
 /**
  * A geometric primitive
@@ -47,6 +49,8 @@ export class Equipment {
     persistentID: PersistentID[];
     genericAttributes: GenericAttributes[];
     association: Association[];
+    scale: Scale[];
+    description: Description[];
 
     constructor(element: Element) {
         this.element = element;
@@ -54,7 +58,7 @@ export class Equipment {
         this.equipment = getElements(element, "Equipment", Equipment);
         this.nozzle = getElements(element, "Nozzle", Nozzle);
         this.component = getElements(element, "Component", Component);
-
+        this.description = getElements(element, "Description", Description);
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.position = getElements(element, "Position", Position);
@@ -68,6 +72,7 @@ export class Equipment {
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.association = getElements(element, "Association", Association);
+        this.scale = getElements(element, "Scale", Scale);
 
         
 

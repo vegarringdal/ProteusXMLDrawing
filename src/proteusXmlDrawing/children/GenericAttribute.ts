@@ -1,20 +1,12 @@
 import { collectMissingParts } from "../utils/findMissing";
-import { getElements } from "../utils/getElement";
-import { GenericAttribute } from "./GenericAttribute";
 
-/**
- * Source system properties that relate to the XMpLant file and plant model.
- * These properties may be grouped into many GenericAttributes elements.
- */
-export class GenericAttributes {
+export class GenericAttribute {
     isChild = true;
     element: Element;
-    genericAttribute: GenericAttribute[];
 
     constructor(element: Element) {
         this.element = element;
 
-        this.genericAttribute = getElements(element, "GenericAttribute", GenericAttribute);
         collectMissingParts(this.element, this);
     }
 

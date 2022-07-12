@@ -6,6 +6,7 @@ import { StringAttribute } from "../utils/StringAttribute";
 import { ActuatingFunction } from "./ActuatingFunction";
 import { Association } from "./Association";
 import { Circle } from "./Circle";
+import { ConnectionPoints } from "./ConnectionPoints";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
@@ -15,6 +16,8 @@ import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
+import { ProcessSignalGeneratingFunction } from "./ProcessSignalGeneratingFunction";
+import { Scale } from "./Scale";
 import { Shape } from "./Shape";
 import { Text } from "./Text";
 import { TrimmedCurve } from "./TrimmedCurve";
@@ -46,6 +49,9 @@ export class ProcessInstrumentationFunction {
     extent: Extent[];
     genericAttributes: GenericAttributes[];
     association: Association[];
+    connectionPoints: ConnectionPoints[];
+    scale: Scale[];
+    processSignalGeneratingFunction: ProcessSignalGeneratingFunction[];
 
     constructor(element: Element) {
         this.element = element;
@@ -65,6 +71,11 @@ export class ProcessInstrumentationFunction {
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.association = getElements(element, "Association", Association);
+        this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
+        this.scale = getElements(element, "Scale", Scale);
+        this.processSignalGeneratingFunction = getElements(element, "ProcessSignalGeneratingFunction", ProcessSignalGeneratingFunction);
+
+        
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

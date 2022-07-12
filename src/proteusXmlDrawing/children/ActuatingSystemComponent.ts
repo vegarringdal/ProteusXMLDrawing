@@ -12,6 +12,7 @@ import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
+import { Scale } from "./Scale";
 import { Shape } from "./Shape";
 
 export class ActuatingSystemComponent {
@@ -34,6 +35,7 @@ export class ActuatingSystemComponent {
     extent: Extent[];
     genericAttributes: GenericAttributes[];
     association: Association[];
+    scale: Scale[];
 
     constructor(element: Element) {
         this.element = element;
@@ -49,6 +51,7 @@ export class ActuatingSystemComponent {
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.association = getElements(element, "Association", Association);
+        this.scale = getElements(element, "Scale", Scale);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

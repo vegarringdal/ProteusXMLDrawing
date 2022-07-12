@@ -5,6 +5,7 @@ import { StringAttribute } from "../utils/StringAttribute";
 import { Association } from "./Association";
 import { CenterLine } from "./CenterLine";
 import { Circle } from "./Circle";
+import { Connection } from "./Connection";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
@@ -34,6 +35,7 @@ export class InformationFlow {
     extent: Extent[];
     genericAttributes: GenericAttributes[];
     association: Association[];
+    connection: Connection[];
 
     constructor(element: Element) {
         this.element = element;
@@ -49,6 +51,8 @@ export class InformationFlow {
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.association = getElements(element, "Association", Association);
+        this.connection = getElements(element, "Connection", Connection);
+        
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

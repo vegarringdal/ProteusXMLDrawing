@@ -4,12 +4,15 @@ import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Circle } from "./Circle";
+import { ConnectionPoints } from "./ConnectionPoints";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
+import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
+import { Text } from "./Text";
 
 /**
  * This represents the point at which there is a change in specification of the piping.
@@ -42,6 +45,9 @@ export class PropertyBreak {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    text: Text[];
+    connectionPoints: ConnectionPoints[];
+    genericAttributes: GenericAttributes[];
 
     constructor(element: Element) {
         this.element = element;
@@ -53,6 +59,9 @@ export class PropertyBreak {
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
+        this.text = getElements(element, "Text", Text);
+        this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
