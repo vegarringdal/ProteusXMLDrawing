@@ -38,7 +38,6 @@ export class Component {
     element: Element;
     isChild = true;
 
-    // children
     line: Line[];
     polyLine: PolyLine[];
     component: Component[];
@@ -66,7 +65,6 @@ export class Component {
     association: Association[];
     history: History[];
 
-    // attributes
     id: StringAttribute;
     tagName: StringAttribute;
     specification: StringAttribute;
@@ -80,7 +78,6 @@ export class Component {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.component = getElements(element, "Component", Component);
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
@@ -108,7 +105,6 @@ export class Component {
         this.association = getElements(element, "Association", Association);
         this.history = getElements(element, "History", History);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.tagName = new StringAttribute(element, "TagName");
         this.specification = new StringAttribute(element, "Specification");
@@ -119,7 +115,6 @@ export class Component {
         this.revision = new StringAttribute(element, "Revision");
         this.status = new StringAttribute(element, "Status");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

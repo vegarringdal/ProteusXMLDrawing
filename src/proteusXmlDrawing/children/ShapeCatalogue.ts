@@ -27,7 +27,6 @@ export class ShapeCatalogue {
     isChild = true;
     element: Element;
 
-    // children
     equipment: Equipment[];
     pipingComponent: PipingComponent[];
     processInstrument: ProcessInstrument[];
@@ -43,7 +42,6 @@ export class ShapeCatalogue {
     processInstrumentationFunction: ProcessInstrumentationFunction[];
     actuatingSystemComponent: ActuatingSystemComponent[];
 
-    // attributes
     name: StringAttribute;
     version: StringAttribute;
     units: StringAttribute;
@@ -51,7 +49,7 @@ export class ShapeCatalogue {
 
     constructor(element: Element) {
         this.element = element;
-        // children
+
         this.equipment = getElements(element, "Equipment", Equipment);
         this.pipingComponent = getElements(element, "PipingComponent", PipingComponent);
         this.nozzle = getElements(element, "Nozzle", Nozzle);
@@ -83,7 +81,6 @@ export class ShapeCatalogue {
         this.label = getElements(element, "Label", Label);
         this.pipeFlowArrow = getElements(element, "PipeFlowArrow", PipeFlowArrow);
 
-        // attributes
         this.name = new StringAttribute(element, "Name");
         this.version = new StringAttribute(element, "Version");
         this.units = new StringAttribute(element, "Units");

@@ -15,13 +15,11 @@ export class Ellipse {
     isChild = true;
     element: Element;
 
-    // children
     presentation: Presentation[];
     extent: Extent[];
     position: Position[];
     genericAttributes: GenericAttributes[];
 
-    // attributes
     primaryAxis: NumberAttribute;
     secondaryAxis: NumberAttribute;
     filled: StringAttribute;
@@ -29,18 +27,15 @@ export class Ellipse {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.position = getElements(element, "Position", Position);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
-        // attributes
         this.primaryAxis = new NumberAttribute(element, "PrimaryAxis");
         this.secondaryAxis = new NumberAttribute(element, "SecondaryAxis");
         this.filled = new StringAttribute(element, "Filled");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

@@ -11,11 +11,6 @@ export class Presentation {
     isChild = true;
     element: Element;
 
-    // children
-    // no children on this element
-
-    // attributes
-
     /**
      * Name of the layer in which the graphical elements resides.  This has no functional semantics associated with it.
      */
@@ -89,7 +84,6 @@ export class Presentation {
         this.g = new NumberAttribute(element, "G");
         this.b = new NumberAttribute(element, "B");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 }

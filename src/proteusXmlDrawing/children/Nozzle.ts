@@ -18,7 +18,6 @@ export class Nozzle {
     isChild = true;
     element: Element;
 
-    // children
     line: Line[];
     polyLine: PolyLine[];
     shape: Shape[];
@@ -26,7 +25,6 @@ export class Nozzle {
     ellipse: Ellipse[];
     position: Position[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -35,7 +33,6 @@ export class Nozzle {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.position = getElements(element, "Position", Position);
         this.circle = getElements(element, "Circle", Circle);
         this.ellipse = getElements(element, "Ellipse", Ellipse);
@@ -43,13 +40,11 @@ export class Nozzle {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

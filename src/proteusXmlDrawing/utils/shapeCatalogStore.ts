@@ -1,5 +1,3 @@
-import { ShapeCatalogue } from "../children/ShapeCatalogue";
-
 const shapeCatalogStore = new Map<string, any>();
 
 export function addToShapeCatalogStore(componentName: string, obj: any) {

@@ -13,26 +13,21 @@ export class ActuatingSystemComponent {
     isChild = true;
     element: Element;
 
-    // children
     line: Line[];
     polyLine: PolyLine[];
     shape: Shape[];
     circle: Circle[];
     ellipse: Ellipse[];
     position: Position[];
-    
 
-    // attributes
     componentClass: StringAttribute;
     id: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
 
-
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.position = getElements(element, "Position", Position);
         this.circle = getElements(element, "Circle", Circle);
         this.ellipse = getElements(element, "Ellipse", Ellipse);
@@ -40,13 +35,11 @@ export class ActuatingSystemComponent {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

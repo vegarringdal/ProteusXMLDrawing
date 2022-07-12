@@ -29,7 +29,6 @@ export class ProcessInstrument {
     isChild = true;
     element: Element;
 
-    // children
     centerLine: CenterLine[];
     component: Component<unknown, unknown, unknown>[];
     instrumentComponent: InstrumentComponent[];
@@ -50,7 +49,6 @@ export class ProcessInstrument {
     circle: Circle[];
     ellipse: Ellipse[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -59,7 +57,6 @@ export class ProcessInstrument {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.centerLine = getElements(element, "CenterLine", CenterLine);
         this.component = getElements(element, "Component", Component);
         this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
@@ -84,7 +81,6 @@ export class ProcessInstrument {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

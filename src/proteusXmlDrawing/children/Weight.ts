@@ -9,10 +9,6 @@ export class Weight {
     isChild = true;
     element: Element;
 
-    // children
-    // no children on this element
-
-    // attributes
     value: StringAttribute;
     units: StringAttribute;
 

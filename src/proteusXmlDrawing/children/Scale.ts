@@ -5,10 +5,6 @@ export class Scale {
     isChild = true;
     element: Element;
 
-    // children
-    // no children on this element
-
-    // attributes
     x: NumberAttribute;
     y: NumberAttribute;
     z: NumberAttribute;

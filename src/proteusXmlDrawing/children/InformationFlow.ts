@@ -13,7 +13,6 @@ export class InformationFlow {
     isChild = true;
     element: Element;
 
-    // children
     line: Line[];
     polyLine: PolyLine[];
     shape: Shape[];
@@ -21,7 +20,6 @@ export class InformationFlow {
     ellipse: Ellipse[];
     centerLine: CenterLine[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -30,7 +28,6 @@ export class InformationFlow {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.circle = getElements(element, "Circle", Circle);
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
@@ -38,13 +35,11 @@ export class InformationFlow {
         this.shape = getElements(element, "Shape", Shape);
         this.centerLine = getElements(element, "CenterLine", CenterLine);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

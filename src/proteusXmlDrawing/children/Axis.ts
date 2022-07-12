@@ -13,10 +13,6 @@ export class Axis {
     isChild = true;
     element: Element;
 
-    // children
-    // no children on this element
-
-    // attributes
     x: NumberAttribute;
     y: NumberAttribute;
     z: NumberAttribute;
@@ -24,15 +20,10 @@ export class Axis {
     constructor(element: Element) {
         this.element = element;
 
-        // children
-        // no children on this element
-
-        // attributes
         this.x = new NumberAttribute(element, "X");
         this.y = new NumberAttribute(element, "Y");
         this.z = new NumberAttribute(element, "Z");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 }

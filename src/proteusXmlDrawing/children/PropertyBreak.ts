@@ -29,7 +29,7 @@ import { Presentation } from "./Presentation";
 export class PropertyBreak {
     isChild = true;
     element: Element;
-    // children
+
     line: Line[];
     polyLine: PolyLine[];
     presentation: Presentation[];
@@ -38,7 +38,6 @@ export class PropertyBreak {
     circle: Circle[];
     ellipse: Ellipse[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -47,7 +46,6 @@ export class PropertyBreak {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.position = getElements(element, "Position", Position);
@@ -56,12 +54,10 @@ export class PropertyBreak {
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
-
 
         // helper to find missing part
         collectMissingParts(this.element, this);

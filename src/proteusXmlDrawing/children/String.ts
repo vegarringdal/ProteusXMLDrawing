@@ -7,10 +7,6 @@ export class String {
     isChild = true;
     element: Element;
 
-    // children
-
-    // attributes
-
     constructor(element: Element) {
         this.element = element;
         // helper to find missing part

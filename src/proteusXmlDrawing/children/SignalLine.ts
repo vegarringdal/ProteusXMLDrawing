@@ -16,7 +16,6 @@ export class SignalLine {
     isChild = true;
     element: Element;
 
-    // children
     line: Line[];
     polyLine: PolyLine[];
     signalConnectorSymbol: SignalConnectorSymbol[];
@@ -25,7 +24,6 @@ export class SignalLine {
     circle: Circle[];
     ellipse: Ellipse[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -33,11 +31,9 @@ export class SignalLine {
     revision: StringAttribute;
     status: StringAttribute;
 
-
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.signalConnectorSymbol = getElements(
             element,
             "SignalConnectorSymbol",
@@ -50,7 +46,6 @@ export class SignalLine {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

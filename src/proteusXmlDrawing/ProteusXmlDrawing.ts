@@ -16,7 +16,7 @@ export class ProteusXmlDrawing {
 
         this.plantModelElement = this.xml.getElementsByTagName("PlantModel")[0];
         this.plantModel = new PlantModel(this.plantModelElement);
-        printMissing()
+        printMissing();
     }
 
     public draw() {

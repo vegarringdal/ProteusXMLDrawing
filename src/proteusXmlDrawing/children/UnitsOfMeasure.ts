@@ -7,10 +7,8 @@ import { StringAttribute } from "../utils/StringAttribute";
 export class UnitsOfMeasure {
     isChild = true;
 
-    // children
     // no
 
-    // attributes
     element: Element;
     distance: StringAttribute;
     area: StringAttribute;
@@ -23,10 +21,8 @@ export class UnitsOfMeasure {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         // no children here
 
-        // attributes
         this.distance = new StringAttribute(element, "Distance");
         this.area = new StringAttribute(element, "Area");
         this.angle = new StringAttribute(element, "Angle");

@@ -13,13 +13,11 @@ export class Line {
     isChild = true;
     element: Element;
 
-    // children
     presentation: Presentation[];
     extent: Extent[];
     coordinate: Coordinate[];
     genericAttributes: GenericAttributes[];
 
-    // attributes
     // no attributes on this element
 
     constructor(element: Element) {
@@ -29,7 +27,6 @@ export class Line {
         this.coordinate = getElements(element, "Coordinate", Coordinate);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

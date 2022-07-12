@@ -44,7 +44,6 @@ export class PlantModel {
 
     element: Element;
 
-    // children
     plantInformation: PlantInformation[];
     extent: Extent[];
     bSplineCurve: BsplineCurve[];
@@ -74,8 +73,6 @@ export class PlantModel {
     processInstrumentationFunction: ProcessInstrumentationFunction[];
     instrumentationLoopFunction: InstrumentationLoopFunction[];
     actuatingSystem: ActuatingSystem[];
-
-    // attributes
 
     constructor(element: Element) {
         this.element = element;
@@ -115,18 +112,13 @@ export class PlantModel {
             "ProcessInstrumentationFunction",
             ProcessInstrumentationFunction
         );
-        this.actuatingSystem = getElements(
-            element,
-            "ActuatingSystem",
-            ActuatingSystem
-        );
+        this.actuatingSystem = getElements(element, "ActuatingSystem", ActuatingSystem);
 
         this.signalLine = getElements(element, "SignalLine", SignalLine);
         this.system = getElements(element, "System", System);
         this.text = getElements(element, "Text", Text);
         this.trimmedCurve = getElements(element, "TrimmedCurve", TrimmedCurve);
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

@@ -12,12 +12,9 @@ export class Drawing {
     isChild = true;
     element: Element;
 
-    // children
     drawingBorder: DrawingBorder[];
     extend: Extent[];
     label: Label[];
-
-    // attributes
 
     constructor(element: Element) {
         this.element = element;
@@ -25,7 +22,6 @@ export class Drawing {
         this.drawingBorder = getElements(element, "DrawingBorder", DrawingBorder);
         this.label = getElements(element, "Label", Label);
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

@@ -8,16 +8,11 @@ export class Material {
     isChild = true;
     element: Element;
 
-    // children
     // nome
-
-    // attributes
-    // none
 
     constructor(element: Element) {
         this.element = element;
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 }

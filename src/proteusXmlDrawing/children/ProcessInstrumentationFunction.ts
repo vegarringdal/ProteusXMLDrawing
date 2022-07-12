@@ -20,7 +20,6 @@ export class ProcessInstrumentationFunction {
     isChild = true;
     element: Element;
 
-    // children
     line: Line[];
     polyLine: PolyLine[];
     shape: Shape[];
@@ -31,7 +30,6 @@ export class ProcessInstrumentationFunction {
     actuatingFunction: ActuatingFunction[];
     informationFlow: InformationFlow[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -40,7 +38,6 @@ export class ProcessInstrumentationFunction {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.position = getElements(element, "Position", Position);
         this.circle = getElements(element, "Circle", Circle);
         this.ellipse = getElements(element, "Ellipse", Ellipse);
@@ -51,7 +48,6 @@ export class ProcessInstrumentationFunction {
         this.actuatingFunction = getElements(element, "ActuatingFunction", ActuatingFunction);
         this.informationFlow = getElements(element, "InformationFlow", InformationFlow);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

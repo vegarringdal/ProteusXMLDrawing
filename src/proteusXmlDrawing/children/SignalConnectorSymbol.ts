@@ -28,7 +28,6 @@ export class SignalConnectorSymbol {
     element: Element;
     isChild = true;
 
-    // children
     presentation: Presentation[];
     extent: Extent[];
     persistentID: PersistentID[];
@@ -49,7 +48,6 @@ export class SignalConnectorSymbol {
     history: History[];
     association: Association[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -60,7 +58,6 @@ export class SignalConnectorSymbol {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
@@ -81,7 +78,6 @@ export class SignalConnectorSymbol {
         this.history = getElements(element, "History", History);
         this.association = getElements(element, "Association", Association);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

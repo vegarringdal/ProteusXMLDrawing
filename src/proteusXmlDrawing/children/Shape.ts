@@ -13,24 +13,18 @@ export class Shape {
     isChild = true;
     element: Element;
 
-    // children
     presentation: Presentation[];
     extent: Extent[];
     coordinate: Coordinate[];
     genericAttributes: GenericAttributes[];
 
-    // attributes
-
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.coordinate = getElements(element, "Coordinate", Coordinate);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
-
-        // attributes
 
         // helper to find missing part
         collectMissingParts(this.element, this);

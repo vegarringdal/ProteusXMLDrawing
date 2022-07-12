@@ -7,15 +7,10 @@ export class PConnectionPoints {
     isChild = true;
     element: Element;
 
-    // children
-
-    // attributes
-
     constructor(element: Element) {
         this.element = element;
         // not implemented
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

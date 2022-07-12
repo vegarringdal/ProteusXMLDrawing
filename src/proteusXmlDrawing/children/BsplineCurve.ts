@@ -7,14 +7,9 @@ export class BsplineCurve {
     isChild = true;
     element: Element;
 
-    // children
-
-    // attributes
-
     constructor(element: Element) {
         this.element = element;
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

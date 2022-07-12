@@ -18,7 +18,6 @@ export class InstrumentationLoopFunction {
     isChild = true;
     element: Element;
 
-    // children
     line: Line[];
     polyLine: PolyLine[];
     signalConnectorSymbol: SignalConnectorSymbol[];
@@ -28,7 +27,6 @@ export class InstrumentationLoopFunction {
     ellipse: Ellipse[];
     informationFlow: InformationFlow[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -37,7 +35,6 @@ export class InstrumentationLoopFunction {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.signalConnectorSymbol = getElements(
             element,
             "SignalConnectorSymbol",
@@ -51,13 +48,11 @@ export class InstrumentationLoopFunction {
         this.shape = getElements(element, "Shape", Shape);
         this.informationFlow = getElements(element, "InformationFlow", InformationFlow);
 
-        // attributes -> plantItem
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

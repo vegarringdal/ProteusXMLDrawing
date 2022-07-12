@@ -11,12 +11,10 @@ export class Position {
     isChild = true;
     element: Element;
 
-    // children
     location: Location[];
     axis: Axis[];
     reference: Reference[];
 
-    // attributes
     // no attributes for this element
 
     constructor(element: Element) {
@@ -25,7 +23,6 @@ export class Position {
         this.axis = getElements(element, "Axis", Axis);
         this.reference = getElements(element, "Reference", Reference);
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 }

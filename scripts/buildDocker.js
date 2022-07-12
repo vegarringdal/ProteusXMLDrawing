@@ -6,7 +6,7 @@ const buildDocker = async () => {
     let filePath = path.resolve(process.cwd(), `./package.json`);
     const packageJson = await readFile(filePath);
     const json = JSON.parse(packageJson);
-    const imageName = "vegarringdal/dexpi"
+    const imageName = "vegarringdal/dexpi";
     logInfo(`About to build: ${imageName}:${json.version}`, "green");
 
     const err = await spawner(

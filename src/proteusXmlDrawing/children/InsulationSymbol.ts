@@ -32,7 +32,6 @@ export class InsulationSymbol {
     element: Element;
     isChild = true;
 
-    // children
     presentation: Presentation[];
     extent: Extent[];
     persistentID: PersistentID[];
@@ -53,7 +52,6 @@ export class InsulationSymbol {
     history: History[];
     association: Association[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -63,8 +61,8 @@ export class InsulationSymbol {
 
     constructor(element: Element) {
         this.element = element;
+        console.log("insulation");
 
-        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
@@ -85,7 +83,6 @@ export class InsulationSymbol {
         this.history = getElements(element, "History", History);
         this.association = getElements(element, "Association", Association);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
@@ -93,7 +90,6 @@ export class InsulationSymbol {
         this.revision = new StringAttribute(element, "Revision");
         this.status = new StringAttribute(element, "Status");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

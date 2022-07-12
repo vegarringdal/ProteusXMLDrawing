@@ -14,6 +14,7 @@ import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { collectMissingParts } from "../utils/findMissing";
 import { Text } from "./Text";
+import { TrimmedCurve } from "./TrimmedCurve";
 
 /**
  * A geometric primitive
@@ -22,7 +23,6 @@ export class Equipment {
     isChild = true;
     element: Element;
 
-    // children
     line: Line[];
     polyLine: PolyLine[];
     component: Component[];
@@ -32,25 +32,23 @@ export class Equipment {
     position: Position[];
     shape: Shape[];
     text: Text[];
+    nozzle: Nozzle[];
+    circle: Circle[];
+    ellipse: Ellipse[];
+    trimmedCurve: TrimmedCurve[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
-    nozzle: Nozzle[];
-    circle: Circle[];
-    ellipse: Ellipse[];
 
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.equipment = getElements(element, "Equipment", Equipment);
         this.nozzle = getElements(element, "Nozzle", Nozzle);
         this.component = getElements(element, "Component", Component);
 
-        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.position = getElements(element, "Position", Position);
@@ -60,14 +58,13 @@ export class Equipment {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
         this.text = getElements(element, "Text", Text);
+        this.trimmedCurve = getElements(element, "Text", TrimmedCurve);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

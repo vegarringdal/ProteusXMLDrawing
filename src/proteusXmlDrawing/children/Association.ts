@@ -13,10 +13,8 @@ export class Association {
     isChild = true;
     element: Element;
 
-    // children
     // no children
 
-    // attributes
     type: StringAttribute;
     itemID: StringAttribute;
     tagName: StringAttribute;
@@ -27,10 +25,8 @@ export class Association {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         // no children
 
-        // attributes
         this.type = new StringAttribute(element, "Type");
         this.itemID = new StringAttribute(element, "ItemID");
         this.tagName = new StringAttribute(element, "TagName");
@@ -38,7 +34,6 @@ export class Association {
         this.uri = new StringAttribute(element, "URI");
         this.context = new StringAttribute(element, "Context");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 }

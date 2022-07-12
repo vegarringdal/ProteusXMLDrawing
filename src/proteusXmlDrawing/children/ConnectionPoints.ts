@@ -13,14 +13,9 @@ export class ConnectionPoints {
     isChild = true;
     element: Element;
 
-    // children
-
-    // attributes
-
     constructor(element: Element) {
         this.element = element;
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 
@@ -30,7 +25,5 @@ export class ConnectionPoints {
      * @param pageOriginX
      * @param pageOriginY
      */
-    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
-
-    }
+    public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {}
 }

@@ -23,7 +23,6 @@ export class PipeConnectorSymbol {
     isChild = true;
     element: Element;
 
-    // children
     line: Line[];
     polyLine: PolyLine[];
     presentation: Presentation[];
@@ -33,7 +32,6 @@ export class PipeConnectorSymbol {
     ellipse: Ellipse[];
     text: Text[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -42,7 +40,6 @@ export class PipeConnectorSymbol {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.position = getElements(element, "Position", Position);
@@ -52,13 +49,11 @@ export class PipeConnectorSymbol {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.text = getElements(element, "Text", Text);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

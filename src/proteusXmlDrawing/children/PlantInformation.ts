@@ -12,10 +12,8 @@ export class PlantInformation {
     isChild = true;
     element: Element;
 
-    // children
     unitsOfMeasure: UnitsOfMeasure[];
 
-    // attributes
     schemaVersion: StringAttribute;
     originatingSystem: StringAttribute;
     modelName: StringAttribute;
@@ -32,10 +30,8 @@ export class PlantInformation {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.unitsOfMeasure = getElements(element, "UnitsOfMeasure", UnitsOfMeasure);
 
-        // attributes
         this.schemaVersion = new StringAttribute(element, "SchemaVersion");
         this.originatingSystem = new StringAttribute(element, "OriginatingSystem");
         this.modelName = new StringAttribute(element, "ModelName");
@@ -49,7 +45,6 @@ export class PlantInformation {
         this.units = new StringAttribute(element, "Units");
         this.discipline = new StringAttribute(element, "Discipline");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 }

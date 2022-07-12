@@ -11,11 +11,9 @@ export class Extent {
     isChild = true;
     element: Element;
 
-    // children
     max: Max[];
     min: Min[];
 
-    // attributes
     // no attributes for this element
 
     constructor(element: Element) {
@@ -24,7 +22,6 @@ export class Extent {
         this.min = getElements(element, "Min", Min);
         this.max = getElements(element, "Max", Max);
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 }

@@ -23,7 +23,6 @@ export class PipingNetworkSystem {
     isChild = true;
     element: Element;
 
-    // children
     line: Line[];
     polyLine: PolyLine[];
     pipingNetworkSegment: unknown[];
@@ -31,7 +30,6 @@ export class PipingNetworkSystem {
     circle: Circle[];
     ellipse: Ellipse[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -40,7 +38,6 @@ export class PipingNetworkSystem {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.pipingNetworkSegment = getElements(
             element,
             "PipingNetworkSegment",
@@ -52,13 +49,11 @@ export class PipingNetworkSystem {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

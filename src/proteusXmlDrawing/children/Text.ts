@@ -16,14 +16,12 @@ export class Text {
     element: Element;
     isChild = true;
 
-    // children
     presentation: Presentation[];
     extent: Extent[];
     position: Position[];
     strings: String[];
     genericAttributes: GenericAttributes[];
 
-    // attributes
     numLines: NumberAttribute;
     string: StringAttribute;
     font: StringAttribute;
@@ -39,14 +37,12 @@ export class Text {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.position = getElements(element, "Position", Position);
         this.strings = getElements(element, "String", String);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
-        // attributes
         this.numLines = new NumberAttribute(element, "NumLines");
         this.string = new StringAttribute(element, "String");
         this.font = new StringAttribute(element, "Font");
@@ -86,7 +82,7 @@ export class Text {
         // todo, I need to adjust text, but looks like PDF and SVG does not render the same..
         // need to render more before and adjustments, also have no rotation made
 
-        text.bounds.y = text.bounds.y + height/ 4;
+        text.bounds.y = text.bounds.y + height / 4;
 
         switch (this.justification.value) {
             case "LeftTop":

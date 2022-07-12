@@ -22,7 +22,6 @@ export class DrawingBorder {
     isChild = true;
     element: Element;
 
-    // children
     presentation: Presentation[];
     extent: Extent[];
     bsplineCurve: BsplineCurve[];
@@ -36,14 +35,12 @@ export class DrawingBorder {
     text: Text[];
     genericAttributes: GenericAttributes[];
 
-    // attributes
     name: StringAttribute;
     size: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.bsplineCurve = getElements(element, "BsplineCurve", BsplineCurve);
@@ -57,11 +54,9 @@ export class DrawingBorder {
         this.text = getElements(element, "Text", Text);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
-        // attributes
         this.name = new StringAttribute(element, "Name");
         this.size = new StringAttribute(element, "Size");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

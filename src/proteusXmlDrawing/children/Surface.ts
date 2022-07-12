@@ -7,10 +7,6 @@ export class Surface {
     isChild = true;
     element: Element;
 
-    // children
-
-    // attributes
-
     constructor(element: Element) {
         this.element = element;
         // not implemented

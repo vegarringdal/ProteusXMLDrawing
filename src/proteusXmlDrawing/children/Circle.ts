@@ -16,30 +16,25 @@ export class Circle {
     isChild = true;
     element: Element;
 
-    // children
     presentation: Presentation[];
     extent: Extent[];
     position: Position[];
     genericAttributes: GenericAttributes[];
 
-    // attributes
     radius: NumberAttribute;
     filled: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.position = getElements(element, "Position", Position);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
-        // attributes
         this.radius = new NumberAttribute(element, "Radius");
         this.filled = new StringAttribute(element, "Filled");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

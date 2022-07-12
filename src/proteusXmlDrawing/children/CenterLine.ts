@@ -14,13 +14,11 @@ export class CenterLine {
     isChild = true;
     element: Element;
 
-    // children
     presentation: Presentation[];
     extent: Extent[];
     coordinate: Coordinate[];
     genericAttributes: GenericAttributes[];
 
-    // attributes
     id: StringAttribute;
 
     constructor(element: Element) {
@@ -33,7 +31,6 @@ export class CenterLine {
         //attributes
         this.id = new StringAttribute(element, "ID");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 

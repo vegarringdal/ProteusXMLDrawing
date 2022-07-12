@@ -5,10 +5,6 @@ export class Max {
     isChild = true;
     element: Element;
 
-    // children
-    // no children on this element
-
-    // attributes
     x: NumberAttribute;
     y: NumberAttribute;
     z: NumberAttribute;
@@ -19,7 +15,6 @@ export class Max {
         this.y = new NumberAttribute(element, "Y");
         this.z = new NumberAttribute(element, "Z");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 }

@@ -19,7 +19,6 @@ export class InstrumentComponent {
     isChild = true;
     element: Element;
 
-    // children
     instrumentComponent: InstrumentComponent[];
     component: Component<unknown, unknown, unknown>[];
     line: Line[];
@@ -30,7 +29,6 @@ export class InstrumentComponent {
     circle: Circle[];
     ellipse: Ellipse[];
 
-    // attributes
     id: StringAttribute;
     componentClass: StringAttribute;
     componentName: StringAttribute;
@@ -39,7 +37,6 @@ export class InstrumentComponent {
     constructor(element: Element) {
         this.element = element;
 
-        // children
         this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
         this.component = getElements(element, "Component", Component);
         this.presentation = getElements(element, "Presentation", Presentation);
@@ -50,13 +47,11 @@ export class InstrumentComponent {
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
 
-        // attributes
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
 
-        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 
