@@ -4,8 +4,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * A textual description of an item
  */
 export class Description {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
     // no children

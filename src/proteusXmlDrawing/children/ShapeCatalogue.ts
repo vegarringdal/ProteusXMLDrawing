@@ -24,30 +24,30 @@ import { SignalConnectorSymbol } from "./SignalConnectorSymbol";
  * See Scale for how to scale symbols when drawn.  See Position for how to rotate a symbol.
  */
 export class ShapeCatalogue {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly equipment: Equipment[];
-    public readonly pipingComponent: PipingComponent[];
-    public readonly processInstrument: ProcessInstrument[];
-    public readonly instrumentComponent: InstrumentComponent[];
-    public readonly pipeConnectorSymbol: PipeConnectorSymbol[];
-    public readonly signalConnectorSymbol: SignalConnectorSymbol[];
-    public readonly insulationSymbol: InsulationSymbol[];
-    public readonly propertyBreak: PropertyBreak[];
-    public readonly label: Label[];
-    public readonly pipeFlowArrow: PipeFlowArrow[];
-    public readonly component: Component[];
-    public readonly nozzle: Nozzle[];
-    public readonly processInstrumentationFunction: ProcessInstrumentationFunction[];
-    public readonly actuatingSystemComponent: ActuatingSystemComponent[];
+    equipment: Equipment[];
+    pipingComponent: PipingComponent[];
+    processInstrument: ProcessInstrument[];
+    instrumentComponent: InstrumentComponent[];
+    pipeConnectorSymbol: PipeConnectorSymbol[];
+    signalConnectorSymbol: SignalConnectorSymbol[];
+    insulationSymbol: InsulationSymbol[];
+    propertyBreak: PropertyBreak[];
+    label: Label[];
+    pipeFlowArrow: PipeFlowArrow[];
+    component: Component[];
+    nozzle: Nozzle[];
+    processInstrumentationFunction: ProcessInstrumentationFunction[];
+    actuatingSystemComponent: ActuatingSystemComponent[];
 
     // attributes
-    public readonly name: StringAttribute;
-    public readonly version: StringAttribute;
-    public readonly units: StringAttribute;
-    public readonly date: StringAttribute;
+    name: StringAttribute;
+    version: StringAttribute;
+    units: StringAttribute;
+    date: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
@@ -103,6 +103,7 @@ export class ShapeCatalogue {
                 });
             }
         });
+
         // helper to find missing part
         collectMissingParts(this.element, this);
     }

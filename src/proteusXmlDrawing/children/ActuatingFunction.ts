@@ -1,6 +1,7 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
+import { StringAttribute } from "../utils/StringAttribute";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { Line } from "./Line";
@@ -8,61 +9,37 @@ import { PolyLine } from "./PolyLine";
 import { Shape } from "./Shape";
 
 export class ActuatingFunction {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly line: Line[];
-    public readonly polyLine: PolyLine[];
-    public readonly shape: Shape[];
-    public readonly circle: Circle[];
-    public readonly ellipse: Ellipse[];
+    line: Line[];
+    polyLine: PolyLine[];
+    shape: Shape[];
+    circle: Circle[];
+    ellipse: Ellipse[];
 
     // attributes
+    id: StringAttribute;
+    componentClass: StringAttribute;
+    componentName: StringAttribute;
+    componentType: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
 
-        // children plantItem **********TODO:***********
-        // Presentation
-        // Extent
-        // PersistentID
-        // Extent
-        // Position
-        // Scale
-        // Surface
+        // children
         this.circle = getElements(element, "Circle", Circle);
-        // CompositeCurve
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
-        // TrimmedCurve
-        // BsplineCurve
-        // ConnectionPoints
-        // PConnectionPoints
-        // Identifier
-        // Description
-        // Weight
-        // Material
-        // MaterialDescription
-        // ModelNumber
-        // Supplier
-        // Manufacturer
-        // GenericAttributes
-        // Association
-        // History
-        //
-        // attributes plantItem **********TODO:***********
-        // ID
-        // TagName
-        // Specification
-        // StockNumber
-        // ComponentClass
-        // ComponentName
-        // ComponentType
-        // Revision
-        // Status
+
+        // attributes
+        this.id = new StringAttribute(element, "ID");
+        this.componentClass = new StringAttribute(element, "ComponentClass");
+        this.componentName = new StringAttribute(element, "ComponentName");
+        this.componentType = new StringAttribute(element, "ComponentType");
 
         // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);

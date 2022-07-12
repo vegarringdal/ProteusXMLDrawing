@@ -6,15 +6,15 @@ import { StringAttribute } from "../utils/StringAttribute";
  * The weight of the item.
  */
 export class Weight {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
     // no children on this element
 
     // attributes
-    public readonly value: StringAttribute;
-    public readonly units: StringAttribute;
+    value: StringAttribute;
+    units: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;

@@ -8,8 +8,8 @@ import { StringAttribute } from "../utils/StringAttribute";
  * otherwise the  behaviour is undefined.
  */
 export class Presentation {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
     // no children on this element
@@ -19,12 +19,12 @@ export class Presentation {
     /**
      * Name of the layer in which the graphical elements resides.  This has no functional semantics associated with it.
      */
-    public readonly layer: StringAttribute;
+    layer: StringAttribute;
 
     /**
      * A lookup in a color index.  This isn’t used by AVEVA software.
      */
-    public readonly color: StringAttribute;
+    color: StringAttribute;
 
     /**
      * One of the numbers or names from the following (Object Model document v2.2) :-
@@ -37,7 +37,7 @@ export class Presentation {
      * 6 Long Dash + Short Dash + Short Dash
      * 7 Dash + Short Dash
      */
-    public readonly lineType: StringAttribute;
+    lineType: StringAttribute;
 
     /**
      * TODO, this will need more work
@@ -52,22 +52,22 @@ export class Presentation {
      *  <space> is a space character (&#20;)
      *
      */
-    public readonly lineWeight: NumberAttribute;
+    lineWeight: NumberAttribute;
 
     /**
      * 0 to 1 (double) 1 = maximum intensity of Red component.
      */
-    public readonly r: NumberAttribute;
+    r: NumberAttribute;
 
     /**
      * 0 to 1 (double) 1 = maximum intensity of Green component.
      */
-    public readonly g: NumberAttribute;
+    g: NumberAttribute;
 
     /**
      * 0 to 1 (double) 1 = maximum intensity of blue component
      */
-    public readonly b: NumberAttribute;
+    b: NumberAttribute;
 
     /**
      * constructor

@@ -5,8 +5,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * sample: <ModelNumber>A485798347-BjiOM-9347</ModelNumber>
  */
 export class ModelNumber {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
     // nome

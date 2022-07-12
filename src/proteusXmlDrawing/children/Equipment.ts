@@ -19,86 +19,53 @@ import { Text } from "./Text";
  * A geometric primitive
  */
 export class Equipment {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly line: Line[];
-    public readonly polyLine: PolyLine[];
-    public readonly component: Component[];
-    public readonly equipment: Equipment[];
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly position: Position[];
-    public readonly shape: Shape[];
-    public readonly text: Text[];
+    line: Line[];
+    polyLine: PolyLine[];
+    component: Component[];
+    equipment: Equipment[];
+    presentation: Presentation[];
+    extent: Extent[];
+    position: Position[];
+    shape: Shape[];
+    text: Text[];
 
     // attributes
-    public readonly id: StringAttribute;
-    public readonly componentClass: StringAttribute;
-    public readonly componentName: StringAttribute;
-    public readonly componentType: StringAttribute;
-    public readonly nozzle: Nozzle[];
-    public readonly circle: Circle[];
-    public readonly ellipse: Ellipse[];
+    id: StringAttribute;
+    componentClass: StringAttribute;
+    componentName: StringAttribute;
+    componentType: StringAttribute;
+    nozzle: Nozzle[];
+    circle: Circle[];
+    ellipse: Ellipse[];
 
     constructor(element: Element) {
         this.element = element;
 
         // children
-        // Discipline
-        // MinimumDesignPressure
-        // MinimumDesignPressure
-        // MinimumDesignTemperature
-        // MaximumDesignTemperature
         this.equipment = getElements(element, "Equipment", Equipment);
         this.nozzle = getElements(element, "Nozzle", Nozzle);
         this.component = getElements(element, "Component", Component);
 
-        // children -> plantItem
+        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
-        // PersistentID
         this.position = getElements(element, "Position", Position);
-        // Scale
-        // Surface
         this.circle = getElements(element, "Circle", Circle);
-        // CompositeCurve
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
         this.text = getElements(element, "Text", Text);
-        // TrimmedCurve
-        // BsplineCurve
-        // ConnectionPoints
-        // PConnectionPoints
-        // Identifier
-        // Description
-        // Weight
-        // Material
-        // MaterialDescription
-        // ModelNumber
-        // Supplier
-        // Manufacturer
-        // GenericAttributes
-        // Association
-        // History
 
         // attributes
-        // ProcessArea
-        // Purpose
-
-        // attributes -> plantItem
         this.id = new StringAttribute(element, "ID");
-        // TagName
-        // Specification
-        // StockNumber
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
-        // Revision
-        // Status
 
         // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);

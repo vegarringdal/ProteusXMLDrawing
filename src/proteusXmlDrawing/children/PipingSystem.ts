@@ -4,8 +4,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * TODO: SPEC missing details
  */
 export class PipingSystem {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
 

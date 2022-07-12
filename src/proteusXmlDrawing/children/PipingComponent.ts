@@ -22,89 +22,50 @@ import { collectMissingParts } from "../utils/findMissing";
  *
  */
 export class PipingComponent {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly line: Line[];
-    public readonly polyLine: PolyLine[];
-    public readonly pipingComponent: PipingComponent[];
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly position: Position[];
-    public readonly component: Component[];
-    public readonly shape: Shape[];
-    public readonly circle: Circle[];
-    public readonly ellipse: Ellipse[];
-    public readonly text: Text[];
+    line: Line[];
+    polyLine: PolyLine[];
+    pipingComponent: PipingComponent[];
+    presentation: Presentation[];
+    extent: Extent[];
+    position: Position[];
+    component: Component[];
+    shape: Shape[];
+    circle: Circle[];
+    ellipse: Ellipse[];
+    text: Text[];
 
     // attributes
-    public readonly id: StringAttribute;
-    public readonly componentClass: StringAttribute;
-    public readonly componentName: StringAttribute;
-    public readonly componentType: StringAttribute;
+    id: StringAttribute;
+    componentClass: StringAttribute;
+    componentName: StringAttribute;
+    componentType: StringAttribute;
 
 
     constructor(element: Element) {
         this.element = element;
-        // will only start with geometry elements
-        // children **********TODO:***********
+
+        // children
         this.pipingComponent = getElements(element, "PipingComponent", PipingComponent);
-        // ConnectionType
-        // NominalDiameter
-        // InsideDiameter
-        // OutsideDiameter
-        // OperatorType
-        // WallThickness
-        // FabricationCategory
         this.component = getElements(element, "Component", Component);
-        //
-        // children plantItem **********TODO:***********
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
-        // PersistentID
         this.position = getElements(element, "Position", Position);
-        // Scale
-        // Surface
         this.circle = getElements(element, "Circle", Circle);
-        // CompositeCurve
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.text = getElements(element, "Text", Text);
         this.shape = getElements(element, "Shape", Shape);
-        // TrimmedCurve
-        // BsplineCurve
-        // ConnectionPoints
-        // PConnectionPoints
-        // Identifier
-        // Description
-        // Weight
-        // Material
-        // MaterialDescription
-        // ModelNumber
-        // Supplier
-        // Manufacturer
-        // GenericAttributes
-        // Association
-        // History
-        //
-        // attributes  **********TODO:***********
-        // ConnectionType
-        // Rating
-        // Standard
-        // ISOSymbol
-        //
-        // attributes plantItem **********TODO:***********
+
+        // attributes
         this.id = new StringAttribute(element, "ID");
-        // TagName
-        // Specification
-        // StockNumber
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
-        // Revision
-        // Status
 
         // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);

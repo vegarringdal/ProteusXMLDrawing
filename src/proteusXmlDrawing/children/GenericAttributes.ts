@@ -5,8 +5,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * These properties may be grouped into many GenericAttributes elements.
  */
 export class GenericAttributes {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
 

@@ -1,9 +1,9 @@
 export class StringAttribute {
-    public readonly element: Element;
-    public readonly name: string;
-    public readonly isAttribute: boolean;
-    public readonly type: string;
-    public readonly value: string;
+    element: Element;
+    name: string;
+    isAttribute: boolean;
+    type: string;
+    value: string;
 
     constructor(element: Element, attributeName: string) {
         this.element = element;

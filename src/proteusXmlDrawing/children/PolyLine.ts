@@ -10,26 +10,27 @@ import { Presentation } from "./Presentation";
  * A geometric primitive
  */
 export class PolyLine {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly coordinate: Coordinate[];
-    public readonly genericAttributes: GenericAttributes[];
+    presentation: Presentation[];
+    extent: Extent[];
+    coordinate: Coordinate[];
+    genericAttributes: GenericAttributes[];
 
     // attributes
 
     constructor(element: Element) {
         this.element = element;
+
+        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.coordinate = getElements(element, "Coordinate", Coordinate);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
-        // TODO attributes
-        // NumPoints
+        // attributes
 
         // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);

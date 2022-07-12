@@ -17,35 +17,32 @@ import { Text } from "./Text";
  * dunno, assume plant item
  */
 export class ProcessInstrumentationFunction {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly line: Line[];
-    public readonly polyLine: PolyLine[];
-    public readonly shape: Shape[];
-    public readonly circle: Circle[];
-    public readonly ellipse: Ellipse[];
-    public readonly text: Text[];
-    public readonly position: Position[];
-    public readonly actuatingFunction: ActuatingFunction[];
-    public readonly informationFlow: InformationFlow[];
+    line: Line[];
+    polyLine: PolyLine[];
+    shape: Shape[];
+    circle: Circle[];
+    ellipse: Ellipse[];
+    text: Text[];
+    position: Position[];
+    actuatingFunction: ActuatingFunction[];
+    informationFlow: InformationFlow[];
 
     // attributes
-    public readonly id: StringAttribute;
-    public readonly componentClass: StringAttribute;
-    public readonly componentName: StringAttribute;
-    public readonly componentType: StringAttribute;
-
+    id: StringAttribute;
+    componentClass: StringAttribute;
+    componentName: StringAttribute;
+    componentType: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
 
+        // children
         this.position = getElements(element, "Position", Position);
-        // Scale
-        // Surface
         this.circle = getElements(element, "Circle", Circle);
-        // CompositeCurve
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
@@ -53,35 +50,13 @@ export class ProcessInstrumentationFunction {
         this.text = getElements(element, "Text", Text);
         this.actuatingFunction = getElements(element, "ActuatingFunction", ActuatingFunction);
         this.informationFlow = getElements(element, "InformationFlow", InformationFlow);
-        
-        // TrimmedCurve
-        // BsplineCurve
-        // ConnectionPoints
-        // PConnectionPoints
-        // Identifier
-        // Description
-        // Weight
-        // Material
-        // MaterialDescription
-        // ModelNumber
-        // Supplier
-        // Manufacturer
-        // GenericAttributes
-        // Association
-        // History
-        //
-        // attributes plantItem **********TODO:***********
+
+        // attributes
         this.id = new StringAttribute(element, "ID");
-        // TagName
-        // Specification
-        // StockNumber
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
-        // ComponentName
-        // ComponentType
-        // Revision
-        // Status
+
         // helper to find missing part
         collectMissingParts(this.element, this);
     }

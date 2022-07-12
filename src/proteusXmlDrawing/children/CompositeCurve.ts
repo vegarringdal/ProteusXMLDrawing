@@ -4,8 +4,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * A composite geometry
  */
 export class CompositeCurve {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
 

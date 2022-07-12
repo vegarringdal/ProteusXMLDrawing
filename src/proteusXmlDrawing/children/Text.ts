@@ -13,28 +13,28 @@ import { String } from "./String";
  * Label primitives
  */
 export class Text {
-    public readonly element: Element;
-    public readonly isChild = true;
+    element: Element;
+    isChild = true;
 
     // children
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly position: Position[];
-    public readonly strings: String[];
-    public readonly genericAttributes: GenericAttributes[];
+    presentation: Presentation[];
+    extent: Extent[];
+    position: Position[];
+    strings: String[];
+    genericAttributes: GenericAttributes[];
 
     // attributes
-    public readonly numLines: NumberAttribute;
-    public readonly string: StringAttribute;
-    public readonly font: StringAttribute;
-    public readonly justification: StringAttribute;
-    public readonly width: NumberAttribute;
-    public readonly height: NumberAttribute;
-    public readonly textAngle: NumberAttribute;
-    public readonly slantAngle: NumberAttribute;
-    public readonly itemID: StringAttribute;
-    public readonly set: StringAttribute;
-    public readonly dependantAttribute: StringAttribute;
+    numLines: NumberAttribute;
+    string: StringAttribute;
+    font: StringAttribute;
+    justification: StringAttribute;
+    width: NumberAttribute;
+    height: NumberAttribute;
+    textAngle: NumberAttribute;
+    slantAngle: NumberAttribute;
+    itemID: StringAttribute;
+    set: StringAttribute;
+    dependantAttribute: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;

@@ -35,55 +35,53 @@ import { Weight } from "./Weight";
  *
  */
 export class Component {
-    public readonly element: Element;
-    public readonly isChild = true;
+    element: Element;
+    isChild = true;
 
     // children
-    public readonly line: Line[];
-    public readonly polyLine: PolyLine[];
-    public readonly component: Component[];
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly persistentID: PersistentID[];
-    public readonly position: Position[];
-    public readonly scale: Scale[];
-    public readonly surface: Surface[];
-    public readonly circle: Circle[];
-    public readonly compositeCurve: CompositeCurve[];
-    public readonly ellipse: Ellipse[];
-    public readonly shape: Shape[];
-    public readonly trimmedCurve: TrimmedCurve[];
-    public readonly bsplineCurve: BsplineCurve[];
-    public readonly connectionPoints: ConnectionPoints[];
-    public readonly pConnectionPoints: PConnectionPoints[];
-    public readonly identifier: Identifier[];
-    public readonly description: Description[];
-    public readonly weight: Weight[];
-    public readonly material: Material[];
-    public readonly materialDescription: MaterialDescription[];
-    public readonly modelNumber: ModelNumber[];
-    public readonly genericAttributes: GenericAttributes[];
-    public readonly association: Association[];
-    public readonly history: History[];
+    line: Line[];
+    polyLine: PolyLine[];
+    component: Component[];
+    presentation: Presentation[];
+    extent: Extent[];
+    persistentID: PersistentID[];
+    position: Position[];
+    scale: Scale[];
+    surface: Surface[];
+    circle: Circle[];
+    compositeCurve: CompositeCurve[];
+    ellipse: Ellipse[];
+    shape: Shape[];
+    trimmedCurve: TrimmedCurve[];
+    bsplineCurve: BsplineCurve[];
+    connectionPoints: ConnectionPoints[];
+    pConnectionPoints: PConnectionPoints[];
+    identifier: Identifier[];
+    description: Description[];
+    weight: Weight[];
+    material: Material[];
+    materialDescription: MaterialDescription[];
+    modelNumber: ModelNumber[];
+    genericAttributes: GenericAttributes[];
+    association: Association[];
+    history: History[];
 
     // attributes
-    public readonly id: StringAttribute;
-    public readonly tagName: StringAttribute;
-    public readonly specification: StringAttribute;
-    public readonly stockNumber: StringAttribute;
-    public readonly componentClass: StringAttribute;
-    public readonly componentName: StringAttribute;
-    public readonly componentType: StringAttribute;
-    public readonly revision: StringAttribute;
-    public readonly status: StringAttribute;
+    id: StringAttribute;
+    tagName: StringAttribute;
+    specification: StringAttribute;
+    stockNumber: StringAttribute;
+    componentClass: StringAttribute;
+    componentName: StringAttribute;
+    componentType: StringAttribute;
+    revision: StringAttribute;
+    status: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
 
         // children
         this.component = getElements(element, "Component", Component);
-
-        // children plantItem
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
@@ -106,14 +104,11 @@ export class Component {
         this.material = getElements(element, "Material", Material);
         this.materialDescription = getElements(element, "MaterialDescription", MaterialDescription);
         this.modelNumber = getElements(element, "ModelNumber", ModelNumber);
-        // todo
-        // Supplier
-        // Manufacturer
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.association = getElements(element, "Association", Association);
         this.history = getElements(element, "History", History);
 
-        // attributes plantItem
+        // attributes
         this.id = new StringAttribute(element, "ID");
         this.tagName = new StringAttribute(element, "TagName");
         this.specification = new StringAttribute(element, "Specification");

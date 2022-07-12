@@ -5,20 +5,20 @@ import { StringAttribute } from "../utils/StringAttribute";
  * Defines the default units of measure for the file
  */
 export class UnitsOfMeasure {
-    public readonly isChild = true;
+    isChild = true;
 
     // children
     // no
 
     // attributes
-    public readonly element: Element;
-    public readonly distance: StringAttribute;
-    public readonly area: StringAttribute;
-    public readonly angle: StringAttribute;
-    public readonly temperature: StringAttribute;
-    public readonly pressure: StringAttribute;
-    public readonly volume: StringAttribute;
-    public readonly weight: StringAttribute;
+    element: Element;
+    distance: StringAttribute;
+    area: StringAttribute;
+    angle: StringAttribute;
+    temperature: StringAttribute;
+    pressure: StringAttribute;
+    volume: StringAttribute;
+    weight: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;

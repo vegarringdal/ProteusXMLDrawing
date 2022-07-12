@@ -4,8 +4,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * TODO
  */
 export class PConnectionPoints {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
 

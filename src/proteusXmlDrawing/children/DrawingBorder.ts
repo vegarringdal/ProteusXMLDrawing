@@ -19,26 +19,26 @@ import { collectMissingParts } from "../utils/findMissing";
  * A geometric primitive
  */
 export class DrawingBorder {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly bsplineCurve: BsplineCurve[];
-    public readonly circle: Circle[];
-    public readonly compositeCurve: CompositeCurve[];
-    public readonly line: Line[];
-    public readonly ellipse: Ellipse[];
-    public readonly polyLine: PolyLine[];
-    public readonly shape: Shape[];
-    public readonly trimmedCurve: TrimmedCurve[];
-    public readonly text: Text[];
-    public readonly genericAttributes: GenericAttributes[];
+    presentation: Presentation[];
+    extent: Extent[];
+    bsplineCurve: BsplineCurve[];
+    circle: Circle[];
+    compositeCurve: CompositeCurve[];
+    line: Line[];
+    ellipse: Ellipse[];
+    polyLine: PolyLine[];
+    shape: Shape[];
+    trimmedCurve: TrimmedCurve[];
+    text: Text[];
+    genericAttributes: GenericAttributes[];
 
     // attributes
-    public readonly name: StringAttribute;
-    public readonly size: StringAttribute;
+    name: StringAttribute;
+    size: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;

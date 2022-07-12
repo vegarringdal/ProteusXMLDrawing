@@ -1,9 +1,9 @@
 export class NumberAttribute {
-    public readonly element: Element;
-    public readonly name: string;
-    public readonly isAttribute: boolean;
-    public readonly value: number;
-    public readonly type: string;
+    element: Element;
+    name: string;
+    isAttribute: boolean;
+    value: number;
+    type: string;
 
     constructor(element: Element, attributeName: string) {
         this.element = element;

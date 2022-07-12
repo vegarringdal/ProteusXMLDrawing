@@ -11,17 +11,17 @@ import { Presentation } from "./Presentation";
  * A geometric primitive
  */
 export class CenterLine {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly coordinate: Coordinate[];
-    public readonly genericAttributes: GenericAttributes[];
+    presentation: Presentation[];
+    extent: Extent[];
+    coordinate: Coordinate[];
+    genericAttributes: GenericAttributes[];
 
     // attributes
-    public readonly id: StringAttribute;
+    id: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
@@ -30,8 +30,7 @@ export class CenterLine {
         this.coordinate = getElements(element, "Coordinate", Coordinate);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
-        // TODO attributes
-        // NumPoints
+        //attributes
         this.id = new StringAttribute(element, "ID");
 
         // helper to find missing part   // helper to find missing part

@@ -4,8 +4,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * TODO
  */
 export class Surface {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
 

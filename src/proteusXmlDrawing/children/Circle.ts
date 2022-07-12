@@ -13,18 +13,18 @@ import { Presentation } from "./Presentation";
  * A geometric primitive
  */
 export class Circle {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly position: Position[];
-    public readonly genericAttributes: GenericAttributes[];
+    presentation: Presentation[];
+    extent: Extent[];
+    position: Position[];
+    genericAttributes: GenericAttributes[];
 
     // attributes
-    public readonly radius: NumberAttribute;
-    public readonly filled: StringAttribute;
+    radius: NumberAttribute;
+    filled: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;

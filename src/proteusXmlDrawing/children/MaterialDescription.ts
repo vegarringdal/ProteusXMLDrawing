@@ -5,8 +5,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * sample: <MaterialDescription>Some descriptive text</MaterialDescription>
  */
 export class MaterialDescription {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
     // nome

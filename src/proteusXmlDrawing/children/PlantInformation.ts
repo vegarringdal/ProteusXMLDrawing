@@ -9,25 +9,25 @@ import { UnitsOfMeasure } from "./UnitsOfMeasure";
  * The PlantInformation element must be the first child element of a PlantModel element.
  */
 export class PlantInformation {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly unitsOfMeasure: UnitsOfMeasure[];
+    unitsOfMeasure: UnitsOfMeasure[];
 
     // attributes
-    public readonly schemaVersion: StringAttribute;
-    public readonly originatingSystem: StringAttribute;
-    public readonly modelName: StringAttribute;
-    public readonly date: StringAttribute;
-    public readonly projectName: StringAttribute;
-    public readonly projectCode: StringAttribute;
-    public readonly projectDescription: StringAttribute;
-    public readonly companyName: StringAttribute;
-    public readonly time: StringAttribute;
-    public readonly is3D: StringAttribute;
-    public readonly units: StringAttribute;
-    public readonly discipline: StringAttribute;
+    schemaVersion: StringAttribute;
+    originatingSystem: StringAttribute;
+    modelName: StringAttribute;
+    date: StringAttribute;
+    projectName: StringAttribute;
+    projectCode: StringAttribute;
+    projectDescription: StringAttribute;
+    companyName: StringAttribute;
+    time: StringAttribute;
+    is3D: StringAttribute;
+    units: StringAttribute;
+    discipline: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;

@@ -2,15 +2,15 @@ import { collectMissingParts } from "../utils/findMissing";
 import { StringAttribute } from "../utils/StringAttribute";
 
 export class PersistentID {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
     // no children on this element
 
     // attributes
-    public readonly identifier: StringAttribute;
-    public readonly context: StringAttribute;
+    identifier: StringAttribute;
+    context: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;

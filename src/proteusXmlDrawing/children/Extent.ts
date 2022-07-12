@@ -8,12 +8,12 @@ import { Min } from "./Min";
  * The Extent element must be the second child element of a PlantModel element
  */
 export class Extent {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly max: Max[];
-    public readonly min: Min[];
+    max: Max[];
+    min: Min[];
 
     // attributes
     // no attributes for this element

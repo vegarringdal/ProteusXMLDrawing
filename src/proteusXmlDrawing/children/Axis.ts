@@ -10,16 +10,16 @@ import { NumberAttribute } from "../utils/NumberAttribute";
  * Inverted z axis (flip around y axis) : <Axis X="0" Y="0" Z="-1"/>
  */
 export class Axis {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
     // no children on this element
 
     // attributes
-    public readonly x: NumberAttribute;
-    public readonly y: NumberAttribute;
-    public readonly z: NumberAttribute;
+    x: NumberAttribute;
+    y: NumberAttribute;
+    z: NumberAttribute;
 
     constructor(element: Element) {
         this.element = element;

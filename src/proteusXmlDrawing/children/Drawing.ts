@@ -9,13 +9,13 @@ import { Label } from "./Label";
  * Metadata and graphical annotation related to the P&ID drawing being represented
  */
 export class Drawing {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly drawingBorder: DrawingBorder[];
-    public readonly extend: Extent[];
-    public readonly label: Label[];
+    drawingBorder: DrawingBorder[];
+    extend: Extent[];
+    label: Label[];
 
     // attributes
 

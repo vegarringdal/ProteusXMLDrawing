@@ -39,41 +39,41 @@ import { ActuatingSystem } from "./ActuatingSystem";
  * While a Position element may be provided is has no attached semantics and is often defaulted to 0,0,0.
  */
 export class PlantModel {
-    public readonly isRoot = true;
-    public readonly isChild = true;
+    isRoot = true;
+    isChild = true;
 
-    public readonly element: Element;
+    element: Element;
 
     // children
-    public readonly plantInformation: PlantInformation[];
-    public readonly extent: Extent[];
-    public readonly bSplineCurve: BsplineCurve[];
-    public readonly circle: Circle[];
-    public readonly compositeCurve: CompositeCurve[];
-    public readonly drawing: Drawing[];
-    public readonly ellipse: Ellipse[];
-    public readonly equipment: Equipment[];
-    public readonly genericAttributes: GenericAttributes[];
-    public readonly instrumentComponent: InstrumentComponent[];
-    public readonly instrumentLoop: InstrumentLoop[];
-    public readonly line: Line[];
-    public readonly pipingNetworkSystem: PipingNetworkSystem[];
-    public readonly pipingSystem: PipingSystem[];
-    public readonly plantArea: PlantArea[];
-    public readonly polyLine: PolyLine[];
-    public readonly position: Position[];
-    public readonly presentation: Presentation[];
-    public readonly processInstrument: ProcessInstrument[];
-    public readonly shape: Shape[];
-    public readonly shapeCatalogue: ShapeCatalogue[];
-    public readonly signalConnectorSymbol: SignalConnectorSymbol[];
-    public readonly signalLine: SignalLine[];
-    public readonly system: System[];
-    public readonly text: Text[];
-    public readonly trimmedCurve: TrimmedCurve[];
-    public readonly processInstrumentationFunction: ProcessInstrumentationFunction[];
-    public readonly instrumentationLoopFunction: InstrumentationLoopFunction[];
-    public readonly actuatingSystem: ActuatingSystem[];
+    plantInformation: PlantInformation[];
+    extent: Extent[];
+    bSplineCurve: BsplineCurve[];
+    circle: Circle[];
+    compositeCurve: CompositeCurve[];
+    drawing: Drawing[];
+    ellipse: Ellipse[];
+    equipment: Equipment[];
+    genericAttributes: GenericAttributes[];
+    instrumentComponent: InstrumentComponent[];
+    instrumentLoop: InstrumentLoop[];
+    line: Line[];
+    pipingNetworkSystem: PipingNetworkSystem[];
+    pipingSystem: PipingSystem[];
+    plantArea: PlantArea[];
+    polyLine: PolyLine[];
+    position: Position[];
+    presentation: Presentation[];
+    processInstrument: ProcessInstrument[];
+    shape: Shape[];
+    shapeCatalogue: ShapeCatalogue[];
+    signalConnectorSymbol: SignalConnectorSymbol[];
+    signalLine: SignalLine[];
+    system: System[];
+    text: Text[];
+    trimmedCurve: TrimmedCurve[];
+    processInstrumentationFunction: ProcessInstrumentationFunction[];
+    instrumentationLoopFunction: InstrumentationLoopFunction[];
+    actuatingSystem: ActuatingSystem[];
 
     // attributes
 

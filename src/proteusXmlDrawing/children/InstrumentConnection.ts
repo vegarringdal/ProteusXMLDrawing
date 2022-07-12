@@ -2,6 +2,7 @@ import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
+import { StringAttribute } from "../utils/StringAttribute";
 import { CenterLine } from "./CenterLine";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
@@ -20,61 +21,39 @@ import { Shape } from "./Shape";
  See ‘PlantItem’ for the definitions of the inherited contents.
  */
 export class InstrumentConnection {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly line: Line[];
-    public readonly polyLine: PolyLine[];
-    public readonly shape: Shape[];
-    public readonly circle: Circle[];
-    public readonly ellipse: Ellipse[];
+    line: Line[];
+    polyLine: PolyLine[];
+    shape: Shape[];
+    circle: Circle[];
+    ellipse: Ellipse[];
+  
 
     // attributes
+    id: StringAttribute;
+    componentClass: StringAttribute;
+    componentName: StringAttribute;
+    componentType: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
 
         // children -> plantItem
-        // Presentation
-        // Extent
-        // PersistentID
-        // Extent
-        // Position
-        // Scale
-        // Surface
         this.circle = getElements(element, "Circle", Circle);
-        // CompositeCurve
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
-        // TrimmedCurve
-        // BsplineCurve
-        // ConnectionPoints
-        // PConnectionPoints
-        // Identifier
-        // Description
-        // Weight
-        // Material
-        // MaterialDescription
-        // ModelNumber
-        // Supplier
-        // Manufacturer
-        // GenericAttributes
-        // Association
-        // History
 
-        // attributes -> plantItem
-        // ID
-        // TagName
-        // Specification
-        // StockNumber
-        // ComponentClass
-        // ComponentName
-        // ComponentType
-        // Revision
-        // Status
+
+        // attributes
+        this.id = new StringAttribute(element, "ID");
+        this.componentClass = new StringAttribute(element, "ComponentClass");
+        this.componentName = new StringAttribute(element, "ComponentName");
+        this.componentType = new StringAttribute(element, "ComponentType");
 
         // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);

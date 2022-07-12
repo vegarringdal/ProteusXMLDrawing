@@ -4,8 +4,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * A geometric primitive
  */
 export class TrimmedCurve {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
 

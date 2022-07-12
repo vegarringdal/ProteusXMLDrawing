@@ -8,13 +8,13 @@ import { collectMissingParts } from "../utils/findMissing";
  * Usually defaulted to 0,0,0 if output.
  */
 export class Position {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly location: Location[];
-    public readonly axis: Axis[];
-    public readonly reference: Reference[];
+    location: Location[];
+    axis: Axis[];
+    reference: Reference[];
 
     // attributes
     // no attributes for this element

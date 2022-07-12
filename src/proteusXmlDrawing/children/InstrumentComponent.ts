@@ -16,82 +16,45 @@ import { Presentation } from "./Presentation";
  * An offline instrument
  */
 export class InstrumentComponent {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly instrumentComponent: InstrumentComponent[];
-    public readonly component: Component<unknown, unknown, unknown>[];
-    public readonly line: Line[];
-    public readonly polyLine: PolyLine[];
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly position: Position[];
-    public readonly circle: Circle[];
-    public readonly ellipse: Ellipse[];
+    instrumentComponent: InstrumentComponent[];
+    component: Component<unknown, unknown, unknown>[];
+    line: Line[];
+    polyLine: PolyLine[];
+    presentation: Presentation[];
+    extent: Extent[];
+    position: Position[];
+    circle: Circle[];
+    ellipse: Ellipse[];
 
     // attributes
-    public readonly id: StringAttribute;
-    public readonly componentClass: StringAttribute;
-    public readonly componentName: StringAttribute;
-    public readonly componentType: StringAttribute;
+    id: StringAttribute;
+    componentClass: StringAttribute;
+    componentName: StringAttribute;
+    componentType: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
 
         // children
         this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
-        // NominalDiameter
-        // InsideDiameter
-        // OutsideDiameter
-        // OperatorType
-        // WallThickness
         this.component = getElements(element, "Component", Component);
-
-        // children -> plantItem
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
-        // PersistentID
         this.position = getElements(element, "Position", Position);
-        // Position
-        // Scale
-        // Surface
         this.circle = getElements(element, "Circle", Circle);
-        // CompositeCurve
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
-        // Shape
-        // TrimmedCurve
-        // BsplineCurve
-        // ConnectionPoints
-        // PConnectionPoints
-        // Identifier
-        // Description
-        // Weight
-        // Material
-        // MaterialDescription
-        // ModelNumber
-        // Supplier
-        // Manufacturer
-        // GenericAttributes
-        // Association
-        // History
 
         // attributes
-        // ProcessArea
-        // Purpose
-
-        // attributes -> plantItem
         this.id = new StringAttribute(element, "ID");
-        // TagName
-        // Specification
-        // StockNumber
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
-        // Revision
-        // Status
 
         // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);

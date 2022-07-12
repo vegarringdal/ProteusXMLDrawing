@@ -10,19 +10,19 @@ import { StringAttribute } from "../utils/StringAttribute";
  *
  */
 export class Association {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
     // no children
 
     // attributes
-    public readonly type: StringAttribute;
-    public readonly itemID: StringAttribute;
-    public readonly tagName: StringAttribute;
-    public readonly name: StringAttribute;
-    public readonly uri: StringAttribute;
-    public readonly context: StringAttribute;
+    type: StringAttribute;
+    itemID: StringAttribute;
+    tagName: StringAttribute;
+    name: StringAttribute;
+    uri: StringAttribute;
+    context: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;

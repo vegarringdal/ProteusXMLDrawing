@@ -28,37 +28,37 @@ import { collectMissingParts } from "../utils/findMissing";
  * See ‘AnnotationItem’ for the definitions of the inherited contents.
  */
 export class Label {
-    public readonly element: Element;
-    public readonly isChild = true;
+    element: Element;
+    isChild = true;
 
     // children
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly persistentID: PersistentID[];
-    public readonly position: Position[];
-    public readonly scale: Scale[];
-    public readonly circle: Circle[];
-    public readonly compositeCurve: CompositeCurve[];
-    public readonly connectionPoints: ConnectionPoints[];
-    public readonly ellipse: Ellipse[];
-    public readonly line: Line[];
-    public readonly polyLine: PolyLine[];
-    public readonly shape: Shape[];
-    public readonly trimmedCurve: TrimmedCurve[];
-    public readonly bsplineCurve: BsplineCurve[];
-    public readonly text: Text[];
-    public readonly description: Description[];
-    public readonly genericAttributes: GenericAttributes[];
-    public readonly history: History[];
-    public readonly association: Association[];
+    presentation: Presentation[];
+    extent: Extent[];
+    persistentID: PersistentID[];
+    position: Position[];
+    scale: Scale[];
+    circle: Circle[];
+    compositeCurve: CompositeCurve[];
+    connectionPoints: ConnectionPoints[];
+    ellipse: Ellipse[];
+    line: Line[];
+    polyLine: PolyLine[];
+    shape: Shape[];
+    trimmedCurve: TrimmedCurve[];
+    bsplineCurve: BsplineCurve[];
+    text: Text[];
+    description: Description[];
+    genericAttributes: GenericAttributes[];
+    history: History[];
+    association: Association[];
 
     // attributes
-    public readonly id: StringAttribute;
-    public readonly componentClass: StringAttribute;
-    public readonly componentName: StringAttribute;
-    public readonly componentType: StringAttribute;
-    public readonly revision: StringAttribute;
-    public readonly status: StringAttribute;
+    id: StringAttribute;
+    componentClass: StringAttribute;
+    componentName: StringAttribute;
+    componentType: StringAttribute;
+    revision: StringAttribute;
+    status: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;

@@ -27,69 +27,42 @@ import { Presentation } from "./Presentation";
  *
  */
 export class PropertyBreak {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
     // children
-    public readonly line: Line[];
-    public readonly polyLine: PolyLine[];
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly position: Position[];
-    public readonly circle: Circle[];
-    public readonly ellipse: Ellipse[];
+    line: Line[];
+    polyLine: PolyLine[];
+    presentation: Presentation[];
+    extent: Extent[];
+    position: Position[];
+    circle: Circle[];
+    ellipse: Ellipse[];
 
     // attributes
-    public readonly id: StringAttribute;
-    public readonly componentClass: StringAttribute;
-    public readonly componentName: StringAttribute;
-    public readonly componentType: StringAttribute;
+    id: StringAttribute;
+    componentClass: StringAttribute;
+    componentName: StringAttribute;
+    componentType: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
-        // will only start with geometry elements
-        // children **********TODO:***********
-        // CrossPageConnection
-        //
-        // children plantItem **********TODO:***********
+
+        // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
-        // PersistentID
         this.position = getElements(element, "Position", Position);
-        // Scale
-        // Surface
         this.circle = getElements(element, "Circle", Circle);
-        // CompositeCurve
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
-        // Shape
-        // TrimmedCurve
-        // BsplineCurve
-        // ConnectionPoints
-        // PConnectionPoints
-        // Identifier
-        // Description
-        // Weight
-        // Material
-        // MaterialDescription
-        // ModelNumber
-        // Supplier
-        // Manufacturer
-        // GenericAttributes
-        // Association
-        // History
-        //
-        //
-        // attributes plantItem **********TODO:***********
+
+        // attributes
         this.id = new StringAttribute(element, "ID");
-        // TagName
-        // Specification
-        // StockNumber
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
-        // Revision
-        // Status
+
+
         // helper to find missing part
         collectMissingParts(this.element, this);
     }

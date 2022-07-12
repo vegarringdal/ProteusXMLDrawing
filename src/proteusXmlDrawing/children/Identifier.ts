@@ -4,8 +4,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * This element is used to capture the structure of an identifier such as a TagName.  Not usually used.
  */
 export class Identifier {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
 

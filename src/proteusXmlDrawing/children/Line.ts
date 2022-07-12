@@ -10,14 +10,14 @@ import { Presentation } from "./Presentation";
  * A geometric primitive
  */
 export class Line {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly coordinate: Coordinate[];
-    public readonly genericAttributes: GenericAttributes[];
+    presentation: Presentation[];
+    extent: Extent[];
+    coordinate: Coordinate[];
+    genericAttributes: GenericAttributes[];
 
     // attributes
     // no attributes on this element

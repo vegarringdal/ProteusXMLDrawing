@@ -5,8 +5,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * sample: <Material>Copper</Material>
  */
 export class Material {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
     // nome

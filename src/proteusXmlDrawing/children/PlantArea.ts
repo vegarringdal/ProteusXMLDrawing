@@ -4,8 +4,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * A place holder for Area information
  */
 export class PlantArea {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
 

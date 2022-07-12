@@ -10,8 +10,8 @@ import { collectMissingParts } from "../utils/findMissing";
  * of the ConnectionPoints element.
  */
 export class ConnectionPoints {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
 
@@ -31,17 +31,6 @@ export class ConnectionPoints {
      * @param pageOriginY
      */
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
-        // children
-        //
-        // Presentation
-        // Extent
-        // Node
-        // GenericAttributes
-        //
-        // Attributes
-        //
-        // NumPoints
-        // FlowIn
-        // FlowOut
+
     }
 }

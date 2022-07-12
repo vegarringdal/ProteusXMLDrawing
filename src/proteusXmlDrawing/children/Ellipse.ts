@@ -12,19 +12,19 @@ import { Presentation } from "./Presentation";
  * The representation of a piece of plant equipment
  */
 export class Ellipse {
-    public readonly isChild = true;
-    public readonly element: Element;
+    isChild = true;
+    element: Element;
 
     // children
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly position: Position[];
-    public readonly genericAttributes: GenericAttributes[];
+    presentation: Presentation[];
+    extent: Extent[];
+    position: Position[];
+    genericAttributes: GenericAttributes[];
 
     // attributes
-    public readonly primaryAxis: NumberAttribute;
-    public readonly secondaryAxis: NumberAttribute;
-    public readonly filled: StringAttribute;
+    primaryAxis: NumberAttribute;
+    secondaryAxis: NumberAttribute;
+    filled: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
