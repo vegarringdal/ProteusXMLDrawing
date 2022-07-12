@@ -11,6 +11,7 @@ import { Position } from "./Position";
 import { Presentation } from "./Presentation";
 import { Shape } from "./Shape";
 import { Circle } from "./Circle";
+import { Ellipse } from "./Ellipse";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -32,14 +33,13 @@ export class PipingComponent {
     public readonly component: Component[];
     public readonly shape: Shape[];
     public readonly circle: Circle[];
-    
+    public readonly ellipse: Ellipse[];
+
     // attributes
     public readonly id: StringAttribute;
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
-
-
 
     constructor(element: Element) {
         // will only start with geometry elements
@@ -63,7 +63,7 @@ export class PipingComponent {
         // Surface
         this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
-        // Ellipse
+        this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
 
@@ -111,7 +111,7 @@ export class PipingComponent {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
 
         if (this.componentName.value) {
@@ -119,7 +119,7 @@ export class PipingComponent {
             if (shapeCatalogItem && shapeCatalogItem !== this) {
                 const x = this.position[0].location[0].x.value;
                 const y = this.position[0].location[0].y.value;
-                 //console.log("Drawing shape", this.componentName.value);
+                //console.log("Drawing shape", this.componentName.value);
                 if (typeof (shapeCatalogItem as any).draw === "function") {
                     (shapeCatalogItem as any).draw(
                         unit,

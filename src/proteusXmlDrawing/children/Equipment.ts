@@ -11,6 +11,7 @@ import { Presentation } from "./Presentation";
 import { Shape } from "./Shape";
 import { Nozzle } from "./Nozzle";
 import { Circle } from "./Circle";
+import { Ellipse } from "./Ellipse";
 
 /**
  * A geometric primitive
@@ -36,6 +37,7 @@ export class Equipment {
     public readonly componentType: StringAttribute;
     public readonly nozzle: Nozzle[];
     public readonly circle: Circle[];
+    public readonly ellipse: Ellipse[];
 
     constructor(element: Element) {
         this.element = element;
@@ -59,7 +61,7 @@ export class Equipment {
         // Surface
         this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
-        // Ellipse
+        this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);

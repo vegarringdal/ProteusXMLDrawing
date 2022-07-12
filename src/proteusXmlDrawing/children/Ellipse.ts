@@ -1,9 +1,10 @@
 import { getElements } from "../utils/getElement";
 import { NumberAttribute } from "../utils/NumberAttribute";
+import { getPaper } from "../utils/paper";
 import { StringAttribute } from "../utils/StringAttribute";
-import { Coordinate } from "./Coordinate";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
+import { Position } from "./Position";
 import { Presentation } from "./Presentation";
 
 /**
@@ -16,7 +17,7 @@ export class Ellipse {
     // children
     public readonly presentation: Presentation[];
     public readonly extent: Extent[];
-    public readonly coordinate: Coordinate[];
+    public readonly position: Position[];
     public readonly genericAttributes: GenericAttributes[];
 
     // attributes
@@ -30,7 +31,7 @@ export class Ellipse {
         // children
         this.presentation = getElements(element, "Presentation", Presentation);
         this.extent = getElements(element, "Extent", Extent);
-        this.coordinate = getElements(element, "Coordinate", Coordinate);
+        this.position = getElements(element, "Position", Position);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
         // attributes
@@ -46,7 +47,33 @@ export class Ellipse {
      * @param pageOriginY
      */
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
-        // not implemented
-        // not every element will have primitives or children
+        const Point = getPaper().Point;
+        const Path = getPaper().Path;
+        const Color = getPaper().Color;
+        const Size = getPaper().Size;
+        const Rectangle = getPaper().Rectangle;
+        const Ellipse = getPaper().Shape.Ellipse;
+
+        const x = this.position[0].location[0].x.value + offsetX;
+        const y = this.position[0].location[0].y.value + offsetY;
+        const point = new Point(x * unit, pageOriginY * unit - y * unit);
+
+        var rectangle = new Rectangle(
+            point,
+            new Size(this.primaryAxis.value * unit, this.secondaryAxis.value * unit)
+        );
+        var ellipse = new Path.Ellipse(rectangle);
+
+        ellipse.strokeColor = new Color({
+            red: this.presentation[0].r.value,
+            green: this.presentation[0].g.value,
+            blue: this.presentation[0].b.value
+        });
+
+        ellipse.strokeWidth = this.presentation[0].lineWeight.value * unit;
+
+        if (this.filled.value) {
+            ellipse.fillColor = new Color("black");
+        }
     }
 }

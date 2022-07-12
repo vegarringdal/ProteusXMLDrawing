@@ -5,6 +5,7 @@ import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { CenterLine } from "./CenterLine";
 import { Circle } from "./Circle";
+import { Ellipse } from "./Ellipse";
 import { Equipment } from "./Equipment";
 import { Extent } from "./Extent";
 import { InstrumentComponent } from "./InstrumentComponent";
@@ -46,14 +47,13 @@ export class ProcessInstrument {
     public readonly position: Position[];
     public readonly shape: Shape[];
     public readonly circle: Circle[];
+    public readonly ellipse: Ellipse[];
 
     // attributes
     public readonly id: StringAttribute;
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
-    
-
 
     constructor(element: Element) {
         this.element = element;
@@ -102,9 +102,9 @@ export class ProcessInstrument {
         this.position = getElements(element, "Position", Position);
         // Scale
         // Surface
-         this.circle = getElements(element, "Circle", Circle);
+        this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
-        // Ellipse
+        this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
@@ -148,7 +148,7 @@ export class ProcessInstrument {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
 
         if (this.componentName.value) {
@@ -156,7 +156,7 @@ export class ProcessInstrument {
             if (shapeCatalogItem && shapeCatalogItem !== this) {
                 const x = this.position[0].location[0].x.value;
                 const y = this.position[0].location[0].y.value;
-                 //console.log("Drawing shape", this.componentName.value);
+                //console.log("Drawing shape", this.componentName.value);
                 if (typeof (shapeCatalogItem as any).draw === "function") {
                     (shapeCatalogItem as any).draw(
                         unit,

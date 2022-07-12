@@ -1,6 +1,7 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
 import { Circle } from "./Circle";
+import { Ellipse } from "./Ellipse";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Shape } from "./Shape";
@@ -21,6 +22,7 @@ export class InstrumentLoop {
     public readonly signalLine: SignalLine[];
     public readonly shape: Shape[];
     public readonly circle: Circle[];
+    public readonly ellipse: Ellipse[];
 
     // attributes
 
@@ -28,7 +30,11 @@ export class InstrumentLoop {
         this.element = element;
 
         // children
-        this.signalConnectorSymbol = getElements(element, "SignalConnectorSymbol", SignalConnectorSymbol);
+        this.signalConnectorSymbol = getElements(
+            element,
+            "SignalConnectorSymbol",
+            SignalConnectorSymbol
+        );
         this.signalLine = getElements(element, "SignalLine", SignalLine);
 
         // children -> plantItem
@@ -41,7 +47,7 @@ export class InstrumentLoop {
         // Surface
         this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
-        // Ellipse
+        this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
@@ -82,7 +88,7 @@ export class InstrumentLoop {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
     }
 }

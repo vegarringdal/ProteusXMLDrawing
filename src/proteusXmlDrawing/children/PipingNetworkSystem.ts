@@ -1,6 +1,7 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
 import { Circle } from "./Circle";
+import { Ellipse } from "./Ellipse";
 import { Line } from "./Line";
 import { PipingNetworkSegment } from "./PipingNetworkSegment";
 import { PolyLine } from "./PolyLine";
@@ -18,7 +19,6 @@ import { Shape } from "./Shape";
  */
 export class PipingNetworkSystem {
     public readonly isChild = true;
-    
 
     // children
     public readonly line: Line[];
@@ -26,6 +26,7 @@ export class PipingNetworkSystem {
     public readonly pipingNetworkSegment: unknown[];
     public readonly shape: Shape[];
     public readonly circle: Circle[];
+    public readonly ellipse: Ellipse[];
 
     // attributes
 
@@ -51,7 +52,11 @@ export class PipingNetworkSystem {
         // MinimumOperatingTemperature
         // MaximumOperatingTemperature
         // WallThickness
-        this.pipingNetworkSegment = getElements(element, "PipingNetworkSegment", PipingNetworkSegment);
+        this.pipingNetworkSegment = getElements(
+            element,
+            "PipingNetworkSegment",
+            PipingNetworkSegment
+        );
         // PropertyBreak
         //
         // children plantItem **********TODO:***********
@@ -62,9 +67,9 @@ export class PipingNetworkSystem {
         // Position
         // Scale
         // Surface
-         this.circle = getElements(element, "Circle", Circle);
+        this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
-        // Ellipse
+        this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
@@ -105,7 +110,7 @@ export class PipingNetworkSystem {
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
         const drawables = getDrawable(this);
         drawables.forEach((drawable) => {
-             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
     }
 }

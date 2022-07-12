@@ -3,6 +3,7 @@ import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Circle } from "./Circle";
+import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
@@ -34,6 +35,7 @@ export class PropertyBreak {
     public readonly extent: Extent[];
     public readonly position: Position[];
     public readonly circle: Circle[];
+    public readonly ellipse: Ellipse[];
 
     // attributes
     public readonly id: StringAttribute;
@@ -55,7 +57,7 @@ export class PropertyBreak {
         // Surface
         this.circle = getElements(element, "Circle", Circle);
         // CompositeCurve
-        // Ellipse
+        this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         // Shape
