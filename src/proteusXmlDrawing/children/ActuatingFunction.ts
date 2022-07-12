@@ -1,21 +1,13 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
-import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
-import { StringAttribute } from "../utils/StringAttribute";
-import { ActuatingFunction } from "./ActuatingFunction";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
-import { Position } from "./Position";
 import { Shape } from "./Shape";
-import { Text } from "./Text";
 
-/**
- * dunno, assume plant item
- */
-export class ProcessInstrumentationFunction {
+export class ActuatingFunction {
     public readonly isChild = true;
     public readonly element: Element;
 
@@ -25,20 +17,18 @@ export class ProcessInstrumentationFunction {
     public readonly shape: Shape[];
     public readonly circle: Circle[];
     public readonly ellipse: Ellipse[];
-    public readonly text: Text[];
-    public readonly position: Position[];
-    public readonly actuatingFunction: ActuatingFunction[];
 
     // attributes
-    public readonly id: StringAttribute;
-    public readonly componentClass: StringAttribute;
-    public readonly componentName: StringAttribute;
-    public readonly componentType: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
 
-        this.position = getElements(element, "Position", Position);
+        // children plantItem **********TODO:***********
+        // Presentation
+        // Extent
+        // PersistentID
+        // Extent
+        // Position
         // Scale
         // Surface
         this.circle = getElements(element, "Circle", Circle);
@@ -47,9 +37,6 @@ export class ProcessInstrumentationFunction {
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
-        this.text = getElements(element, "Text", Text);
-        this.actuatingFunction = getElements(element, "ActuatingFunction", ActuatingFunction);
-
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints
@@ -67,18 +54,17 @@ export class ProcessInstrumentationFunction {
         // History
         //
         // attributes plantItem **********TODO:***********
-        this.id = new StringAttribute(element, "ID");
+        // ID
         // TagName
         // Specification
         // StockNumber
-        this.componentClass = new StringAttribute(element, "ComponentClass");
-        this.componentName = new StringAttribute(element, "ComponentName");
-        this.componentType = new StringAttribute(element, "ComponentType");
+        // ComponentClass
         // ComponentName
         // ComponentType
         // Revision
         // Status
-        // helper to find missing part
+
+        // helper to find missing part   // helper to find missing part
         collectMissingParts(this.element, this);
     }
 
@@ -93,23 +79,5 @@ export class ProcessInstrumentationFunction {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
-
-        if (this.componentName.value) {
-            const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
-            if (shapeCatalogItem && shapeCatalogItem !== this) {
-                const x = this.position[0].location[0].x.value;
-                const y = this.position[0].location[0].y.value;
-                //console.log("Drawing shape", this.componentName.value);
-                if (typeof (shapeCatalogItem as any).draw === "function") {
-                    (shapeCatalogItem as any).draw(
-                        unit,
-                        pageOriginX,
-                        pageOriginY,
-                        x + offsetX,
-                        y + offsetY
-                    );
-                }
-            }
-        }
     }
 }

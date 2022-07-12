@@ -2,6 +2,7 @@ import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { addToShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
+import { ActuatingSystemComponent } from "./ActuatingSystemComponent";
 import { CenterLine } from "./CenterLine";
 import { Component } from "./Component";
 import { Equipment } from "./Equipment";
@@ -40,6 +41,7 @@ export class ShapeCatalogue {
     public readonly component: Component[];
     public readonly nozzle: Nozzle[];
     public readonly processInstrumentationFunction: ProcessInstrumentationFunction[];
+    public readonly actuatingSystemComponent: ActuatingSystemComponent[];
 
     // attributes
     public readonly name: StringAttribute;
@@ -69,6 +71,13 @@ export class ShapeCatalogue {
             "SignalConnectorSymbol",
             SignalConnectorSymbol
         );
+
+        this.actuatingSystemComponent = getElements(
+            element,
+            "ActuatingSystemComponent",
+            ActuatingSystemComponent
+        );
+
         this.insulationSymbol = getElements(element, "InsulationSymbol", InsulationSymbol);
         this.propertyBreak = getElements(element, "PropertyBreak", PropertyBreak);
         this.label = getElements(element, "Label", Label);
