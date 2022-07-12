@@ -73,7 +73,7 @@ export class Text {
         const Point = getPaper().Point;
         const x = this.position[0].location[0].x.value * unit;
         const y = pageOriginY * unit - this.position[0].location[0].y.value * unit;
-        const text = new PointText(new Point(x, y));
+        const text = new PointText(new Point(x + offsetX * unit, y + offsetY * unit));
 
         // height and width attribute just cant be right, need to use extent or a combo?
         const width = (this.extent[0].max[0].x.value - this.extent[0].min[0].x.value) * 1000;
@@ -86,7 +86,7 @@ export class Text {
         // todo, I need to adjust text, but looks like PDF and SVG does not render the same..
         // need to render more before and adjustments, also have no rotation made
 
-        text.bounds.y = text.bounds.y + height;
+        text.bounds.y = text.bounds.y + height/ 4;
 
         switch (this.justification.value) {
             case "LeftTop":
