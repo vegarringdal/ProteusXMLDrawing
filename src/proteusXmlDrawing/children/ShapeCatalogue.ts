@@ -12,6 +12,7 @@ import { PipeConnectorSymbol } from "./PipeConnectorSymbol";
 import { PipeFlowArrow } from "./PipeFlowArrow";
 import { PipingComponent } from "./PipingComponent";
 import { ProcessInstrument } from "./ProcessInstrument";
+import { ProcessInstrumentationFunction } from "./ProcessInstrumentationFunction";
 import { PropertyBreak } from "./PropertyBreak";
 import { SignalConnectorSymbol } from "./SignalConnectorSymbol";
 
@@ -36,6 +37,7 @@ export class ShapeCatalogue {
     public readonly pipeFlowArrow: PipeFlowArrow[];
     public readonly component: Component[];
     public readonly nozzle: Nozzle[];
+    public readonly processInstrumentationFunction: ProcessInstrumentationFunction[];
 
     // attributes
     public readonly name: StringAttribute;
@@ -51,6 +53,12 @@ export class ShapeCatalogue {
 
         this.processInstrument = getElements(element, "ProcessInstrument", ProcessInstrument);
         this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
+        this.processInstrumentationFunction = getElements(
+            element,
+            "ProcessInstrumentationFunction",
+            ProcessInstrumentationFunction
+        );
+
         this.component = getElements(element, "centerLine", Component);
         this.pipeConnectorSymbol = getElements(element, "PipeConnectorSymbol", PipeConnectorSymbol);
         this.signalConnectorSymbol = getElements(

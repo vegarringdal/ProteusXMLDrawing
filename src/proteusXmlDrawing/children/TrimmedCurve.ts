@@ -3,13 +3,14 @@
  */
 export class TrimmedCurve {
     public readonly isChild = true;
+    public readonly element: Element;
 
     // children
 
     // attributes
 
     constructor(element: Element) {
-        // not implemented
+        this.element = element
     }
 
     /**

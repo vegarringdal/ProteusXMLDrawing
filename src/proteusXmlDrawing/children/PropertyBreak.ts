@@ -27,7 +27,7 @@ import { Presentation } from "./Presentation";
  */
 export class PropertyBreak {
     public readonly isChild = true;
-
+    public readonly element: Element;
     // children
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
@@ -43,7 +43,9 @@ export class PropertyBreak {
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
 
+
     constructor(element: Element) {
+        this.element = element;
         // will only start with geometry elements
         // children **********TODO:***********
         // CrossPageConnection

@@ -1,4 +1,5 @@
 import { getElements } from "../utils/getElement";
+
 import { StringAttribute } from "../utils/StringAttribute";
 import { Association } from "./Association";
 import { BsplineCurve } from "./BsplineCurve";

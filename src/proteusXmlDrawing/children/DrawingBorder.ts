@@ -19,7 +19,7 @@ import { getDrawable } from "../utils/callDrawOnChildren";
  */
 export class DrawingBorder {
     public readonly isChild = true;
-    element: Element;
+    public readonly element: Element;
 
     // children
     public readonly presentation: Presentation[];

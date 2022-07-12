@@ -26,6 +26,8 @@ import { TrimmedCurve } from "./TrimmedCurve";
 import { Text } from "./Text";
 import { getElements } from "../utils/getElement";
 import { getDrawable } from "../utils/callDrawOnChildren";
+import { ProcessInstrumentationFunction } from "./ProcessInstrumentationFunction";
+import { InstrumentationLoopFunction } from "./InstrumentationLoopFunction";
 
 /**
  * This is the root node of an XMpLant document and only exists as the root node of an XMpLant file. Other than the first two child elements, PlantInformation and Extent, the ordering of child elements within a PlantModel element is not significant.
@@ -34,7 +36,7 @@ import { getDrawable } from "../utils/callDrawOnChildren";
  *
  * While a Position element may be provided is has no attached semantics and is often defaulted to 0,0,0.
  */
-export class PlanModel {
+export class PlantModel {
     public readonly isRoot = true;
     public readonly isChild = true;
 
@@ -67,6 +69,8 @@ export class PlanModel {
     public readonly system: System[];
     public readonly text: Text[];
     public readonly trimmedCurve: TrimmedCurve[];
+    public readonly processInstrumentationFunction: ProcessInstrumentationFunction[];
+    public readonly instrumentationLoopFunction: InstrumentationLoopFunction[];
 
     // attributes
 
@@ -83,6 +87,7 @@ export class PlanModel {
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.instrumentComponent = getElements(element, "InstrumentComponent", InstrumentComponent);
         this.instrumentLoop = getElements(element, "InstrumentLoop", InstrumentLoop);
+        this.instrumentationLoopFunction = getElements(element, "InstrumentationLoopFunction", InstrumentationLoopFunction);
         this.line = getElements(element, "Line", Line);
         this.pipingNetworkSystem = getElements(element, "PipingNetworkSystem", PipingNetworkSystem);
         this.pipingSystem = getElements(element, "PipingSystem", PipingSystem);
@@ -98,6 +103,13 @@ export class PlanModel {
             "SignalConnectorSymbol",
             SignalConnectorSymbol
         );
+        this.processInstrumentationFunction = getElements(
+            element,
+            "ProcessInstrumentationFunction",
+            ProcessInstrumentationFunction
+        );
+
+
         this.signalLine = getElements(element, "SignalLine", SignalLine);
         this.system = getElements(element, "System", System);
         this.text = getElements(element, "Text", Text);

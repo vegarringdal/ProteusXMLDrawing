@@ -5,6 +5,7 @@ import { NumberAttribute } from "../utils/NumberAttribute";
  */
 export class Coordinate {
     public readonly isChild = true;
+    public readonly element: Element;
 
     // children
     // no children on this element
@@ -15,6 +16,12 @@ export class Coordinate {
     public readonly z: NumberAttribute;
 
     constructor(element: Element) {
+        this.element = element;
+
+        // children
+        // no children on this element
+
+        // attibutes
         this.x = new NumberAttribute(element, "X");
         this.y = new NumberAttribute(element, "Y");
         this.z = new NumberAttribute(element, "Z");

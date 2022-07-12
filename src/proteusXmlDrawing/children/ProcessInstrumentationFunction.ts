@@ -1,66 +1,47 @@
-import { Component } from "./Component";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
-import { CenterLine } from "./CenterLine";
-import { Extent } from "./Extent";
+import { Circle } from "./Circle";
+import { Ellipse } from "./Ellipse";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
-import { Presentation } from "./Presentation";
 import { Shape } from "./Shape";
-import { Circle } from "./Circle";
-import { Ellipse } from "./Ellipse";
+import { Text } from "./Text";
 
 /**
- * This represents a physical component that is common to piping systems.
- *
- * A PipingComponent element inherits elements and attributes from the base type ‘PlantItem’.
- * See ‘PlantItem’ for the definitions of the inherited contents.
- *
+ * dunno, assume plant item
  */
-export class PipingComponent {
+export class ProcessInstrumentationFunction {
     public readonly isChild = true;
     public readonly element: Element;
 
     // children
     public readonly line: Line[];
     public readonly polyLine: PolyLine[];
-    public readonly pipingComponent: PipingComponent[];
-    public readonly presentation: Presentation[];
-    public readonly extent: Extent[];
-    public readonly position: Position[];
-    public readonly component: Component[];
     public readonly shape: Shape[];
     public readonly circle: Circle[];
     public readonly ellipse: Ellipse[];
+    public readonly text: Text[];
+    public readonly position: Position[];
+
 
     // attributes
     public readonly id: StringAttribute;
     public readonly componentClass: StringAttribute;
     public readonly componentName: StringAttribute;
     public readonly componentType: StringAttribute;
-
-
+  
     constructor(element: Element) {
         this.element = element;
-        // will only start with geometry elements
-        // children **********TODO:***********
-        this.pipingComponent = getElements(element, "PipingComponent", PipingComponent);
-        // ConnectionType
-        // NominalDiameter
-        // InsideDiameter
-        // OutsideDiameter
-        // OperatorType
-        // WallThickness
-        // FabricationCategory
-        this.component = getElements(element, "Component", Component);
-        //
+
         // children plantItem **********TODO:***********
-        this.presentation = getElements(element, "Presentation", Presentation);
-        this.extent = getElements(element, "Extent", Extent);
+        // Presentation
+        // Extent
         // PersistentID
+        // Extent
+        // Position
         this.position = getElements(element, "Position", Position);
         // Scale
         // Surface
@@ -69,8 +50,9 @@ export class PipingComponent {
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
-
         this.shape = getElements(element, "Shape", Shape);
+        this.text = getElements(element, "Text", Text);
+
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints
@@ -87,12 +69,6 @@ export class PipingComponent {
         // Association
         // History
         //
-        // attributes  **********TODO:***********
-        // ConnectionType
-        // Rating
-        // Standard
-        // ISOSymbol
-        //
         // attributes plantItem **********TODO:***********
         this.id = new StringAttribute(element, "ID");
         // TagName
@@ -101,6 +77,8 @@ export class PipingComponent {
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
         this.componentType = new StringAttribute(element, "ComponentType");
+        // ComponentName
+        // ComponentType
         // Revision
         // Status
     }

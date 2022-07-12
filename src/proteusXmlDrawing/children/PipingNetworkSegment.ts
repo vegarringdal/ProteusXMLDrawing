@@ -33,6 +33,7 @@ import { Shape } from "./Shape";
  */
 export class PipingNetworkSegment {
     public readonly isChild = true;
+    public readonly element: Element;
 
     // children
     public readonly centerLine: CenterLine[];
@@ -51,10 +52,12 @@ export class PipingNetworkSegment {
     public readonly shape: Shape[];
     public readonly circle: Circle[];
     public readonly ellipse: Ellipse[];
+  
 
     // attributes
 
     constructor(element: Element) {
+        this.element = element;
         // will only start with geometry elements
         // children **********TODO:***********
         // NominalDiameter

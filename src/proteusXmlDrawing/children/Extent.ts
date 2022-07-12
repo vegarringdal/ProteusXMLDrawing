@@ -8,6 +8,7 @@ import { Min } from "./Min";
  */
 export class Extent {
     public readonly isChild = true;
+    public readonly element: Element;
 
     // children
     public readonly max: Max[];
@@ -17,9 +18,9 @@ export class Extent {
     // no attributes for this element
 
     constructor(element: Element) {
+        this.element = element;
         // not implemented
         this.min = getElements(element, "Min", Min);
         this.max = getElements(element, "Max", Max);
     }
-
 }
