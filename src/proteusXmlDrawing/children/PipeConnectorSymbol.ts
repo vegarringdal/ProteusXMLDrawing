@@ -10,6 +10,7 @@ import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
+import { Text } from "./Text";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -30,6 +31,7 @@ export class PipeConnectorSymbol {
     public readonly position: Position[];
     public readonly circle: Circle[];
     public readonly ellipse: Ellipse[];
+    public readonly text: Text[];
 
     // attributes
     public readonly id: StringAttribute;
@@ -55,6 +57,7 @@ export class PipeConnectorSymbol {
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
+        this.text = getElements(element, "Text", Text);
         // Shape
         // TrimmedCurve
         // BsplineCurve

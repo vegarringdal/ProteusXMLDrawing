@@ -13,6 +13,7 @@ import { Nozzle } from "./Nozzle";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { collectMissingParts } from "../utils/findMissing";
+import { Text } from "./Text";
 
 /**
  * A geometric primitive
@@ -30,6 +31,7 @@ export class Equipment {
     public readonly extent: Extent[];
     public readonly position: Position[];
     public readonly shape: Shape[];
+    public readonly text: Text[];
 
     // attributes
     public readonly id: StringAttribute;
@@ -66,6 +68,7 @@ export class Equipment {
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
+        this.text = getElements(element, "Text", Text);
         // TrimmedCurve
         // BsplineCurve
         // ConnectionPoints

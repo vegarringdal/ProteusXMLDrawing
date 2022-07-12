@@ -20,7 +20,7 @@ export class Text {
     public readonly presentation: Presentation[];
     public readonly extent: Extent[];
     public readonly position: Position[];
-    public readonly strings: string[];
+    public readonly strings: String[];
     public readonly genericAttributes: GenericAttributes[];
 
     // attributes
