@@ -4,9 +4,13 @@ import { getElements } from "../utils/getElement";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
+import { Extent } from "./Extent";
+import { GenericAttributes } from "./GenericAttributes";
 import { InformationFlow } from "./InformationFlow";
 import { Line } from "./Line";
+import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
+import { Presentation } from "./Presentation";
 import { Shape } from "./Shape";
 import { SignalConnectorSymbol } from "./SignalConnectorSymbol";
 import { SignalLine } from "./SignalLine";
@@ -31,10 +35,16 @@ export class InstrumentationLoopFunction {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    persistentID: PersistentID[];
+    presentation: Presentation[];
+    extent: Extent[];
+    genericAttributes: GenericAttributes[];
 
     constructor(element: Element) {
         this.element = element;
 
+        this.presentation = getElements(element, "Presentation", Presentation);
+        this.extent = getElements(element, "Extent", Extent);
         this.signalConnectorSymbol = getElements(
             element,
             "SignalConnectorSymbol",
@@ -47,7 +57,8 @@ export class InstrumentationLoopFunction {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
         this.informationFlow = getElements(element, "InformationFlow", InformationFlow);
-
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

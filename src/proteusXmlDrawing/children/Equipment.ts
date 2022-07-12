@@ -15,6 +15,8 @@ import { Ellipse } from "./Ellipse";
 import { collectMissingParts } from "../utils/findMissing";
 import { Text } from "./Text";
 import { TrimmedCurve } from "./TrimmedCurve";
+import { PersistentID } from "./PersistentID";
+import { GenericAttributes } from "./GenericAttributes";
 
 /**
  * A geometric primitive
@@ -41,6 +43,8 @@ export class Equipment {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    persistentID: PersistentID[];
+    genericAttributes: GenericAttributes[];
 
     constructor(element: Element) {
         this.element = element;
@@ -58,7 +62,11 @@ export class Equipment {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
         this.text = getElements(element, "Text", Text);
-        this.trimmedCurve = getElements(element, "Text", TrimmedCurve);
+        this.trimmedCurve = getElements(element, "TrimmedCurve", TrimmedCurve);
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+
+        
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

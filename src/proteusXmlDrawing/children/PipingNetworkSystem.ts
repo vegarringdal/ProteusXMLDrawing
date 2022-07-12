@@ -4,6 +4,8 @@ import { getElements } from "../utils/getElement";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
+import { Extent } from "./Extent";
+import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
 import { PipingNetworkSegment } from "./PipingNetworkSegment";
 import { PolyLine } from "./PolyLine";
@@ -34,6 +36,8 @@ export class PipingNetworkSystem {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    extent: Extent[];
+    genericAttributes: GenericAttributes[];
 
     constructor(element: Element) {
         this.element = element;
@@ -43,11 +47,14 @@ export class PipingNetworkSystem {
             "PipingNetworkSegment",
             PipingNetworkSegment
         );
+
+        this.extent = getElements(element, "Extent", Extent);
         this.circle = getElements(element, "Circle", Circle);
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

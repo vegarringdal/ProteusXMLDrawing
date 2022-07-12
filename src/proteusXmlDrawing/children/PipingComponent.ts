@@ -13,6 +13,8 @@ import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { Text } from "./Text";
 import { collectMissingParts } from "../utils/findMissing";
+import { PersistentID } from "./PersistentID";
+import { GenericAttributes } from "./GenericAttributes";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -41,6 +43,8 @@ export class PipingComponent {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    persistentID: PersistentID[];
+    genericAttributes: GenericAttributes[];
 
     constructor(element: Element) {
         this.element = element;
@@ -56,6 +60,8 @@ export class PipingComponent {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.text = getElements(element, "Text", Text);
         this.shape = getElements(element, "Shape", Shape);
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

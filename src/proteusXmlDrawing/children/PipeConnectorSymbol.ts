@@ -7,6 +7,7 @@ import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
 import { Line } from "./Line";
+import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
@@ -36,6 +37,7 @@ export class PipeConnectorSymbol {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    persistentID: PersistentID[];
 
     constructor(element: Element) {
         this.element = element;
@@ -48,6 +50,7 @@ export class PipeConnectorSymbol {
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.text = getElements(element, "Text", Text);
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

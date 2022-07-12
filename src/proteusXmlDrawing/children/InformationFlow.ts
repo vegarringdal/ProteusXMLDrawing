@@ -5,8 +5,12 @@ import { StringAttribute } from "../utils/StringAttribute";
 import { CenterLine } from "./CenterLine";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
+import { Extent } from "./Extent";
+import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
+import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
+import { Presentation } from "./Presentation";
 import { Shape } from "./Shape";
 
 export class InformationFlow {
@@ -24,16 +28,24 @@ export class InformationFlow {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    persistentID: PersistentID[];
+    presentation: Presentation[];
+    extent: Extent[];
+    genericAttributes: GenericAttributes[];
 
     constructor(element: Element) {
         this.element = element;
 
+        this.presentation = getElements(element, "Presentation", Presentation);
+        this.extent = getElements(element, "Extent", Extent);
         this.circle = getElements(element, "Circle", Circle);
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
         this.centerLine = getElements(element, "CenterLine", CenterLine);
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

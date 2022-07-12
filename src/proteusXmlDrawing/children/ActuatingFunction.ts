@@ -4,6 +4,7 @@ import { getElements } from "../utils/getElement";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
+import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Shape } from "./Shape";
@@ -22,6 +23,7 @@ export class ActuatingFunction {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    genericAttributes: GenericAttributes[];
 
     constructor(element: Element) {
         this.element = element;
@@ -31,7 +33,7 @@ export class ActuatingFunction {
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.shape = getElements(element, "Shape", Shape);
-
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

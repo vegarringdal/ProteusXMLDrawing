@@ -5,6 +5,7 @@ import { StringAttribute } from "../utils/StringAttribute";
 import { ActuatingSystemComponent } from "./ActuatingSystemComponent";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
+import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Shape } from "./Shape";
@@ -24,6 +25,7 @@ export class ActuatingSystem {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    genericAttributes: GenericAttributes[];
 
     constructor(element: Element) {
         this.element = element;
@@ -38,7 +40,7 @@ export class ActuatingSystem {
             "ActuatingSystemComponent",
             ActuatingSystemComponent
         );
-
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

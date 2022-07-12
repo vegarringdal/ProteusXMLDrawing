@@ -5,6 +5,7 @@ import { StringAttribute } from "../utils/StringAttribute";
 import { Coordinate } from "./Coordinate";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
+import { PersistentID } from "./PersistentID";
 import { Presentation } from "./Presentation";
 
 /**
@@ -20,6 +21,7 @@ export class CenterLine {
     genericAttributes: GenericAttributes[];
 
     id: StringAttribute;
+    persistentID: PersistentID[];
 
     constructor(element: Element) {
         this.element = element;
@@ -27,6 +29,7 @@ export class CenterLine {
         this.extent = getElements(element, "Extent", Extent);
         this.coordinate = getElements(element, "Coordinate", Coordinate);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
 
         //attributes
         this.id = new StringAttribute(element, "ID");

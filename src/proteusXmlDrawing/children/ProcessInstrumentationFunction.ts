@@ -6,12 +6,17 @@ import { StringAttribute } from "../utils/StringAttribute";
 import { ActuatingFunction } from "./ActuatingFunction";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
+import { Extent } from "./Extent";
+import { GenericAttributes } from "./GenericAttributes";
 import { InformationFlow } from "./InformationFlow";
 import { Line } from "./Line";
+import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
+import { Presentation } from "./Presentation";
 import { Shape } from "./Shape";
 import { Text } from "./Text";
+import { TrimmedCurve } from "./TrimmedCurve";
 
 /**
  * dunno, assume plant item
@@ -34,10 +39,17 @@ export class ProcessInstrumentationFunction {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    trimmedCurve: TrimmedCurve[];
+    persistentID: PersistentID[];
+    presentation: Presentation[];
+    extent: Extent[];
+    genericAttributes: GenericAttributes[];
 
     constructor(element: Element) {
         this.element = element;
 
+        this.presentation = getElements(element, "Presentation", Presentation);
+        this.extent = getElements(element, "Extent", Extent);
         this.position = getElements(element, "Position", Position);
         this.circle = getElements(element, "Circle", Circle);
         this.ellipse = getElements(element, "Ellipse", Ellipse);
@@ -47,6 +59,9 @@ export class ProcessInstrumentationFunction {
         this.text = getElements(element, "Text", Text);
         this.actuatingFunction = getElements(element, "ActuatingFunction", ActuatingFunction);
         this.informationFlow = getElements(element, "InformationFlow", InformationFlow);
+        this.trimmedCurve = getElements(element, "Text", TrimmedCurve);
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
