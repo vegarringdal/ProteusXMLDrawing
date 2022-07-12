@@ -1,4 +1,5 @@
 export type Drawable = {
+    element: Element,
     isChild: boolean;
     draw: (
         unit: number,
