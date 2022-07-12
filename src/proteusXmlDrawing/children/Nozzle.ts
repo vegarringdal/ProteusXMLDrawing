@@ -1,11 +1,13 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
+import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
+import { Position } from "./Position";
 import { Shape } from "./Shape";
 
 /**
@@ -22,6 +24,7 @@ export class Nozzle {
     shape: Shape[];
     circle: Circle[];
     ellipse: Ellipse[];
+    position: Position[];
 
     // attributes
     id: StringAttribute;
@@ -33,6 +36,7 @@ export class Nozzle {
         this.element = element;
 
         // children
+        this.position = getElements(element, "Position", Position);
         this.circle = getElements(element, "Circle", Circle);
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
@@ -60,5 +64,23 @@ export class Nozzle {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
+
+        if (this.componentName.value) {
+            const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
+            if (shapeCatalogItem && shapeCatalogItem !== this) {
+                const x = this.position[0].location[0].x.value;
+                const y = this.position[0].location[0].y.value;
+                //console.log("Drawing shape", this.componentName.value);
+                if (typeof (shapeCatalogItem as any).draw === "function") {
+                    (shapeCatalogItem as any).draw(
+                        unit,
+                        pageOriginX,
+                        pageOriginY,
+                        x + offsetX,
+                        y + offsetY
+                    );
+                }
+            }
+        }
     }
 }

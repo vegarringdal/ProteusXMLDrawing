@@ -64,7 +64,7 @@ export class ShapeCatalogue {
             ProcessInstrumentationFunction
         );
 
-        this.component = getElements(element, "centerLine", Component);
+        this.component = getElements(element, "Component", Component);
         this.pipeConnectorSymbol = getElements(element, "PipeConnectorSymbol", PipeConnectorSymbol);
         this.signalConnectorSymbol = getElements(
             element,
