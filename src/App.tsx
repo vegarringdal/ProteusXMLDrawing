@@ -11,8 +11,10 @@ export default App;
 // experiment
 async function getXml() {
     const response = await fetch(
-        "/TrainingTestCases/tests/C01 the complete DEXPI PnID/C01V01-HEX.EX02.xml"
+        "/TrainingTestCases/tests/C01 the complete DEXPI PnID/C01V01-HEX.EX01.xml"
     );
+
+
     const xmlstring = await response.text();
     const proteusXmlDrawing = new ProteusXmlDrawing(xmlstring, "pidCanvas");
     proteusXmlDrawing.draw();

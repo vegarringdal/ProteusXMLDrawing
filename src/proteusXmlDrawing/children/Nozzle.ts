@@ -15,7 +15,10 @@ import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
 import { Scale } from "./Scale";
+import { Text } from "./Text";
 import { Shape } from "./Shape";
+import { NominalDiameter } from "./NominalDiameter";
+
 
 /**
  * An Nozzle element inherits elements and attributes from the base type ‘PlantItem’.
@@ -43,6 +46,8 @@ export class Nozzle {
     association: Association[];
     connectionPoints: ConnectionPoints[];
     scale: Scale[];
+    text: Text[];
+    nominalDiameter: NominalDiameter[];
 
     constructor(element: Element) {
         this.element = element;
@@ -60,6 +65,9 @@ export class Nozzle {
         this.association = getElements(element, "Association", Association);
         this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
         this.scale = getElements(element, "Scale", Scale);
+        this.text = getElements(element, "Text", Text);
+        this.nominalDiameter = getElements(element, "NominalDiameter", NominalDiameter);
+
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");

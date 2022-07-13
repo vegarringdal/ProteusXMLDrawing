@@ -20,6 +20,11 @@ import { GenericAttributes } from "./GenericAttributes";
 import { Association } from "./Association";
 import { Scale } from "./Scale";
 import { Description } from "./Description";
+import { SignalLine } from "./SignalLine";
+import { MaximumDesignPressure } from "./MaximumDesignPressure";
+import { MaximumDesignTemperature } from "./MaximumDesignTemperature";
+import { MinimumDesignPressure } from "./MinimumDesignPressure";
+import { MinimumDesignTemperature } from "./MinimumDesignTemperature";
 
 /**
  * A geometric primitive
@@ -51,6 +56,10 @@ export class Equipment {
     association: Association[];
     scale: Scale[];
     description: Description[];
+    maximumDesignPressure: MaximumDesignPressure[];
+    minimumDesignPressure: MinimumDesignPressure[];
+    maximumDesignTemperature: MaximumDesignTemperature[];
+    minimumDesignTemperature: MinimumDesignTemperature[];
 
     constructor(element: Element) {
         this.element = element;
@@ -73,8 +82,10 @@ export class Equipment {
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.association = getElements(element, "Association", Association);
         this.scale = getElements(element, "Scale", Scale);
-
-        
+        this.maximumDesignPressure = getElements(element, "MaximumDesignPressure", MaximumDesignPressure);
+        this.minimumDesignPressure = getElements(element, "MinimumDesignPressure", MinimumDesignPressure);
+        this.maximumDesignTemperature = getElements(element, "MaximumDesignTemperature", MaximumDesignTemperature);
+        this.minimumDesignTemperature = getElements(element, "MinimumDesignTemperature", MinimumDesignTemperature);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

@@ -4,13 +4,19 @@ import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
+import { Association } from "./Association";
 import { Circle } from "./Circle";
+import { ConnectionPoints } from "./ConnectionPoints";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
+import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
+import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
+import { Text } from "./Text";
+import { TrimmedCurve } from "./TrimmedCurve";
 
 /**
  * An offline instrument
@@ -33,6 +39,12 @@ export class InstrumentComponent {
     componentClass: StringAttribute;
     componentName: StringAttribute;
     componentType: StringAttribute;
+    trimmedCurve: TrimmedCurve[];
+    text: Text[];
+    persistentID: PersistentID[];
+    genericAttributes: GenericAttributes[];
+    association: Association[];
+    connectionPoints: ConnectionPoints[];
 
     constructor(element: Element) {
         this.element = element;
@@ -46,6 +58,12 @@ export class InstrumentComponent {
         this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
+        this.trimmedCurve = getElements(element, "TrimmedCurve", TrimmedCurve);
+        this.text = getElements(element, "Text", Text);
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.association = getElements(element, "Association", Association);
+        this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

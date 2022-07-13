@@ -8,6 +8,7 @@ import { ConnectionPoints } from "./ConnectionPoints";
 import { CrossPageConnection } from "./CrossPageConnection";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
+import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
 import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
@@ -42,6 +43,7 @@ export class PipeConnectorSymbol {
     persistentID: PersistentID[];
     connectionPoints: ConnectionPoints[];
     crossPageConnection: CrossPageConnection[];
+    genericAttributes: GenericAttributes[];
 
     constructor(element: Element) {
         this.element = element;
@@ -57,6 +59,7 @@ export class PipeConnectorSymbol {
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
         this.crossPageConnection = getElements(element, "CrossPageConnection", CrossPageConnection);
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

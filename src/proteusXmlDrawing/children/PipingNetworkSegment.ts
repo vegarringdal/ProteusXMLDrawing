@@ -9,12 +9,15 @@ import { Circle } from "./Circle";
 import { Connection } from "./Connection";
 import { Ellipse } from "./Ellipse";
 import { Equipment } from "./Equipment";
+import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
 import { InstrumentComponent } from "./InstrumentComponent";
 import { InstrumentConnection } from "./InstrumentConnection";
 import { InsulationSymbol } from "./InsulationSymbol";
 import { Label } from "./Label";
 import { Line } from "./Line";
+import { MaximumDesignPressure } from "./MaximumDesignPressure";
+import { NominalDiameter } from "./NominalDiameter";
 import { PipeConnectorSymbol } from "./PipeConnectorSymbol";
 import { PipeFlowArrow } from "./PipeFlowArrow";
 import { PipingComponent } from "./PipingComponent";
@@ -64,6 +67,10 @@ export class PipingNetworkSegment {
     genericAttributes: GenericAttributes[];
     association: Association[];
     connection: Connection[];
+    extent: Extent[];
+    nominalDiameter: NominalDiameter[];
+    maximumDesignPressure: MaximumDesignPressure[];
+   
 
     constructor(element: Element) {
         this.element = element;
@@ -91,6 +98,10 @@ export class PipingNetworkSegment {
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.association = getElements(element, "Association", Association);
         this.connection = getElements(element, "Connection", Connection);
+        this.extent = getElements(element, "Extent", Extent);
+        this.nominalDiameter = getElements(element, "NominalDiameter", NominalDiameter);
+        this.maximumDesignPressure = getElements(element, "MaximumDesignPressure", MaximumDesignPressure);
+
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
         this.componentName = new StringAttribute(element, "ComponentName");
@@ -112,3 +123,4 @@ export class PipingNetworkSegment {
         });
     }
 }
+

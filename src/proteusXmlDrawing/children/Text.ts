@@ -65,58 +65,61 @@ export class Text {
      * @param pageOriginY
      */
     public draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
-        const PointText = getPaper().PointText;
-        const Point = getPaper().Point;
-        const Color = getPaper().Color;
-        const x = this.position[0].location[0].x.value * unit;
-        const y = pageOriginY * unit - this.position[0].location[0].y.value * unit;
-        const text = new PointText(new Point(x + offsetX * unit, y + offsetY * unit));
+        try {
+            const PointText = getPaper().PointText;
+            const Point = getPaper().Point;
+            const Color = getPaper().Color;
+            const x = this.position[0].location[0].x.value * unit;
+            const y = pageOriginY * unit - this.position[0].location[0].y.value * unit;
+            const text = new PointText(new Point(x + offsetX * unit, y + offsetY * unit));
 
-        // height and width attribute just cant be right, need to use extent or a combo?
-        const width = (this.extent[0].max[0].x.value - this.extent[0].min[0].x.value) * 1000;
-        const height = (this.extent[0].max[0].y.value - this.extent[0].min[0].y.value) * 1000;
+            // height and width attribute just cant be right, need to use extent or a combo?
+            const width = (this.extent[0].max[0].x.value - this.extent[0].min[0].x.value) * 1000;
+            const height = (this.extent[0].max[0].y.value - this.extent[0].min[0].y.value) * 1000;
 
-        text.content = this.string.value;
-        text.fontSize = this.height.value * unit;
-        text.fontFamily = this.font.value;
+            text.content = this.string.value;
+            text.fontSize = this.height.value * unit;
+            text.fontFamily = this.font.value;
 
-        
-        text.fillColor = new Color({
-            red: this.presentation[0].r.value,
-            green: this.presentation[0].g.value,
-            blue: this.presentation[0].b.value
-        });
+            text.fillColor = new Color({
+                red: this.presentation[0].r.value,
+                green: this.presentation[0].g.value,
+                blue: this.presentation[0].b.value
+            });
 
-        if (this.textAngle.value) {
-            text.rotate(-this.textAngle.value, new Point(x, y));
-        }
+            if (this.textAngle.value) {
+                text.rotate(-this.textAngle.value, new Point(x, y));
+            }
 
-        // todo, I need to adjust text, but looks like PDF and SVG does not render the same..
-        // need to render more before and adjustments, also have no rotation made
+            // todo, I need to adjust text, but looks like PDF and SVG does not render the same..
+            // need to render more before and adjustments, also have no rotation made
 
-        text.bounds.y = text.bounds.y + height / 4;
+            text.bounds.y = text.bounds.y + height / 4;
 
-        switch (this.justification.value) {
-            case "LeftTop":
-                break;
-            case "LeftCenter":
-                break;
-            case "LeftBottom":
-                break;
-            case "CenterTop":
-                break;
-            case "CenterCenter":
-                break;
-            case "CenterBottom":
-                break;
-            case "RightTop":
-                break;
-            case "RightCenter":
-                break;
-            case "RightBottom":
-                break;
-            default:
-            // LeftBottom
+            switch (this.justification.value) {
+                case "LeftTop":
+                    break;
+                case "LeftCenter":
+                    break;
+                case "LeftBottom":
+                    break;
+                case "CenterTop":
+                    break;
+                case "CenterCenter":
+                    break;
+                case "CenterBottom":
+                    break;
+                case "RightTop":
+                    break;
+                case "RightCenter":
+                    break;
+                case "RightBottom":
+                    break;
+                default:
+                // LeftBottom
+            }
+        } catch (e) {
+            console.error("Unable to generate text, something is missing", this);
         }
     }
 }
