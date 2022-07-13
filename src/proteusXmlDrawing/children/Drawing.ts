@@ -8,6 +8,7 @@ import { Label } from "./Label";
 import { Line } from "./Line";
 import { PolyLine } from "./PolyLine";
 import { Presentation } from "./Presentation";
+import { Shape } from "./Shape";
 import { Text } from "./Text";
 
 /**
@@ -25,6 +26,7 @@ export class Drawing {
     text: Text[];
     line: Line[];
     polyLine: PolyLine[];
+    shape: Shape[];
 
     constructor(element: Element) {
         this.element = element;
@@ -37,6 +39,8 @@ export class Drawing {
         this.line = getElements(element, "Line", Line);
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.text = getElements(element, "Text", Text);
+        this.shape = getElements(element, "Shape", Shape);
+
 
         collectMissingParts(this.element, this);
     }

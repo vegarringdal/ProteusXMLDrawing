@@ -19,6 +19,7 @@ import { Association } from "./Association";
 import { ConnectionPoints } from "./ConnectionPoints";
 import { Scale } from "./Scale";
 import { TrimmedCurve } from "./TrimmedCurve";
+import { NominalDiameter } from "./NominalDiameter";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -53,6 +54,7 @@ export class PipingComponent {
     connectionPoints: ConnectionPoints[];
     scale: Scale[];
     trimmedCurve: TrimmedCurve[];
+    nominalDiameter: NominalDiameter[];
 
     constructor(element: Element) {
         this.element = element;
@@ -74,6 +76,7 @@ export class PipingComponent {
         this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
         this.scale = getElements(element, "Scale", Scale);
         this.trimmedCurve = getElements(element, "TrimmedCurve", TrimmedCurve);
+        this.nominalDiameter = getElements(element, "NominalDiameter", NominalDiameter);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

@@ -8,9 +8,11 @@ import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
+import { NominalDiameter } from "./NominalDiameter";
 import { PersistentID } from "./PersistentID";
 import { PipingNetworkSegment } from "./PipingNetworkSegment";
 import { PolyLine } from "./PolyLine";
+import { Presentation } from "./Presentation";
 import { PropertyBreak } from "./PropertyBreak";
 import { Shape } from "./Shape";
 
@@ -44,6 +46,8 @@ export class PipingNetworkSystem {
     propertyBreak: PropertyBreak[];
     association: Association[];
     persistentID: PersistentID[];
+    presentation: Presentation[];
+    nominalDiameter: NominalDiameter[];
 
     constructor(element: Element) {
         this.element = element;
@@ -64,6 +68,8 @@ export class PipingNetworkSystem {
         this.propertyBreak = getElements(element, "PropertyBreak", PropertyBreak);
         this.association = getElements(element, "Association", Association);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
+        this.presentation = getElements(element, "Presentation", Presentation);
+        this.nominalDiameter = getElements(element, "NominalDiameter", NominalDiameter);
 
 
         this.id = new StringAttribute(element, "ID");

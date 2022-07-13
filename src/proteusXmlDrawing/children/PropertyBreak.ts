@@ -9,9 +9,11 @@ import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
+import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
 import { Position } from "./Position";
 import { Presentation } from "./Presentation";
+import { Scale } from "./Scale";
 import { Text } from "./Text";
 
 /**
@@ -48,6 +50,8 @@ export class PropertyBreak {
     text: Text[];
     connectionPoints: ConnectionPoints[];
     genericAttributes: GenericAttributes[];
+    scale: Scale[];
+    persistentID: PersistentID[];
 
     constructor(element: Element) {
         this.element = element;
@@ -62,6 +66,8 @@ export class PropertyBreak {
         this.text = getElements(element, "Text", Text);
         this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.scale = getElements(element, "Scale", Scale);
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
