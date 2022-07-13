@@ -8,6 +8,7 @@ import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
+import { PersistentID } from "./PersistentID";
 import { PipingNetworkSegment } from "./PipingNetworkSegment";
 import { PolyLine } from "./PolyLine";
 import { PropertyBreak } from "./PropertyBreak";
@@ -42,6 +43,7 @@ export class PipingNetworkSystem {
     genericAttributes: GenericAttributes[];
     propertyBreak: PropertyBreak[];
     association: Association[];
+    persistentID: PersistentID[];
 
     constructor(element: Element) {
         this.element = element;
@@ -61,6 +63,7 @@ export class PipingNetworkSystem {
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.propertyBreak = getElements(element, "PropertyBreak", PropertyBreak);
         this.association = getElements(element, "Association", Association);
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
 
 
         this.id = new StringAttribute(element, "ID");

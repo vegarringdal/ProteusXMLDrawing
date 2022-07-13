@@ -18,6 +18,7 @@ import { GenericAttributes } from "./GenericAttributes";
 import { Association } from "./Association";
 import { ConnectionPoints } from "./ConnectionPoints";
 import { Scale } from "./Scale";
+import { TrimmedCurve } from "./TrimmedCurve";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -51,6 +52,7 @@ export class PipingComponent {
     association: Association[];
     connectionPoints: ConnectionPoints[];
     scale: Scale[];
+    trimmedCurve: TrimmedCurve[];
 
     constructor(element: Element) {
         this.element = element;
@@ -71,6 +73,7 @@ export class PipingComponent {
         this.association = getElements(element, "Association", Association);
         this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
         this.scale = getElements(element, "Scale", Scale);
+        this.trimmedCurve = getElements(element, "TrimmedCurve", TrimmedCurve);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

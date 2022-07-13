@@ -61,11 +61,11 @@ export class TrimmedCurve {
                     myCircle.fillColor = new Color("black");
                 }
 
-                var path = new Path();
+                /* var path = new Path();
                 path.strokeColor = new Color("black");
 
                 path.add(new Point(x, y-radius/2));
-                path.arcTo(new Point(x + radius * 2, y-radius/2));
+                path.arcTo(new Point(x + radius * 2, y-radius/2)); */
             }
         });
     }

@@ -133,6 +133,8 @@ export class PlantModel {
         // mm is default
         let unit = 1;
 
+        console.log(this.plantInformation[0].units.value)
+
         if (this.plantInformation[0].units.value === "Metre") {
             unit = 1000;
         }

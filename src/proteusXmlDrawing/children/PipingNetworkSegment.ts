@@ -18,10 +18,12 @@ import { Label } from "./Label";
 import { Line } from "./Line";
 import { MaximumDesignPressure } from "./MaximumDesignPressure";
 import { NominalDiameter } from "./NominalDiameter";
+import { PersistentID } from "./PersistentID";
 import { PipeConnectorSymbol } from "./PipeConnectorSymbol";
 import { PipeFlowArrow } from "./PipeFlowArrow";
 import { PipingComponent } from "./PipingComponent";
 import { PolyLine } from "./PolyLine";
+import { Presentation } from "./Presentation";
 import { ProcessInstrument } from "./ProcessInstrument";
 import { Shape } from "./Shape";
 
@@ -70,6 +72,8 @@ export class PipingNetworkSegment {
     extent: Extent[];
     nominalDiameter: NominalDiameter[];
     maximumDesignPressure: MaximumDesignPressure[];
+    presentation: Presentation[];
+    persistentID: PersistentID[];
    
 
     constructor(element: Element) {
@@ -101,6 +105,8 @@ export class PipingNetworkSegment {
         this.extent = getElements(element, "Extent", Extent);
         this.nominalDiameter = getElements(element, "NominalDiameter", NominalDiameter);
         this.maximumDesignPressure = getElements(element, "MaximumDesignPressure", MaximumDesignPressure);
+        this.presentation = getElements(element, "Presentation", Presentation);
+        this.persistentID = getElements(element, "PersistentID", PersistentID);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

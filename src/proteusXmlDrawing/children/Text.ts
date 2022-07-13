@@ -74,8 +74,8 @@ export class Text {
             const text = new PointText(new Point(x + offsetX * unit, y + offsetY * unit));
 
             // height and width attribute just cant be right, need to use extent or a combo?
-            const width = (this.extent[0].max[0].x.value - this.extent[0].min[0].x.value) * 1000;
-            const height = (this.extent[0].max[0].y.value - this.extent[0].min[0].y.value) * 1000;
+            const width = (this.extent[0].max[0].x.value - this.extent[0].min[0].x.value) * unit;
+            const height = (this.extent[0].max[0].y.value - this.extent[0].min[0].y.value) * unit;
 
             text.content = this.string.value;
             text.fontSize = this.height.value * unit;

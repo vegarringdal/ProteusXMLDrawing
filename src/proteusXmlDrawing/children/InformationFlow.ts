@@ -12,6 +12,7 @@ import { GenericAttributes } from "./GenericAttributes";
 import { Line } from "./Line";
 import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
+import { Position } from "./Position";
 import { Presentation } from "./Presentation";
 import { Shape } from "./Shape";
 
@@ -36,6 +37,7 @@ export class InformationFlow {
     genericAttributes: GenericAttributes[];
     association: Association[];
     connection: Connection[];
+    position: Position[];
 
     constructor(element: Element) {
         this.element = element;
@@ -52,6 +54,7 @@ export class InformationFlow {
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.association = getElements(element, "Association", Association);
         this.connection = getElements(element, "Connection", Connection);
+        this.position = getElements(element, "Position", Position);
         
 
         this.id = new StringAttribute(element, "ID");

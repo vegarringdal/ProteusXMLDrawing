@@ -25,6 +25,7 @@ import { MaximumDesignPressure } from "./MaximumDesignPressure";
 import { MaximumDesignTemperature } from "./MaximumDesignTemperature";
 import { MinimumDesignPressure } from "./MinimumDesignPressure";
 import { MinimumDesignTemperature } from "./MinimumDesignTemperature";
+import { ConnectionPoints } from "./ConnectionPoints";
 
 /**
  * A geometric primitive
@@ -60,6 +61,7 @@ export class Equipment {
     minimumDesignPressure: MinimumDesignPressure[];
     maximumDesignTemperature: MaximumDesignTemperature[];
     minimumDesignTemperature: MinimumDesignTemperature[];
+    connectionPoints: unknown[];
 
     constructor(element: Element) {
         this.element = element;
@@ -86,6 +88,7 @@ export class Equipment {
         this.minimumDesignPressure = getElements(element, "MinimumDesignPressure", MinimumDesignPressure);
         this.maximumDesignTemperature = getElements(element, "MaximumDesignTemperature", MaximumDesignTemperature);
         this.minimumDesignTemperature = getElements(element, "MinimumDesignTemperature", MinimumDesignTemperature);
+        this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

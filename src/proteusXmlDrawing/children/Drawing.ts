@@ -5,7 +5,9 @@ import { DrawingBorder } from "./DrawingBorder";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
 import { Label } from "./Label";
+import { Line } from "./Line";
 import { Presentation } from "./Presentation";
+import { Text } from "./Text";
 
 /**
  * Metadata and graphical annotation related to the P&ID drawing being represented
@@ -19,6 +21,8 @@ export class Drawing {
     label: Label[];
     presentation: Presentation[];
     genericAttributes: GenericAttributes[];
+    text: Text[];
+    line: Line[];
 
     constructor(element: Element) {
         this.element = element;
@@ -28,6 +32,8 @@ export class Drawing {
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.drawingBorder = getElements(element, "DrawingBorder", DrawingBorder);
         this.label = getElements(element, "Label", Label);
+        this.line = getElements(element, "Line", Line);
+        this.text = getElements(element, "Text", Text);
 
         collectMissingParts(this.element, this);
     }
