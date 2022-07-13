@@ -1,3 +1,4 @@
+import { Component } from "react";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
@@ -27,6 +28,7 @@ export class Drawing {
     line: Line[];
     polyLine: PolyLine[];
     shape: Shape[];
+    component: Component<unknown, unknown, unknown>[];
 
     constructor(element: Element) {
         this.element = element;
@@ -40,6 +42,7 @@ export class Drawing {
         this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.text = getElements(element, "Text", Text);
         this.shape = getElements(element, "Shape", Shape);
+        this.component = getElements(element, "Component", Component);
 
 
         collectMissingParts(this.element, this);

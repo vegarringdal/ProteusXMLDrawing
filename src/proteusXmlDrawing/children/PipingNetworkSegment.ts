@@ -7,6 +7,7 @@ import { Association } from "./Association";
 import { CenterLine } from "./CenterLine";
 import { Circle } from "./Circle";
 import { Connection } from "./Connection";
+import { DexpiCustomAttributes } from "./DexpiCustomAttributes";
 import { Ellipse } from "./Ellipse";
 import { Equipment } from "./Equipment";
 import { Extent } from "./Extent";
@@ -19,12 +20,16 @@ import { Line } from "./Line";
 import { MaximumDesignPressure } from "./MaximumDesignPressure";
 import { NominalDiameter } from "./NominalDiameter";
 import { PersistentID } from "./PersistentID";
+import { PIFDCS } from "./PIFDCS";
+import { PIFSD_CAUSE } from "./PIFSD_CAUSE";
 import { PipeConnectorSymbol } from "./PipeConnectorSymbol";
 import { PipeFlowArrow } from "./PipeFlowArrow";
+import { PipeOffPageConnector } from "./PipeOffPageConnector";
 import { PipingComponent } from "./PipingComponent";
 import { PolyLine } from "./PolyLine";
 import { Presentation } from "./Presentation";
 import { ProcessInstrument } from "./ProcessInstrument";
+import { PropertyBreak } from "./PropertyBreak";
 import { Shape } from "./Shape";
 import { Text } from "./Text";
 
@@ -76,7 +81,11 @@ export class PipingNetworkSegment {
     presentation: Presentation[];
     persistentID: PersistentID[];
     text: Text[];
-   
+    dexpiCustomAttributes: DexpiCustomAttributes[];
+    propertyBreak: PropertyBreak[];
+    pipeOffPageConnector: PipeOffPageConnector[];
+    PIFSD_CAUSE: PIFSD_CAUSE[];
+    PIFDCS: PIFDCS[];
 
     constructor(element: Element) {
         this.element = element;
@@ -106,10 +115,27 @@ export class PipingNetworkSegment {
         this.connection = getElements(element, "Connection", Connection);
         this.extent = getElements(element, "Extent", Extent);
         this.nominalDiameter = getElements(element, "NominalDiameter", NominalDiameter);
-        this.maximumDesignPressure = getElements(element, "MaximumDesignPressure", MaximumDesignPressure);
+        this.maximumDesignPressure = getElements(
+            element,
+            "MaximumDesignPressure",
+            MaximumDesignPressure
+        );
         this.presentation = getElements(element, "Presentation", Presentation);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.text = getElements(element, "Text", Text);
+        this.dexpiCustomAttributes = getElements(
+            element,
+            "DexpiCustomAttributes",
+            DexpiCustomAttributes
+        );
+        this.propertyBreak = getElements(element, "PropertyBreak", PropertyBreak);
+        this.pipeOffPageConnector = getElements(
+            element,
+            "PipeOffPageConnector",
+            PipeOffPageConnector
+        );
+        this.PIFSD_CAUSE = getElements(element, "PIFSD_CAUSE", PIFSD_CAUSE);
+        this.PIFDCS = getElements(element, "PIFDCS", PIFDCS);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
@@ -132,4 +158,3 @@ export class PipingNetworkSegment {
         });
     }
 }
-

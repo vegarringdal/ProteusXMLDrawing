@@ -4,6 +4,7 @@ import { getElements } from "../utils/getElement";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Association } from "./Association";
 import { Circle } from "./Circle";
+import { DexpiCustomAttributes } from "./DexpiCustomAttributes";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
@@ -48,6 +49,7 @@ export class PipingNetworkSystem {
     persistentID: PersistentID[];
     presentation: Presentation[];
     nominalDiameter: NominalDiameter[];
+    dexpiCustomAttributes: DexpiCustomAttributes[];
 
     constructor(element: Element) {
         this.element = element;
@@ -70,6 +72,7 @@ export class PipingNetworkSystem {
         this.persistentID = getElements(element, "PersistentID", PersistentID);
         this.presentation = getElements(element, "Presentation", Presentation);
         this.nominalDiameter = getElements(element, "NominalDiameter", NominalDiameter);
+        this.dexpiCustomAttributes = getElements(element, "DexpiCustomAttributes", DexpiCustomAttributes);
 
 
         this.id = new StringAttribute(element, "ID");

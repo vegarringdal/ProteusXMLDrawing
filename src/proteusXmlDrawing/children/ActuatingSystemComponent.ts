@@ -15,6 +15,8 @@ import { Position } from "./Position";
 import { Presentation } from "./Presentation";
 import { Scale } from "./Scale";
 import { Shape } from "./Shape";
+import { TrimmedCurve } from "./TrimmedCurve";
+import { Text } from "./Text";
 
 export class ActuatingSystemComponent {
     isChild = true;
@@ -37,6 +39,8 @@ export class ActuatingSystemComponent {
     genericAttributes: GenericAttributes[];
     association: Association[];
     scale: Scale[];
+    text: Text[];
+    trimmedCurve: TrimmedCurve[];
 
     constructor(element: Element) {
         this.element = element;
@@ -53,6 +57,8 @@ export class ActuatingSystemComponent {
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.association = getElements(element, "Association", Association);
         this.scale = getElements(element, "Scale", Scale);
+        this.text = getElements(element, "Text", Text);
+        this.trimmedCurve = getElements(element, "TrimmedCurve", TrimmedCurve);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

@@ -21,6 +21,7 @@ import { Association } from "./Association";
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { collectMissingParts } from "../utils/findMissing";
+import { CrossPageConnection } from "./CrossPageConnection";
 /**
  * A geometric primitive
  */
@@ -54,6 +55,7 @@ export class SignalConnectorSymbol {
     componentType: StringAttribute;
     revision: StringAttribute;
     status: StringAttribute;
+    crossPageConnection: CrossPageConnection[];
 
     constructor(element: Element) {
         this.element = element;
@@ -77,6 +79,9 @@ export class SignalConnectorSymbol {
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.history = getElements(element, "History", History);
         this.association = getElements(element, "Association", Association);
+        this.crossPageConnection = getElements(element, "CrossPageConnection", CrossPageConnection);
+
+        
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

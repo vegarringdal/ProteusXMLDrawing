@@ -60,7 +60,7 @@ export function printMissing() {
         }
     });
 
-    /*   Array.from(mapAttributes.keys()).forEach((attrName) => {
+     Array.from(mapAttributes.keys()).forEach((attrName) => {
         const missingTags = mapAttributes.get(attrName);
         if (missingTags?.size) {
             console.log("-------------------------------");
@@ -70,5 +70,5 @@ export function printMissing() {
                 console.log("--------->", attributeNamesMap.get(key));
             });
         }
-    });  */
+    });   
 }

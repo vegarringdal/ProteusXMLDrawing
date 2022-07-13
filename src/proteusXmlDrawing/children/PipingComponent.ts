@@ -20,6 +20,8 @@ import { ConnectionPoints } from "./ConnectionPoints";
 import { Scale } from "./Scale";
 import { TrimmedCurve } from "./TrimmedCurve";
 import { NominalDiameter } from "./NominalDiameter";
+import { DexpiCustomAttributes } from "./DexpiCustomAttributes";
+import { Label } from "./Label";
 
 /**
  * This represents a physical component that is common to piping systems.
@@ -55,6 +57,8 @@ export class PipingComponent {
     scale: Scale[];
     trimmedCurve: TrimmedCurve[];
     nominalDiameter: NominalDiameter[];
+    dexpiCustomAttributes: DexpiCustomAttributes[];
+    label: Label[];
 
     constructor(element: Element) {
         this.element = element;
@@ -77,6 +81,8 @@ export class PipingComponent {
         this.scale = getElements(element, "Scale", Scale);
         this.trimmedCurve = getElements(element, "TrimmedCurve", TrimmedCurve);
         this.nominalDiameter = getElements(element, "NominalDiameter", NominalDiameter);
+        this.dexpiCustomAttributes = getElements(element, "DexpiCustomAttributes", DexpiCustomAttributes);
+        this.label = getElements(element, "Label", Label);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

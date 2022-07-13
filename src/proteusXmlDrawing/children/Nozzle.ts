@@ -18,6 +18,9 @@ import { Scale } from "./Scale";
 import { Text } from "./Text";
 import { Shape } from "./Shape";
 import { NominalDiameter } from "./NominalDiameter";
+import { TrimmedCurve } from "./TrimmedCurve";
+import { DexpiCustomAttributes } from "./DexpiCustomAttributes";
+import { Label } from "./Label";
 
 
 /**
@@ -48,6 +51,9 @@ export class Nozzle {
     scale: Scale[];
     text: Text[];
     nominalDiameter: NominalDiameter[];
+    trimmedCurve: TrimmedCurve[];
+    dexpiCustomAttributes: DexpiCustomAttributes[];
+    label: Label[];
 
     constructor(element: Element) {
         this.element = element;
@@ -67,6 +73,10 @@ export class Nozzle {
         this.scale = getElements(element, "Scale", Scale);
         this.text = getElements(element, "Text", Text);
         this.nominalDiameter = getElements(element, "NominalDiameter", NominalDiameter);
+        this.nominalDiameter = getElements(element, "NominalDiameter", NominalDiameter);
+        this.trimmedCurve = getElements(element, "TrimmedCurve", TrimmedCurve);
+        this.dexpiCustomAttributes = getElements(element, "DexpiCustomAttributes", DexpiCustomAttributes);
+        this.label = getElements(element, "Label", Label);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

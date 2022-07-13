@@ -5,6 +5,7 @@ import { NumberAttribute } from "../utils/NumberAttribute";
 import { getPaper } from "../utils/paper";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Circle } from "./Circle";
+import { Ellipse } from "./Ellipse";
 
 /**
  * A geometric primitive
@@ -15,13 +16,13 @@ export class TrimmedCurve {
     circle: Circle[];
     startAngle: NumberAttribute;
     endAngle: NumberAttribute;
-
+    ellipse: Ellipse[];
 
     constructor(element: Element) {
         this.element = element;
 
         this.circle = getElements(element, "Circle", Circle);
-        // todo ellipse..
+        this.ellipse = getElements(element, "Ellipse", Ellipse);
         this.startAngle = new NumberAttribute(element, "StartAngle");
         this.endAngle = new NumberAttribute(element, "EndAngle");
 
@@ -66,6 +67,36 @@ export class TrimmedCurve {
 
                 path.add(new Point(x, y-radius/2));
                 path.arcTo(new Point(x + radius * 2, y-radius/2)); */
+            }
+            if (drawable.element.tagName === "ellipse") {
+                const Point = getPaper().Point;
+                const Path = getPaper().Path;
+                const Color = getPaper().Color;
+                const Size = getPaper().Size;
+                const Rectangle = getPaper().Rectangle;
+                const Ellipse = getPaper().Shape.Ellipse;
+
+                const x = (drawable as Ellipse).position[0].location[0].x.value + offsetX;
+                const y = (drawable as Ellipse).position[0].location[0].y.value + offsetY;
+                const point = new Point(x * unit, pageOriginY * unit - y * unit);
+
+                const rectangle = new Rectangle(
+                    point,
+                    new Size((drawable as Ellipse).primaryAxis.value * unit, (drawable as Ellipse).secondaryAxis.value * unit)
+                );
+                const ellipse = new Path.Ellipse(rectangle);
+
+                ellipse.strokeColor = new Color({
+                    red: (drawable as Ellipse).presentation[0].r.value,
+                    green: (drawable as Ellipse).presentation[0].g.value,
+                    blue: (drawable as Ellipse).presentation[0].b.value
+                });
+
+                ellipse.strokeWidth = (drawable as Ellipse).presentation[0].lineWeight.value * unit;
+
+                if ((drawable as Ellipse).filled.value) {
+                    ellipse.fillColor = new Color("black");
+                }
             }
         });
     }

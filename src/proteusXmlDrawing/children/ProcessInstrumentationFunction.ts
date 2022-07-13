@@ -11,6 +11,7 @@ import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
 import { InformationFlow } from "./InformationFlow";
+import { Label } from "./Label";
 import { Line } from "./Line";
 import { PersistentID } from "./PersistentID";
 import { PolyLine } from "./PolyLine";
@@ -52,6 +53,7 @@ export class ProcessInstrumentationFunction {
     connectionPoints: ConnectionPoints[];
     scale: Scale[];
     processSignalGeneratingFunction: ProcessSignalGeneratingFunction[];
+    label: Label[];
 
     constructor(element: Element) {
         this.element = element;
@@ -73,6 +75,7 @@ export class ProcessInstrumentationFunction {
         this.association = getElements(element, "Association", Association);
         this.connectionPoints = getElements(element, "ConnectionPoints", ConnectionPoints);
         this.scale = getElements(element, "Scale", Scale);
+        this.label = getElements(element, "Label", Label);
         this.processSignalGeneratingFunction = getElements(element, "ProcessSignalGeneratingFunction", ProcessSignalGeneratingFunction);
 
         
