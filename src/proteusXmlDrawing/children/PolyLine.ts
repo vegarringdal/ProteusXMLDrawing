@@ -39,7 +39,6 @@ export class PolyLine {
         const Point = getPaper().Point;
         const Path = getPaper().Path;
         const Color = getPaper().Color;
-
         const segments: any[] = [];
         this.coordinate.forEach((coordinate) => {
             const x = coordinate.x.value + offsetX;
@@ -54,6 +53,7 @@ export class PolyLine {
             green: this.presentation[0].g.value,
             blue: this.presentation[0].b.value
         });
+
         path.strokeWidth = this.presentation[0].lineWeight.value * unit;
     }
 }

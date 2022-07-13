@@ -6,6 +6,7 @@ import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
 import { Label } from "./Label";
 import { Line } from "./Line";
+import { PolyLine } from "./PolyLine";
 import { Presentation } from "./Presentation";
 import { Text } from "./Text";
 
@@ -23,6 +24,7 @@ export class Drawing {
     genericAttributes: GenericAttributes[];
     text: Text[];
     line: Line[];
+    polyLine: PolyLine[];
 
     constructor(element: Element) {
         this.element = element;
@@ -33,6 +35,7 @@ export class Drawing {
         this.drawingBorder = getElements(element, "DrawingBorder", DrawingBorder);
         this.label = getElements(element, "Label", Label);
         this.line = getElements(element, "Line", Line);
+        this.polyLine = getElements(element, "PolyLine", PolyLine);
         this.text = getElements(element, "Text", Text);
 
         collectMissingParts(this.element, this);

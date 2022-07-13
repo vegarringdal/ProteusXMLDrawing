@@ -104,11 +104,7 @@ export class PlantModel {
         this.processInstrument = getElements(element, "ProcessInstrument", ProcessInstrument);
         this.shape = getElements(element, "Shape", Shape);
         this.shapeCatalogue = getElements(element, "ShapeCatalogue", ShapeCatalogue);
-        this.plantStructureItem = getElements(
-            element,
-            "PlantStructureItem",
-            PlantStructureItem
-        );
+        this.plantStructureItem = getElements(element, "PlantStructureItem", PlantStructureItem);
         this.signalConnectorSymbol = getElements(
             element,
             "SignalConnectorSymbol",
@@ -133,10 +129,15 @@ export class PlantModel {
         // mm is default
         let unit = 1;
 
-        console.log(this.plantInformation[0].units.value)
+        console.log(this.plantInformation[0].units.value);
 
         if (this.plantInformation[0].units.value === "Metre") {
             unit = 1000;
+        }
+
+        if (this.drawing.length === 0) {
+            console.warn("No drawing element, skipping");
+            return;
         }
 
         const x = this.drawing[0].extent[0].max[0].x.value;

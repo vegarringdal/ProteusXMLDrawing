@@ -11,7 +11,7 @@ export default App;
 // experiment
 async function getXml() {
     const response = await fetch(
-        "/TrainingTestCases/tests/C01 the complete DEXPI PnID/C01V01-SAG.EX02.xml"
+        "/TrainingTestCases/tests/C03 DEXPI Example Tank Displ Pump Pipe with Tee/C03V01-AVV.EX01.xml"
     );
 
 

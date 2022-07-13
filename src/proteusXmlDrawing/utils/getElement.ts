@@ -9,11 +9,14 @@ export function getElements<T>(
     UseClass: { new (element: Element): T }
 ): T[] {
     const elementsFound: T[] = [];
-    for (let i = 0; i < element.children.length; i++) {
-        const el = element.children[i];
-        if (el.tagName === elementToFind) {
-            elementsFound.push(new UseClass(el));
+    if (element?.children) {
+        for (let i = 0; i < element.children.length; i++) {
+            const el = element.children[i];
+            if (el.tagName === elementToFind) {
+                elementsFound.push(new UseClass(el));
+            }
         }
     }
+
     return elementsFound;
 }

@@ -26,6 +26,7 @@ import { PolyLine } from "./PolyLine";
 import { Presentation } from "./Presentation";
 import { ProcessInstrument } from "./ProcessInstrument";
 import { Shape } from "./Shape";
+import { Text } from "./Text";
 
 /**
  * See ‘2.2.1’ for details on the use of PipingNetworkSegments.
@@ -74,6 +75,7 @@ export class PipingNetworkSegment {
     maximumDesignPressure: MaximumDesignPressure[];
     presentation: Presentation[];
     persistentID: PersistentID[];
+    text: Text[];
    
 
     constructor(element: Element) {
@@ -107,6 +109,7 @@ export class PipingNetworkSegment {
         this.maximumDesignPressure = getElements(element, "MaximumDesignPressure", MaximumDesignPressure);
         this.presentation = getElements(element, "Presentation", Presentation);
         this.persistentID = getElements(element, "PersistentID", PersistentID);
+        this.text = getElements(element, "Text", Text);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");

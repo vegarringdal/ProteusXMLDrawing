@@ -8,39 +8,42 @@ export function collectMissingParts(element: Element, ctx: any) {
         const keys = new Set(Object.keys(ctx).map((e) => e.toLowerCase()));
         const elementNames = new Set<string>();
 
-        for (let i = 0; i < element.children.length; i++) {
-            elementNames.add(element.children[i].tagName.toLowerCase());
-            elementNamesMap.set(
-                element.children[i].tagName.toLowerCase(),
-                element.children[i].tagName
-            );
-        }
-
-        const elementSet = mapElements.get(element.tagName) || new Set();
-
-        elementNames.forEach((tagname) => {
-            if (!keys.has(tagname)) {
-                elementSet.add(tagname);
+        if (element?.children) {
+            for (let i = 0; i < element.children.length; i++) {
+                elementNames.add(element.children[i].tagName.toLowerCase());
+                elementNamesMap.set(
+                    element.children[i].tagName.toLowerCase(),
+                    element.children[i].tagName
+                );
             }
-        });
+            const elementSet = mapElements.get(element.tagName) || new Set();
 
-        mapElements.set(element.tagName, elementSet);
+            elementNames.forEach((tagname) => {
+                if (!keys.has(tagname)) {
+                    elementSet.add(tagname);
+                }
+            });
+
+            mapElements.set(element.tagName, elementSet);
+        }
     }
 
     {
-        const keys = new Set(Object.keys(ctx).map((e) => e.toLowerCase()));
-        const attributes = element.getAttributeNames();
+        if (element) {
+            const keys = new Set(Object.keys(ctx).map((e) => e.toLowerCase()));
+            const attributes = element.getAttributeNames();
 
-        const attributeSet = mapAttributes.get(element.tagName) || new Set();
+            const attributeSet = mapAttributes.get(element.tagName) || new Set();
 
-        attributes.forEach((name) => {
-            if (!keys.has(name.toLowerCase())) {
-                attributeSet.add(name.toLowerCase());
-                attributeNamesMap.set(name.toLowerCase(), name);
-            }
-        });
+            attributes.forEach((name) => {
+                if (!keys.has(name.toLowerCase())) {
+                    attributeSet.add(name.toLowerCase());
+                    attributeNamesMap.set(name.toLowerCase(), name);
+                }
+            });
 
-        mapAttributes.set(element.tagName, attributeSet);
+            mapAttributes.set(element.tagName, attributeSet);
+        }
     }
 }
 
@@ -57,7 +60,7 @@ export function printMissing() {
         }
     });
 
-   Array.from(mapAttributes.keys()).forEach((attrName) => {
+    /*   Array.from(mapAttributes.keys()).forEach((attrName) => {
         const missingTags = mapAttributes.get(attrName);
         if (missingTags?.size) {
             console.log("-------------------------------");
@@ -67,5 +70,5 @@ export function printMissing() {
                 console.log("--------->", attributeNamesMap.get(key));
             });
         }
-    }); 
+    });  */
 }
