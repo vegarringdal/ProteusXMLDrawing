@@ -30,6 +30,7 @@ import { ProcessInstrumentationFunction } from "./ProcessInstrumentationFunction
 import { InstrumentationLoopFunction } from "./InstrumentationLoopFunction";
 import { collectMissingParts } from "../utils/findMissing";
 import { ActuatingSystem } from "./ActuatingSystem";
+import { PlantStructureItem } from "./PlantStructureItem";
 
 /**
  * This is the root node of an XMpLant document and only exists as the root node of an XMpLant file. Other than the first two child elements, PlantInformation and Extent, the ordering of child elements within a PlantModel element is not significant.
@@ -73,6 +74,7 @@ export class PlantModel {
     processInstrumentationFunction: ProcessInstrumentationFunction[];
     instrumentationLoopFunction: InstrumentationLoopFunction[];
     actuatingSystem: ActuatingSystem[];
+    plantStructureItem: PlantStructureItem[];
 
     constructor(element: Element) {
         this.element = element;
@@ -102,6 +104,11 @@ export class PlantModel {
         this.processInstrument = getElements(element, "ProcessInstrument", ProcessInstrument);
         this.shape = getElements(element, "Shape", Shape);
         this.shapeCatalogue = getElements(element, "ShapeCatalogue", ShapeCatalogue);
+        this.plantStructureItem = getElements(
+            element,
+            "PlantStructureItem",
+            PlantStructureItem
+        );
         this.signalConnectorSymbol = getElements(
             element,
             "SignalConnectorSymbol",

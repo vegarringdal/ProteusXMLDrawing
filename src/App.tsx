@@ -11,7 +11,7 @@ export default App;
 // experiment
 async function getXml() {
     const response = await fetch(
-        "/TrainingTestCases/tests/C01 the complete DEXPI PnID/C01V01-HEX.EX01.xml"
+        "/TrainingTestCases/tests/C01 the complete DEXPI PnID/C01V01-HEX.EX03.xml"
     );
 
 

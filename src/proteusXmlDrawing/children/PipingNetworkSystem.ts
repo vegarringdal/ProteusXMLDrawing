@@ -2,6 +2,7 @@ import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
 import { StringAttribute } from "../utils/StringAttribute";
+import { Association } from "./Association";
 import { Circle } from "./Circle";
 import { Ellipse } from "./Ellipse";
 import { Extent } from "./Extent";
@@ -40,6 +41,7 @@ export class PipingNetworkSystem {
     extent: Extent[];
     genericAttributes: GenericAttributes[];
     propertyBreak: PropertyBreak[];
+    association: Association[];
 
     constructor(element: Element) {
         this.element = element;
@@ -58,6 +60,7 @@ export class PipingNetworkSystem {
         this.shape = getElements(element, "Shape", Shape);
         this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
         this.propertyBreak = getElements(element, "PropertyBreak", PropertyBreak);
+        this.association = getElements(element, "Association", Association);
 
 
         this.id = new StringAttribute(element, "ID");

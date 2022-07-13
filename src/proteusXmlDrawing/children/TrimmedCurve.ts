@@ -1,7 +1,9 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
+import { NumberAttribute } from "../utils/NumberAttribute";
 import { getPaper } from "../utils/paper";
+import { StringAttribute } from "../utils/StringAttribute";
 import { Circle } from "./Circle";
 
 /**
@@ -11,12 +13,17 @@ export class TrimmedCurve {
     isChild = true;
     element: Element;
     circle: Circle[];
+    startAngle: NumberAttribute;
+    endAngle: NumberAttribute;
+
 
     constructor(element: Element) {
         this.element = element;
 
         this.circle = getElements(element, "Circle", Circle);
         // todo ellipse..
+        this.startAngle = new NumberAttribute(element, "StartAngle");
+        this.endAngle = new NumberAttribute(element, "EndAngle");
 
         collectMissingParts(this.element, this);
     }
