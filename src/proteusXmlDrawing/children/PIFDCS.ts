@@ -1,6 +1,7 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
+import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Association } from "./Association";
 import { Circle } from "./Circle";
@@ -68,5 +69,23 @@ export class PIFDCS {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
+
+        if (this.componentName.value) {
+            const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
+            if (shapeCatalogItem && shapeCatalogItem !== this) {
+                const x = this.position[0].location[0].x.value;
+                const y = this.position[0].location[0].y.value;
+                //console.log("Drawing shape", this.componentName.value);
+                if (typeof (shapeCatalogItem as any).draw === "function") {
+                    (shapeCatalogItem as any).draw(
+                        unit,
+                        pageOriginX,
+                        pageOriginY,
+                        x + offsetX,
+                        y + offsetY
+                    );
+                }
+            }
+        }
     }
 }

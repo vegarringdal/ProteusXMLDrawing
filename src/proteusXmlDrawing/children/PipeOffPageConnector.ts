@@ -1,6 +1,7 @@
 import { getDrawable } from "../utils/callDrawOnChildren";
 import { collectMissingParts } from "../utils/findMissing";
 import { getElements } from "../utils/getElement";
+import { getFromShapeCatalogStore } from "../utils/shapeCatalogStore";
 import { StringAttribute } from "../utils/StringAttribute";
 import { Extent } from "./Extent";
 import { GenericAttributes } from "./GenericAttributes";
@@ -13,27 +14,28 @@ import { Text } from "./Text";
 export class PipeOffPageConnector {
     isChild = true;
     element: Element;
-    GenericAttributes: GenericAttributes[];
-    Position: Position[];
-    Presentation: Presentation[];
-    Extent: Extent[];
-    Line: Line[];
-    text: Text[];
-    PipeOffPageConnectorReference: PipeOffPageConnectorReference[];
-    id: StringAttribute;
+ 
     componentClass: StringAttribute;
     componentName: StringAttribute;
     tagName: StringAttribute;
+    genericAttributes: GenericAttributes[];
+    position: Position[];
+    presentation: Presentation[];
+    extent: Extent[];
+    line: Line[];
+    text: Text[];
+    pipeOffPageConnectorReference: PipeOffPageConnectorReference[];
+    id: StringAttribute;
 
     constructor(element: Element) {
         this.element = element;
-        this.GenericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
-        this.Position = getElements(element, "Position", Position);
-        this.Presentation = getElements(element, "Presentation", Presentation);
-        this.Extent = getElements(element, "Extent", Extent);
-        this.Line = getElements(element, "Line", Line);
+        this.genericAttributes = getElements(element, "GenericAttributes", GenericAttributes);
+        this.position = getElements(element, "Position", Position);
+        this.presentation = getElements(element, "Presentation", Presentation);
+        this.extent = getElements(element, "Extent", Extent);
+        this.line = getElements(element, "Line", Line);
         this.text = getElements(element, "Text", Text);
-        this.PipeOffPageConnectorReference = getElements(element, "PipeOffPageConnectorReference", PipeOffPageConnectorReference);
+        this.pipeOffPageConnectorReference = getElements(element, "PipeOffPageConnectorReference", PipeOffPageConnectorReference);
 
         this.id = new StringAttribute(element, "ID");
         this.componentClass = new StringAttribute(element, "ComponentClass");
@@ -54,5 +56,23 @@ export class PipeOffPageConnector {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
         });
+
+        if (this.componentName.value) {
+            const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
+            if (shapeCatalogItem && shapeCatalogItem !== this) {
+                const x = this.position[0].location[0].x.value;
+                const y = this.position[0].location[0].y.value;
+                //console.log("Drawing shape", this.componentName.value);
+                if (typeof (shapeCatalogItem as any).draw === "function") {
+                    (shapeCatalogItem as any).draw(
+                        unit,
+                        pageOriginX,
+                        pageOriginY,
+                        x + offsetX,
+                        y + offsetY
+                    );
+                }
+            }
+        }
     }
 }
