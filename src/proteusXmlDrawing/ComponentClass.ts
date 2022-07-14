@@ -2,78 +2,30 @@ import { ComponentAttribute } from "./ComponentAttribute";
 import { getDrawable } from "./callDrawOnChildren";
 import { getPaper } from "./paper";
 import { addToShapeCatalogStore, getFromShapeCatalogStore } from "./shapeCatalogStore";
-
-type XYZ = {
-    x: ComponentAttribute;
-    y: ComponentAttribute;
-    z: ComponentAttribute;
-};
-
-type CooordinateClass = XYZ & ComponentClass;
-
-type Presentation = {
-    /**
-     * Name of the layer in which the graphical elements resides.  This has no functional semantics associated with it.
-     */
-    layer: ComponentAttribute;
-
-    /**
-     * A lookup in a color index.  This isn’t used by AVEVA software.
-     */
-    color: ComponentAttribute;
-
-    /**
-     * One of the numbers or names from the following (Object Model document v2.2) :-
-     * 0 Solid
-     * 1 Dotted
-     * 2 Dashed
-     * 3 Long Dash
-     * 4 Long Dash + Short Dash, CenterLine
-     * 5 Short Dash
-     * 6 Long Dash + Short Dash + Short Dash
-     * 7 Dash + Short Dash
-     */
-    lineType: ComponentAttribute;
-
-    /**
-     * TODO, this will need more work
-     * <real>
-     * or
-     * <real><units>
-     * or
-     * <real><space><units>
-     *
-     * Where :-
-     *  <real> is an real value.
-     *  <space> is a space character (&#20;)
-     *
-     */
-    lineWeight: ComponentAttribute;
-
-    /**
-     * 0 to 1 (double) 1 = maximum intensity of Red component.
-     */
-    r: ComponentAttribute;
-
-    /**
-     * 0 to 1 (double) 1 = maximum intensity of Green component.
-     */
-    g: ComponentAttribute;
-
-    /**
-     * 0 to 1 (double) 1 = maximum intensity of blue component
-     */
-    b: ComponentAttribute;
-};
-
-type PresentationClass = Presentation & ComponentClass;
+import { CooordinateClass } from "./CooordinateClass";
+import { PresentationClass } from "./PresentationClass";
 
 export class ComponentClass {
     isChild = true;
     tagName: string;
     componentName?: ComponentAttribute;
+
+    // just add types for help here, might be missing.. make better types later
     Coordinate: CooordinateClass[] = [];
     Presentation: PresentationClass[] = [];
+    Position: any[]= []
+    Extent: any[]= []
+
+    startAngle!: ComponentAttribute;
+    endAngle!: ComponentAttribute;
+    radius!: ComponentAttribute;
+    filled!: ComponentAttribute;
+    string!: ComponentAttribute;
+    height!: ComponentAttribute;
+    font!: ComponentAttribute;
+    textAngle!: ComponentAttribute;
+    justification!: ComponentAttribute;
+
 
     constructor(public element: Element, public isShapeCatalogChild: boolean) {
         this.tagName = this.element.tagName;
@@ -138,8 +90,8 @@ export class ComponentClass {
                     console.log(this.startAngle.value, this.endAngle.value); 
                     */
 
-                    const startAngle = -this.startAngle.valueAsNumber;
-                    const endAngle = -this.endAngle.valueAsNumber;
+                    const startAngle = -this.startAngle?.valueAsNumber || 0;
+                    const endAngle = -this.endAngle?.valueAsNumber || 0;
 
                     const from = new Point(radius, 0);
                     from.angle = startAngle;
@@ -287,7 +239,7 @@ export class ComponentClass {
                 blue: this.Presentation[0].b.value
             });
 
-            myCircle.strokeWidth = this.Presentation[0].lineWeight.value * unit;
+            myCircle.strokeWidth = this.Presentation[0].lineWeight.valueAsNumber * unit;
 
             if (this.filled?.value) {
                 myCircle.fillColor = new Color("black");
@@ -337,9 +289,9 @@ export class ComponentClass {
             const height =
                 (this.Extent[0].Max[0].y.value - this.Extent[0].Min[0].y.valueAsNumber) * unit;
 
-            text.content = this.string.value;
+            text.content = this.string.valueAsString;
             text.fontSize = this.height.valueAsNumber * unit;
-            text.fontFamily = this.font.value;
+            text.fontFamily = this.font.valueAsString 
 
             text.fillColor = new Color({
                 red: this.Presentation[0].r.value,

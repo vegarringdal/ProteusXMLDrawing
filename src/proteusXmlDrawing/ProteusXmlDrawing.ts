@@ -1,12 +1,10 @@
 import { ComponentClass } from "./ComponentClass";
-import { getDrawable } from "./callDrawOnChildren";
-import { printMissing } from "./findMissing";
 import { initPaper } from "./paper";
 
 export class ProteusXmlDrawing {
     xml: Document;
     canvas: HTMLCanvasElement;
-    PlantModel: ComponentClass;
+    PlantModel: any;
 
     constructor(xmlString: string, canvasId: string) {
         this.xml = new window.DOMParser().parseFromString(xmlString, "text/xml");
