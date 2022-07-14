@@ -1,12 +1,12 @@
-import { PlantModel } from "./children/PlantModel";
-import { printMissing } from "./utils/findMissing";
-import { initPaper } from "./utils/paper";
+import { ComponentClass } from "./ComponentClass";
+import { getDrawable } from "./callDrawOnChildren";
+import { printMissing } from "./findMissing";
+import { initPaper } from "./paper";
 
 export class ProteusXmlDrawing {
     xml: Document;
     canvas: HTMLCanvasElement;
-    plantModelElement: Element;
-    plantModel: PlantModel;
+    PlantModel: ComponentClass;
 
     constructor(xmlString: string, canvasId: string) {
         this.xml = new window.DOMParser().parseFromString(xmlString, "text/xml");
@@ -14,12 +14,24 @@ export class ProteusXmlDrawing {
 
         initPaper(canvasId);
 
-        this.plantModelElement = this.xml.getElementsByTagName("PlantModel")[0];
-        this.plantModel = new PlantModel(this.plantModelElement);
-        printMissing();
+        const plantModelElement = this.xml.getElementsByTagName("PlantModel")[0];
+        this.PlantModel = new ComponentClass(plantModelElement, false);
     }
 
     public draw() {
-        this.plantModel.draw();
+        let unit = 1;
+
+        if (this.PlantModel.PlantInformation[0].units.value === "Metre") {
+            unit = 1000;
+        }
+
+        if (this.PlantModel.Drawing[0].length === 0) {
+            console.warn("No drawing element, skipping");
+            return;
+        }
+
+        const x = this.PlantModel.Drawing[0].Extent[0].Max[0].x.valueAsNumber;
+        const y = this.PlantModel.Drawing[0].Extent[0].Max[0].y.valueAsNumber;
+        this.PlantModel.draw(unit, x, y, 0, 0);
     }
 }
