@@ -1,7 +1,6 @@
 # ProteusXMLDrawing
 
 Experiment on trying to take dexpi xml and convert to drawing using svg/or canvas lib
-Will be some repeated code in many classes, but easier for me while developing..
 
 See spec folder under public for more info
 
