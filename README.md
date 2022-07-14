@@ -10,7 +10,7 @@ Issues/Need more work:
 - add missing attributes/geometry items
 - prob should add group/refactor all
 - text is hard to work off when these is no lineheight/fontsize, not sure how justification is supposed to work without this
-- TrimmedCurve ( have a plan... just need to bruch up some math first..)
+- TrimmedCurve ( circle type looks t be working, not checked scaling or rotation)
 - BsplineCurve (not seen these used...)
 - CompositeCurve (not seen these used...)
 - rotation/scale of items -> this will need some work..

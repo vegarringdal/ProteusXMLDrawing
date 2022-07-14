@@ -48,27 +48,41 @@ export class TrimmedCurve {
                 const y = (drawable as Circle).position[0].location[0].y.value + offsetY;
                 const point = new Point(x * unit, pageOriginY * unit - y * unit);
                 const radius = (drawable as Circle).radius.value * unit;
-                const myCircle = new Path.Circle(point, radius);
 
-                myCircle.strokeColor = new Color({
-                    red: (drawable as Circle).presentation[0].r.value,
-                    green: (drawable as Circle).presentation[0].g.value,
-                    blue: (drawable as Circle).presentation[0].b.value
-                });
+                /*              
+                console.log("---------------------------------------", radius);
+                console.log(this.startAngle.value, this.endAngle.value); 
+                */
 
-                myCircle.strokeWidth = (drawable as Circle).presentation[0].lineWeight.value * unit;
+                const startAngle = -this.startAngle.value;
+                const endAngle = -this.endAngle.value;
 
-                if ((drawable as Circle).filled.value) {
-                    myCircle.fillColor = new Color("black");
-                }
+                const from = new Point(radius, 0);
+                from.angle = startAngle;
 
-                /* var path = new Path();
-                path.strokeColor = new Color("black");
+                const to = new Point(radius, 0);
+                to.angle = endAngle;
 
-                path.add(new Point(x, y-radius/2));
-                path.arcTo(new Point(x + radius * 2, y-radius/2)); */
+                const through = new Point(radius, 0);
+                const diff = endAngle - startAngle;
+                through.angle = startAngle + diff / 2;
+
+                /*           
+                console.log(radius, from.angle, "-->", through.angle, "-->", to.angle);
+                console.log(startAngle, endAngle);
+                console.log(this.element.parentElement); 
+                */
+
+                const arc = new Path.Arc(from, through, to);
+                arc.strokeColor = new Color("black");
+                arc.strokeWidth = 1;
+                arc.strokeWidth = (drawable as Ellipse).presentation[0].lineWeight.value * unit;
+                arc.translate(point);
             }
             if (drawable.element.tagName === "ellipse") {
+                //I dont know how to create this yet
+                console.log("Trimmed curve ellipse not create", this);
+
                 const Point = getPaper().Point;
                 const Path = getPaper().Path;
                 const Color = getPaper().Color;
@@ -82,7 +96,10 @@ export class TrimmedCurve {
 
                 const rectangle = new Rectangle(
                     point,
-                    new Size((drawable as Ellipse).primaryAxis.value * unit, (drawable as Ellipse).secondaryAxis.value * unit)
+                    new Size(
+                        (drawable as Ellipse).primaryAxis.value * unit,
+                        (drawable as Ellipse).secondaryAxis.value * unit
+                    )
                 );
                 const ellipse = new Path.Ellipse(rectangle);
 
