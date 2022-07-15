@@ -2,6 +2,8 @@ import { getPaper } from "./paper";
 import { getChildComponents } from "./getChildComponents";
 import { Circle } from "./types/Circle";
 import { TrimmedCurve } from "./types/TrimmedCurve";
+import { Ellipse } from "./types/Ellipse";
+import { debug } from "./debug";
 
 /**
  * used to draw line, polyline and centerline
@@ -27,10 +29,12 @@ export function drawTrimmedCurve(
             const Path = getPaper().Path;
             const Color = getPaper().Color;
 
-            const x = (drawable as Circle).Position[0].Location[0].x.valueAsNumber + offsetX;
-            const y = (drawable as Circle).Position[0].Location[0].y.valueAsNumber + offsetY;
+            const comp = drawable as unknown as Circle;
+
+            const x = comp.Position[0].Location[0].x.valueAsNumber + offsetX;
+            const y = comp.Position[0].Location[0].y.valueAsNumber + offsetY;
             const point = new Point(x * unit, pageOriginY * unit - y * unit);
-            const radius = (drawable as Circle).radius.valueAsNumber * unit;
+            const radius = comp.radius.valueAsNumber * unit;
 
             /*              
             console.log("---------------------------------------", radius);
@@ -61,8 +65,21 @@ export function drawTrimmedCurve(
 
             const arc = new Path.Arc(from, through, to);
             arc.strokeColor = new Color("black");
-            arc.strokeWidth = (drawable as Circle).Presentation[0].lineWeight.valueAsNumber * unit;
+            arc.strokeWidth = comp.Presentation[0].lineWeight.valueAsNumber * unit;
             arc.translate(point);
+
+            if (debug.trimmedCurve) {
+                const Size = getPaper().Size;
+                const Shape = getPaper().Shape;
+                const size = new Size(radius, radius);
+                const shape = new Shape.Rectangle(point, size);
+                // helper for debugging
+                shape.fillColor = new Color({ red: 1, green: 0, blue: 1, alpha: 0.5 });
+                shape.onClick = () => {
+                    console.log(ctx);
+                };
+                shape.bringToFront();
+            }
         }
         if (drawable.element.tagName === "ellipse") {
             //I dont know how to create this yet
@@ -73,31 +90,30 @@ export function drawTrimmedCurve(
             const Color = getPaper().Color;
             const Size = getPaper().Size;
             const Rectangle = getPaper().Rectangle;
-            type EllipseType = any;
+            const comp = drawable as unknown as Ellipse;
 
-            const x = (drawable as EllipseType).Position[0].Location[0].x.valueAsNumber + offsetX;
-            const y = (drawable as EllipseType).Position[0].Location[0].y.valueAsNumber + offsetY;
+            const x = comp.Position[0].Location[0].x.valueAsNumber + offsetX;
+            const y = comp.Position[0].Location[0].y.valueAsNumber + offsetY;
             const point = new Point(x * unit, pageOriginY * unit - y * unit);
 
             const rectangle = new Rectangle(
                 point,
                 new Size(
-                    (drawable as EllipseType).primaryAxis.valueAsNumber * unit,
-                    (drawable as EllipseType).secondaryAxis.valueAsNumber * unit
+                    comp.primaryAxis.valueAsNumber * unit,
+                    comp.secondaryAxis.valueAsNumber * unit
                 )
             );
             const ellipse = new Path.Ellipse(rectangle);
 
             ellipse.strokeColor = new Color({
-                red: (drawable as EllipseType).presentation[0].r.value,
-                green: (drawable as EllipseType).presentation[0].g.value,
-                blue: (drawable as EllipseType).presentation[0].b.value
+                red: comp.Presentation[0].r.value,
+                green: comp.Presentation[0].g.value,
+                blue: comp.Presentation[0].b.value
             });
 
-            ellipse.strokeWidth =
-                (drawable as EllipseType).presentation[0].lineWeight.valueAsNumber * unit;
+            ellipse.strokeWidth = comp.Presentation[0].lineWeight.valueAsNumber * unit;
 
-            if ((drawable as EllipseType).filled?.value) {
+            if (comp.filled?.value) {
                 ellipse.fillColor = new Color("black");
             }
         }

@@ -1,3 +1,4 @@
+import { debug } from "./debug";
 import { getPaper } from "./paper";
 import { Text } from "./types/Text";
 
@@ -81,11 +82,6 @@ export function drawtext(
     const point2 = new Point(positionX, positionY);
     const size = new Size(width, height);
     const shape = new Shape.Rectangle(point, size);
-    /* shape.fillColor = new Color({ red: 0, green: 0, blue: 1, alpha: 0.5 }); */
-
-    shape.onClick = () => {
-        console.log(ctx);
-    };
 
     const text = new PointText(point2);
 
@@ -111,6 +107,15 @@ export function drawtext(
         green: ctx.Presentation[0].g.value,
         blue: ctx.Presentation[0].b.value
     });
+
+    if (debug.text) {
+        // helper for debugging
+        shape.fillColor = new Color({ red: 0, green: 0, blue: 1, alpha: 0.5 });
+        shape.onClick = () => {
+            console.log(ctx);
+        };
+        shape.bringToFront();
+    }
 
     // todo, I need to adjust text, but looks like PDF and SVG does not render the same..
     // need to render more before and adjustments, also have no rotation made
