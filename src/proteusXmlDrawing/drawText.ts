@@ -24,15 +24,15 @@ export function drawtext(
     const Color = getPaper().Color;
     const Shape = getPaper().Shape;
     const Size = getPaper().Size;
-    const x = ctx.Position[0].Location[0].x.valueAsNumber * unit;
-    const y = pageOriginY * unit - ctx.Position[0].Location[0].y.valueAsNumber * unit;
+    const x = (ctx.Position[0].Location[0].x.valueAsNumber + offsetX) * unit;
+    const y = pageOriginY * unit - (ctx.Position[0].Location[0].y.valueAsNumber + offsetY) * unit;
 
     const maxX = ctx.Extent[0].Max[0].x.valueAsNumber;
     const minX = ctx.Extent[0].Min[0].x.valueAsNumber;
     const width = (maxX - minX) * unit;
 
-    let positionX = x + offsetX * unit;
-    let positionY = y + offsetY * unit;
+    let positionX = x;
+    let positionY = y;
 
     const maxY = ctx.Extent[0].Max[0].y.valueAsNumber;
     const minY = ctx.Extent[0].Min[0].y.valueAsNumber;
