@@ -14,7 +14,6 @@ async function getXml() {
         "/TrainingTestCases/tests/C01 the complete DEXPI PnID/C01V01-HEX.EX03.xml"
     );
 
-
     const xmlstring = await response.text();
     const proteusXmlDrawing = new ProteusXmlDrawing(xmlstring, "pidCanvas");
     proteusXmlDrawing.draw();

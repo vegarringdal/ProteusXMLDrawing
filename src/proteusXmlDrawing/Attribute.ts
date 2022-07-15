@@ -1,4 +1,4 @@
-export class ComponentAttribute {
+export class Attribute {
     public value: string | null;
     valueAsString: string;
     valueAsNumber: number;

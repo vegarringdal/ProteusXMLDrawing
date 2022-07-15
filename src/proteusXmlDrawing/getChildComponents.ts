@@ -1,9 +1,9 @@
-import { Drawable } from "./Drawable";
+import { Component } from "./Component";
 
-export function getDrawable(ctx: Record<string, any>) {
-    const drawable: Drawable[] = [];
+export function getChildComponents(ctx: Record<string, any>) {
+    const drawable: Component[] = [];
     const objectProperties = Object.keys(ctx);
-    /* const ctx = this as unknown as Record<string, child>; */
+
     objectProperties.forEach((prop) => {
         if (Array.isArray(ctx[prop])) {
             ctx[prop].forEach((child: any) => {

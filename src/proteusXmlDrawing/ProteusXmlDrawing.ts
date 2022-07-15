@@ -1,19 +1,21 @@
-import { ComponentClass } from "./ComponentClass";
+import { Component } from "./Component";
 import { initPaper } from "./paper";
 
 export class ProteusXmlDrawing {
     xml: Document;
     canvas: HTMLCanvasElement;
     PlantModel: any;
+    root: boolean;
 
     constructor(xmlString: string, canvasId: string) {
+        this.root = true;
         this.xml = new window.DOMParser().parseFromString(xmlString, "text/xml");
         this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
 
         initPaper(canvasId);
 
         const plantModelElement = this.xml.getElementsByTagName("PlantModel")[0];
-        this.PlantModel = new ComponentClass(plantModelElement, false);
+        this.PlantModel = new Component(plantModelElement, false);
     }
 
     public draw() {

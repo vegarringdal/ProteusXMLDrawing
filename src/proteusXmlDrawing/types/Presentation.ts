@@ -1,16 +1,24 @@
-import { ComponentAttribute } from "./ComponentAttribute";
+import { Component } from "../Component";
+import { Attribute } from "../Attribute";
 
+/**
+ * The element defines a styles used to draw geometric and textual content.
+ * While all attributes are defined as optional in the schema the R, G, B,
+ * LineWeight and LineType attributes are expected for all geometric primitives,
+ * otherwise the  behaviour is undefined.
+ */
+export type Presentation = PresentationDetails & Component;
 
-export type Presentation = {
+type PresentationDetails = {
     /**
      * Name of the layer in which the graphical elements resides.  This has no functional semantics associated with it.
      */
-    layer: ComponentAttribute;
+    layer: Attribute;
 
     /**
      * A lookup in a color index.  This isn’t used by AVEVA software.
      */
-    color: ComponentAttribute;
+    color: Attribute;
 
     /**
      * One of the numbers or names from the following (Object Model document v2.2) :-
@@ -23,7 +31,7 @@ export type Presentation = {
      * 6 Long Dash + Short Dash + Short Dash
      * 7 Dash + Short Dash
      */
-    lineType: ComponentAttribute;
+    lineType: Attribute;
 
     /**
      * TODO, this will need more work
@@ -38,20 +46,20 @@ export type Presentation = {
      *  <space> is a space character (&#20;)
      *
      */
-    lineWeight: ComponentAttribute;
+    lineWeight: Attribute;
 
     /**
      * 0 to 1 (double) 1 = maximum intensity of Red component.
      */
-    r: ComponentAttribute;
+    r: Attribute;
 
     /**
      * 0 to 1 (double) 1 = maximum intensity of Green component.
      */
-    g: ComponentAttribute;
+    g: Attribute;
 
     /**
      * 0 to 1 (double) 1 = maximum intensity of blue component
      */
-    b: ComponentAttribute;
+    b: Attribute;
 };

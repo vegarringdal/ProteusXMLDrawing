@@ -15,14 +15,18 @@ export function initPaper(canvasId: string) {
     const tool = new paper.Tool();
 
     // Define a mousedown and mousedrag handler
-    tool.onMouseDown = function () {};
+    tool.onMouseDown = function () {
+        // not needed atm
+    };
 
     tool.onMouseDrag = function (event: any) {
         const pan_offset = event.point.subtract(event.downPoint);
         paper.view.center = paper.view.center.subtract(pan_offset);
     };
 
-    tool.onMouseUp = function () {};
+    tool.onMouseUp = function () {
+        // not needed atm
+    };
 
     element?.addEventListener("mousewheel", function (event: any) {
         const paper = getPaper();
