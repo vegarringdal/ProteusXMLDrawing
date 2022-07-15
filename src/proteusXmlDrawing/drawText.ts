@@ -24,6 +24,12 @@ export function drawtext(
     const Color = getPaper().Color;
     const Shape = getPaper().Shape;
     const Size = getPaper().Size;
+
+    if (!ctx.Position[0]?.Location) {
+        console.warn("unexpected missing location element on text", ctx);
+        return;
+    }
+
     const x = (ctx.Position[0].Location[0].x.valueAsNumber + offsetX) * unit;
     const y = pageOriginY * unit - (ctx.Position[0].Location[0].y.valueAsNumber + offsetY) * unit;
 
