@@ -81,7 +81,7 @@ export function drawTrimmedCurve(
                 shape.bringToFront();
             }
         }
-        if (drawable.element.tagName === "ellipse") {
+        if (drawable.element.tagName === "Ellipse") {
             //I dont know how to create this yet
             console.warn("Trimmed curve ellipse not implemented", ctx);
 
