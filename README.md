@@ -6,10 +6,12 @@ See spec folder under public for more info
 
 
 Issues/Need more work:
-- TrimmedCurve ( circle type looks t be working, not checked scaling or rotation)
-- BsplineCurve (not seen these used...)
-- CompositeCurve (not seen these used...)
-- rotation/scale of items -> this will need some work..
+- TrimmedCurve ( circle type looks t be working, not checked scaling or rotation, ellipse will prob fail, need sample)
+- BsplineCurve (not seen these used, I need samples to try)
+- CompositeCurve (not seen these used, I need samples to try)
+- rotation/scale of items -> this will need some work.. (I should try and get a drawing program that exports xml, so I can make tests)
+  -  Inverted z axis (flip around y axis) : <Axis X="0" Y="0" Z="-1"/>
+  -  Rotation about the origin :  <Reference X=”[cosØ]” Y=”[sinØ]” Z=”0” /> 
 
 Image of progress
 
