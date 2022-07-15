@@ -34,6 +34,8 @@ How to get started
 * `cd vegarringdal/ProteusXMLDrawing`
 * `npm install`
 * `npm start` <- dev server during development
+  *  this runs application and opens file in public folder (as seen in images): 
+     * `/TrainingTestCases/tests/C01 the complete DEXPI PnID/C01V01-HEX.EX03.xml`
 
 
 
