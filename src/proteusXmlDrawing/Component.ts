@@ -11,8 +11,12 @@ import { drawEllipse } from "./drawEllipse";
 export class Component {
     isChild = true;
     tagName: string;
+    // simple object to all attributes
+    attributes: Record<string, string> = {};
     componentName?: Attribute;
     Position: any[] = [];
+
+
 
     /**
      * Component
@@ -48,7 +52,7 @@ export class Component {
             // need to keep them as lowercase to be sure we dont crash with component classes
             const attributeNameLowercase =
                 attributeName[0].toLowerCase() + attributeName.substring(1, attributeName.length);
-            root[attributeNameLowercase] = new Attribute(element, attributeName);
+            root[attributeNameLowercase] = new Attribute(element, attributeName, this);
         });
 
         if (this.tagName !== "ShapeCatalogue") {
