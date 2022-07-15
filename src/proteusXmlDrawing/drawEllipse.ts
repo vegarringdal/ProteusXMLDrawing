@@ -10,7 +10,7 @@ import { Ellipse } from "./types/Ellipse";
  * @param offsetX
  * @param offsetY
  */
-export function drawCircle(
+export function drawEllipse(
     ctx: Ellipse,
     unit: number,
     pageOriginX: number,

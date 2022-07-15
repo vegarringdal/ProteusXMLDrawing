@@ -1,34 +1,18 @@
 import { Attribute } from "./Attribute";
 import { getChildComponents } from "./getChildComponents";
 import { addToShapeCatalogStore, getFromShapeCatalogStore } from "./shapeCatalogStore";
-import { Cooordinate } from "./types/Coordinate";
-import { Presentation } from "./types/Presentation";
 import { drawLine } from "./drawLine";
 import { drawShape } from "./drawShape";
 import { drawCircle } from "./drawCircle";
 import { drawtext } from "./drawText";
 import { drawTrimmedCurve } from "./drawTrimmedCurve";
+import { drawEllipse } from "./drawEllipse";
 
 export class Component {
     isChild = true;
     tagName: string;
     componentName?: Attribute;
-
-    // just add types for help here, might be missing.. make better types later
-    Coordinate: Cooordinate[] = [];
-    Presentation: Presentation[] = [];
     Position: any[] = [];
-    Extent: any[] = [];
-
-    startAngle!: Attribute;
-    endAngle!: Attribute;
-    radius!: Attribute;
-    filled!: Attribute;
-    string!: Attribute;
-    height!: Attribute;
-    font!: Attribute;
-    textAngle!: Attribute;
-    justification!: Attribute;
 
     /**
      * Component
@@ -165,7 +149,7 @@ export class Component {
          * Ellipse
          */
         if (this.tagName === "Ellipse") {
-            console.warn("Ellipse not implemented", this);
+            drawEllipse(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY);
         }
 
         /**
