@@ -4,6 +4,9 @@ export function getPaper() {
     return paper;
 }
 
+
+export type PaperGroup = paper.Group;
+
 export function initPaper(canvasId: string) {
     paper.setup(canvasId);
     const element = document.getElementById(canvasId);

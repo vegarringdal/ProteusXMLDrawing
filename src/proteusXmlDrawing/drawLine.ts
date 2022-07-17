@@ -1,5 +1,5 @@
 import { Line } from "./types/Line";
-import { getPaper } from "./paper";
+import { getPaper, PaperGroup } from "./paper";
 
 /**
  * used to draw line, polyline and centerline
@@ -16,7 +16,8 @@ export function drawLine(
     pageOriginX: number,
     pageOriginY: number,
     offsetX = 0,
-    offsetY = 0
+    offsetY = 0,
+    group: PaperGroup | undefined
 ) {
     const Point = getPaper().Point;
     const Path = getPaper().Path;
@@ -32,6 +33,7 @@ export function drawLine(
     });
 
     const path = new Path(segments);
+ 
 
     path.strokeColor = new Color({
         red: ctx.Presentation[0].r.value,
@@ -40,4 +42,7 @@ export function drawLine(
     });
 
     path.strokeWidth = ctx.Presentation[0].lineWeight.valueAsNumber * unit;
+    if (group) {
+        group.addChild(path);
+    }
 }

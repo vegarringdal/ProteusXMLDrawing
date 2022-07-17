@@ -8,6 +8,8 @@ import { drawtext } from "./drawText";
 import { drawTrimmedCurve } from "./drawTrimmedCurve";
 import { drawEllipse } from "./drawEllipse";
 import { addToIdStore } from "./idStore";
+import { getPaper, PaperGroup } from "./paper";
+import { Point } from "paper/dist/paper-core";
 
 export class Component {
     isChild = true;
@@ -21,6 +23,7 @@ export class Component {
     componentName?: Attribute;
     iD?: Attribute;
     Position: any[] = [];
+    Scale: any[] = [];
 
     /**
      * Component
@@ -84,14 +87,21 @@ export class Component {
      * @param offsetY - used when its a shape component
      * @returns
      */
-    draw(unit: number, pageOriginX: number, pageOriginY: number, offsetX = 0, offsetY = 0) {
+    draw(
+        unit: number,
+        pageOriginX: number,
+        pageOriginY: number,
+        offsetX = 0,
+        offsetY = 0,
+        group: PaperGroup | undefined
+    ) {
         if (this.tagName === "ShapeCatalogue") {
             // shape catalog should never draw, it will be called by others using componentName
             return;
         }
 
         if (this.tagName === "TrimmedCurve") {
-            drawTrimmedCurve(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawTrimmedCurve(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
 
             // important - we handle all children in draw function above, so lets return
             return;
@@ -102,7 +112,7 @@ export class Component {
          */
         const drawables = getChildComponents(this);
         drawables.forEach((drawable) => {
-            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
         });
 
         /**
@@ -112,6 +122,10 @@ export class Component {
             const shapeCatalogItem = getFromShapeCatalogStore(this.componentName.value);
             if (shapeCatalogItem && shapeCatalogItem !== this) {
                 // need to get locatioin, so we can send it as offset
+
+                const Pgroup = getPaper().Group;
+                const group = new Pgroup();
+
                 const x = this.Position[0].Location[0].x.valueAsNumber;
                 const y = this.Position[0].Location[0].y.valueAsNumber;
 
@@ -121,8 +135,18 @@ export class Component {
                         pageOriginX,
                         pageOriginY,
                         x + offsetX,
-                        y + offsetY
+                        y + offsetY,
+                        group
                     );
+                }
+
+                if (this.Scale.length) {
+                    const scaleX = parseFloat(this.Scale[0].attributes.X);
+                    const scaleY = parseFloat(this.Scale[0].attributes.Y);
+                    if (scaleX !== 1 || scaleY !== 1) {
+                        // TODO: this might just be buggy...
+                        group.scale(scaleX, scaleY, new Point(x, y + group.bounds.height * 2));
+                    }
                 }
             }
         }
@@ -135,7 +159,7 @@ export class Component {
             this.tagName === "PolyLine" ||
             this.tagName === "CenterLine"
         ) {
-            drawLine(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawLine(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
         }
 
         /**
@@ -156,28 +180,28 @@ export class Component {
          * Circle
          */
         if (this.tagName === "Circle") {
-            drawCircle(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawCircle(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
         }
 
         /**
          * Ellipse
          */
         if (this.tagName === "Ellipse") {
-            drawEllipse(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawEllipse(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
         }
 
         /**
          * Shape
          */
         if (this.tagName === "Shape") {
-            drawShape(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawShape(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
         }
 
         /**
          * Text
          */
         if (this.tagName === "Text") {
-            drawtext(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY);
+            drawtext(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
         }
     }
 }

@@ -1,4 +1,4 @@
-import { getPaper } from "./paper";
+import { getPaper, PaperGroup } from "./paper";
 import { Ellipse } from "./types/Ellipse";
 
 /**
@@ -16,7 +16,8 @@ export function drawEllipse(
     pageOriginX: number,
     pageOriginY: number,
     offsetX = 0,
-    offsetY = 0
+    offsetY = 0,
+    group: PaperGroup | undefined
 ) {
     const Point = getPaper().Point;
     const Path = getPaper().Path;
@@ -33,6 +34,9 @@ export function drawEllipse(
         new Size(ctx.primaryAxis.valueAsNumber * unit, ctx.secondaryAxis.valueAsNumber * unit)
     );
     const ellipse = new Path.Ellipse(rectangle);
+    if (group) {
+        group.addChild(ellipse);
+    }
 
     ellipse.strokeColor = new Color({
         red: ctx.Presentation[0].r.value,

@@ -1,5 +1,5 @@
 import { Circle } from "./types/Circle";
-import { getPaper } from "./paper";
+import { getPaper, PaperGroup } from "./paper";
 
 /**
  * used to draw line, polyline and centerline
@@ -16,7 +16,8 @@ export function drawCircle(
     pageOriginX: number,
     pageOriginY: number,
     offsetX = 0,
-    offsetY = 0
+    offsetY = 0,
+    group: PaperGroup | undefined
 ) {
     const Point = getPaper().Point;
     const Path = getPaper().Path;
@@ -27,6 +28,9 @@ export function drawCircle(
     const point = new Point(x * unit, pageOriginY * unit - y * unit);
 
     const myCircle = new Path.Circle(point, ctx.radius.valueAsNumber * unit);
+    if (group) {
+        group.addChild(myCircle);
+    }
 
     myCircle.strokeColor = new Color({
         red: ctx.Presentation[0].r.value,

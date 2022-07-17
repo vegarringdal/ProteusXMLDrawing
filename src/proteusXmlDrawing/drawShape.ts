@@ -1,4 +1,4 @@
-import { getPaper } from "./paper";
+import { getPaper, PaperGroup } from "./paper";
 import { Shape } from "./types/Shape";
 
 /**
@@ -16,7 +16,8 @@ export function drawShape(
     pageOriginX: number,
     pageOriginY: number,
     offsetX = 0,
-    offsetY = 0
+    offsetY = 0,
+    group: PaperGroup | undefined
 ) {
     const Point = getPaper().Point;
     const Path = getPaper().Path;
@@ -32,6 +33,9 @@ export function drawShape(
     });
 
     const path = new Path(segments);
+    if (group) {
+        group.addChild(path);
+    }
 
     path.strokeColor = new Color({
         red: ctx.Presentation[0].r.value,

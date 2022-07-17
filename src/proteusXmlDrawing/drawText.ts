@@ -1,7 +1,7 @@
 import { Component } from "./Component";
 import { debug } from "./debug";
 import { getFromIdStore } from "./idStore";
-import { getPaper } from "./paper";
+import { getPaper, PaperGroup } from "./paper";
 import { Text } from "./types/Text";
 
 /**
@@ -19,7 +19,8 @@ export function drawtext(
     pageOriginX: number,
     pageOriginY: number,
     offsetX = 0,
-    offsetY = 0
+    offsetY = 0,
+    group: PaperGroup | undefined
 ) {
     const PointText = getPaper().PointText;
     const Point = getPaper().Point;
@@ -156,6 +157,13 @@ export function drawtext(
             console.log(ctx);
         };
         shape.bringToFront();
+        if (group) {
+            group.addChild(shape);
+        }
+    }
+
+    if (group) {
+        group.addChild(text);
     }
 
     // todo, I need to adjust text, but looks like PDF and SVG does not render the same..

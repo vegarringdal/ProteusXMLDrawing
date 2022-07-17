@@ -1,4 +1,4 @@
-import { getPaper } from "./paper";
+import { getPaper, PaperGroup } from "./paper";
 import { getChildComponents } from "./getChildComponents";
 import { Circle } from "./types/Circle";
 import { TrimmedCurve } from "./types/TrimmedCurve";
@@ -20,7 +20,8 @@ export function drawTrimmedCurve(
     pageOriginX: number,
     pageOriginY: number,
     offsetX = 0,
-    offsetY = 0
+    offsetY = 0,
+    group: PaperGroup | undefined
 ) {
     const drawables = getChildComponents(ctx);
     drawables.forEach((drawable) => {
@@ -64,9 +65,19 @@ export function drawTrimmedCurve(
             */
 
             const arc = new Path.Arc(from, through, to);
-            arc.strokeColor = new Color("black");
+            arc.strokeColor = new Color({
+                red: comp.Presentation[0].r.value,
+                green: comp.Presentation[0].g.value,
+                blue: comp.Presentation[0].b.value
+            });
+
             arc.strokeWidth = comp.Presentation[0].lineWeight.valueAsNumber * unit;
+
             arc.translate(point);
+
+            if (group) {
+                group.addChild(arc);
+            }
 
             if (debug.trimmedCurve) {
                 const Size = getPaper().Size;
@@ -112,6 +123,10 @@ export function drawTrimmedCurve(
             });
 
             ellipse.strokeWidth = comp.Presentation[0].lineWeight.valueAsNumber * unit;
+
+            if (group) {
+                group.addChild(ellipse);
+            }
 
             if (comp.filled?.value) {
                 ellipse.fillColor = new Color("black");
