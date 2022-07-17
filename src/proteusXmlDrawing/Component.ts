@@ -149,21 +149,31 @@ export class Component {
                     }
                 }
 
+
+                // only tested on public\TrainingTestCases\tests\E08 ProcessColumn with ColumnSections\E08V01-SAG.EX01.XML
+
                 const xr = parseFloat(this.Position[0].Reference[0].attributes.X);
-                if (xr < 1 && xr !== 0) {
+                if (xr < 0) {
+                    console.log(xr);
                     group.rotate(
-                        180 * xr, // HACK ! cos(180) === -1 TODO fix, if I get anything beside 1 or -1 this will fail... 
+                        (xr / (Math.PI / 180)) * Math.PI, // cos(180) === -1, I dont know if this is 100% correct
                         new Point(group.bounds.x, group.bounds.y + group.bounds.height / 2)
                     );
+                }
+                if (xr !== 1 && xr !== -1 && xr !== 0) {
+                    console.warn("rotation need improvement", this);
                 }
 
                 const yr = parseFloat(this.Position[0].Reference[0].attributes.Y);
 
                 if ((yr && yr < 0) || yr > 0) {
                     group.rotate(
-                        -90 * yr, // HACK sin(90) === 1 ! TODO fix, if I get anything beside 1 or -1 this will fail... 
+                        -(yr / (Math.PI / 90)) * Math.PI, // sin(90) === 1 , I dont know if this is 100% correct
                         new Point(group.bounds.x, group.bounds.y + group.bounds.height / 2)
                     );
+                }
+                if (yr !== 1 && yr !== -1 && yr !== 0) {
+                    console.warn("rotation need improvement", this);
                 }
             }
         }
