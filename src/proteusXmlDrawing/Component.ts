@@ -148,6 +148,23 @@ export class Component {
                         group.scale(scaleX, scaleY, new Point(x, y + group.bounds.height * 2));
                     }
                 }
+
+                const xr = parseFloat(this.Position[0].Reference[0].attributes.X);
+                if (xr < 1 && xr !== 0) {
+                    group.rotate(
+                        180 * xr, // HACK ! cos(180) === -1 TODO fix, if I get anything beside 1 or -1 this will fail... 
+                        new Point(group.bounds.x, group.bounds.y + group.bounds.height / 2)
+                    );
+                }
+
+                const yr = parseFloat(this.Position[0].Reference[0].attributes.Y);
+
+                if ((yr && yr < 0) || yr > 0) {
+                    group.rotate(
+                        -90 * yr, // HACK sin(90) === 1 ! TODO fix, if I get anything beside 1 or -1 this will fail... 
+                        new Point(group.bounds.x, group.bounds.y + group.bounds.height / 2)
+                    );
+                }
             }
         }
 
