@@ -1,4 +1,6 @@
+import { Component } from "./Component";
 import { debug } from "./debug";
+import { getFromIdStore } from "./idStore";
 import { getPaper } from "./paper";
 import { Text } from "./types/Text";
 
@@ -100,6 +102,31 @@ export function drawtext(
     const text = new PointText(point2);
 
     text.content = ctx.string?.valueAsString;
+
+    if (text.content === "undefined") {
+        if (ctx.attributes.DependantAttribute && ctx.attributes.ItemID) {
+            const res = getFromIdStore(ctx.attributes.ItemID);
+            if (res) {
+                res.GenericAttributes.forEach((e) => {
+                    e.GenericAttribute.forEach((e) => {
+                        // not sure if all is within beackets,,, but its a starts..
+                        if (`[${e.attributes.Name}]` === ctx.attributes.DependantAttribute) {
+                            text.content = e.attributes.Value;
+                        }
+                    });
+                });
+            }
+            if (text.content === "undefined") {
+                console.warn(
+                    "dependable attribute:",
+                    ctx.attributes.DependantAttribute,
+                    "not found in ",
+                    ctx
+                );
+            }
+        }
+    }
+
     text.fontSize = ctx.height.valueAsNumber * unit;
     text.fontFamily = ctx.font.valueAsString;
     // this might need more logic

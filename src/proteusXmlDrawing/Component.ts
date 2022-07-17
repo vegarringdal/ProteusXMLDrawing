@@ -13,6 +13,11 @@ export class Component {
     isChild = true;
     tagName: string;
     attributes: Record<string, string> = {};
+    GenericAttributes: Component[] = [];
+    /*
+     * will be in component type of GenericAttributes only...
+     */
+    GenericAttribute: Component[] = [];
     componentName?: Attribute;
     iD?: Attribute;
     Position: any[] = [];

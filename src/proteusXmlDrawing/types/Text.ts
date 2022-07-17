@@ -22,6 +22,10 @@ export type Text = {
      */
     GenericAttributes: Component[]; // todo: improve just not very important in the begining, bigger issues with text
     /**
+     * All attributes easly accessable
+     */
+    attributes: Record<string, string>;
+    /**
      * The number of text lines being represented.  If not present then a value of 1 is assumed.
      */
     numLines: Attribute;
