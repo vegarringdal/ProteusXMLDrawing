@@ -46,42 +46,50 @@ export function drawtext(
 
     switch (ctx.justification?.value) {
         case "LeftTop":
-            positionY = positionY + height / 2;
+            positionY = positionY;
             break;
         case "LeftCenter":
             positionY = positionY - height / 2;
             break;
         case "LeftBottom":
-            positionX = positionX - width;
+            positionY = positionY - height;
+
             break;
         case "CenterTop":
+            positionY = positionY;
+
             positionX = positionX - width / 2;
-            positionY = positionY + height / 2;
+
             break;
         case "CenterCenter":
+            positionY = positionY - height / 2;
+
             positionX = positionX - width / 2;
 
-            positionY = positionY - height / 2;
             break;
         case "CenterBottom":
+            positionY = positionY - height;
+
             positionX = positionX - width;
+
             break;
         case "RightTop":
-            positionX = positionX + width / 2;
+            positionY = positionY;
 
-            positionY = positionY + height / 2;
+            positionX = positionX + width;
+
             break;
         case "RightCenter":
-            positionX = positionX + width / 2;
-
             positionY = positionY - height / 2;
+
+            positionX = positionX + width;
+
             break;
         case "RightBottom":
-            positionX = positionX + width / 2;
-            positionX = positionX - width;
+            positionY = positionY - height;
+
+            positionX = positionX + width;
             break;
-        default:
-        // LeftBottom
     }
 
     const point = new Point(positionX, positionY);
@@ -91,15 +99,15 @@ export function drawtext(
 
     const text = new PointText(point2);
 
-    text.content = ctx.string.valueAsString;
+    text.content = ctx.string?.valueAsString;
     text.fontSize = ctx.height.valueAsNumber * unit;
     text.fontFamily = ctx.font.valueAsString;
     // this might need more logic
-    if (ctx.textAngle?.value) {
+    if (ctx.textAngle?.valueAsNumber > 0) {
         text.rotate(-ctx.textAngle.valueAsNumber, new Point(x, y));
     }
     // I dont know how yet
-    if (ctx.slantAngle?.value) {
+    if (ctx.slantAngle?.valueAsNumber > 0) {
         console.warn("Text slantAngle not implemented", ctx);
     }
 
