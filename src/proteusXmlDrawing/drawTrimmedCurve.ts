@@ -82,14 +82,16 @@ export function drawTrimmedCurve(
             if (debug.trimmedCurve) {
                 const Size = getPaper().Size;
                 const Shape = getPaper().Shape;
-                const size = new Size(radius, radius);
-                const shape = new Shape.Rectangle(point, size);
-                // helper for debugging
+                const size = new Size(arc.bounds.width, arc.bounds.height);
+                const shape = new Shape.Rectangle(new Point(arc.bounds.x, arc.bounds.y), size);
                 shape.fillColor = new Color({ red: 1, green: 0, blue: 1, alpha: 0.5 });
                 shape.onClick = () => {
                     console.log(ctx);
                 };
                 shape.bringToFront();
+                if (group) {
+                    group.addChild(shape);
+                }
             }
         }
         if (drawable.element.tagName === "Ellipse") {
