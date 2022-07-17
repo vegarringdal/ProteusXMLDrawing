@@ -7,16 +7,15 @@ import { drawCircle } from "./drawCircle";
 import { drawtext } from "./drawText";
 import { drawTrimmedCurve } from "./drawTrimmedCurve";
 import { drawEllipse } from "./drawEllipse";
+import { addToIdStore } from "./idStore";
 
 export class Component {
     isChild = true;
     tagName: string;
-    // simple object to all attributes
     attributes: Record<string, string> = {};
     componentName?: Attribute;
+    iD?: Attribute;
     Position: any[] = [];
-
-
 
     /**
      * Component
@@ -62,6 +61,12 @@ export class Component {
                     addToShapeCatalogStore(this.componentName?.value, this);
                 }
             }
+        }
+
+        if (this.iD?.valueAsString) {
+            // need to build a map, so other components can get details
+
+            addToIdStore(this.iD.valueAsString, this);
         }
     }
 

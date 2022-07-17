@@ -1,10 +1,11 @@
-const shapeCatalogStore = new Map<string, any>();
+import { Component } from "./Component";
 
-export function addToShapeCatalogStore(componentName: string, obj: any) {
-    /*     console.log("shapestore item added", componentName, obj?.element?.tagName); */
+const shapeCatalogStore = new Map<string, Component>();
+
+export function addToShapeCatalogStore(componentName: string, obj: Component) {
     shapeCatalogStore.set(componentName, obj);
 }
 
 export function getFromShapeCatalogStore<T>(componentName: string) {
-    return (shapeCatalogStore.get(componentName) as T) || null;
+    return shapeCatalogStore.get(componentName) || null;
 }
