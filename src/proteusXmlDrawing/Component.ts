@@ -122,7 +122,7 @@ export class Component {
          */
         const drawables = getChildComponents(this);
         drawables.forEach((drawable) => {
-            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY, group, this);
         });
 
         /**
@@ -136,11 +136,18 @@ export class Component {
                 const Pgroup = getPaper().Group;
                 const group = new Pgroup();
 
-                const x = (this.Position[0].Location[0].x.valueAsNumber + offsetX) * unit;
-                const y = (this.Position[0].Location[0].y.valueAsNumber + offsetY) * unit;
+                const x = this.Position[0].Location[0].x.valueAsNumber;
+                const y = this.Position[0].Location[0].y.valueAsNumber;
 
                 if (typeof (shapeCatalogItem as any).draw === "function") {
-                    (shapeCatalogItem as any).draw(unit, pageOriginX, pageOriginY, x, y, group);
+                    (shapeCatalogItem as any).draw(
+                        unit,
+                        pageOriginX,
+                        pageOriginY,
+                        x + offsetX,
+                        y + offsetY,
+                        group
+                    );
                 }
 
                 if (this.Scale.length) {
