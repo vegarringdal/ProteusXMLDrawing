@@ -1,5 +1,6 @@
 import { Line } from "./types/Line";
 import { getPaper, PaperGroup } from "./paper";
+import { Component } from "./Component";
 
 /**
  * used to draw line, polyline and centerline
@@ -17,7 +18,8 @@ export function drawLine(
     pageOriginY: number,
     offsetX = 0,
     offsetY = 0,
-    group: PaperGroup | undefined
+    group: PaperGroup | undefined,
+    caller: Component
 ) {
     const Point = getPaper().Point;
     const Path = getPaper().Path;

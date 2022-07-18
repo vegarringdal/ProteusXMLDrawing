@@ -93,7 +93,8 @@ export class Component {
         pageOriginY: number,
         offsetX = 0,
         offsetY = 0,
-        group: PaperGroup | undefined
+        group: PaperGroup | undefined,
+        caller: Component
     ) {
         if (this.tagName === "ShapeCatalogue") {
             // shape catalog should never draw, it will be called by others using componentName
@@ -101,7 +102,16 @@ export class Component {
         }
 
         if (this.tagName === "TrimmedCurve") {
-            drawTrimmedCurve(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
+            drawTrimmedCurve(
+                this as any,
+                unit,
+                pageOriginX,
+                pageOriginY,
+                offsetX,
+                offsetY,
+                group,
+                caller
+            );
 
             // important - we handle all children in draw function above, so lets return
             return;
@@ -112,7 +122,7 @@ export class Component {
          */
         const drawables = getChildComponents(this);
         drawables.forEach((drawable) => {
-            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
+            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
         });
 
         /**
@@ -126,18 +136,11 @@ export class Component {
                 const Pgroup = getPaper().Group;
                 const group = new Pgroup();
 
-                const x = this.Position[0].Location[0].x.valueAsNumber;
-                const y = this.Position[0].Location[0].y.valueAsNumber;
+                const x = (this.Position[0].Location[0].x.valueAsNumber + offsetX) * unit;
+                const y = (this.Position[0].Location[0].y.valueAsNumber + offsetY) * unit;
 
                 if (typeof (shapeCatalogItem as any).draw === "function") {
-                    (shapeCatalogItem as any).draw(
-                        unit,
-                        pageOriginX,
-                        pageOriginY,
-                        x + offsetX,
-                        y + offsetY,
-                        group
-                    );
+                    (shapeCatalogItem as any).draw(unit, pageOriginX, pageOriginY, x, y, group);
                 }
 
                 if (this.Scale.length) {
@@ -145,10 +148,10 @@ export class Component {
                     const scaleY = parseFloat(this.Scale[0].attributes.Y);
                     if (scaleX !== 1 || scaleY !== 1) {
                         // TODO: this might just be buggy...
+                        // not sure why I need that height * 2... something I might be missing earlier? or maybe Im generating with incorrect center  when I draw children?
                         group.scale(scaleX, scaleY, new Point(x, y + group.bounds.height * 2));
                     }
                 }
-
 
                 // only tested on public\TrainingTestCases\tests\E08 ProcessColumn with ColumnSections\E08V01-SAG.EX01.XML
 
@@ -157,7 +160,8 @@ export class Component {
                     console.log(xr);
                     group.rotate(
                         (xr / (Math.PI / 180)) * Math.PI, // cos(180) === -1, I dont know if this is 100% correct
-                        new Point(group.bounds.x, group.bounds.y + group.bounds.height / 2)
+                        // why Im not rotating with center.x is just weird... maybe Im generating lines with wrong center ?
+                        new Point(group.bounds.x, group.bounds.center.y)
                     );
                 }
                 if (xr !== 1 && xr !== -1 && xr !== 0) {
@@ -169,7 +173,8 @@ export class Component {
                 if ((yr && yr < 0) || yr > 0) {
                     group.rotate(
                         -(yr / (Math.PI / 90)) * Math.PI, // sin(90) === 1 , I dont know if this is 100% correct
-                        new Point(group.bounds.x, group.bounds.y + group.bounds.height / 2)
+                        // why Im not rotating with center.x is just weird... maybe Im generating lines with wrong center ?
+                        new Point(group.bounds.x, group.bounds.center.y)
                     );
                 }
                 if (yr !== 1 && yr !== -1 && yr !== 0) {
@@ -186,7 +191,7 @@ export class Component {
             this.tagName === "PolyLine" ||
             this.tagName === "CenterLine"
         ) {
-            drawLine(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
+            drawLine(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
         }
 
         /**
@@ -207,28 +212,46 @@ export class Component {
          * Circle
          */
         if (this.tagName === "Circle") {
-            drawCircle(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
+            drawCircle(
+                this as any,
+                unit,
+                pageOriginX,
+                pageOriginY,
+                offsetX,
+                offsetY,
+                group,
+                caller
+            );
         }
 
         /**
          * Ellipse
          */
         if (this.tagName === "Ellipse") {
-            drawEllipse(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
+            drawEllipse(
+                this as any,
+                unit,
+                pageOriginX,
+                pageOriginY,
+                offsetX,
+                offsetY,
+                group,
+                caller
+            );
         }
 
         /**
          * Shape
          */
         if (this.tagName === "Shape") {
-            drawShape(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
+            drawShape(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
         }
 
         /**
          * Text
          */
         if (this.tagName === "Text") {
-            drawtext(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group);
+            drawtext(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
         }
     }
 }

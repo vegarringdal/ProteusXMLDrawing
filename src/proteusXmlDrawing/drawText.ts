@@ -20,7 +20,8 @@ export function drawtext(
     pageOriginY: number,
     offsetX = 0,
     offsetY = 0,
-    group: PaperGroup | undefined
+    group: PaperGroup | undefined,
+    caller: Component
 ) {
     const PointText = getPaper().PointText;
     const Point = getPaper().Point;

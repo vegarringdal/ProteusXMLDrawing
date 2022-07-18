@@ -1,5 +1,7 @@
 import { Circle } from "./types/Circle";
 import { getPaper, PaperGroup } from "./paper";
+import { Component } from "./Component";
+import { debug } from "./debug";
 
 /**
  * used to draw line, polyline and centerline
@@ -17,7 +19,8 @@ export function drawCircle(
     pageOriginY: number,
     offsetX = 0,
     offsetY = 0,
-    group: PaperGroup | undefined
+    group: PaperGroup | undefined,
+    caller: Component
 ) {
     const Point = getPaper().Point;
     const Path = getPaper().Path;

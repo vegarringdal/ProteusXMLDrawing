@@ -1,3 +1,4 @@
+import { Component } from "./Component";
 import { getPaper, PaperGroup } from "./paper";
 import { Ellipse } from "./types/Ellipse";
 
@@ -17,7 +18,8 @@ export function drawEllipse(
     pageOriginY: number,
     offsetX = 0,
     offsetY = 0,
-    group: PaperGroup | undefined
+    group: PaperGroup | undefined,
+    caller: Component
 ) {
     const Point = getPaper().Point;
     const Path = getPaper().Path;

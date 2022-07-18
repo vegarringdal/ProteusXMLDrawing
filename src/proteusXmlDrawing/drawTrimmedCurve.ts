@@ -4,6 +4,7 @@ import { Circle } from "./types/Circle";
 import { TrimmedCurve } from "./types/TrimmedCurve";
 import { Ellipse } from "./types/Ellipse";
 import { debug } from "./debug";
+import { Component } from "./Component";
 
 /**
  * used to draw line, polyline and centerline
@@ -21,7 +22,8 @@ export function drawTrimmedCurve(
     pageOriginY: number,
     offsetX = 0,
     offsetY = 0,
-    group: PaperGroup | undefined
+    group: PaperGroup | undefined,
+    caller: Component
 ) {
     const drawables = getChildComponents(ctx);
     drawables.forEach((drawable) => {
