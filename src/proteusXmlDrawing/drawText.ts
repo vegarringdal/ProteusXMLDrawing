@@ -33,6 +33,14 @@ export function drawtext(
         console.warn("unexpected missing location element on text", ctx);
         return;
     }
+    if (!ctx.Extent[0]?.Max) {
+        console.warn("unexpected missing Extent element on text", ctx);
+        return;
+    }
+    if (!ctx.Presentation[0]) {
+        console.warn("unexpected missing Presentation element on text", ctx);
+        return;
+    }
 
     const x = (ctx.Position[0].Location[0].x.valueAsNumber + offsetX) * unit;
     const y = pageOriginY * unit - (ctx.Position[0].Location[0].y.valueAsNumber + offsetY) * unit;

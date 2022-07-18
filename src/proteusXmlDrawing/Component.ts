@@ -23,6 +23,8 @@ export class Component {
     componentName?: Attribute;
     iD?: Attribute;
     Position: any[] = [];
+    Extent: any[] = [];
+    Presentation: any[] = [];
     Scale: any[] = [];
 
     /**
