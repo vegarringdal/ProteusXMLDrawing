@@ -35,7 +35,6 @@ export function drawLine(
     });
 
     const path = new Path(segments);
- 
 
     path.strokeColor = new Color({
         red: ctx.Presentation[0].r.value,
@@ -46,5 +45,9 @@ export function drawLine(
     path.strokeWidth = ctx.Presentation[0].lineWeight.valueAsNumber * unit;
     if (group) {
         group.addChild(path);
+    } else {
+        path.onClick = function () {
+            console.log(ctx);
+        };
     }
 }

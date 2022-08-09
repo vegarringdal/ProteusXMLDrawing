@@ -38,6 +38,10 @@ export function drawEllipse(
     const ellipse = new Path.Ellipse(rectangle);
     if (group) {
         group.addChild(ellipse);
+    } else {
+        ellipse.onClick = function () {
+            console.log(ctx);
+        };
     }
 
     ellipse.strokeColor = new Color({

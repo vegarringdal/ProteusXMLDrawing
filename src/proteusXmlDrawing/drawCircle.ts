@@ -33,6 +33,10 @@ export function drawCircle(
     const myCircle = new Path.Circle(point, ctx.radius.valueAsNumber * unit);
     if (group) {
         group.addChild(myCircle);
+    } else {
+        myCircle.onClick = function () {
+            console.log(ctx);
+        };
     }
 
     myCircle.strokeColor = new Color({

@@ -79,6 +79,10 @@ export function drawTrimmedCurve(
 
             if (group) {
                 group.addChild(arc);
+            } else {
+                arc.onClick = function () {
+                    console.log(ctx);
+                };
             }
 
             if (debug.trimmedCurve) {

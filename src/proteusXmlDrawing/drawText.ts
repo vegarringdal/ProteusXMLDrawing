@@ -173,6 +173,10 @@ export function drawtext(
 
     if (group) {
         group.addChild(text);
+    } else {
+        text.onClick = function () {
+            console.log(ctx);
+        };
     }
 
     // todo, I need to adjust text, but looks like PDF and SVG does not render the same..

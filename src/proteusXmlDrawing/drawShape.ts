@@ -37,6 +37,10 @@ export function drawShape(
     const path = new Path(segments);
     if (group) {
         group.addChild(path);
+    } else {
+        path.onClick = function () {
+            console.log(ctx);
+        };
     }
 
     path.strokeColor = new Color({

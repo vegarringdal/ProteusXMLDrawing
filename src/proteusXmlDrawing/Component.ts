@@ -138,6 +138,11 @@ export class Component {
                 const Pgroup = getPaper().Group;
                 const group = new Pgroup();
 
+                const that = this;
+                group.onClick = function () {
+                    console.log(that);
+                };
+
                 const x = this.Position[0].Location[0].x.valueAsNumber;
                 const y = this.Position[0].Location[0].y.valueAsNumber;
 
