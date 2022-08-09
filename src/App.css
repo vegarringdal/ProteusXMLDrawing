@@ -4,6 +4,10 @@ body {
     background-color: rgb(254, 254, 254);
 }
 
+#root{
+    display: fixed;
+}
+
 /* Scale canvas with resize attribute to full size */
 canvas[resize] {
     width: 100%;
