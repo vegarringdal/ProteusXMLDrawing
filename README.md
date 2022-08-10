@@ -6,7 +6,6 @@ See spec folder under public for more info
 
 
 Issues/Need more work:
-- TrimmedCurve ( circle type looks t be working, not checked scaling or rotation, ellipse will prob fail, need sample)
 - BsplineCurve (not seen these used, I need samples to try)
 - CompositeCurve (not seen these used, I need samples to try)
 - rotation/scale of items -> this will need some work.. (I should try and get a drawing program that exports xml, so I can make tests)
