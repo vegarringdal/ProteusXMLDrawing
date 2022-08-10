@@ -36,6 +36,15 @@ export function drawTrimmedCurve(
 
             const x = comp.Position[0].Location[0].x.valueAsNumber + offsetX;
             const y = comp.Position[0].Location[0].y.valueAsNumber + offsetY;
+
+            // todo, add logic for rotatin/flip
+            const cos = comp.Position[0].Reference[0].x.valueAsNumber;
+            const sin = comp.Position[0].Reference[0].y.valueAsNumber;
+            const flipY = comp.Position[0].Axis[0].y.valueAsNumber === -1;
+            if (flipY) {
+                console.log("not implented rotation", ctx, cos, sin, flipY);
+            }
+
             const point = new Point(x * unit, pageOriginY * unit - y * unit);
             const radius = comp.radius.valueAsNumber * unit;
 
@@ -74,8 +83,18 @@ export function drawTrimmedCurve(
             });
 
             arc.strokeWidth = comp.Presentation[0].lineWeight.valueAsNumber * unit;
-
             arc.translate(point);
+            // rotate
+            if (cos < 0) {
+                arc.rotate((cos / (Math.PI / 180)) * Math.PI, point);
+            }
+
+            if (sin && sin !== 0) {
+                arc.rotate(
+                    -(sin / (Math.PI / 90)) * Math.PI,
+                    point
+                );
+            }
 
             if (group) {
                 group.addChild(arc);
@@ -111,11 +130,20 @@ export function drawTrimmedCurve(
 
             const x = comp.Position[0].Location[0].x.valueAsNumber + offsetX;
             const y = comp.Position[0].Location[0].y.valueAsNumber + offsetY;
+
+            // todo, add logic for rotatin/flip
+            const cos = comp.Position[0].Reference[0].x.valueAsNumber;
+            const sin = comp.Position[0].Reference[0].y.valueAsNumber;
+            const flipY = comp.Position[0].Axis[0].z.valueAsNumber === -1;
+            if (flipY) {
+                console.log("not implented rotation", ctx, cos, sin, flipY);
+            }
+
             const point = new Point(x * unit, pageOriginY * unit - y * unit);
             const radius = comp.primaryAxis.valueAsNumber * unit;
 
-            const startAngle = ctx.startAngle?.valueAsNumber || 0;
-            const endAngle = ctx.endAngle?.valueAsNumber || 0;
+            const startAngle = -ctx.startAngle?.valueAsNumber || 0;
+            const endAngle = -ctx.endAngle?.valueAsNumber || 0;
 
             // create vec2 with angle 0 and update it
             const from = new Point(radius, 0);
@@ -141,6 +169,19 @@ export function drawTrimmedCurve(
 
             arc.translate(point);
             arc.scale(1, (comp.secondaryAxis.valueAsNumber * unit) / radius, point);
+
+            // rotate
+            if (cos < 0) {
+                arc.rotate((cos / (Math.PI / 180)) * Math.PI, point);
+            }
+
+            if (sin && sin !== 0) {
+                arc.rotate(
+                    -(sin / (Math.PI / 90)) * Math.PI, // sin(90) === 1 , I dont know if this is 100% correct
+                    // why Im not rotating with center.x is just weird... maybe Im generating lines with wrong center ?
+                    point
+                );
+            }
 
             if (group) {
                 group.addChild(arc);

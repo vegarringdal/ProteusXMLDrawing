@@ -169,30 +169,29 @@ export class Component {
 
                 // only tested on public\TrainingTestCases\tests\E08 ProcessColumn with ColumnSections\E08V01-SAG.EX01.XML
 
-                const xr = parseFloat(this.Position[0].Reference[0].attributes.X);
-                if (xr < 0) {
-                    console.log(xr);
+                const xr = this.Position[0]?.Reference[0]?.x?.valueAsNumber
+                if (xr && xr !== 1) {
                     group.rotate(
                         (xr / (Math.PI / 180)) * Math.PI, // cos(180) === -1, I dont know if this is 100% correct
                         // why Im not rotating with center.x is just weird... maybe Im generating lines with wrong center ?
                         new Point(group.bounds.x, group.bounds.center.y)
                     );
                 }
-                if (xr !== 1 && xr !== -1 && xr !== 0) {
-                    console.warn("rotation need improvement", this);
-                }
 
-                const yr = parseFloat(this.Position[0].Reference[0].attributes.Y);
+                const yr = this.Position[0]?.Reference[0]?.y?.valueAsNumber;
 
-                if ((yr && yr < 0) || yr > 0) {
+                if (yr && yr !== 0) {
                     group.rotate(
                         -(yr / (Math.PI / 90)) * Math.PI, // sin(90) === 1 , I dont know if this is 100% correct
                         // why Im not rotating with center.x is just weird... maybe Im generating lines with wrong center ?
                         new Point(group.bounds.x, group.bounds.center.y)
                     );
                 }
-                if (yr !== 1 && yr !== -1 && yr !== 0) {
-                    console.warn("rotation need improvement", this);
+  
+
+                const flipY = this.Position[0]?.Axis[0]?.z?.valueAsNumber === -1;
+                if (flipY) {
+                    console.warn("flipY need improvement", this);
                 }
             }
         }
