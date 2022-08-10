@@ -8,6 +8,7 @@ export class ProteusXmlDrawing {
     root: boolean;
 
     constructor(xmlString: string, canvasId: string) {
+        console.log('build: 2022-08-10T18:57:42.843Z') // I will use vitejs to inject this later
         this.root = true;
         this.xml = new window.DOMParser().parseFromString(xmlString, "text/xml");
         this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
