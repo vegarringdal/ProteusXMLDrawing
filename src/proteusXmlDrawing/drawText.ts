@@ -42,6 +42,11 @@ export function drawtext(
         return;
     }
 
+    // this is just asumption... why call it hidden if you want it..
+    if (ctx.Presentation[0].layer?.valueAsString.toUpperCase().includes("HIDDEN")) {
+        return;
+    }
+
     const x = (ctx.Position[0].Location[0].x.valueAsNumber + offsetX) * unit;
     const y = pageOriginY * unit - (ctx.Position[0].Location[0].y.valueAsNumber + offsetY) * unit;
 
@@ -102,6 +107,9 @@ export function drawtext(
 
             positionX = positionX - width;
             break;
+        default:
+            // this is default, left - bottom
+            positionY = positionY - height;
     }
 
     const point = new Point(positionX, positionY);
