@@ -35,7 +35,7 @@ export default defineConfig(({ command }) => {
                 assetsDir: "./",
                 target: "es2015",
                 emptyOutDir: true,
-                outDir: "./docs"
+                outDir: "../docs"
             }
         };
     }
