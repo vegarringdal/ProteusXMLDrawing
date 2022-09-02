@@ -88,19 +88,19 @@ export function drawtext(
         case "RightTop":
             positionY = positionY;
 
-            positionX = positionX + width;
+            positionX = positionX - width;
 
             break;
         case "RightCenter":
             positionY = positionY - height / 2;
 
-            positionX = positionX + width;
+            positionX = positionX - width;
 
             break;
         case "RightBottom":
             positionY = positionY - height;
 
-            positionX = positionX + width;
+            positionX = positionX - width;
             break;
     }
 
