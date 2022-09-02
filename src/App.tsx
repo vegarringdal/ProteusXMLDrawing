@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 
 import { ProteusXmlDrawing } from "./proteusXmlDrawing/ProteusXmlDrawing";
@@ -7,6 +7,24 @@ declare const APP_VERSION: string;
 
 // keep react happy for now...
 export function App() {
+    useEffect(() => {
+        async function run() {
+            if (location.host.includes("localhost")) {
+                try {
+                    const reponse = await fetch("/nocommit/test.xml");
+                    if (reponse.ok) {
+                        const text = await reponse.text();
+                        const proteusXmlDrawing = new ProteusXmlDrawing(text as any, "pidCanvas");
+                        proteusXmlDrawing.draw();
+                    }
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+        }
+        run();
+    }, []);
+
     return (
         <div className="z-20">
             <input
