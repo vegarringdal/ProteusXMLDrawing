@@ -1,6 +1,6 @@
 {
     "name": "web-dexpi",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "vegar.ringdal@gmail.com",
     "scripts": {
         "start": "run-p -s -l start:*",
