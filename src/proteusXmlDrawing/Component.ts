@@ -64,6 +64,18 @@ export class Component {
             root[attributeNameLowercase] = new Attribute(element, attributeName, this);
         });
 
+        /**
+         * add simplified property 'genericAttributes' so its easy to read all generic attributes
+         */
+        if (this.GenericAttributes) {
+            (this as any).genericAttributes = {};
+            this.GenericAttributes.forEach((e) => {
+                e.GenericAttribute.forEach((e) => {
+                    (this as any).genericAttributes[e.attributes.Name] = e.attributes.Value;
+                });
+            });
+        }
+
         if (this.tagName !== "ShapeCatalogue") {
             // need to build a map, so other components can get details
             if (this.isShapeCatalogChild) {
@@ -169,7 +181,7 @@ export class Component {
 
                 // only tested on public\TrainingTestCases\tests\E08 ProcessColumn with ColumnSections\E08V01-SAG.EX01.XML
 
-                const xr = this.Position[0]?.Reference[0]?.x?.valueAsNumber
+                const xr = this.Position[0]?.Reference[0]?.x?.valueAsNumber;
                 if (xr && xr !== 1) {
                     group.rotate(
                         (xr / (Math.PI / 180)) * Math.PI, // cos(180) === -1, I dont know if this is 100% correct
@@ -187,7 +199,6 @@ export class Component {
                         new Point(group.bounds.x, group.bounds.center.y)
                     );
                 }
-  
 
                 const flipY = this.Position[0]?.Axis[0]?.z?.valueAsNumber === -1;
                 if (flipY) {
