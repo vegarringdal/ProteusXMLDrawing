@@ -3,6 +3,8 @@ import "./App.css";
 
 import { ProteusXmlDrawing } from "./proteusXmlDrawing/ProteusXmlDrawing";
 
+declare const APP_VERSION: string;
+
 // keep react happy for now...
 export function App() {
     return (
@@ -13,16 +15,25 @@ export function App() {
                 onChange={(e) => {
                     const reader = new FileReader();
                     reader.onload = () => {
-                        const proteusXmlDrawing = new ProteusXmlDrawing(reader.result as any, "pidCanvas");
+                        const proteusXmlDrawing = new ProteusXmlDrawing(
+                            reader.result as any,
+                            "pidCanvas"
+                        );
                         proteusXmlDrawing.draw();
                     };
 
-                    reader.onerror = (err) => {};
+                    reader.onerror = () => {
+                        // todo
+                    };
                     if (e?.target.files) {
                         reader.readAsText(e.target.files[0]);
                     }
                 }}
             />
+            <div className="fixed top-10 ">Version: {APP_VERSION}</div>
+            <div className="fixed top-10 ">
+                <a href="https://github.com/vegarringdal/ProteusXMLDrawing">Github repo</a>
+            </div>
         </div>
     );
 }

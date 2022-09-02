@@ -2,10 +2,15 @@
 
 Experiment on trying to take dexpi xml and convert to drawing using svg/or canvas lib
 
+[demo link](https://vegarringdal.github.io/ProteusXMLDrawing)
+
 See spec folder under public for more info
 
 
 Issues/Need more work:
+- solid element
+- hidden layers?
+- text alignment
 - BsplineCurve (not seen these used, I need samples to try)
 - CompositeCurve (not seen these used, I need samples to try)
 - rotation/scale of items -> this will need some work.. (I should try and get a drawing program that exports xml, so I can make tests)
