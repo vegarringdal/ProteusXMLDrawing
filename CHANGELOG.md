@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/vegarringdal/web-dexpi/compare/v1.2.0...v1.2.1) (2022-09-05)
+
+
+### Bug Fixes
+
+* text placement using extent only, overlooking justification ([25a87b2](https://github.com/vegarringdal/web-dexpi/commits/25a87b2c62970ceccd094224ed1844f99e743f0d))
+
 ## [1.2.0](https://github.com/vegarringdal/web-dexpi/compare/v1.1.0...v1.2.0) (2022-09-05)
 
 
