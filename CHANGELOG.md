@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.2](https://github.com/vegarringdal/web-dexpi/compare/v1.2.1...v1.2.2) (2022-09-05)
+
+
+### Bug Fixes
+
+* line type, dashed/dottet etc ([b6241d8](https://github.com/vegarringdal/web-dexpi/commits/b6241d83c73c8beb878040421bacd7cb3913991d))
+
 ### [1.2.1](https://github.com/vegarringdal/web-dexpi/compare/v1.2.0...v1.2.1) (2022-09-05)
 
 
