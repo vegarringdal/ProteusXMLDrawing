@@ -42,6 +42,31 @@ export function drawLine(
         blue: ctx.Presentation[0].b.value
     });
 
+    switch (ctx.Presentation[0].lineType.valueAsString) {
+        case "Solid":
+            break;
+        case "Dashed":
+            path.dashArray = [2, 0.5];
+            break;
+        case "Dotted":
+            path.dashArray = [0.3, 0.3];
+            break;
+        case "Long Dash":
+            path.dashArray = [4, 0.5];
+            break;
+        case "Long Dash + Short Dash":
+            path.dashArray = [4, 0.5, 1, 0.5];
+            break;
+        case "Short Dash":
+            path.dashArray = [1, 0.5];
+            break;
+        case "Long Dash + Short Dash + Short Dash":
+            path.dashArray = [4, 0.5, 1, 0.5, 1, 0.5];
+            break;
+        default:
+            console.error("unknown linetype", ctx);
+    }
+
     path.strokeWidth = ctx.Presentation[0].lineWeight.valueAsNumber * unit;
     if (group) {
         group.addChild(path);
