@@ -1,6 +1,6 @@
 import { Extent } from "./types/Extent";
 import { getPaper } from "./paper";
-import { Point } from "paper/dist/paper-core";
+import { Color, Point } from "paper/dist/paper-core";
 
 export function getShapeFromExtent(
     ctx: { Extent?: Extent[]; element: HTMLElement },
@@ -9,16 +9,17 @@ export function getShapeFromExtent(
     pageOriginY: number,
     offsetX = 0,
     offsetY = 0,
-    debug: boolean
+    debug: boolean,
+    debugColor: { red: number; green: number; blue: number; alpha: number }
 ) {
-    if (ctx.Extent?.length) {
+    if (ctx?.Extent?.length) {
         const maxX = ctx.Extent[0].Max[0].x.valueAsNumber;
         const minX = ctx.Extent[0].Min[0].x.valueAsNumber;
-        const width = (maxX - minX) * unit;
+        const width = (maxX - minX) * unit < 1 ? 1 : (maxX - minX) * unit;
 
         const maxY = ctx.Extent[0].Max[0].y.valueAsNumber;
         const minY = ctx.Extent[0].Min[0].y.valueAsNumber;
-        const height = (maxY - minY) * unit;
+        const height = (maxY - minY) * unit < 1 ? 1 : (maxY - minY) * unit;
 
         const x = offsetX * unit + minX * unit;
         const y = pageOriginY * unit - (maxY + offsetY) * unit;
@@ -30,7 +31,7 @@ export function getShapeFromExtent(
 
             const size = new Size(width, height);
             const shape = new Shape.Rectangle(new Point(x, y), size);
-            shape.fillColor = new Color({ red: 0, green: 0, blue: 1, alpha: 0.5 });
+            shape.fillColor = new Color(debugColor);
             shape.onClick = () => {
                 console.log(ctx);
             };

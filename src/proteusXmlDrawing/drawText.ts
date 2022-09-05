@@ -1,5 +1,5 @@
 import { Component } from "./Component";
-import { debug } from "./debug";
+import { debug, debugColor } from "./debug";
 import { getShapeFromExtent } from "./drawExtent";
 import { getFromIdStore } from "./idStore";
 import { getPaper, PaperGroup } from "./paper";
@@ -55,7 +55,8 @@ export function drawtext(
         pageOriginY,
         offsetX,
         offsetY,
-        debug.text
+        debug.text,
+        debugColor.text
     );
 
     const x = (ctx.Position[0].Location[0].x.valueAsNumber + offsetX) * unit;

@@ -12,7 +12,6 @@ Issues/Need more work:
 - hidden layers? (atm I dont show text on layers that cointain "hidden")
 - text alignment atm looks like 100% ok, I use extent to place it/resize it
 - styled text (not seen these used, need samples to try - this might be hard with papejs..)
-- extent (this is min bounding size, not tested if this match what I draw)
 - BsplineCurve (not seen these used, I need samples to try)
 - CompositeCurve (not seen these used, I need samples to try)
 - rotation/scale of items -> this will need some work.. (I should try and get a drawing program that exports xml, so I can make tests)

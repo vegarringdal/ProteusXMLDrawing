@@ -3,8 +3,9 @@ import { getChildComponents } from "./getChildComponents";
 import { Circle } from "./types/Circle";
 import { TrimmedCurve } from "./types/TrimmedCurve";
 import { Ellipse } from "./types/Ellipse";
-import { debug } from "./debug";
+import { debug, debugColor } from "./debug";
 import { Component } from "./Component";
+import { getShapeFromExtent } from "./drawExtent";
 
 /**
  * used to draw line, polyline and centerline
@@ -90,10 +91,7 @@ export function drawTrimmedCurve(
             }
 
             if (sin && sin !== 0) {
-                arc.rotate(
-                    -(sin / (Math.PI / 90)) * Math.PI,
-                    point
-                );
+                arc.rotate(-(sin / (Math.PI / 90)) * Math.PI, point);
             }
 
             if (group) {
@@ -104,20 +102,16 @@ export function drawTrimmedCurve(
                 };
             }
 
-            if (debug.trimmedCurve) {
-                const Size = getPaper().Size;
-                const Shape = getPaper().Shape;
-                const size = new Size(arc.bounds.width, arc.bounds.height);
-                const shape = new Shape.Rectangle(new Point(arc.bounds.x, arc.bounds.y), size);
-                shape.fillColor = new Color({ red: 1, green: 0, blue: 1, alpha: 0.5 });
-                shape.onClick = () => {
-                    console.log(ctx);
-                };
-                shape.bringToFront();
-                if (group) {
-                    group.addChild(shape);
-                }
-            }
+            getShapeFromExtent(
+                comp as any,
+                unit,
+                pageOriginX,
+                pageOriginY,
+                offsetX,
+                offsetY,
+                debug.circleArc,
+                debugColor.circleArc
+            );
         }
         if (drawable.element.tagName === "Ellipse") {
             //used circle and scaled it... looks like its working..
@@ -191,20 +185,16 @@ export function drawTrimmedCurve(
                 };
             }
 
-            if (debug.ellipse) {
-                const Size = getPaper().Size;
-                const Shape = getPaper().Shape;
-                const size = new Size(arc.bounds.width, arc.bounds.height);
-                const shape = new Shape.Rectangle(new Point(arc.bounds.x, arc.bounds.y), size);
-                shape.fillColor = new Color({ red: 1, green: 0, blue: 1, alpha: 0.5 });
-                shape.onClick = () => {
-                    console.log(ctx);
-                };
-                shape.bringToFront();
-                if (group) {
-                    group.addChild(shape);
-                }
-            }
+            getShapeFromExtent(
+                comp as any,
+                unit,
+                pageOriginX,
+                pageOriginY,
+                offsetX,
+                offsetY,
+                debug.ellipseArc,
+                debugColor.ellipseArc
+            );
         }
     });
 

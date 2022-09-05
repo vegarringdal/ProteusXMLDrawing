@@ -1,7 +1,8 @@
 import { Circle } from "./types/Circle";
 import { getPaper, PaperGroup } from "./paper";
 import { Component } from "./Component";
-import { debug } from "./debug";
+import { debug, debugColor } from "./debug";
+import { getShapeFromExtent } from "./drawExtent";
 
 /**
  * used to draw line, polyline and centerline
@@ -50,4 +51,15 @@ export function drawCircle(
     if (ctx.filled?.value) {
         myCircle.fillColor = new Color("black");
     }
+
+    getShapeFromExtent(
+        ctx as any,
+        unit,
+        pageOriginX,
+        pageOriginY,
+        offsetX,
+        offsetY,
+        debug.circle,
+        debugColor.circleArc
+    );
 }

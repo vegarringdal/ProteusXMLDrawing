@@ -10,6 +10,8 @@ import { drawEllipse } from "./drawEllipse";
 import { addToIdStore } from "./idStore";
 import { getPaper, PaperGroup } from "./paper";
 import { Point } from "paper/dist/paper-core";
+import { debug, debugColor } from "./debug";
+import { getShapeFromExtent } from "./drawExtent";
 
 export class Component {
     isChild = true;
@@ -204,6 +206,17 @@ export class Component {
                 if (flipY) {
                     console.warn("flipY need improvement", this);
                 }
+
+                getShapeFromExtent(
+                    group as any,
+                    unit,
+                    pageOriginX,
+                    pageOriginY,
+                    x + offsetX,
+                    y + offsetY,
+                    debug.component,
+                    debugColor.component
+                );
             }
         }
 

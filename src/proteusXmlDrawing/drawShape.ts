@@ -1,4 +1,6 @@
 import { Component } from "./Component";
+import { debug, debugColor } from "./debug";
+import { getShapeFromExtent } from "./drawExtent";
 import { getPaper, PaperGroup } from "./paper";
 import { Shape } from "./types/Shape";
 
@@ -58,4 +60,15 @@ export function drawShape(
             blue: ctx.Presentation[0].b.value
         });
     }
+
+    getShapeFromExtent(
+        ctx as any,
+        unit,
+        pageOriginX,
+        pageOriginY,
+        offsetX,
+        offsetY,
+        debug.shape,
+        debugColor.shape
+    );
 }

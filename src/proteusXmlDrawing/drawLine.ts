@@ -1,6 +1,8 @@
 import { Line } from "./types/Line";
 import { getPaper, PaperGroup } from "./paper";
 import { Component } from "./Component";
+import { getShapeFromExtent } from "./drawExtent";
+import { debug, debugColor } from "./debug";
 
 /**
  * used to draw line, polyline and centerline
@@ -75,4 +77,15 @@ export function drawLine(
             console.log(ctx);
         };
     }
+
+    getShapeFromExtent(
+        ctx as any,
+        unit,
+        pageOriginX,
+        pageOriginY,
+        offsetX,
+        offsetY,
+        debug.line,
+        debugColor.line
+    );
 }

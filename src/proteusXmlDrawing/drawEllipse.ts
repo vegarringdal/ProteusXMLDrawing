@@ -1,4 +1,6 @@
 import { Component } from "./Component";
+import { debug, debugColor } from "./debug";
+import { getShapeFromExtent } from "./drawExtent";
 import { getPaper, PaperGroup } from "./paper";
 import { Ellipse } from "./types/Ellipse";
 
@@ -64,4 +66,15 @@ export function drawEllipse(
     if (ctx.filled?.value) {
         ellipse.fillColor = new Color("black");
     }
+
+    getShapeFromExtent(
+        ctx as any,
+        unit,
+        pageOriginX,
+        pageOriginY,
+        offsetX,
+        offsetY,
+        debug.circle,
+        debugColor.circleArc
+    );
 }
