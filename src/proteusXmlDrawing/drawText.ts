@@ -110,6 +110,12 @@ export function drawtext(
         default:
             // this is default, left - bottom
             positionY = positionY - height;
+
+            if (ctx.textAngle?.valueAsNumber > 0) {
+                // hack to make it work better when rotated..
+                // I prob need to check extent on all items...
+                positionX = positionX - width;
+            }
     }
 
     const point = new Point(positionX, positionY);
