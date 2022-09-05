@@ -8,9 +8,11 @@ See spec folder under public for more info
 
 
 Issues/Need more work:
-- solid element
-- hidden layers?
-- text alignment
+- filled element (solid circle and ellipse should work, not tried closed paths on shape, if I can support "hatch" filltype I do not know )
+- hidden layers? (atm I dont show text on layers that cointain "hidden")
+- text alignment atm looks like 95% is ok (we dont get font size, atm I try and use extent of text to adjust size, since height/width have been weird in samples I tried, if spec had font size/line height it would have been so much easier)
+- styled text (not seen these used, need samples to try - this might be hard with papejs..)
+- extent (this is min bounding size, not tested if this match what I draw)
 - BsplineCurve (not seen these used, I need samples to try)
 - CompositeCurve (not seen these used, I need samples to try)
 - rotation/scale of items -> this will need some work.. (I should try and get a drawing program that exports xml, so I can make tests)
