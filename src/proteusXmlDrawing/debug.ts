@@ -17,7 +17,7 @@ export const debugColor = {
     circleArc: { red: 1, green: 1, blue: 0, alpha: 0.5 },
     ellipse: { red: 1, green: 1, blue: 0, alpha: 0.5 },
     ellipseArc: { red: 1, green: 1, blue: 0, alpha: 0.5 },
-    component: { red: 1, green: 1, blue: 1, alpha: 0.5 },
-    shape: { red: 1, green: 1, blue: 1, alpha: 0.5 },
+    component: { red: 0.5, green: 1, blue: 1, alpha: 0.5 },
+    shape: { red: 1, green: 0.5, blue: 1, alpha: 0.5 },
     line: { red: 1, green: 0, blue: 0, alpha: 0.5 }
 };

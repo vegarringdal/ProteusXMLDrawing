@@ -208,12 +208,12 @@ export class Component {
                 }
 
                 getShapeFromExtent(
-                    group as any,
+                    that as any,
                     unit,
                     pageOriginX,
                     pageOriginY,
-                    x + offsetX,
-                    y + offsetY,
+                    offsetX,
+                    offsetY,
                     debug.component,
                     debugColor.component
                 );
