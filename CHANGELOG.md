@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/vegarringdal/web-dexpi/compare/v1.1.0...v1.2.0) (2022-09-05)
+
+
+### Features
+
+* quickfix/hack for postion of rotated text ([329f080](https://github.com/vegarringdal/web-dexpi/commits/329f080ec68a60d111b944c2cec14e8f596c68ce))
+
 ## 1.1.0 (2022-09-02)
 
 
