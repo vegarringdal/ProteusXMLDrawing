@@ -14,7 +14,8 @@ Issues/Need more work:
 - styled text (not seen these used, need samples to try - this might be hard with papejs..)
 - BsplineCurve (not seen these used, I need samples to try)
 - CompositeCurve (not seen these used, I need samples to try)
-- rotation/scale of items -> this will need some work.. (I should try and get a drawing program that exports xml, so I can make tests)
+- background color, not looked on this, but I need to have a look at this, since white lines will not show on white background
+- rotation/scale of items -> this will need some more work.. (I should try and get a drawing program that exports xml, so I can make tests)
   -  Inverted z axis (flip around y axis) : <Axis X="0" Y="0" Z="-1"/>
   -  Rotation about the origin :  <Reference X=”[cosØ]” Y=”[sinØ]” Z=”0” /> 
 
