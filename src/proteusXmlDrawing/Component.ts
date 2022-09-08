@@ -18,6 +18,7 @@ export class Component {
     tagName: string;
     attributes: Record<string, string> = {};
     GenericAttributes: Component[] = [];
+    shapeCatalogItem?: Component;
     /*
      * will be in component type of GenericAttributes only...
      */
@@ -152,7 +153,9 @@ export class Component {
                 const Pgroup = getPaper().Group;
                 const group = new Pgroup();
 
-                const that = this;
+                this.shapeCatalogItem = shapeCatalogItem;
+
+                const that = this as any;
                 group.onClick = function () {
                     console.log(that);
                 };
@@ -208,7 +211,7 @@ export class Component {
                 }
 
                 getShapeFromExtent(
-                    that as any,
+                    this as any,
                     unit,
                     pageOriginX,
                     pageOriginY,
