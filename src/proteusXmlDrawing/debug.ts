@@ -1,3 +1,7 @@
+/**
+ * this is just for development help only
+ */
+
 export const debug = {
     text: false,
     trimmedCurve: false,
@@ -8,7 +12,8 @@ export const debug = {
     shape: false,
     component: false,
     line: false,
-    printIdMap: false
+    printIdMap: false,
+    highlightIds: false
 };
 
 export const debugColor = {

@@ -294,5 +294,18 @@ export class Component {
         if (this.elementTagName === "Text") {
             drawtext(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
         }
+
+        if (debug.highlightIds) {
+            getShapeFromExtent(
+                this as any,
+                unit,
+                pageOriginX,
+                pageOriginY,
+                offsetX,
+                offsetY,
+                debug.component,
+                debugColor.component
+            );
+        }
     }
 }
