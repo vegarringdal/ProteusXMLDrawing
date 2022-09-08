@@ -7,7 +7,8 @@ export const debug = {
     ellipseArc: false,
     shape: false,
     component: false,
-    line: false
+    line: false,
+    printIdMap: true
 };
 
 export const debugColor = {

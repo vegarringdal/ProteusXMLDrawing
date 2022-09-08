@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import { debug } from "./proteusXmlDrawing/debug";
+import { getStore } from "./proteusXmlDrawing/idStore";
 
 import { ProteusXmlDrawing } from "./proteusXmlDrawing/ProteusXmlDrawing";
 
@@ -11,11 +13,24 @@ export function App() {
         async function run() {
             if (location.host.includes("localhost")) {
                 try {
-                    const reponse = await fetch("/nocommit/test.xml");
+                    const reponse = await fetch("/nocommit/test_1.3.xml");
                     if (reponse.ok) {
                         const text = await reponse.text();
                         const proteusXmlDrawing = new ProteusXmlDrawing(text as any, "pidCanvas");
                         proteusXmlDrawing.draw();
+
+                        // helper to find missing IDs at work
+                        if (debug.printIdMap) {
+                            const idStore = getStore();
+                            let generatetext = "ID\tELEMENT_NAME\tTAG\r";
+
+                            idStore.forEach((row) => {
+                                generatetext =
+                                    generatetext +
+                                    `${row.iD?.valueAsString}\t${row.element.tagName}\t${row.tagName?.valueAsString}\r`;
+                            });
+                            console.log(generatetext);
+                        }
                     }
                 } catch (err) {
                     console.log(err);
@@ -38,6 +53,19 @@ export function App() {
                             "pidCanvas"
                         );
                         proteusXmlDrawing.draw();
+
+                        // helper to find missing IDs at work
+                        if (debug.printIdMap) {
+                            const idStore = getStore();
+                            let generatetext = "ID\tELEMENT_NAME\tTAG\r";
+
+                            idStore.forEach((row) => {
+                                generatetext =
+                                    generatetext +
+                                    `${row.iD?.valueAsString}\t${row.element.tagName}\t${row.tagName?.valueAsString}\r`;
+                            });
+                            console.log(generatetext);
+                        }
                     };
 
                     reader.onerror = () => {

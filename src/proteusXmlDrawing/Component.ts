@@ -15,7 +15,8 @@ import { getShapeFromExtent } from "./drawExtent";
 
 export class Component {
     isChild = true;
-    tagName: string;
+    tagName: Attribute;
+    elementTagName: string;
     attributes: Record<string, string> = {};
     GenericAttributes: Component[] = [];
     shapeCatalogItem?: Component;
@@ -41,8 +42,8 @@ export class Component {
         public isShapeCatalogChild: boolean,
         public parent?: Component
     ) {
-        this.tagName = this.element.tagName;
-        if (this.tagName === "ShapeCatalogue") {
+        this.elementTagName = this.element.tagName;
+        if (this.elementTagName === "ShapeCatalogue") {
             this.isShapeCatalogChild = true;
         }
 
@@ -79,7 +80,7 @@ export class Component {
             });
         }
 
-        if (this.tagName !== "ShapeCatalogue") {
+        if (this.elementTagName !== "ShapeCatalogue") {
             // need to build a map, so other components can get details
             if (this.isShapeCatalogChild) {
                 if (this.componentName?.value) {
@@ -113,12 +114,12 @@ export class Component {
         group: PaperGroup | undefined,
         caller: Component
     ) {
-        if (this.tagName === "ShapeCatalogue") {
+        if (this.elementTagName === "ShapeCatalogue") {
             // shape catalog should never draw, it will be called by others using componentName
             return;
         }
 
-        if (this.tagName === "TrimmedCurve") {
+        if (this.elementTagName === "TrimmedCurve") {
             drawTrimmedCurve(
                 this as any,
                 unit,
@@ -227,9 +228,9 @@ export class Component {
          * Lines
          */
         if (
-            this.tagName === "Line" ||
-            this.tagName === "PolyLine" ||
-            this.tagName === "CenterLine"
+            this.elementTagName === "Line" ||
+            this.elementTagName === "PolyLine" ||
+            this.elementTagName === "CenterLine"
         ) {
             drawLine(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
         }
@@ -237,21 +238,21 @@ export class Component {
         /**
          * BsplineCurve
          */
-        if (this.tagName === "BsplineCurve") {
+        if (this.elementTagName === "BsplineCurve") {
             console.warn("BsplineCurve not implemented", this);
         }
 
         /**
          * CompositeCurve
          */
-        if (this.tagName === "CompositeCurve") {
+        if (this.elementTagName === "CompositeCurve") {
             console.warn("CompositeCurve not implemented", this);
         }
 
         /**
          * Circle
          */
-        if (this.tagName === "Circle") {
+        if (this.elementTagName === "Circle") {
             drawCircle(
                 this as any,
                 unit,
@@ -267,7 +268,7 @@ export class Component {
         /**
          * Ellipse
          */
-        if (this.tagName === "Ellipse") {
+        if (this.elementTagName === "Ellipse") {
             drawEllipse(
                 this as any,
                 unit,
@@ -283,14 +284,14 @@ export class Component {
         /**
          * Shape
          */
-        if (this.tagName === "Shape") {
+        if (this.elementTagName === "Shape") {
             drawShape(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
         }
 
         /**
          * Text
          */
-        if (this.tagName === "Text") {
+        if (this.elementTagName === "Text") {
             drawtext(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
         }
     }
