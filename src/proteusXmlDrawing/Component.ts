@@ -15,7 +15,7 @@ import { getShapeFromExtent } from "./drawExtent";
 
 export class Component {
     isChild = true;
-    tagName: Attribute;
+    tagName!: Attribute;
     elementTagName: string;
     attributes: Record<string, string> = {};
     GenericAttributes: Component[] = [];
