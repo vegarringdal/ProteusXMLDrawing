@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.3](https://github.com/vegarringdal/web-dexpi/compare/v1.2.2...v1.2.3) (2022-09-08)
+
+
+### Bug Fixes
+
+* add shapecatalog ref so its possible to get when clicking on item ([796c5d2](https://github.com/vegarringdal/web-dexpi/commits/796c5d242e847755b8b29f36540d5e9f29f7b3c1))
+* clear store when loading new file, and add warning for duplicate ID's ([8a0fe99](https://github.com/vegarringdal/web-dexpi/commits/8a0fe998638e36921b81f6c87aae7580b5880e93))
+* deactivate debug by default ([826ecd1](https://github.com/vegarringdal/web-dexpi/commits/826ecd159fb81a6d8182db3fa6cafd5aacf871e3))
+* print out more nifo on duplicate IDs ([70bf49a](https://github.com/vegarringdal/web-dexpi/commits/70bf49ab24774e61428a3b557a50e37158cdc8d1))
+
 ### [1.2.2](https://github.com/vegarringdal/web-dexpi/compare/v1.2.1...v1.2.2) (2022-09-05)
 
 
