@@ -8,7 +8,7 @@ export const debug = {
     shape: false,
     component: false,
     line: false,
-    printIdMap: true
+    printIdMap: false
 };
 
 export const debugColor = {
