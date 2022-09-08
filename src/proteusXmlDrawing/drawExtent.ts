@@ -40,7 +40,11 @@ export function getShapeFromExtent(
             shape.bringToFront();
         }
 
-        if (debug.highlightIds && IDToHighlight.indexOf(ctx.iD?.valueAsString || "") !== -1) {
+        if (
+            debug.highlightIds &&
+            ctx.iD?.valueAsString &&
+            IDToHighlight.indexOf(ctx.iD?.valueAsString) !== -1
+        ) {
             const Shape = getPaper().Shape;
             const Size = getPaper().Size;
             const Color = getPaper().Color;
