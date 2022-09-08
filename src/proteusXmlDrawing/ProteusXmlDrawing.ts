@@ -1,4 +1,5 @@
 import { Component } from "./Component";
+import { clearStore } from "./idStore";
 import { initPaper } from "./paper";
 
 export class ProteusXmlDrawing {
@@ -11,6 +12,8 @@ export class ProteusXmlDrawing {
         this.root = true;
         this.xml = new window.DOMParser().parseFromString(xmlString, "text/xml");
         this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+
+        clearStore();
 
         initPaper(canvasId);
 

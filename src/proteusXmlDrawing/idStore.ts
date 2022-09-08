@@ -2,7 +2,18 @@ import { Component } from "./Component";
 
 const idStore = new Map<string, Component>();
 
+export function clearStore() {
+    idStore.clear();
+}
+
+export function getStore() {
+    return idStore;
+}
+
 export function addToIdStore(id: string, obj: Component) {
+    if (idStore.has(id)) {
+        console.warn("duplicate ID's in file", id);
+    }
     idStore.set(id, obj);
 }
 
