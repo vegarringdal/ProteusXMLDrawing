@@ -31,15 +31,27 @@ export function drawtext(
     const Size = getPaper().Size;
 
     if (!ctx.Position[0]?.Location) {
-        console.warn("unexpected missing location element on text", ctx);
+        console.warn(
+            "unexpected missing location element on text, skipping text",
+            ctx?.string?.valueAsString,
+            ctx
+        );
         return;
     }
     if (!ctx.Extent[0]?.Max) {
-        console.warn("unexpected missing Extent element on text", ctx);
+        console.warn(
+            "unexpected missing Extent element on text, skipping text",
+            ctx?.string?.valueAsString,
+            ctx
+        );
         return;
     }
     if (!ctx.Presentation[0]) {
-        console.warn("unexpected missing Presentation element on text", ctx);
+        console.warn(
+            "unexpected missing Presentation element on text, skipping text",
+            ctx?.string?.valueAsString,
+            ctx
+        );
         return;
     }
 
