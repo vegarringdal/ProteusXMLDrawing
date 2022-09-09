@@ -45,27 +45,51 @@ export function drawLine(
     });
 
     switch (ctx.Presentation[0].lineType.valueAsString) {
+        case "0":
+            break;
         case "Solid":
             break;
-        case "Dashed":
-            path.dashArray = [2, 0.5];
-            break;
+        case "1":
+            path.dashArray = [0.3, 0.3];
         case "Dotted":
             path.dashArray = [0.3, 0.3];
             break;
+        case "2":
+            path.dashArray = [2, 0.5];
+        case "Dashed":
+            path.dashArray = [2, 0.5];
+            break;
+        case "3":
+            path.dashArray = [4, 0.5];
         case "Long Dash":
             path.dashArray = [4, 0.5];
+            break;
+        case "4":
+            path.dashArray = [4, 0.5, 1, 0.5];
             break;
         case "Long Dash + Short Dash":
             path.dashArray = [4, 0.5, 1, 0.5];
             break;
+        case "5":
+            path.dashArray = [1, 0.5];
+            break;
         case "Short Dash":
             path.dashArray = [1, 0.5];
+            break;
+        case "6":
+            path.dashArray = [4, 0.5, 1, 0.5, 1, 0.5];
             break;
         case "Long Dash + Short Dash + Short Dash":
             path.dashArray = [4, 0.5, 1, 0.5, 1, 0.5];
             break;
+        case "7":
+            path.dashArray = [2, 0.5, 1, 0.5];
+            break;
+        case "Dash + Short Dash":
+            path.dashArray = [2, 0.5, 1, 0.5];
+            break;
         default:
+            debugger;
             console.error("unknown linetype", ctx);
     }
 
