@@ -190,8 +190,8 @@ export class Component {
                 const xr = this.Position[0]?.Reference[0]?.x?.valueAsNumber;
                 if (xr && xr !== 1) {
                     group.rotate(
-                        (xr / (Math.PI / 180)) * Math.PI, // cos(180) === -1, I dont know if this is 100% correct
-                        // why Im not rotating with center.x is just weird... maybe Im generating lines with wrong center ?
+                        (xr / (Math.PI / 180)) * Math.PI,
+                        // why Im not rotating with center.x is just weird... maybe Im generating with wrong center ?
                         new Point(group.bounds.x, group.bounds.center.y)
                     );
                 }
@@ -200,8 +200,8 @@ export class Component {
 
                 if (yr && yr !== 0) {
                     group.rotate(
-                        -(yr / (Math.PI / 90)) * Math.PI, // sin(90) === 1 , I dont know if this is 100% correct
-                        // why Im not rotating with center.x is just weird... maybe Im generating lines with wrong center ?
+                        -(yr / (Math.PI / 90)) * Math.PI,
+                        // why Im not rotating with center.x is just weird... maybe Im generating with wrong center ?
                         new Point(group.bounds.x, group.bounds.center.y)
                     );
                 }

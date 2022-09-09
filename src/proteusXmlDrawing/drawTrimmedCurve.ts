@@ -171,8 +171,7 @@ export function drawTrimmedCurve(
 
             if (sin && sin !== 0) {
                 arc.rotate(
-                    -(sin / (Math.PI / 90)) * Math.PI, // sin(90) === 1 , I dont know if this is 100% correct
-                    // why Im not rotating with center.x is just weird... maybe Im generating lines with wrong center ?
+                    -(sin / (Math.PI / 90)) * Math.PI,
                     point
                 );
             }
