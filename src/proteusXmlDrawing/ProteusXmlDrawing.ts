@@ -18,6 +18,10 @@ export class ProteusXmlDrawing {
         initPaper(canvasId);
 
         const plantModelElement = this.xml.getElementsByTagName("PlantModel")[0];
+        if (!plantModelElement) {
+            alert("missing plantmodel");
+            return;
+        }
         this.PlantModel = new Component(plantModelElement, false);
     }
 
@@ -28,8 +32,9 @@ export class ProteusXmlDrawing {
             unit = 1000;
         }
 
-        if (this.PlantModel.Drawing[0].length === 0) {
-            console.warn("No drawing element, skipping");
+        if (!Array.isArray(this.PlantModel.Drawing) || this.PlantModel.Drawing[0].length === 0) {
+            console.warn("No drawing element, using x:0.841, y:0.594");
+            this.PlantModel.draw(unit, 0.841, 0.594, 0, 0);
             return;
         }
 
