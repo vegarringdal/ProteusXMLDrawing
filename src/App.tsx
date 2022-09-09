@@ -80,6 +80,9 @@ export function App() {
             <div className="fixed top-10 ">
                 <a href="https://github.com/vegarringdal/ProteusXMLDrawing">Github repo</a>
             </div>
+            <div className="fixed top-10">
+                PS- Check console.log for errors (F12) in Chrome/Edge
+            </div>
         </div>
     );
 }
