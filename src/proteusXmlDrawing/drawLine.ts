@@ -44,6 +44,9 @@ export function drawLine(
         blue: ctx.Presentation[0].b.value
     });
 
+
+    // todo... actual dash length might be off a little..
+
     switch (ctx.Presentation[0].lineType.valueAsString) {
         case "0":
             break;
@@ -67,8 +70,8 @@ export function drawLine(
         case "4":
             path.dashArray = [4, 0.5, 1, 0.5];
             break;
-        case "Long Dash + Short Dash":
-            path.dashArray = [4, 0.5, 1, 0.5];
+        case "Long Dash + Short Dash, CenterLine":
+            path.dashArray = [15, 1, 0.5, 1, 0.5, 1]; // tried to make it look like sample PDF I got
             break;
         case "5":
             path.dashArray = [1, 0.5];
@@ -80,7 +83,7 @@ export function drawLine(
             path.dashArray = [4, 0.5, 1, 0.5, 1, 0.5];
             break;
         case "Long Dash + Short Dash + Short Dash":
-            path.dashArray = [4, 0.5, 1, 0.5, 1, 0.5];
+            path.dashArray = [4, 1, 1, 1, 1, 1];
             break;
         case "7":
             path.dashArray = [2, 0.5, 1, 0.5];
@@ -89,7 +92,6 @@ export function drawLine(
             path.dashArray = [2, 0.5, 1, 0.5];
             break;
         default:
-            debugger;
             console.error("unknown linetype", ctx);
     }
 
