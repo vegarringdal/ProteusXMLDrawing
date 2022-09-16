@@ -18,6 +18,8 @@ Issues/Need more work:
 - rotation/scale of items -> this will need some more work.. (I should try and get a drawing program that exports xml, so I can make tests)
   -  Inverted z axis (flip around y axis) : <Axis X="0" Y="0" Z="-1"/>
   -  Rotation about the origin :  <Reference X=”[cosØ]” Y=”[sinØ]” Z=”0” /> 
+    - Looks like some different vendors use different origin rotation point, or maybe I just have a bug somewhere ?
+    - Some I need to use center of group, som I dont...
 
 Image of progress
 
