@@ -44,10 +44,9 @@ export function drawLine(
         blue: ctx.Presentation[0].b.value
     });
 
-
     // todo... actual dash length might be off a little..
 
-    switch (ctx.Presentation[0].lineType.valueAsString) {
+    switch (ctx.Presentation[0].lineType?.valueAsString) {
         case "0":
             break;
         case "Solid":
@@ -92,7 +91,9 @@ export function drawLine(
             path.dashArray = [2, 0.5, 1, 0.5];
             break;
         default:
-            console.error("unknown linetype", ctx);
+            if (ctx.Presentation[0].lineType?.valueAsString !== undefined) {
+                console.error("unknown linetype", ctx);
+            }
     }
 
     path.strokeWidth = ctx.Presentation[0].lineWeight.valueAsNumber * unit;
