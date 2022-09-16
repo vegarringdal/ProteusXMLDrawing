@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.7](https://github.com/vegarringdal/web-dexpi/compare/v1.2.6...v1.2.7) (2022-09-16)
+
+
+### Bug Fixes
+
+* set color canvas form presentation drawing element ([3d14030](https://github.com/vegarringdal/web-dexpi/commits/3d14030f01b136ecfe6a43e3c837acd0a46773b4))
+* shapecatalog items, rotation and scale ([7cd444c](https://github.com/vegarringdal/web-dexpi/commits/7cd444cec8bff130e205f69ab904be0996924e5d))
+* skip line if coordinate numPoints is 0 ([72d80e2](https://github.com/vegarringdal/web-dexpi/commits/72d80e2224137def23f49da26c6158b61b76b740))
+
 ### [1.2.6](https://github.com/vegarringdal/web-dexpi/compare/v1.2.5...v1.2.6) (2022-09-16)
 
 
