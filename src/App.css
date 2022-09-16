@@ -1,10 +1,9 @@
 html,
 body {
     height: 100%;
-    background-color: rgb(211, 210, 210);
 }
 
-#root{
+#root {
     display: fixed;
 }
 
