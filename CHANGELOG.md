@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.8](https://github.com/vegarringdal/web-dexpi/compare/v1.2.7...v1.2.8) (2022-09-16)
+
+
+### Bug Fixes
+
+* add missing rotation ellipse ([3816cff](https://github.com/vegarringdal/web-dexpi/commits/3816cffbca77b9c7f2d9035fe3b45794c88823b3))
+
 ### [1.2.7](https://github.com/vegarringdal/web-dexpi/compare/v1.2.6...v1.2.7) (2022-09-16)
 
 
