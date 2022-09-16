@@ -38,21 +38,13 @@ export function drawTrimmedCurve(
             const x = comp.Position[0].Location[0].x.valueAsNumber + offsetX;
             const y = comp.Position[0].Location[0].y.valueAsNumber + offsetY;
 
-            // todo, add logic for rotatin/flip
             const cos = comp.Position[0].Reference[0].x.valueAsNumber;
             const sin = comp.Position[0].Reference[0].y.valueAsNumber;
+
             const flipY = comp.Position[0].Axis[0].y.valueAsNumber === -1;
-            if (flipY) {
-                console.log("not implented rotation", ctx, cos, sin, flipY);
-            }
 
             const point = new Point(x * unit, pageOriginY * unit - y * unit);
             const radius = comp.radius.valueAsNumber * unit;
-
-            /*              
-            console.log("---------------------------------------", radius);
-            console.log(ctx.startAngle.value, ctx.endAngle.value); 
-            */
 
             const startAngle = -ctx.startAngle?.valueAsNumber || 0;
             const endAngle = -ctx.endAngle?.valueAsNumber || 0;
@@ -70,12 +62,6 @@ export function drawTrimmedCurve(
             const diff = endAngle - startAngle;
             through.angle = startAngle + diff / 2;
 
-            /*           
-            console.log(radius, from.angle, "-->", through.angle, "-->", to.angle);
-            console.log(startAngle, endAngle);
-            console.log(ctx.element.parentElement); 
-            */
-
             const arc = new Path.Arc(from, through, to);
             arc.strokeColor = new Color({
                 red: comp.Presentation[0].r.value,
@@ -92,6 +78,10 @@ export function drawTrimmedCurve(
 
             if (sin && sin !== 0) {
                 arc.rotate(-(sin / (Math.PI / 90)) * Math.PI, point);
+            }
+
+            if (flipY) {
+                console.log("not implented flipY", ctx, cos, sin, flipY);
             }
 
             if (group) {
@@ -125,13 +115,8 @@ export function drawTrimmedCurve(
             const x = comp.Position[0].Location[0].x.valueAsNumber + offsetX;
             const y = comp.Position[0].Location[0].y.valueAsNumber + offsetY;
 
-            // todo, add logic for rotatin/flip
             const cos = comp.Position[0].Reference[0].x.valueAsNumber;
             const sin = comp.Position[0].Reference[0].y.valueAsNumber;
-            const flipY = comp.Position[0].Axis[0].z.valueAsNumber === -1;
-            if (flipY) {
-                console.log("not implented rotation", ctx, cos, sin, flipY);
-            }
 
             const point = new Point(x * unit, pageOriginY * unit - y * unit);
             const radius = comp.primaryAxis.valueAsNumber * unit;
@@ -170,10 +155,12 @@ export function drawTrimmedCurve(
             }
 
             if (sin && sin !== 0) {
-                arc.rotate(
-                    -(sin / (Math.PI / 90)) * Math.PI,
-                    point
-                );
+                arc.rotate(-(sin / (Math.PI / 90)) * Math.PI, point);
+            }
+
+            const flipY = comp.Position[0].Axis[0].z.valueAsNumber === -1;
+            if (flipY) {
+                console.log("not implented flipY", ctx, cos, sin, flipY);
             }
 
             if (group) {

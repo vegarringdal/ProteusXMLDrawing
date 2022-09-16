@@ -134,7 +134,4 @@ export function drawtext(
             console.log(ctx);
         };
     }
-
-    // todo, I need to adjust text, but looks like PDF and SVG does not render the same..
-    // need to render more before and adjustments, also have no rotation made
 }

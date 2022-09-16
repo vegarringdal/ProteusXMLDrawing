@@ -182,15 +182,14 @@ export class Component {
                     }
                 }
 
-                const xr = this.Position[0]?.Reference[0]?.x?.valueAsNumber;
-                if (xr && xr !== 1) {
-                    group.rotate(-(xr / (Math.PI / 180)) * Math.PI, point);
+                const cos = this.Position[0]?.Reference[0]?.x?.valueAsNumber;
+                if (cos && cos !== 1) {
+                    group.rotate(-(cos / (Math.PI / 180)) * Math.PI, point);
                 }
 
-                const yr = this.Position[0]?.Reference[0]?.y?.valueAsNumber;
-
-                if (yr && yr !== 0) {
-                    group.rotate(-(yr / (Math.PI / 90)) * Math.PI, point);
+                const sin = this.Position[0]?.Reference[0]?.y?.valueAsNumber;
+                if (sin && sin !== 0) {
+                    group.rotate(-(sin / (Math.PI / 90)) * Math.PI, point);
                 }
 
                 const flipY = this.Position[0]?.Axis[0]?.z?.valueAsNumber === -1;

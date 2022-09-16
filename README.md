@@ -7,7 +7,7 @@ Experiment on trying to take dexpi xml and convert to drawing using svg/or canva
 See spec folder under public for more info
 
 
-Info/issues/missing:
+Info/issues/missing/notes to my self:
 - filled "shape/circle/ellipse, will probably have issues with "hatch" filltype
 - hidden layers? (atm I dont show text on layers that cointain "hidden")
 - text alignment atm looks like 100% ok, I use extent to place it/resize it
@@ -17,6 +17,7 @@ Info/issues/missing:
 - rotation/scale of items -> this will need some more work.
   -  Inverted z axis (flip around y axis) : <Axis X="0" Y="0" Z="-1"/>  (I have not looked into this)
   -  Rotation about the origin :  <Reference X=”[cosØ]” Y=”[sinØ]” Z=”0” /> (Hopefully this is fixed now)
+    - can shape or lines have rotation ?
   -  Scaling looks ok on samples Ive found..
 
 
