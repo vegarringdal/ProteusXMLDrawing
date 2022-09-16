@@ -29,6 +29,14 @@ export function drawLine(
 
     const segments: any[] = [];
 
+    if (!Array.isArray(ctx.Coordinate) || ctx.Coordinate.length === 0) {
+        // who knew.. it happens in some files..
+        if (ctx.numPoints?.valueAsNumber !== 0) {
+            console.warn("line element without coordinate");
+        }
+        return;
+    }
+
     ctx.Coordinate.forEach((coordinate) => {
         const x = coordinate.x.valueAsNumber + offsetX;
         const y = coordinate.y.valueAsNumber + offsetY;
