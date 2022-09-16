@@ -7,19 +7,18 @@ Experiment on trying to take dexpi xml and convert to drawing using svg/or canva
 See spec folder under public for more info
 
 
-Issues/Need more work:
-- filled element (solid circle and ellipse should work, not tried closed paths on shape, if I can support "hatch" filltype I do not know )
+Info/issues/missing:
+- filled "shape/circle/ellipse, will probably have issues with "hatch" filltype
 - hidden layers? (atm I dont show text on layers that cointain "hidden")
 - text alignment atm looks like 100% ok, I use extent to place it/resize it
 - styled text (not seen these used, need samples to try - this might be hard with papejs..)
 - BsplineCurve (not seen these used, I need samples to try)
 - CompositeCurve (not seen these used, I need samples to try)
-- background color, not looked on this, but I need to have a look at this, since white lines will not show on white background
-- rotation/scale of items -> this will need some more work.. (I should try and get a drawing program that exports xml, so I can make tests)
-  -  Inverted z axis (flip around y axis) : <Axis X="0" Y="0" Z="-1"/>
-  -  Rotation about the origin :  <Reference X=”[cosØ]” Y=”[sinØ]” Z=”0” /> 
-    - Looks like some different vendors use different origin rotation point, or maybe I just have a bug somewhere ?
-    - Some I need to use center of group, som I dont...
+- rotation/scale of items -> this will need some more work.
+  -  Inverted z axis (flip around y axis) : <Axis X="0" Y="0" Z="-1"/>  (I have not looked into this)
+  -  Rotation about the origin :  <Reference X=”[cosØ]” Y=”[sinØ]” Z=”0” /> (Hopefully this is fixed now)
+  -  Scaling looks ok on samples Ive found..
+
 
 Image of progress
 

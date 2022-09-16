@@ -9,7 +9,7 @@ import { drawTrimmedCurve } from "./drawTrimmedCurve";
 import { drawEllipse } from "./drawEllipse";
 import { addToIdStore } from "./idStore";
 import { getPaper, PaperGroup } from "./paper";
-import { Point } from "paper/dist/paper-core";
+import { Color, Point } from "paper/dist/paper-core";
 import { debug, debugColor } from "./debug";
 import { getShapeFromExtent } from "./drawExtent";
 
@@ -134,7 +134,6 @@ export class Component {
             // important - we handle all children in draw function above, so lets return
             return;
         }
-
         /**
          * draw children
          */
@@ -142,7 +141,6 @@ export class Component {
         drawables.forEach((drawable) => {
             drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY, group, this);
         });
-
         /**
          * check if anything i shape catalog
          */
@@ -161,8 +159,9 @@ export class Component {
                     console.log(that);
                 };
 
-                const x = this.Position[0].Location[0].x.valueAsNumber;
-                const y = this.Position[0].Location[0].y.valueAsNumber;
+                const x = this.Position[0].Location[0].x.valueAsNumber + offsetX;
+                const y = this.Position[0].Location[0].y.valueAsNumber + offsetY;
+                const point = new Point(x * unit, pageOriginY * unit - y * unit);
 
                 if (typeof (shapeCatalogItem as any).draw === "function") {
                     (shapeCatalogItem as any).draw(
@@ -179,31 +178,19 @@ export class Component {
                     const scaleX = parseFloat(this.Scale[0].attributes.X);
                     const scaleY = parseFloat(this.Scale[0].attributes.Y);
                     if (scaleX !== 1 || scaleY !== 1) {
-                        // TODO: this might just be buggy...
-                        // not sure why I need that height * 2... something I might be missing earlier? or maybe Im generating with incorrect center  when I draw children?
-                        group.scale(scaleX, scaleY, new Point(x, y + group.bounds.height * 2));
+                        group.scale(scaleX, scaleY, point);
                     }
                 }
 
-                // only tested on public\TrainingTestCases\tests\E08 ProcessColumn with ColumnSections\E08V01-SAG.EX01.XML
-
                 const xr = this.Position[0]?.Reference[0]?.x?.valueAsNumber;
                 if (xr && xr !== 1) {
-                    group.rotate(
-                        (xr / (Math.PI / 180)) * Math.PI,
-                        // why Im not rotating with center.x is just weird... maybe Im generating with wrong center ?
-                        new Point(group.bounds.x, group.bounds.center.y)
-                    );
+                    group.rotate(-(xr / (Math.PI / 180)) * Math.PI, point);
                 }
 
                 const yr = this.Position[0]?.Reference[0]?.y?.valueAsNumber;
 
                 if (yr && yr !== 0) {
-                    group.rotate(
-                        -(yr / (Math.PI / 90)) * Math.PI,
-                        // why Im not rotating with center.x is just weird... maybe Im generating with wrong center ?
-                        new Point(group.bounds.x, group.bounds.center.y)
-                    );
+                    group.rotate(-(yr / (Math.PI / 90)) * Math.PI, point);
                 }
 
                 const flipY = this.Position[0]?.Axis[0]?.z?.valueAsNumber === -1;
