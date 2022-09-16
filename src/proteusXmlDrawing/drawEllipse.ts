@@ -32,14 +32,6 @@ export function drawEllipse(
     const x = ctx.Position[0].Location[0].x.valueAsNumber + offsetX;
     const y = ctx.Position[0].Location[0].y.valueAsNumber + offsetY;
 
-    // todo, add logic for rotatin/flip
-    const cos = ctx.Position[0]?.Reference[0]?.x?.valueAsNumber;
-    const sin = ctx.Position[0]?.Reference[0]?.x?.valueAsNumber;
-    const flipY = ctx.Position[0].Axis[0].z.valueAsNumber === -1;
-    if (cos !== 1 || sin !== 0 || flipY) {
-        console.log("not implented rotation", ctx, cos, sin, flipY);
-    }
-
     const point = new Point(x * unit, pageOriginY * unit - y * unit);
 
     const rectangle = new Rectangle(
@@ -47,6 +39,22 @@ export function drawEllipse(
         new Size(ctx.primaryAxis.valueAsNumber * unit, ctx.secondaryAxis.valueAsNumber * unit)
     );
     const ellipse = new Path.Ellipse(rectangle);
+
+    const cos = ctx.Position[0]?.Reference[0]?.x?.valueAsNumber;
+    if (cos && cos !== 1) {
+        ellipse.rotate(-(cos / (Math.PI / 180)) * Math.PI, point);
+    }
+
+    const sin = ctx.Position[0]?.Reference[0]?.y?.valueAsNumber;
+    if (sin && sin !== 0) {
+        ellipse.rotate(-(sin / (Math.PI / 90)) * Math.PI, point);
+    }
+
+    const flipY = ctx.Position[0].Axis[0].z.valueAsNumber === -1;
+    if (flipY) {
+        console.log("not implented flipY", ctx, cos, sin, flipY);
+    }
+
     if (group) {
         group.addChild(ellipse);
     } else {
