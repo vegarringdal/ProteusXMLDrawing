@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.6](https://github.com/vegarringdal/web-dexpi/compare/v1.2.5...v1.2.6) (2022-09-16)
+
+
+### Bug Fixes
+
+* temp fix - gray background so I see white lines ([2394772](https://github.com/vegarringdal/web-dexpi/commits/2394772f3128d5e7818e114976e8c6a5168f64e1))
+* use solid line if type is missing ([e6f5b8e](https://github.com/vegarringdal/web-dexpi/commits/e6f5b8efa1d04a3d3f2d8379dd60a21d7775a713))
+
 ### [1.2.5](https://github.com/vegarringdal/web-dexpi/compare/v1.2.4...v1.2.5) (2022-09-14)
 
 
