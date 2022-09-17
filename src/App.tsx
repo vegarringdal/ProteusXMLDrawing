@@ -41,9 +41,9 @@ export function App() {
     }, []);
 
     return (
-        <div className="z-20">
+        <div className="m-2">
             <input
-                className="m-2"
+                className=""
                 type="file"
                 onChange={(e) => {
                     const reader = new FileReader();
@@ -76,15 +76,15 @@ export function App() {
                     }
                 }}
             />
-            <div className="fixed top-10 ">Version: {APP_VERSION}</div>
-            <div className="fixed top-10 ">
-                <a href="https://github.com/vegarringdal/ProteusXMLDrawing">Github repo</a>
+            <div className="">Version: {APP_VERSION}</div>
+            <div className="text-indigo-600">
+                <a href="https://github.com/vegarringdal/ProteusXMLDrawing">Github Repo link</a>
             </div>
-            <div className="fixed top-10">
+            <div className="italic">
                 Check console.log for errors/info (F12) in Chrome/Edge if you do not get expected
                 result
             </div>
-            <div className="fixed top-10">Use mousebuttons to pan and mousewheel to zoom</div>
+            <div className="italic">Use mousebuttons to pan and mousewheel to zoom</div>
         </div>
     );
 }
