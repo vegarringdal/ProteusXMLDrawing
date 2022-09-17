@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.11](https://github.com/vegarringdal/web-dexpi/compare/v1.2.10...v1.2.11) (2022-09-17)
+
+
+### Bug Fixes
+
+* update dependecies and activate tailwindcss ([64e3219](https://github.com/vegarringdal/web-dexpi/commits/64e321920e3d9c23f3d1adefbc03f30a019c056f))
+
 ### [1.2.10](https://github.com/vegarringdal/web-dexpi/compare/v1.2.9...v1.2.10) (2022-09-17)
 
 
