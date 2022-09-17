@@ -73,6 +73,7 @@ export function drawtext(
 
     const x = (ctx.Position[0].Location[0].x.valueAsNumber + offsetX) * unit;
     const y = pageOriginY * unit - (ctx.Position[0].Location[0].y.valueAsNumber + offsetY) * unit;
+    const point = new Point(x, y)
 
     const size = new Size(shapeWidth, shapeHeight);
     const shape = new Shape.Rectangle(new Point(shapeX, shapeY), size);
@@ -114,6 +115,16 @@ export function drawtext(
     // I dont know how yet
     if (ctx.slantAngle?.valueAsNumber > 0) {
         console.warn("Text slantAngle not implemented", ctx);
+    }
+
+    const cos = ctx.Position[0]?.Reference[0]?.x?.valueAsNumber;
+    if (cos && cos !== 1) {
+        text.rotate(-(cos / (Math.PI / 180)) * Math.PI, point);
+    }
+
+    const sin = ctx.Position[0]?.Reference[0]?.y?.valueAsNumber;
+    if (sin && sin !== 0) {
+        text.rotate(-(sin / (Math.PI / 90)) * Math.PI, point);
     }
 
     // move text
