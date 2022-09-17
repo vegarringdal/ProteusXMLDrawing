@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.9](https://github.com/vegarringdal/web-dexpi/compare/v1.2.8...v1.2.9) (2022-09-17)
+
+
+### Bug Fixes
+
+* clear canvas and better defaults/logs when starting to draw ([b09a1a6](https://github.com/vegarringdal/web-dexpi/commits/b09a1a629fd21a8bd3f62e567d948709ad0e9caf))
+* flip y axis on shapecatalog items ([8aa11b8](https://github.com/vegarringdal/web-dexpi/commits/8aa11b8f223ac597de10273dc0d4c80989ba770b))
+* text can also have rotation in addition to textAngle ([3929cc2](https://github.com/vegarringdal/web-dexpi/commits/3929cc277785b66ad53b5c291565bb9f8c9f77d1))
+
 ### [1.2.8](https://github.com/vegarringdal/web-dexpi/compare/v1.2.7...v1.2.8) (2022-09-16)
 
 
