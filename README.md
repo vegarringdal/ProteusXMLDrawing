@@ -11,6 +11,7 @@ Info/issues/missing/notes to my self:
 - filled "shape/circle/ellipse, will probably have issues with "hatch" filltype
 - hidden layers? (atm I dont show text on layers that cointain "hidden")
 - text alignment atm looks like 100% ok, I use extent to place it/resize it
+   - so text without extent will not work /be skipped
 - styled text (not seen these used, need samples to try - this might be hard with papejs..)
 - BsplineCurve (not seen these used, I need samples to try)
 - CompositeCurve (not seen these used, I need samples to try)
