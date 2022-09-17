@@ -26,7 +26,6 @@ export class ProteusXmlDrawing {
     }
 
     public draw() {
-
         // clear before we draw anything
         getPaper().project.activeLayer.removeChildren();
         getPaper().view.requestUpdate();
@@ -47,16 +46,21 @@ export class ProteusXmlDrawing {
                 unit = 1000;
                 break;
         }
-       
 
         if (!Array.isArray(this.PlantModel.Drawing) || this.PlantModel.Drawing[0].length === 0) {
             const x = this.PlantModel.Extent[0]?.Max[0]?.x.valueAsNumber;
             const y = this.PlantModel.Extent[0]?.Max[0]?.y.valueAsNumber;
             if (unit === 1) {
-                console.warn(`No drawing element, using x:${x | 841}, y:${y | 594}`, this.PlantModel);
+                console.warn(
+                    `No drawing element, using x:${x | 841}, y:${y | 594}`,
+                    this.PlantModel
+                );
                 this.PlantModel.draw(unit, x || 841, y || 594, 0, 0);
             } else {
-                console.warn(`No drawing element, using x:${x | 0.841}, y:${y | 0.594}`, this.PlantModel);
+                console.warn(
+                    `No drawing element, using x:${x | 0.841}, y:${y | 0.594}`,
+                    this.PlantModel
+                );
                 this.PlantModel.draw(unit, x || 0.841, y || 0.594, 0, 0);
             }
             return;
@@ -71,5 +75,13 @@ export class ProteusXmlDrawing {
         const y = this.PlantModel.Drawing[0].Extent[0].Max[0].y.valueAsNumber;
 
         this.PlantModel.draw(unit, x, y, 0, 0);
+
+        // scale it up to match our canvas
+        const Point = getPaper().Point;
+        getPaper().project.activeLayer.scale(
+            2,
+            new Point(getPaper().view.bounds.x, getPaper().view.bounds.y)
+        );
+        getPaper().view.requestUpdate();
     }
 }

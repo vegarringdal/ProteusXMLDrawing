@@ -81,8 +81,10 @@ export function App() {
                 <a href="https://github.com/vegarringdal/ProteusXMLDrawing">Github repo</a>
             </div>
             <div className="fixed top-10">
-                PS- Check console.log for errors (F12) in Chrome/Edge
+                Check console.log for errors/info (F12) in Chrome/Edge if you do not get expected
+                result
             </div>
+            <div className="fixed top-10">Use mousebuttons to pan and mousewheel to zoom</div>
         </div>
     );
 }
