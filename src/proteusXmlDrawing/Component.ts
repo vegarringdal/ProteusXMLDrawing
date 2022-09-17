@@ -194,7 +194,7 @@ export class Component {
 
                 const flipY = this.Position[0]?.Axis[0]?.z?.valueAsNumber === -1;
                 if (flipY) {
-                    console.warn("flipY need improvement", this);
+                    group.scale(1, -1, point);
                 }
 
                 getShapeFromExtent(
