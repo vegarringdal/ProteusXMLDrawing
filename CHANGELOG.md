@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.10](https://github.com/vegarringdal/web-dexpi/compare/v1.2.9...v1.2.10) (2022-09-17)
+
+
+### Bug Fixes
+
+* add border/larger scale as default ([f49e3ba](https://github.com/vegarringdal/web-dexpi/commits/f49e3ba3df1201af19fa5daaa03391fa599375f1))
+
 ### [1.2.9](https://github.com/vegarringdal/web-dexpi/compare/v1.2.8...v1.2.9) (2022-09-17)
 
 
