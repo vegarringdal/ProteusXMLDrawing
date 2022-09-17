@@ -1,6 +1,6 @@
 import { Component } from "./Component";
 import { clearStore } from "./idStore";
-import { initPaper } from "./paper";
+import { getPaper, initPaper } from "./paper";
 
 export class ProteusXmlDrawing {
     xml: Document;
@@ -26,25 +26,49 @@ export class ProteusXmlDrawing {
     }
 
     public draw() {
-        let unit = 1;
 
-        if (this.PlantModel.PlantInformation[0].units.value === "Metre") {
-            unit = 1000;
+        // clear before we draw anything
+        getPaper().project.activeLayer.removeChildren();
+        getPaper().view.requestUpdate();
+
+        const unitTypesSupported = ["Metre", "mm", "Millimetre"];
+        const PlantInformationUnitType = this.PlantModel.PlantInformation[0].units.value;
+
+        if (!unitTypesSupported.includes(PlantInformationUnitType)) {
+            console.warn(
+                "I need to add more here",
+                this.PlantModel.PlantInformation[0].units.value
+            );
         }
+
+        let unit = 1;
+        switch (true) {
+            case PlantInformationUnitType === "Metre":
+                unit = 1000;
+                break;
+        }
+       
 
         if (!Array.isArray(this.PlantModel.Drawing) || this.PlantModel.Drawing[0].length === 0) {
-            console.warn("No drawing element, using x:0.841, y:0.594");
-            this.PlantModel.draw(unit, 0.841, 0.594, 0, 0);
+            const x = this.PlantModel.Extent[0]?.Max[0]?.x.valueAsNumber;
+            const y = this.PlantModel.Extent[0]?.Max[0]?.y.valueAsNumber;
+            if (unit === 1) {
+                console.warn(`No drawing element, using x:${x | 841}, y:${y | 594}`, this.PlantModel);
+                this.PlantModel.draw(unit, x || 841, y || 594, 0, 0);
+            } else {
+                console.warn(`No drawing element, using x:${x | 0.841}, y:${y | 0.594}`, this.PlantModel);
+                this.PlantModel.draw(unit, x || 0.841, y || 0.594, 0, 0);
+            }
             return;
         }
-
-        const x = this.PlantModel.Drawing[0].Extent[0].Max[0].x.valueAsNumber;
-        const y = this.PlantModel.Drawing[0].Extent[0].Max[0].y.valueAsNumber;
 
         const presentation = this.PlantModel.Drawing[0]?.Presentation[0];
         if (presentation?.attributes?.Color) {
             this.canvas.style.backgroundColor = presentation?.attributes?.Color;
         }
+
+        const x = this.PlantModel.Drawing[0].Extent[0].Max[0].x.valueAsNumber;
+        const y = this.PlantModel.Drawing[0].Extent[0].Max[0].y.valueAsNumber;
 
         this.PlantModel.draw(unit, x, y, 0, 0);
     }
