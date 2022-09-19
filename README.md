@@ -21,6 +21,9 @@ Info/issues/missing/notes to my self:
     - added to shape catalog items, needs more testing, console should show issues
   -  Rotation about the origin :  <Reference X=”[cosØ]” Y=”[sinØ]” Z=”0” /> (Hopefully this is fixed now)
     - can shape or lines have rotation ?
+    - Equipment with rotation with shapecatalog with rotation, what do we do here ? rotate both or just one ?
+      - I feel rotate both is the correct answer, but maybe add as a checkbox to skip the shapeitemcatalog axis? looks like svg cobverter is doing it when I try and compare results
+      - I need feedback on whats is the correct way to read it
   -  Scaling looks ok on samples Ive found..
 
 
