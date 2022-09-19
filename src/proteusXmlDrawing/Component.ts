@@ -207,6 +207,38 @@ export class Component {
                     debug.component,
                     debugColor.component
                 );
+            } else {
+                if (group) {
+                    // of not shape catalog we still need to rotate shape if any rotation
+                    /*   console.log("shapeCatalogItem") */
+                    const x = this.Position[0].Location[0].x.valueAsNumber + offsetX;
+                    const y = this.Position[0].Location[0].y.valueAsNumber + offsetY;
+                    const point = new Point(x * unit, pageOriginY * unit - y * unit);
+
+                    if (this.Scale.length) {
+                        const scaleX = parseFloat(this.Scale[0].attributes.X);
+                        const scaleY = parseFloat(this.Scale[0].attributes.Y);
+                        if (scaleX !== 1 || scaleY !== 1) {
+                            group.scale(scaleX, scaleY, point);
+                        }
+                    }
+
+                    const cos = this.Position[0]?.Reference[0]?.x?.valueAsNumber;
+                    if (cos && cos !== 1) {
+                        group.rotate(-(cos / (Math.PI / 180)) * Math.PI, point);
+                    }
+
+                    const sin = this.Position[0]?.Reference[0]?.y?.valueAsNumber;
+                    if (sin && sin !== 0) {
+                        group.rotate(-(sin / (Math.PI / 90)) * Math.PI, point);
+                    }
+
+                    const flipY = this.Position[0]?.Axis[0]?.z?.valueAsNumber === -1;
+
+                    if (flipY) {
+                        group.scale(1, -1, point);
+                    }
+                }
             }
         }
 
