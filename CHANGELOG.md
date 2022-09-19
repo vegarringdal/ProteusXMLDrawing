@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.13](https://github.com/vegarringdal/web-dexpi/compare/v1.2.12...v1.2.13) (2022-09-19)
+
+
+### Bug Fixes
+
+* add rotation/scale/flipy on shape in shape catalog ([104903c](https://github.com/vegarringdal/web-dexpi/commits/104903c1e028f7ca1196a27d7035e47dc2fd3d28))
+
 ### [1.2.12](https://github.com/vegarringdal/web-dexpi/compare/v1.2.11...v1.2.12) (2022-09-19)
 
 
