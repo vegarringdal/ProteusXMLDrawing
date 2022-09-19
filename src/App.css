@@ -8,8 +8,8 @@ body {
 }
 
 canvas[resize] {
-    width: 1682px;
-    height: 1188px;
+    width: 1261.5px;
+    height: 891px;
 }
 
 @tailwind base;
