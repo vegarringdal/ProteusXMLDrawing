@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.12](https://github.com/vegarringdal/web-dexpi/compare/v1.2.11...v1.2.12) (2022-09-19)
+
+
+### Bug Fixes
+
+* make gui fit better with full hd screen ([2cb73ac](https://github.com/vegarringdal/web-dexpi/commits/2cb73acf3b8dec86befa5813fc9b31106280cc4e))
+
 ### [1.2.11](https://github.com/vegarringdal/web-dexpi/compare/v1.2.10...v1.2.11) (2022-09-17)
 
 
