@@ -7,24 +7,41 @@ Experiment on trying to take dexpi xml and convert to drawing using svg/or canva
 See spec folder under public for more info
 
 
-Info/issues/missing/notes to my self:
+Info/issues/missing/notes :
 - filled "shape/circle/ellipse, will probably have issues with "hatch" filltype
-- hidden layers? (atm I dont show text on layers that cointain "hidden")
+  - do we have any samples of this ? xml and pdf?
+- hidden layers? (atm I dont show text on layers that contains word "hidden")
 - text alignment atm looks like 100% ok, I use extent to place it/resize it
-   - so text without extent will not work /be skipped
-   - slant text not supported, since I havent really seen it, know what this does..
-- styled text (not seen these used, need samples to try - this might be hard with papejs..)
-- BsplineCurve (not seen these used, I need samples to try)
-- CompositeCurve (not seen these used, I need samples to try)
-- rotation/scale of items -> this will need some more work.
+   - so text without extent will not work /be skipped.
+     - width/height should in teory be the same as extent, but looks like they never are on samples Ive looked at
+   - slant text not supported yet...
+     - since I havent really seen it, I really dont know how to test if I do it correctly.
+- styled text
+  - (not seen these used, need samples to try - this might be hard with papejs..)
+- BsplineCurve 
+  - (not seen these used, I need samples to try)
+- CompositeCurve 
+  - (not seen these used, I need samples to try)
+- rotation/scale of items
   -  Inverted z axis (flip around y axis) : <Axis X="0" Y="0" Z="-1"/>
-    - added to shape catalog items, needs more testing, console should show issues
+    - added a few places, TODO: check xsd file -> 4.1.1 draft.
   -  Rotation about the origin :  <Reference X=”[cosØ]” Y=”[sinØ]” Z=”0” /> (Hopefully this is fixed now)
     - can shape or lines have rotation ?
-    - Equipment with rotation with shapecatalog with rotation, what do we do here ? rotate both or just one ?
-      - I feel rotate both is the correct answer, but maybe add as a checkbox to skip the shapeitemcatalog axis? looks like svg cobverter is doing it when I try and compare results
-      - I need feedback on whats is the correct way to read it
-  -  Scaling looks ok on samples Ive found..
+      - TODO: check xsd file -> 4.1.1 draft.
+    - Equipment with rotation and ref to shapecatalog with rotation, 
+      - what do we do here ? rotate both or just one ?
+        - I feel rotate both is the correct answer, but maybe add as a checkbox to skip the shapeCatalog `Reference`? 
+          - Looks like svg converter is not rotating all places.. bug or intended ?
+        - I need feedback on whats is the correct way to read it
+  -  Scaling looks ok on samples Ive found
+    - TODO: check xsd file -> 4.1.1 draft.
+ 
+
+GUI:
+- improve clicking, need to make a box behind lines/shapes, so its easier to click on
+- should we make click item "selected"?
+- override colors/highlighting ?
+- search for ID/highligh based on ID/tagname ?
 
 
 Image of progress
