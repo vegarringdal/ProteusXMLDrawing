@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/vegarringdal/web-dexpi/compare/v1.2.13...v1.3.0) (2022-09-20)
+
+
+### Features
+
+* add option for event listner and improve debug context ([b543e36](https://github.com/vegarringdal/web-dexpi/commits/b543e3628e5946d796d0313abdee131ea09dc3c4))
+* first draft of selected item with details ([7b48b72](https://github.com/vegarringdal/web-dexpi/commits/7b48b72f28ab1b44092cbe5cb04145d1374977ac))
+
 ### [1.2.13](https://github.com/vegarringdal/web-dexpi/compare/v1.2.12...v1.2.13) (2022-09-19)
 
 
