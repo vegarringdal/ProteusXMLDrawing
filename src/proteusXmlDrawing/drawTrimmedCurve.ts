@@ -3,9 +3,10 @@ import { getChildComponents } from "./getChildComponents";
 import { Circle } from "./types/Circle";
 import { TrimmedCurve } from "./types/TrimmedCurve";
 import { Ellipse } from "./types/Ellipse";
-import { debug, debugColor } from "./debug";
+import { getDebug, getDebugColor } from "./debug";
 import { Component } from "./Component";
 import { getShapeFromExtent } from "./drawExtent";
+import { ProteusXmlDrawing } from "./ProteusXmlDrawing";
 
 /**
  * used to draw line, polyline and centerline
@@ -24,7 +25,8 @@ export function drawTrimmedCurve(
     offsetX = 0,
     offsetY = 0,
     group: PaperGroup | undefined,
-    caller: Component
+    caller: Component,
+    proteusXmlDrawing: ProteusXmlDrawing
 ) {
     const drawables = getChildComponents(ctx);
     drawables.forEach((drawable) => {
@@ -99,8 +101,9 @@ export function drawTrimmedCurve(
                 pageOriginY,
                 offsetX,
                 offsetY,
-                debug.circleArc,
-                debugColor.circleArc
+                getDebug().circleArc,
+                getDebugColor().circleArc,
+                proteusXmlDrawing
             );
         }
         if (drawable.element.tagName === "Ellipse") {
@@ -167,7 +170,7 @@ export function drawTrimmedCurve(
                 group.addChild(arc);
             } else {
                 arc.onClick = function () {
-                    console.log(ctx);
+                    proteusXmlDrawing.publicEvent("onClick", ctx);
                 };
             }
 
@@ -178,8 +181,9 @@ export function drawTrimmedCurve(
                 pageOriginY,
                 offsetX,
                 offsetY,
-                debug.ellipseArc,
-                debugColor.ellipseArc
+                getDebug().ellipseArc,
+                getDebugColor().ellipseArc,
+                proteusXmlDrawing
             );
         }
     });

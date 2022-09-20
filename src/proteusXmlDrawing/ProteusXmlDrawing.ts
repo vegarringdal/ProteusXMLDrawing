@@ -2,11 +2,14 @@ import { Component } from "./Component";
 import { clearStore } from "./idStore";
 import { getPaper, initPaper } from "./paper";
 
+type callable = { handleEvent: (e: { type: string; data: any }) => void };
+
 export class ProteusXmlDrawing {
-    xml: Document;
-    canvas: HTMLCanvasElement;
-    PlantModel: any;
-    root: boolean;
+    private xml: Document;
+    private canvas: HTMLCanvasElement;
+    private PlantModel: any;
+    private root: boolean;
+    private subscribers: Set<callable> = new Set();
 
     constructor(xmlString: string, canvasId: string) {
         this.root = true;
@@ -23,6 +26,19 @@ export class ProteusXmlDrawing {
             return;
         }
         this.PlantModel = new Component(plantModelElement, false);
+    }
+
+    public addEventListener(callable: callable) {
+        this.subscribers.add(callable);
+    }
+    public removeEventListener(callable: callable) {
+        this.subscribers.delete(callable);
+    }
+
+    public publicEvent(eventName: string, data: any) {
+        this.subscribers.forEach((c) => {
+            c.handleEvent({ type: eventName, data });
+        });
     }
 
     public draw() {
@@ -75,7 +91,7 @@ export class ProteusXmlDrawing {
         const x = this.PlantModel.Drawing[0].Extent[0].Max[0].x.valueAsNumber;
         const y = this.PlantModel.Drawing[0].Extent[0].Max[0].y.valueAsNumber;
 
-        this.PlantModel.draw(unit, x, y, 0, 0);
+        this.PlantModel.draw(unit, x, y, 0, 0, null, this, this);
 
         // scale it up to match our canvas
         /* const Point = getPaper().Point;

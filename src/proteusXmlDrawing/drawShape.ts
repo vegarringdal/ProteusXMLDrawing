@@ -1,7 +1,8 @@
 import { Component } from "./Component";
-import { debug, debugColor } from "./debug";
+import { getDebug, getDebugColor } from "./debug";
 import { getShapeFromExtent } from "./drawExtent";
 import { getPaper, PaperGroup } from "./paper";
+import { ProteusXmlDrawing } from "./ProteusXmlDrawing";
 import { Shape } from "./types/Shape";
 
 /**
@@ -21,7 +22,8 @@ export function drawShape(
     offsetX = 0,
     offsetY = 0,
     group: PaperGroup | undefined,
-    caller: Component
+    caller: Component,
+    proteusXmlDrawing: ProteusXmlDrawing
 ) {
     const Point = getPaper().Point;
     const Path = getPaper().Path;
@@ -41,7 +43,7 @@ export function drawShape(
         group.addChild(path);
     } else {
         path.onClick = function () {
-            console.log(ctx);
+            proteusXmlDrawing.publicEvent("onClick", ctx);
         };
     }
 
@@ -68,7 +70,8 @@ export function drawShape(
         pageOriginY,
         offsetX,
         offsetY,
-        debug.shape,
-        debugColor.shape
+        getDebug().shape,
+        getDebugColor().shape,
+        proteusXmlDrawing
     );
 }

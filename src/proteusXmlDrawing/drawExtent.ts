@@ -2,8 +2,9 @@ import { Extent } from "./types/Extent";
 import { getPaper } from "./paper";
 import { Point } from "paper/dist/paper-core";
 import { Attribute } from "./Attribute";
-import { debug } from "./debug";
+import { getDebug } from "./debug";
 import { SelectIds } from "./SelectIds";
+import { ProteusXmlDrawing } from "./ProteusXmlDrawing";
 
 export function getShapeFromExtent(
     ctx: { Extent?: Extent[]; element: HTMLElement; iD?: Attribute },
@@ -13,7 +14,8 @@ export function getShapeFromExtent(
     offsetX = 0,
     offsetY = 0,
     addDebug: boolean,
-    debugColor: { red: number; green: number; blue: number; alpha: number }
+    debugColor: { red: number; green: number; blue: number; alpha: number },
+    proteusXmlDrawing: ProteusXmlDrawing
 ) {
     if (ctx?.Extent?.length) {
         const maxX = ctx.Extent[0].Max[0].x.valueAsNumber;
@@ -37,7 +39,7 @@ export function getShapeFromExtent(
             const shape = new Shape.Rectangle(new Point(x, y), size);
             shape.fillColor = new Color(debugColor);
             shape.onClick = () => {
-                console.log(ctx);
+                proteusXmlDrawing.publicEvent("onClick", ctx);
             };
             shape.bringToFront();
         }
@@ -47,7 +49,7 @@ export function getShapeFromExtent(
          * might move this into own helper utillity
          */
         if (
-            debug.highlightIds &&
+            getDebug().highlightIds &&
             ctx.iD?.valueAsString &&
             SelectIds.indexOf(ctx.iD?.valueAsString) !== -1
         ) {
@@ -60,7 +62,7 @@ export function getShapeFromExtent(
             shape.selected = true;
             shape.selectedColor = new Color("blue");
             shape.onClick = () => {
-                console.log(ctx);
+                proteusXmlDrawing.publicEvent("onClick", ctx);
             };
             shape.bringToFront();
         }

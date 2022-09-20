@@ -1,8 +1,9 @@
 import { Component } from "./Component";
-import { debug, debugColor } from "./debug";
+import { getDebug, getDebugColor } from "./debug";
 import { getShapeFromExtent } from "./drawExtent";
 import { getFromIdStore } from "./idStore";
 import { getPaper, PaperGroup } from "./paper";
+import { ProteusXmlDrawing } from "./ProteusXmlDrawing";
 import { Text } from "./types/Text";
 
 /**
@@ -22,7 +23,8 @@ export function drawtext(
     offsetX = 0,
     offsetY = 0,
     group: PaperGroup | undefined,
-    caller: Component
+    caller: Component,
+    proteusXmlDrawing: ProteusXmlDrawing
 ) {
     const PointText = getPaper().PointText;
     const Point = getPaper().Point;
@@ -67,13 +69,14 @@ export function drawtext(
         pageOriginY,
         offsetX,
         offsetY,
-        debug.text,
-        debugColor.text
+        getDebug().text,
+        getDebugColor().text,
+        proteusXmlDrawing
     );
 
     const x = (ctx.Position[0].Location[0].x.valueAsNumber + offsetX) * unit;
     const y = pageOriginY * unit - (ctx.Position[0].Location[0].y.valueAsNumber + offsetY) * unit;
-    const point = new Point(x, y)
+    const point = new Point(x, y);
 
     const size = new Size(shapeWidth, shapeHeight);
     const shape = new Shape.Rectangle(new Point(shapeX, shapeY), size);
@@ -142,7 +145,7 @@ export function drawtext(
         group.addChild(text);
     } else {
         text.onClick = function () {
-            console.log(ctx);
+            proteusXmlDrawing.publicEvent("onClick", ctx);
         };
     }
 }

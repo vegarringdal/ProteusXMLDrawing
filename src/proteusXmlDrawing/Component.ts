@@ -10,8 +10,9 @@ import { drawEllipse } from "./drawEllipse";
 import { addToIdStore } from "./idStore";
 import { getPaper, PaperGroup } from "./paper";
 import { Color, Point } from "paper/dist/paper-core";
-import { debug, debugColor } from "./debug";
+import { getDebug, getDebugColor } from "./debug";
 import { getShapeFromExtent } from "./drawExtent";
+import { ProteusXmlDrawing } from "./ProteusXmlDrawing";
 
 export class Component {
     isChild = true;
@@ -112,7 +113,8 @@ export class Component {
         offsetX = 0,
         offsetY = 0,
         group: PaperGroup | undefined,
-        caller: Component
+        caller: Component,
+        proteusXmlDrawing: ProteusXmlDrawing
     ) {
         if (this.elementTagName === "ShapeCatalogue") {
             // shape catalog should never draw, it will be called by others using componentName
@@ -128,7 +130,8 @@ export class Component {
                 offsetX,
                 offsetY,
                 group,
-                caller
+                caller,
+                proteusXmlDrawing
             );
 
             // important - we handle all children in draw function above, so lets return
@@ -139,7 +142,16 @@ export class Component {
          */
         const drawables = getChildComponents(this);
         drawables.forEach((drawable) => {
-            drawable.draw(unit, pageOriginX, pageOriginY, offsetX, offsetY, group, this);
+            drawable.draw(
+                unit,
+                pageOriginX,
+                pageOriginY,
+                offsetX,
+                offsetY,
+                group,
+                this,
+                proteusXmlDrawing
+            );
         });
         /**
          * check if anything i shape catalog
@@ -156,7 +168,7 @@ export class Component {
 
                 const that = this as any;
                 group.onClick = function () {
-                    console.log(that);
+                    proteusXmlDrawing.publicEvent("onClick", that);
                 };
 
                 const x = this.Position[0].Location[0].x.valueAsNumber + offsetX;
@@ -170,7 +182,9 @@ export class Component {
                         pageOriginY,
                         x + offsetX,
                         y + offsetY,
-                        group
+                        group,
+                        this,
+                        proteusXmlDrawing
                     );
                 }
 
@@ -204,8 +218,9 @@ export class Component {
                     pageOriginY,
                     offsetX,
                     offsetY,
-                    debug.component,
-                    debugColor.component
+                    getDebug().component,
+                    getDebugColor().component,
+                    proteusXmlDrawing
                 );
             } else {
                 if (group) {
@@ -250,7 +265,17 @@ export class Component {
             this.elementTagName === "PolyLine" ||
             this.elementTagName === "CenterLine"
         ) {
-            drawLine(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
+            drawLine(
+                this as any,
+                unit,
+                pageOriginX,
+                pageOriginY,
+                offsetX,
+                offsetY,
+                group,
+                caller,
+                proteusXmlDrawing
+            );
         }
 
         /**
@@ -279,7 +304,8 @@ export class Component {
                 offsetX,
                 offsetY,
                 group,
-                caller
+                caller,
+                proteusXmlDrawing
             );
         }
 
@@ -295,7 +321,8 @@ export class Component {
                 offsetX,
                 offsetY,
                 group,
-                caller
+                caller,
+                proteusXmlDrawing
             );
         }
 
@@ -303,17 +330,37 @@ export class Component {
          * Shape
          */
         if (this.elementTagName === "Shape") {
-            drawShape(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
+            drawShape(
+                this as any,
+                unit,
+                pageOriginX,
+                pageOriginY,
+                offsetX,
+                offsetY,
+                group,
+                caller,
+                proteusXmlDrawing
+            );
         }
 
         /**
          * Text
          */
         if (this.elementTagName === "Text") {
-            drawtext(this as any, unit, pageOriginX, pageOriginY, offsetX, offsetY, group, caller);
+            drawtext(
+                this as any,
+                unit,
+                pageOriginX,
+                pageOriginY,
+                offsetX,
+                offsetY,
+                group,
+                caller,
+                proteusXmlDrawing
+            );
         }
 
-        if (debug.highlightIds) {
+        if (getDebug().highlightIds) {
             getShapeFromExtent(
                 this as any,
                 unit,
@@ -321,8 +368,9 @@ export class Component {
                 pageOriginY,
                 offsetX,
                 offsetY,
-                debug.component,
-                debugColor.component
+                getDebug().component,
+                getDebugColor().component,
+                proteusXmlDrawing
             );
         }
     }

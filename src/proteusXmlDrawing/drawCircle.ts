@@ -1,8 +1,9 @@
 import { Circle } from "./types/Circle";
 import { getPaper, PaperGroup } from "./paper";
 import { Component } from "./Component";
-import { debug, debugColor } from "./debug";
+import { getDebug, getDebugColor } from "./debug";
 import { getShapeFromExtent } from "./drawExtent";
+import { ProteusXmlDrawing } from "./ProteusXmlDrawing";
 
 /**
  * used to draw line, polyline and centerline
@@ -21,7 +22,8 @@ export function drawCircle(
     offsetX = 0,
     offsetY = 0,
     group: PaperGroup | undefined,
-    caller: Component
+    caller: Component,
+    proteusXmlDrawing: ProteusXmlDrawing
 ) {
     const Point = getPaper().Point;
     const Path = getPaper().Path;
@@ -36,7 +38,7 @@ export function drawCircle(
         group.addChild(myCircle);
     } else {
         myCircle.onClick = function () {
-            console.log(ctx);
+            proteusXmlDrawing.publicEvent("onClick", ctx);
         };
     }
 
@@ -59,7 +61,8 @@ export function drawCircle(
         pageOriginY,
         offsetX,
         offsetY,
-        debug.circle,
-        debugColor.circleArc
+        getDebug().circle,
+        getDebugColor().circleArc,
+        proteusXmlDrawing
     );
 }
