@@ -1,14 +1,22 @@
 html,
 body {
-    height: 100%;
+    margin: 0;
+    padding: 0;
+
 }
 
 #root {
-    display: fixed;
+    margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
-canvas[resize] {
+canvas {
     width: 1261.5px;
+    height: 891px;
+}
+
+.detailView {
     height: 891px;
 }
 

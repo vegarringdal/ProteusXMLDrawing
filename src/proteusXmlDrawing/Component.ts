@@ -25,6 +25,7 @@ export class Component {
      * will be in component type of GenericAttributes only...
      */
     GenericAttribute: Component[] = [];
+    genericAttributes: Record<string, string> = {}
     componentName?: Attribute;
     iD?: Attribute;
     Position: any[] = [];
@@ -73,7 +74,6 @@ export class Component {
          * add simplified property 'genericAttributes' so its easy to read all generic attributes
          */
         if (this.GenericAttributes) {
-            (this as any).genericAttributes = {};
             this.GenericAttributes.forEach((e) => {
                 e.GenericAttribute.forEach((e) => {
                     (this as any).genericAttributes[e.attributes.Name] = e.attributes.Value;
