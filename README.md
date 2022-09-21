@@ -1,10 +1,13 @@
 # ProteusXMLDrawing
 
-Experiment on trying to take dexpi xml and convert to drawing using svg/or canvas lib
+Experiment on trying to take dexpi xml and convert to drawing using [Paper.js](http://paperjs.org/)
+
+
+
+> Feel free to open a [discussion](https://github.com/vegarringdal/ProteusXMLDrawing/discussions) if you have ideas/question
 
 [demo link](https://vegarringdal.github.io/ProteusXMLDrawing)
 
-See spec folder under public for more info
 
 
 Info/issues/missing/notes :
@@ -35,7 +38,10 @@ Info/issues/missing/notes :
         - I need feedback on whats is the correct way to read it
   -  Scaling looks ok on samples Ive found
     - TODO: check xsd file -> 4.1.1 draft.
- 
+  - dexpi 1.3 will have own graphics ?
+    - looks like its missing definition for text...
+      - hope they add font size and line height and line width or something, so its easier to get consistant results
+    - will proteus follow ? or will we end up with 2 graphic specs ?
 
 GUI:
 - improve clicking, need to make a box behind lines/shapes, so its easier to click on
