@@ -22,7 +22,7 @@ export function App() {
     }, []);
 
     return (
-        <div className="p-2 flex flex-col h-full bg-slate-900 text-gray-200">
+        <div className="p-2 flex flex-col h-full bg-gray-900 text-gray-200">
             <div>
                 <input
                     className=""
