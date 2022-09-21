@@ -85,3 +85,9 @@ Code under src is part of this license, see dependencies in package.json
 for license info about libraries used.
 
 
+## Icons
+
+I get icons from these amazing sites
+
+* https://tabler-icons.io/   (MIT license)
+* https://heroicons.com/  (MIT license)

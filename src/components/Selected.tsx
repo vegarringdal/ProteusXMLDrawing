@@ -92,6 +92,8 @@ export function Selected() {
 
     parse(gui.selected);
 
+    let section = -1;
+
     return (
         <div className="border-gray-600 detailView flex flex-col text-xs m-2 flex-1">
             <span className="pl-1 border-b  border-b-gray-600 text-lg font-bold ">
@@ -102,13 +104,28 @@ export function Selected() {
                     const key = i + ":" + item.type + "-" + item.name + "-" + item.value;
 
                     if (item.type === "element") {
+                        section++;
                         return (
                             <span
                                 key={key}
                                 className="border-b bg-gray-800 border-b-gray-700 flex pt-2 pb-1 sticky top-0"
                             >
-                                <span className="pl-1 font-semibold flex-1 text-sm">
-                                    {item.value}
+                                <span className="pl-1 font-semibold flex-1 text-sm flex">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth={1.5}
+                                        stroke="currentColor"
+                                        className="w-4 h-4 ml-2 mr-1 text-yellow-400"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5"
+                                        />
+                                    </svg>
+                                    ({section}) {item.value}
                                 </span>
                             </span>
                         );
@@ -120,9 +137,7 @@ export function Selected() {
                                 key={key}
                                 className="border-b bg-gray-700 border-b-gray-400 flex pt-2 pb-1 sticky top-7 text-sm"
                             >
-                                <span className="pl-3 font-semibold flex-1">
-                                    {item.name}
-                                </span>
+                                <span className="pl-3 font-semibold flex-1">{item.name}</span>
                                 <span className="ml-2  ">{item.value}</span>
                             </span>
                         );
