@@ -19,6 +19,6 @@
             "type": "json"
         }
     ],
-    "commitUrlFormat": "https://github.com/vegarringdal/web-dexpi/commits/{{hash}}",
-    "compareUrlFormat": "https://github.com/vegarringdal/web-dexpi/compare/{{previousTag}}...{{currentTag}}"
+    "commitUrlFormat": "https://github.com/vegarringdal/ProteusXMLDrawing/commits/{{hash}}",
+    "compareUrlFormat": "https://github.com/vegarringdal/ProteusXMLDrawing/compare/{{previousTag}}...{{currentTag}}"
 }
