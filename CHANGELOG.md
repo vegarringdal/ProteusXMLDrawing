@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.2](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.3.1...v1.3.2) (2022-09-21)
+
+
+### Bug Fixes
+
+* fix gui - now more responsive and dark theme ([06a63cf](https://github.com/vegarringdal/ProteusXMLDrawing/commits/06a63cf6e71aacfd9620f3c44431e7b9c9cff30e))
+
 ### [1.3.1](https://github.com/vegarringdal/proteus-xml-drawing/compare/v1.3.0...v1.3.1) (2022-09-21)
 
 
