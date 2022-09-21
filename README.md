@@ -78,5 +78,10 @@ How to get started
 
 
 
+# License
+
+See license file on root of repo.
+Code under src is part of this license, see dependencies in package.json 
+for license info about libraries used.
 
 
