@@ -25,7 +25,7 @@ export class Component {
      * will be in component type of GenericAttributes only...
      */
     GenericAttribute: Component[] = [];
-    genericAttributes: Record<string, string> = {}
+    genericAttributes: Record<string, any> = {};
     componentName?: Attribute;
     iD?: Attribute;
     Position: any[] = [];
@@ -73,11 +73,16 @@ export class Component {
         /**
          * add simplified property 'genericAttributes' so its easy to read all generic attributes
          */
-        if (this.GenericAttributes) {
-            this.GenericAttributes.forEach((e) => {
-                e.GenericAttribute.forEach((e) => {
-                    (this as any).genericAttributes[e.attributes.Name] = e.attributes.Value;
-                });
+
+        if (this.GenericAttribute.length) {
+            this.GenericAttribute.forEach((e) => {
+                this.genericAttributes[e.attributes.Name] = e.attributes.Value;
+            });
+        }
+
+        if (this.GenericAttributes.length) {
+            this.GenericAttributes.forEach((e, i) => {
+                this.genericAttributes[`${i + 1}: ${e.attributes.Set || ""}`] = e.genericAttributes;
             });
         }
 
