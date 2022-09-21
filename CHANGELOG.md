@@ -2,14 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.3.1](https://github.com/vegarringdal/web-dexpi/compare/v1.3.0...v1.3.1) (2022-09-21)
+### [1.3.1](https://github.com/vegarringdal/proteus-xml-drawing/compare/v1.3.0...v1.3.1) (2022-09-21)
 
 
 ### Bug Fixes
 
-* improve selected with attribute, and split generic into sets ([675e171](https://github.com/vegarringdal/web-dexpi/commits/675e17123169f388179e7cd486ba26d7305de93f))
+* improve selected with attribute, and split generic into sets ([675e171](https://github.com/vegarringdal/proteus-xml-drawing/commits/675e17123169f388179e7cd486ba26d7305de93f))
 
-## [1.3.0](https://github.com/vegarringdal/web-dexpi/compare/v1.2.13...v1.3.0) (2022-09-20)
+## [1.3.0](https://github.com/vegarringdal/proteus-xml-drawing/compare/v1.2.13...v1.3.0) (2022-09-20)
 
 
 ### Features
