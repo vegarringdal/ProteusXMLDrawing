@@ -5,14 +5,23 @@ import { guiState } from "../state/guiState";
 export function Selected() {
     const gui = guiState();
 
-    const viewTree: { type: "element" | "attribute"; name: string; value: string }[] = [];
+    const viewTree: {
+        type:
+            | "element"
+            | "attribute-header"
+            | "attribute"
+            | "genericAttribute"
+            | "genericAttributes";
+        name: string;
+        value: string;
+    }[] = [];
 
     function parse(component: Component) {
         let currentComp = component;
         let haveParent = true;
         while (haveParent) {
             if (
-                !["Text", "Label", "Line", "CenterLine", "Shape", "Ellipse", "Circle"].includes(
+                !["Text", "Line", "CenterLine", "Shape", "Ellipse", "Circle"].includes(
                     currentComp.elementTagName
                 )
             ) {
@@ -25,12 +34,36 @@ export function Selected() {
                 }
 
                 if (currentComp.genericAttributes) {
-                    const keys = Object.keys(currentComp.genericAttributes);
-                    keys.forEach((key) => {
+                    viewTree.push({
+                        type: "attribute-header",
+                        name: "Attributes",
+                        value: ""
+                    });
+                    const setkeys = Object.keys(currentComp.attributes);
+                    setkeys.forEach((setkey) => {
                         viewTree.push({
                             type: "attribute",
-                            name: key,
-                            value: currentComp.genericAttributes[key]
+                            name: setkey,
+                            value: currentComp.attributes[setkey]
+                        });
+                    });
+                }
+
+                if (currentComp.genericAttributes) {
+                    const setkeys = Object.keys(currentComp.genericAttributes);
+                    setkeys.forEach((setkey) => {
+                        viewTree.push({
+                            type: "genericAttributes",
+                            name: "GenericAttribute Set",
+                            value: setkey
+                        });
+                        const propKeys = Object.keys(currentComp.genericAttributes[setkey]);
+                        propKeys.forEach((propKey) => {
+                            viewTree.push({
+                                type: "genericAttribute",
+                                name: propKey,
+                                value: currentComp.genericAttributes[setkey][propKey]
+                            });
                         });
                     });
                 }
@@ -55,6 +88,8 @@ export function Selected() {
         );
     }
 
+    console.log(gui.selected);
+
     parse(gui.selected);
 
     return (
@@ -78,9 +113,36 @@ export function Selected() {
                             </span>
                         );
                     }
+
+                    if (item.type === "attribute-header") {
+                        return (
+                            <span
+                                key={key}
+                                className=" border-b bg-gray-200 border-b-gray-400 flex "
+                            >
+                                <span className="pl-3 font-semibold min-w-[254px]">
+                                    {item.name}
+                                </span>
+                                <span className="ml-2  ">{item.value}:</span>
+                            </span>
+                        );
+                    }
+
+                    if (item.type === "genericAttributes") {
+                        return (
+                            <span
+                                key={key}
+                                className=" border-b bg-gray-200 border-b-gray-400 flex "
+                            >
+                                <span className="pl-3 font-semibold min-w-[254px]">
+                                    {item.name} - {item.value}
+                                </span>
+                            </span>
+                        );
+                    }
                     return (
                         <span className="pl-2 border-b border-b-gray-600 flex pr-2" key={key}>
-                            <span className="pl-1 font-semibold min-w-[250px]">{item.name}:</span>
+                            <span className="pl-4 font-semibold min-w-[250px]">{item.name}:</span>
                             <span className="ml-2  ">{item.value}:</span>
                         </span>
                     );
