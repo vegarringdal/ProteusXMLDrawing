@@ -79,11 +79,11 @@ export function Selected() {
 
     if (!gui.selected?.elementTagName) {
         return (
-            <div className="border border-gray-600 detailView flex flex-col text-xs w-full">
-                <span className="pl-1 border-b bg-gray-200 border-b-gray-600 text-lg font-bold">
-                    Selected Element
+            <div className="border-gray-600 detailView flex flex-col text-xs w-full m-2">
+                <span className="pl-1 border-b bg-gray-700 border-b-gray-600 text-lg font-bold">
+                    Selected
                 </span>
-                nothing selected
+                Nothing selected
             </div>
         );
     }
@@ -93,11 +93,11 @@ export function Selected() {
     parse(gui.selected);
 
     return (
-        <div className="border border-gray-600 detailView flex flex-col text-xs">
-            <span className="pl-1 border-b bg-gray-200 border-b-gray-600 text-lg font-bold">
+        <div className="border-gray-600 detailView flex flex-col text-xs m-2 flex-1">
+            <span className="pl-1 border-b  border-b-gray-600 text-lg font-bold ">
                 Selected Element
             </span>
-            <div className="flex flex-col overflow-auto " style={{ minHeight: 0 }}>
+            <div className="flex flex-col overflow-auto scrollbar" style={{ minHeight: 0 }}>
                 {viewTree.map((item, i) => {
                     const key = i + ":" + item.type + "-" + item.name + "-" + item.value;
 
@@ -105,9 +105,9 @@ export function Selected() {
                         return (
                             <span
                                 key={key}
-                                className=" border-b bg-gray-200 border-b-gray-600 sticky top-0 flex "
+                                className="border-b bg-gray-800 border-b-gray-700 flex pt-2 pb-1 sticky top-0"
                             >
-                                <span className="pl-1 font-semibold min-w-[254px]">
+                                <span className="pl-1 font-semibold flex-1 text-sm">
                                     {item.value}
                                 </span>
                             </span>
@@ -118,12 +118,12 @@ export function Selected() {
                         return (
                             <span
                                 key={key}
-                                className=" border-b bg-gray-200 border-b-gray-400 flex "
+                                className="border-b bg-gray-700 border-b-gray-400 flex pt-2 pb-1 sticky top-7 text-sm"
                             >
-                                <span className="pl-3 font-semibold min-w-[254px]">
+                                <span className="pl-3 font-semibold flex-1">
                                     {item.name}
                                 </span>
-                                <span className="ml-2  ">{item.value}:</span>
+                                <span className="ml-2  ">{item.value}</span>
                             </span>
                         );
                     }
@@ -132,9 +132,9 @@ export function Selected() {
                         return (
                             <span
                                 key={key}
-                                className=" border-b bg-gray-200 border-b-gray-400 flex "
+                                className="border-b bg-gray-700 border-b-gray-400 flex pt-2 pb-1 sticky top-7 text-sm"
                             >
-                                <span className="pl-3 font-semibold min-w-[254px]">
+                                <span className="pl-3 font-semibold flex-1">
                                     {item.name} - {item.value}
                                 </span>
                             </span>
@@ -142,8 +142,8 @@ export function Selected() {
                     }
                     return (
                         <span className="pl-2 border-b border-b-gray-600 flex pr-2" key={key}>
-                            <span className="pl-4 font-semibold min-w-[250px]">{item.name}:</span>
-                            <span className="ml-2  ">{item.value}:</span>
+                            <span className="pl-4 font-semibold flex-1">{item.name}:</span>
+                            <span className="ml-2 flex-1">{item.value}</span>
                         </span>
                     );
                 })}

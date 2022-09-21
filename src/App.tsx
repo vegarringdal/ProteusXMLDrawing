@@ -14,41 +14,15 @@ export function App() {
     const gui = guiState();
 
     useEffect(() => {
-        /* 
-        
-         Only for development, so I dont need to reopen the file for every save..
-         sync function run() {
-            if (location.host.includes("localhost")) {
-                try {
-                    const reponse = await fetch("/nocommit/test_1.3.xml");
-                    if (reponse.ok) {
-                        const text = await reponse.text();
-                        const proteusXmlDrawingg = new ProteusXmlDrawing(text as any, "pidCanvas");
-                        proteusXmlDrawingg.draw();
-
-                        // helper to find missing IDs at work
-                        if (getDebug().printIdMap) {
-                            const idStore = getStore();
-                            let generatetext = "ID\tELEMENT_NAME\tTAG\r";
-
-                            idStore.forEach((row) => {
-                                generatetext =
-                                    generatetext +
-                                    `${row.iD?.valueAsString}\t${row.element.tagName}\t${row.tagName?.valueAsString}\r`;
-                            });
-                            console.log(generatetext);
-                        }
-                    }
-                } catch (err) {
-                    console.log(err);
-                }
-            }
+        // workaround, rreact did not like when I tried this directly
+        const canvas = document.getElementById("pidCanvas");
+        if (canvas) {
+            canvas.setAttribute("resize", "true");
         }
-       run(); */
     }, []);
 
     return (
-        <div className="m-2 flex flex-col flex-1 h-full">
+        <div className="p-2 flex flex-col h-full bg-slate-900 text-gray-200">
             <div>
                 <input
                     className=""
@@ -64,7 +38,6 @@ export function App() {
 
                             proteusXmlDrawingg.addEventListener({
                                 handleEvent(evt) {
-                                    /* console.log(evt.type, evt.data); */
                                     gui.setSelected(evt.data);
                                 }
                             });
@@ -110,12 +83,18 @@ export function App() {
                     click on text or lines...work in progress)
                 </div>
             </div>
-            <div className="flex flex-col flex-1">
-                <div className="flex flex-1 " style={{ minHeight: 0 }}>
-                    <canvas id="pidCanvas" className="m-2 border border-gray-600 "></canvas>
-                    <Selected></Selected>
+
+            <div className="flex h-full" style={{ minHeight: "0px" }}>
+                <div className="flex basis-2/3 p-2">
+                    <canvas
+                        id="pidCanvas"
+                        className="border w-full h-full border-gray-600 "
+                    ></canvas>
                 </div>
-                <div className="flex flex-1"></div>
+
+                <div className="flex basis-1/3 p-2">
+                    <Selected />
+                </div>
             </div>
         </div>
     );
