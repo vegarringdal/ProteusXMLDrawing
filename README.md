@@ -84,6 +84,12 @@ See license file on root of repo.
 Code under src is part of this license, see dependencies in package.json 
 for license info about libraries used.
 
+## Licenses not in package.json
+
+xmlvalidate.js - Apache License 2.0
+* https://github.com/openscd/xmlvalidate.js/blob/main/LICENSE
+* my fork - https://github.com/vegarringdal/xmlvalidate.js
+
 
 ## Icons
 
