@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import { ActivateGridDarkTheme } from "./components/ActivateGridDarkTheme";
 import { GithubIcon } from "./components/GithubIcon";
@@ -19,6 +19,11 @@ export function App() {
     return (
         <div className="p-2 flex flex-col h-full bg-gray-900 text-gray-200">
             <ActivateGridDarkTheme />
+            <div className="fixed top-0 left-0 right-0 text-gray-500 flex">
+                <span className="m-auto">
+                    No files is uploaded to any third party - all work is done in the browser.
+                </span>
+            </div>
             <div className="fixed top-2 right-2  p-2">
                 <div className="flex gap-x-2 text-indigo-600">
                     <InfoIcon />
@@ -72,7 +77,7 @@ export function App() {
                     </div>
                     <div className="fixed bottom-0 right-0 pr-2 text-gray-500">
                         Version: {APP_VERSION}
-                    </div>{" "}
+                    </div>
                 </>
             )}
         </div>

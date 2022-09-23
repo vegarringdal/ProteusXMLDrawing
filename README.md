@@ -2,7 +2,7 @@
 
 Experiment on trying to take dexpi xml and convert to drawing using [Paper.js](http://paperjs.org/)
 
-
+>    No files is uploaded to any third party - all work is done in the browser - important so anyone can use without beeing worried
 
 > Feel free to open a [discussion](https://github.com/vegarringdal/ProteusXMLDrawing/discussions) if you have ideas/question
 
