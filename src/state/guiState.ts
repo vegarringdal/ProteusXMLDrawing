@@ -6,12 +6,20 @@ type State = {
     setLoading: (status: boolean) => void;
     setSelected: (selected: Component | null) => void;
     selected: Component | null;
-    currentTab: "viewer" | "idList";
+    currentTab: "viewer" | "idList" | "conceptualModelList" | "xsdValidation";
+    selectedXmlFileName: string;
+    selectedXsdFileName: string;
+    loadingMessage: string;
+    loadingHeader: string;
 };
 
 export const guiState = create<State>((set) => ({
     currentTab: "viewer",
     isLoading: false,
+    selectedXmlFileName: "",
+    selectedXsdFileName: "",
+    loadingMessage: "",
+    loadingHeader: "",
     selected: null,
     setLoading: (status: boolean) => {
         set(() => {

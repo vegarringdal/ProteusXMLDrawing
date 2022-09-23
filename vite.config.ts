@@ -12,7 +12,9 @@ export default defineConfig(({ command }) => {
             },
             publicDir: path.resolve("./public"),
             plugins: [react()],
-            server: {},
+            server: {
+                port: 3000
+            },
             base: "./",
             build: {
                 assetsDir: "./",
