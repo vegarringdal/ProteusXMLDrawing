@@ -4,11 +4,11 @@ import { guiState } from "../state/guiState";
 export function TabRow() {
     const gui = guiState();
 
-    const defaultClass = " p-1 min-w-[14rem]  rounded-t font-semibold";
-    const selectedClassBtn = defaultClass + " text-gray-300 font-semibold  ";
+    const defaultClass = " p-1 min-w-[14rem] font-semibold ";
+    const selectedClassBtn = defaultClass + " text-gray-300 font-semibold ";
     const notSelectedClassBtn = defaultClass + " text-indigo-400 font-semibold hover:bg-gray-700 ";
-    const selectedClassBottomBorder = "border-b-4 w-full border-indigo-600";
-    const notSelectedClassBottomBorder = "border-b-4 w-full border-gray-700";
+    const selectedClassBottomBorder = " border-b-4 w-full border-indigo-600 ";
+    const notSelectedClassBottomBorder = " border-b-4 w-full border-gray-700 ";
 
     let viewerSelectedClassBtn = notSelectedClassBtn;
     let idListSelectedClassBtn = notSelectedClassBtn;
