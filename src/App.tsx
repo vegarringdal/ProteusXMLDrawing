@@ -3,6 +3,7 @@ import "./App.css";
 import { ActivateGridDarkTheme } from "./components/ActivateGridDarkTheme";
 import { GithubIcon } from "./components/GithubIcon";
 import { InfoIcon } from "./components/InfoIcon";
+import { LoadingDialog } from "./components/LoadingDialog";
 import { OpenXmlFile } from "./components/OpenXmlFile";
 import { OpenXsdFile } from "./components/OpenXsdFile";
 import { Selected } from "./components/Selected";
@@ -17,7 +18,8 @@ export function App() {
     const gui = guiState();
 
     return (
-        <div className="p-2 flex flex-col h-full bg-gray-900 text-gray-200">
+        <div className="flex flex-col h-full bg-gray-900 text-gray-200">
+            <LoadingDialog />
             <ActivateGridDarkTheme />
             <div className="fixed top-0 left-0 right-0 text-gray-500 flex">
                 <span className="m-auto">

@@ -9,6 +9,8 @@ type State = {
     currentTab: "viewer" | "idList" | "conceptualModelList" | "xsdValidation";
     selectedXmlFileName: string;
     selectedXsdFileName: string;
+    loadingMessage: string;
+    loadingHeader: string;
 };
 
 export const guiState = create<State>((set) => ({
@@ -16,6 +18,8 @@ export const guiState = create<State>((set) => ({
     isLoading: false,
     selectedXmlFileName: "",
     selectedXsdFileName: "",
+    loadingMessage: "",
+    loadingHeader: "",
     selected: null,
     setLoading: (status: boolean) => {
         set(() => {

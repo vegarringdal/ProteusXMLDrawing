@@ -33,12 +33,11 @@ export function OpenXsdFile() {
 
                         validationController.dataSource.setData([]);
                         validationController.dataSource.setData(errors as []);
-                      /*   validationController.gridInterFace.autoResizeColumns(); */
                         e.target.value = ""; // reset , so reopen is possible
                     };
 
                     reader.onloadend = () => {
-                        gui.setLoading(true);
+                        gui.setLoading(false);
                     };
 
                     reader.onerror = () => {
@@ -46,8 +45,13 @@ export function OpenXsdFile() {
                     };
 
                     if (e?.target.files) {
-                        guiState.setState({ currentTab: "xsdValidation" });
-                        gui.setLoading(true);
+                        guiState.setState({
+                            currentTab: "xsdValidation",
+                            isLoading: true,
+                            loadingHeader: "Reading XSD",
+                            loadingMessage: "Please wait while we parse and validate xml"
+                        });
+
                         guiState.setState({ selectedXsdFileName: e.target.files[0].name });
                         reader.readAsText(e.target.files[0]);
                     }

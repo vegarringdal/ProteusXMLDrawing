@@ -8,7 +8,6 @@ import { conceptualModelController } from "../state/conceptualModelController";
 import { isConceptualModel } from "../utils/isConceptualModel";
 import { setXmlContent } from "../state/xmlContent";
 import { setXsdContent } from "../state/xsdContent";
-import { flushSync } from "react-dom";
 import { validationController } from "../state/validationController";
 
 export function OpenXmlFile() {
@@ -103,7 +102,7 @@ export function OpenXmlFile() {
                     };
 
                     reader.onloadend = () => {
-                        gui.setLoading(true);
+                        gui.setLoading(false);
                     };
 
                     reader.onerror = () => {
@@ -111,8 +110,12 @@ export function OpenXmlFile() {
                     };
 
                     if (e?.target.files) {
-                        gui.setLoading(true);
-                        guiState.setState({ currentTab: "viewer" });
+                        guiState.setState({
+                            currentTab: "viewer",
+                            isLoading: true,
+                            loadingHeader: "Reading XML",
+                            loadingMessage: "Please wait while we parse and generate graphics"
+                        });
                         guiState.setState({
                             selectedXmlFileName: e.target.files[0].name,
                             selectedXsdFileName: ""
