@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.4.0...v1.5.0) (2022-09-23)
+
+
+### Features
+
+* Xmlvalidation and improve GUI ([#2](https://github.com/vegarringdal/ProteusXMLDrawing/issues/2)) ([1197956](https://github.com/vegarringdal/ProteusXMLDrawing/commits/11979563eaf7655ac26ea7b619d241a7b694c740))
+
 ## [1.4.0](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.3.3...v1.4.0) (2022-09-21)
 
 
