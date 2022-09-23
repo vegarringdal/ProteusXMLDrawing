@@ -27,6 +27,14 @@ export function validate(
                     resolve(data);
                 }
             }
+
+            if (e.data?.includes && e.data?.includes("failed to compile")) {
+                console.log(e);
+                worker.terminate();
+                resolve([{ message: "xsd failed to compile" }]);
+            } else {
+                console.log(e);
+            }
         };
     });
 }

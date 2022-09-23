@@ -14,6 +14,7 @@ export function OpenXsdFile() {
             <input
                 className=" hidden"
                 type="file"
+                accept=".xsd"
                 onChange={(e) => {
                     if (!getXmlContent()) {
                         alert("open xml first");

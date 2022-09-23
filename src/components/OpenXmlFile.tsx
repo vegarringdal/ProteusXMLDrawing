@@ -20,6 +20,7 @@ export function OpenXmlFile() {
             <input
                 className=" hidden"
                 type="file"
+                accept=".xml"
                 onChange={(e) => {
                     const reader = new FileReader();
                     reader.onload = () => {
