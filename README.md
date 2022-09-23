@@ -2,9 +2,14 @@
 
 Experiment on trying to take dexpi xml and convert to drawing using [Paper.js](http://paperjs.org/)
 
->    No files is uploaded to any third party - all work is done in the browser - important so anyone can use without beeing worried
+Also been expanded into adding validation with LibXml2 and id list.
+
+>  No files is uploaded to any third party - all work is done in the browser - important so anyone can use without beeing worried
 
 > Feel free to open a [discussion](https://github.com/vegarringdal/ProteusXMLDrawing/discussions) if you have ideas/question
+
+
+
 
 [demo link](https://vegarringdal.github.io/ProteusXMLDrawing)
 
@@ -38,17 +43,13 @@ Info/issues/missing/notes :
         - I need feedback on whats is the correct way to read it
   -  Scaling looks ok on samples Ive found
     - TODO: check xsd file -> 4.1.1 draft.
-  - dexpi 1.3 will have own graphics ?
-    - looks like its missing definition for text...
-      - hope they add font size and line height and line width or something, so its easier to get consistant results
-    - will proteus follow ? or will we end up with 2 graphic specs ?
 
 GUI:
 - improve clicking, need to make a box behind lines/shapes, so its easier to click on
 - should we make click item "selected"?
 - override colors/highlighting ?
 - search for ID/highligh based on ID/tagname ?
-
+- add excel export of datagrid
 
 Image of progress
 
