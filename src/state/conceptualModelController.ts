@@ -7,7 +7,6 @@ const gridInterFace = new GridInterface(defaultGridConfig, dataSource);
 
 dataSource.addEventListener({
     handleEvent: (e) => {
-        console.log(e.type);
         if (e.type === "currentEntity") {
             const node = dataSource.currentEntity?.component;
             guiState.getState().setSelected(node);
