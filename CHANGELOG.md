@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.3](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.2...v1.5.3) (2022-09-23)
+
+
+### Bug Fixes
+
+* libxml2 wasm update ([609dbaf](https://github.com/vegarringdal/ProteusXMLDrawing/commits/609dbaf46f3955ed69cafb4c88f94bfb1f89a088))
+
 ### [1.5.2](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.1...v1.5.2) (2022-09-23)
 
 
