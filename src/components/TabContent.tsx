@@ -3,6 +3,7 @@ import { guiState } from "../state/guiState";
 import { CanvasContainer } from "./CanvasContainer";
 import { ConceptualModeListView } from "./ConceptualModeListView";
 import { IDListView } from "./IDListView";
+import { ValidationListView } from "./validationListView";
 
 export function TabContent() {
     const gui = guiState();
@@ -29,7 +30,7 @@ export function TabContent() {
         return (
             <>
                 <CanvasContainer stayHidden={true} />
-                <ConceptualModeListView></ConceptualModeListView>
+                <ValidationListView></ValidationListView>
             </>
         );
     }

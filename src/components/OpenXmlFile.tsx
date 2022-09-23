@@ -8,13 +8,14 @@ import { conceptualModelController } from "../state/conceptualModelController";
 import { isConceptualModel } from "../utils/isConceptualModel";
 import { setXmlContent } from "../state/xmlContent";
 import { setXsdContent } from "../state/xsdContent";
+import { flushSync } from "react-dom";
 
 export function OpenXmlFile() {
     const gui = guiState();
 
     return (
-        <label className="inline-block p-2 bg-gray-700/50 -10 relative text-center text-indigo-400 font-semibold">
-            Open Xml File
+        <label className="inline-block p-2 bg-gray-700/50 -10 relative text-center text-indigo-400 font-semibold hover:bg-gray-700">
+            Open XML File
             <input
                 className=" hidden"
                 type="file"
@@ -22,6 +23,7 @@ export function OpenXmlFile() {
                     const reader = new FileReader();
                     reader.onload = () => {
                         // save for later
+
                         setXmlContent(reader.result as string);
                         setXsdContent("");
 
@@ -105,6 +107,7 @@ export function OpenXmlFile() {
 
                     if (e?.target.files) {
                         gui.setLoading(true);
+                        guiState.setState({ currentTab: "viewer" });
                         guiState.setState({
                             selectedXmlFileName: e.target.files[0].name,
                             selectedXsdFileName: ""

@@ -4,69 +4,91 @@ import { guiState } from "../state/guiState";
 export function TabRow() {
     const gui = guiState();
 
-    const defaultClass =
-        "border-t border-l border-r border-gray-700 p-1 min-w-[10rem]  rounded-t mr-2 bg-gray-800 font-semibold";
-    const selectedClass = defaultClass + " text-gray-800 font-semibold bg-gray-300 ";
-    const notSelectedClass = defaultClass + " text-indigo-400 font-semibold bg-gray-700/50 ";
+    const defaultClass = " p-1 min-w-[14rem]  rounded-t font-semibold";
+    const selectedClassBtn = defaultClass + " text-gray-300 font-semibold  ";
+    const notSelectedClassBtn = defaultClass + " text-indigo-400 font-semibold hover:bg-gray-700 ";
+    const selectedClassBottomBorder = "border-b-4 w-full border-indigo-600";
+    const notSelectedClassBottomBorder = "border-b-4 w-full border-gray-700";
 
-    let viewerSelectedClass = notSelectedClass;
-    let idListSelectedClass = notSelectedClass;
-    let conceptualModelSelectedClass = notSelectedClass;
-    let xsdValidationClass = notSelectedClass;
+    let viewerSelectedClassBtn = notSelectedClassBtn;
+    let idListSelectedClassBtn = notSelectedClassBtn;
+    let conceptualModelSelectedClassBtn = notSelectedClassBtn;
+    let xsdValidationClassBtn = notSelectedClassBtn;
+
+    let viewerSelectedClassBottomBorder = notSelectedClassBottomBorder;
+    let idListSelectedClassBottomBorder = notSelectedClassBottomBorder;
+    let conceptualModelSelectedClassBottomBorder = notSelectedClassBottomBorder;
+    let xsdValidationClassBottomBorder = notSelectedClassBottomBorder;
 
     if (gui.currentTab === "viewer") {
-        viewerSelectedClass = selectedClass;
+        viewerSelectedClassBtn = selectedClassBtn;
+        viewerSelectedClassBottomBorder = selectedClassBottomBorder;
     }
 
     if (gui.currentTab === "idList") {
-        idListSelectedClass = selectedClass;
+        idListSelectedClassBtn = selectedClassBtn;
+        idListSelectedClassBottomBorder = selectedClassBottomBorder;
     }
 
     if (gui.currentTab === "conceptualModelList") {
-        conceptualModelSelectedClass = selectedClass;
+        conceptualModelSelectedClassBtn = selectedClassBtn;
+        conceptualModelSelectedClassBottomBorder = selectedClassBottomBorder;
     }
 
     if (gui.currentTab === "xsdValidation") {
-        xsdValidationClass = selectedClass;
+        xsdValidationClassBtn = selectedClassBtn;
+        xsdValidationClassBottomBorder = selectedClassBottomBorder;
     }
 
     return (
-        <div className=" border-b border-b-gray-700">
-            <button
-                className={viewerSelectedClass}
-                onClick={() => {
-                    guiState.setState({ currentTab: "viewer" });
-                }}
-            >
-                Viewer
-            </button>
+        <div className=" border-b border-b-gray-700 flex border-gray-800">
+            <div className="border-l border-t border-gray-800">
+                <button
+                    className={viewerSelectedClassBtn}
+                    onClick={() => {
+                        guiState.setState({ currentTab: "viewer" });
+                    }}
+                >
+                    Viewer
+                </button>
+                <div className={viewerSelectedClassBottomBorder}></div>
+            </div>
 
-            <button
-                className={conceptualModelSelectedClass}
-                onClick={() => {
-                    guiState.setState({ currentTab: "conceptualModelList" });
-                }}
-            >
-                Conceptual Model
-            </button>
+            <div className="border-l  border-t border-gray-800">
+                <button
+                    className={conceptualModelSelectedClassBtn}
+                    onClick={() => {
+                        guiState.setState({ currentTab: "conceptualModelList" });
+                    }}
+                >
+                    Conceptual Model
+                </button>
+                <div className={conceptualModelSelectedClassBottomBorder}></div>
+            </div>
 
-            <button
-                className={idListSelectedClass}
-                onClick={() => {
-                    guiState.setState({ currentTab: "idList" });
-                }}
-            >
-                ID List
-            </button>
+            <div className="border-l border-t border-gray-800">
+                <button
+                    className={idListSelectedClassBtn}
+                    onClick={() => {
+                        guiState.setState({ currentTab: "idList" });
+                    }}
+                >
+                    ID List
+                </button>
+                <div className={idListSelectedClassBottomBorder}></div>
+            </div>
 
-            <button
-                className={xsdValidationClass}
-                onClick={() => {
-                    guiState.setState({ currentTab: "xsdValidation" });
-                }}
-            >
-                XSD validation
-            </button>
+            <div className="border-l border-r border-t border-gray-800">
+                <button
+                    className={xsdValidationClassBtn}
+                    onClick={() => {
+                        guiState.setState({ currentTab: "xsdValidation" });
+                    }}
+                >
+                    XSD validation
+                </button>
+                <div className={xsdValidationClassBottomBorder}></div>
+            </div>
         </div>
     );
 }

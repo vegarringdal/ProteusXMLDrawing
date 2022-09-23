@@ -6,7 +6,7 @@ export function OpenXsdFile() {
     const gui = guiState();
 
     return (
-        <label className="inline-block p-2 bg-gray-700/50 -10 relative text-center text-indigo-400 font-semibold">
+        <label className="inline-block p-2 bg-gray-700/50 -10 relative text-center text-indigo-400 font-semibold hover:bg-gray-700">
             Open XSD File
             <input
                 className=" hidden"
