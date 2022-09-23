@@ -79,8 +79,8 @@ How to get started
 
 
 # LibXml2 - wasm
- * Currently Release v2.10.0 
- * https://gitlab.gnome.org/GNOME/libxml2/-/commit/ae383bdb74523ddaf831d7db0690173c25e483b3
+* Currently @ 21b24b51 Release v2.10.2 ++ latest commit (20 sept - 2022)
+* https://gitlab.gnome.org/GNOME/libxml2/-/commit/e2bae1bc049f7ffac9c35eefa33f8a00d4032170
 
 
 # License
