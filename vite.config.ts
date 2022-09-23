@@ -31,6 +31,7 @@ export default defineConfig(({ command }) => {
                 // eslint-disable-next-line @typescript-eslint/no-var-requires
                 APP_VERSION: `"${require("./package.json").version}"`
             },
+            publicDir: path.resolve("./public"),
             plugins: [react()],
             base: "./",
             build: {
