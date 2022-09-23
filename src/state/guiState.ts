@@ -6,7 +6,7 @@ type State = {
     setLoading: (status: boolean) => void;
     setSelected: (selected: Component | null) => void;
     selected: Component | null;
-    currentTab: "viewer" | "idList";
+    currentTab: "viewer" | "idList" | "conceptualModelList";
 };
 
 export const guiState = create<State>((set) => ({

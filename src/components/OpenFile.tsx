@@ -2,8 +2,10 @@ import React from "react";
 import { Component } from "../proteusXmlDrawing/Component";
 import { getStore } from "../proteusXmlDrawing/idStore";
 import { ProteusXmlDrawing } from "../proteusXmlDrawing/ProteusXmlDrawing";
-import { dataController } from "../state/dataController";
+import { idListController } from "../state/idListController";
 import { guiState } from "../state/guiState";
+import { conceptualModelController } from "../state/conceptualModelController";
+import { isConceptualModel } from "../utils/isConceptualModel";
 
 export function OpenFile() {
     const gui = guiState();
@@ -31,7 +33,15 @@ export function OpenFile() {
 
                         const idStore = getStore();
 
-                        const data: {
+                        const idListData: {
+                            id: string | undefined;
+                            elementName: string;
+                            tagName: string | null;
+                            xpath: string | null;
+                            component: Component;
+                        }[] = [];
+
+                        const conceptualModelData: {
                             id: string | undefined;
                             elementName: string;
                             tagName: string | null;
@@ -40,17 +50,41 @@ export function OpenFile() {
                         }[] = [];
 
                         idStore.forEach((row) => {
-                            data.push({
+                            let xpath = row.element?.tagName || "";
+                            let parent = row.parent || null;
+                            while (parent !== null) {
+                                xpath = `${parent.element.tagName}/${xpath}`;
+                                parent = parent.parent || null;
+                            }
+                            xpath = `//${xpath}`;
+
+                            if (isConceptualModel(xpath)) {
+                                conceptualModelData.push({
+                                    id: row.iD?.valueAsString,
+                                    elementName: row.element.tagName,
+                                    tagName: row.tagName?.valueAsString,
+                                    xpath: xpath,
+                                    component: row
+                                });
+                            }
+
+                            // we always add it here..
+                            idListData.push({
                                 id: row.iD?.valueAsString,
                                 elementName: row.element.tagName,
                                 tagName: row.tagName?.valueAsString,
-                                xpath: null,
+                                xpath: xpath,
                                 component: row
                             });
                         });
-                        dataController.dataSource.setData([]);
-                        dataController.dataSource.setData(data);
-                        dataController.gridInterFace.autoResizeColumns();
+
+                        idListController.dataSource.setData([]);
+                        idListController.dataSource.setData(idListData);
+                        idListController.gridInterFace.autoResizeColumns();
+
+                        conceptualModelController.dataSource.setData([]);
+                        conceptualModelController.dataSource.setData(conceptualModelData);
+                        conceptualModelController.gridInterFace.autoResizeColumns();
 
                         e.target.value = ""; // reset , so reopen is possible
                     };

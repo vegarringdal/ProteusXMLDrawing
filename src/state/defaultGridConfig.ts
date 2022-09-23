@@ -49,6 +49,18 @@ export const defaultGridConfig: GridConfig = {
                     sortable: {}
                 }
             ]
+        },
+        {
+            width: 300,
+            rows: [
+                {
+                    header: "XPath",
+                    attribute: "xpath",
+                    filterable: {},
+                    allowGrouping: true,
+                    sortable: {}
+                }
+            ]
         }
     ]
 };

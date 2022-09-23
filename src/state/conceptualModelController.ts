@@ -16,7 +16,7 @@ dataSource.addEventListener({
     }
 });
 
-export const dataController = {
+export const conceptualModelController = {
     gridInterFace,
     dataSource
 };
