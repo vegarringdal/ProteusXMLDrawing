@@ -25,7 +25,7 @@ export function App() {
                 <span className="m-auto">
                     No files is uploaded to any third party - all work is done in the browser.
                 </span>
-                <div className="m-auto italic">LibXml2 at version 2.10.0 </div>
+                <div className="m-auto italic">v2.10.2 ++ latest commit (20 sept - 2022)</div>
             </div>
             <div className="fixed top-2 right-2  p-2">
                 <div className="flex gap-x-2 text-indigo-600">
