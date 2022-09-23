@@ -13,6 +13,7 @@ Also been expanded into adding validation with LibXml2 and id list.
 
 [demo link](https://vegarringdal.github.io/ProteusXMLDrawing)
 
+![msedge_YnH2klOIdm](https://user-images.githubusercontent.com/2901416/191956656-6513a0b8-b042-46e7-8149-23d6a4ba3cb6.gif)
 
 
 Info/issues/missing/notes :
