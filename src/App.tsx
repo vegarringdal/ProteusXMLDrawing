@@ -25,7 +25,6 @@ export function App() {
                     <GithubIcon />
                 </div>
             </div>
-
             <div className="p-2 flex">
                 <div className="mr-2">
                     <OpenXmlFile />
@@ -44,21 +43,38 @@ export function App() {
                     </div>
                 </div>
             </div>
-
             <div className="text-gray-500 p-2 pt-4">
                 <TabRow />
             </div>
 
-            <div className="flex h-full" style={{ minHeight: "0px" }}>
-                <div className="flex basis-2/3  pb-4 p-1">
-                    <TabContent></TabContent>
-                </div>
+            {/*  // todo - move into own component */}
+            {gui.currentTab === "xsdValidation" ? (
+                <>
+                    <div className="flex h-full" style={{ minHeight: "0px" }}>
+                        <div className="flex flex-1  pb-4 p-1">
+                            <TabContent></TabContent>
+                        </div>
+                    </div>
+                    <div className="fixed bottom-0 right-0 pr-2 text-gray-500">
+                        Version: {APP_VERSION}
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div className="flex h-full" style={{ minHeight: "0px" }}>
+                        <div className="flex basis-2/3  pb-4 p-1">
+                            <TabContent></TabContent>
+                        </div>
 
-                <div className="flex basis-1/3 pt-4 pb-4 p-1">
-                    <Selected />
-                </div>
-            </div>
-            <div className="fixed bottom-0 right-0 pr-2 text-gray-500">Version: {APP_VERSION}</div>
+                        <div className="flex basis-1/3 pt-4 pb-4 p-1">
+                            <Selected />
+                        </div>
+                    </div>
+                    <div className="fixed bottom-0 right-0 pr-2 text-gray-500">
+                        Version: {APP_VERSION}
+                    </div>{" "}
+                </>
+            )}
         </div>
     );
 }

@@ -9,6 +9,7 @@ import { isConceptualModel } from "../utils/isConceptualModel";
 import { setXmlContent } from "../state/xmlContent";
 import { setXsdContent } from "../state/xsdContent";
 import { flushSync } from "react-dom";
+import { validationController } from "../state/validationController";
 
 export function OpenXmlFile() {
     const gui = guiState();
@@ -85,6 +86,9 @@ export function OpenXmlFile() {
                                 component: row
                             });
                         });
+
+                        // need to clear
+                        validationController.dataSource.setData([]);
 
                         idListController.dataSource.setData([]);
                         idListController.dataSource.setData(idListData);

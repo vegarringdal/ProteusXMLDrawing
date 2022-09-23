@@ -6,20 +6,20 @@ export const validationGridConfig: GridConfig = {
     footerHeight: 40,
     readonly: true,
     selectionMode: "single",
-    sortingSet: [{ attribute: "elementName", ascending: true }],
-    groupingSet: [
+    sortingSet: [{ attribute: "node", ascending: true }],
+    /* groupingSet: [
         {
             title: "Element",
             attribute: "elementName"
         }
-    ],
+    ], */
     groups: [
         {
             width: 200,
             rows: [
                 {
-                    header: "Element",
-                    attribute: "elementName",
+                    header: "Node",
+                    attribute: "node",
                     filterable: {},
                     allowGrouping: true,
                     sortable: {}
@@ -27,11 +27,11 @@ export const validationGridConfig: GridConfig = {
             ]
         },
         {
-            width: 200,
+            width: 110,
             rows: [
                 {
-                    header: "ID",
-                    attribute: "id",
+                    header: "Line",
+                    attribute: "line",
                     filterable: {},
                     allowGrouping: true,
                     sortable: {}
@@ -39,23 +39,11 @@ export const validationGridConfig: GridConfig = {
             ]
         },
         {
-            width: 200,
+            width: 1450,
             rows: [
                 {
-                    header: "TagName",
-                    attribute: "tagName",
-                    filterable: {},
-                    allowGrouping: true,
-                    sortable: {}
-                }
-            ]
-        },
-        {
-            width: 300,
-            rows: [
-                {
-                    header: "XPath",
-                    attribute: "xpath",
+                    header: "Error message",
+                    attribute: "message",
                     filterable: {},
                     allowGrouping: true,
                     sortable: {}

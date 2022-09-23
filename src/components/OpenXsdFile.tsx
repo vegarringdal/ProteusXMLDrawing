@@ -1,6 +1,9 @@
 import React from "react";
 import { guiState } from "../state/guiState";
-import { setXsdContent } from "../state/xsdContent";
+import { validationController } from "../state/validationController";
+import { getXmlContent } from "../state/xmlContent";
+import { getXsdContent, setXsdContent } from "../state/xsdContent";
+import { validate } from "../utils/validate";
 
 export function OpenXsdFile() {
     const gui = guiState();
@@ -12,10 +15,25 @@ export function OpenXsdFile() {
                 className=" hidden"
                 type="file"
                 onChange={(e) => {
+                    if (!getXmlContent()) {
+                        alert("open xml first");
+                    }
+
                     const reader = new FileReader();
-                    reader.onload = () => {
+                    reader.onload = async () => {
                         // save for later
                         setXsdContent(reader.result as string);
+                        const errors = await validate(
+                            "test.xml",
+                            getXmlContent(),
+                            "test.xsd",
+                            getXsdContent()
+                        );
+
+                        validationController.dataSource.setData([]);
+                        validationController.dataSource.setData(errors as []);
+                      /*   validationController.gridInterFace.autoResizeColumns(); */
+                        e.target.value = ""; // reset , so reopen is possible
                     };
 
                     reader.onloadend = () => {
@@ -27,6 +45,7 @@ export function OpenXsdFile() {
                     };
 
                     if (e?.target.files) {
+                        guiState.setState({ currentTab: "xsdValidation" });
                         gui.setLoading(true);
                         guiState.setState({ selectedXsdFileName: e.target.files[0].name });
                         reader.readAsText(e.target.files[0]);
