@@ -3,7 +3,8 @@ import "./App.css";
 import { ActivateGridDarkTheme } from "./components/ActivateGridDarkTheme";
 import { GithubIcon } from "./components/GithubIcon";
 import { InfoIcon } from "./components/InfoIcon";
-import { OpenFile } from "./components/OpenFile";
+import { OpenXmlFile } from "./components/OpenXmlFile";
+import { OpenXsdFile } from "./components/OpenXsdFile";
 import { Selected } from "./components/Selected";
 import { TabContent } from "./components/TabContent";
 import { TabRow } from "./components/TabRow";
@@ -33,8 +34,23 @@ export function App() {
                 </div>
             </div>
 
-            <div className="p-2">
-                <OpenFile />
+            <div className="p-2 flex">
+                <div className="mr-2">
+                    <OpenXmlFile />
+                </div>
+                <div className="mr-2">
+                    <OpenXsdFile />
+                </div>
+                <div className="flex flex-col p-1">
+                    <div className="text-xs ">
+                        <span className="mr-1 font-bold">XML File:</span>
+                        <span>{gui.selectedXmlFileName}</span>
+                    </div>
+                    <div className="text-xs">
+                        <span className="mr-1 font-bold">XSD File:</span>
+                        <span>{gui.selectedXsdFileName}</span>
+                    </div>
+                </div>
             </div>
 
             <div className="text-gray-500 p-2 pt-4">

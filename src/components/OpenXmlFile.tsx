@@ -6,19 +6,25 @@ import { idListController } from "../state/idListController";
 import { guiState } from "../state/guiState";
 import { conceptualModelController } from "../state/conceptualModelController";
 import { isConceptualModel } from "../utils/isConceptualModel";
+import { setXmlContent } from "../state/xmlContent";
+import { setXsdContent } from "../state/xsdContent";
 
-export function OpenFile() {
+export function OpenXmlFile() {
     const gui = guiState();
 
     return (
         <label className="inline-block p-2 bg-gray-700/50 -10 relative text-center text-indigo-400 font-semibold">
-            Open File
+            Open Xml File
             <input
                 className=" hidden"
                 type="file"
                 onChange={(e) => {
                     const reader = new FileReader();
                     reader.onload = () => {
+                        // save for later
+                        setXmlContent(reader.result as string);
+                        setXsdContent("");
+
                         const proteusXmlDrawing = new ProteusXmlDrawing(
                             reader.result as any,
                             "pidCanvas"
@@ -99,6 +105,10 @@ export function OpenFile() {
 
                     if (e?.target.files) {
                         gui.setLoading(true);
+                        guiState.setState({
+                            selectedXmlFileName: e.target.files[0].name,
+                            selectedXsdFileName: ""
+                        });
                         reader.readAsText(e.target.files[0]);
                     }
                 }}
