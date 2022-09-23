@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.5](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.4...v1.5.5) (2022-09-23)
+
+
+### Bug Fixes
+
+* tab hover border and title for libxml2 version ([732157d](https://github.com/vegarringdal/ProteusXMLDrawing/commits/732157d2e6c064a47839e93c9c6ec2b5cce55a9e))
+
 ### [1.5.4](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.3...v1.5.4) (2022-09-23)
 
 
