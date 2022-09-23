@@ -3,7 +3,7 @@ import { guiState } from "../state/guiState";
 import { CanvasContainer } from "./CanvasContainer";
 import { ConceptualModeListView } from "./ConceptualModeListView";
 import { IDListView } from "./IDListView";
-import { ValidationListView } from "./ValidationListView";
+import { ValidationListView } from "./ValidationXsdListView";
 
 export function TabContent() {
     const gui = guiState();
