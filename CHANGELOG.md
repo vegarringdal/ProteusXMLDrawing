@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.1](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.0...v1.5.1) (2022-09-23)
+
+
+### Bug Fixes
+
+* remove all console logs ([1d879cf](https://github.com/vegarringdal/ProteusXMLDrawing/commits/1d879cf00e69e81c9bbb62c03f93eb25ed65d05f))
+* typo in calidation file ([5454d18](https://github.com/vegarringdal/ProteusXMLDrawing/commits/5454d1878900c7b8eaf4e828ed5004cd6657157f))
+
 ## [1.5.0](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.4.0...v1.5.0) (2022-09-23)
 
 
