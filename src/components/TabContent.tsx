@@ -1,5 +1,6 @@
 import React from "react";
 import { guiState } from "../state/guiState";
+import { CanvasContainer } from "./CanvasContainer";
 import { ConceptualModeListView } from "./ConceptualModeListView";
 import { IDListView } from "./IDListView";
 
@@ -9,10 +10,7 @@ export function TabContent() {
     if (gui.currentTab === "idList") {
         return (
             <>
-                <canvas
-                    id="pidCanvas"
-                    className="border w-full h-full border-gray-800 hidden "
-                ></canvas>
+                <CanvasContainer stayHidden={true} />
                 <IDListView></IDListView>
             </>
         );
@@ -21,10 +19,16 @@ export function TabContent() {
     if (gui.currentTab === "conceptualModelList") {
         return (
             <>
-                <canvas
-                    id="pidCanvas"
-                    className="border w-full h-full border-gray-800 hidden "
-                ></canvas>
+                <CanvasContainer stayHidden={true} />
+                <ConceptualModeListView></ConceptualModeListView>
+            </>
+        );
+    }
+
+    if (gui.currentTab === "xsdValidation") {
+        return (
+            <>
+                <CanvasContainer stayHidden={true} />
                 <ConceptualModeListView></ConceptualModeListView>
             </>
         );
@@ -34,7 +38,7 @@ export function TabContent() {
 
     return (
         <>
-            <canvas id="pidCanvas" className="border w-full h-full border-gray-800 "></canvas>
+            <CanvasContainer stayHidden={false} />
         </>
     );
 }

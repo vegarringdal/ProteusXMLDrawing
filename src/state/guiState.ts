@@ -6,7 +6,7 @@ type State = {
     setLoading: (status: boolean) => void;
     setSelected: (selected: Component | null) => void;
     selected: Component | null;
-    currentTab: "viewer" | "idList" | "conceptualModelList";
+    currentTab: "viewer" | "idList" | "conceptualModelList" | "xsdValidation";
     selectedXmlFileName: string;
     selectedXsdFileName: string;
 };

@@ -16,14 +16,6 @@ declare const APP_VERSION: string;
 export function App() {
     const gui = guiState();
 
-    useEffect(() => {
-        // workaround, rreact did not like when I tried this directly
-        const canvas = document.getElementById("pidCanvas");
-        if (canvas) {
-            canvas.setAttribute("resize", "true");
-        }
-    }, []);
-
     return (
         <div className="p-2 flex flex-col h-full bg-gray-900 text-gray-200">
             <ActivateGridDarkTheme />
