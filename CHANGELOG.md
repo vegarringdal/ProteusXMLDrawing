@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.5.5](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.4...v1.5.5) (2022-09-23)
+
+
+### Bug Fixes
+
+* tab hover border and title for libxml2 version ([732157d](https://github.com/vegarringdal/ProteusXMLDrawing/commits/732157d2e6c064a47839e93c9c6ec2b5cce55a9e))
+
+### [1.5.4](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.3...v1.5.4) (2022-09-23)
+
+
+### Bug Fixes
+
+* libxml2 version on main page ([298fde5](https://github.com/vegarringdal/ProteusXMLDrawing/commits/298fde5043a63d95b58339b7257257e0df1652c4))
+
+### [1.5.3](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.2...v1.5.3) (2022-09-23)
+
+
+### Bug Fixes
+
+* libxml2 wasm update ([609dbaf](https://github.com/vegarringdal/ProteusXMLDrawing/commits/609dbaf46f3955ed69cafb4c88f94bfb1f89a088))
+
+### [1.5.2](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.1...v1.5.2) (2022-09-23)
+
+
+### Bug Fixes
+
+* add livxml2 version to page ([ffcb02a](https://github.com/vegarringdal/ProteusXMLDrawing/commits/ffcb02a84b28c5e27c6c2a1cf02438eedf280765))
+
 ### [1.5.1](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.0...v1.5.1) (2022-09-23)
 
 

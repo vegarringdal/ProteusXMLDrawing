@@ -21,10 +21,11 @@ export function App() {
         <div className="flex flex-col h-full bg-gray-900 text-gray-200">
             <LoadingDialog />
             <ActivateGridDarkTheme />
-            <div className="fixed top-0 left-0 right-0 text-gray-500 flex">
+            <div className="fixed top-0 left-0 right-0 text-gray-500 flex flex-col">
                 <span className="m-auto">
                     No files is uploaded to any third party - all work is done in the browser.
                 </span>
+                <div className="m-auto italic">LibXml2 - v2.10.2+ latest commit (20 sept - 2022)</div>
             </div>
             <div className="fixed top-2 right-2  p-2">
                 <div className="flex gap-x-2 text-indigo-600">
