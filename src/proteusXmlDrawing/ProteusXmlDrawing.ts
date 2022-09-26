@@ -103,6 +103,8 @@ export class ProteusXmlDrawing {
         const presentation = this.PlantModel.Drawing[0]?.Presentation[0];
         if (presentation?.attributes?.Color) {
             this.canvas.style.backgroundColor = presentation?.attributes?.Color;
+        } else {
+            this.canvas.style.backgroundColor = "white";
         }
 
         const x = this.PlantModel.Drawing[0].Extent[0].Max[0].x.valueAsNumber;
