@@ -10,7 +10,7 @@ export function OpenXsdFile() {
 
     return (
         <label className="inline-block p-2 bg-gray-700/50 -10 relative text-center text-indigo-400 font-semibold hover:bg-gray-700">
-            Open XSD File
+            Use XSD File
             <input
                 className=" hidden"
                 type="file"

@@ -25,7 +25,9 @@ export function App() {
                 <span className="m-auto ">
                     No files is uploaded to any third party - all work is done in the browser.
                 </span>
-                <div className="m-auto italic">LibXml2 - v2.10.2+ latest commit (20 sept - 2022)</div>
+                <div className="m-auto italic">
+                    LibXml2 - v2.10.2+ latest commit (20 sept - 2022)
+                </div>
             </div>
             <div className="fixed top-2 right-2  p-2">
                 <div className="flex gap-x-2 text-indigo-600">
@@ -37,9 +39,7 @@ export function App() {
                 <div className="mr-2">
                     <OpenXmlFile />
                 </div>
-                <div className="mr-2">
-                    <OpenXsdFile />
-                </div>
+
                 <div className="flex flex-col p-1">
                     <div className="text-xs ">
                         <span className="mr-1 font-bold">XML File:</span>
@@ -51,7 +51,7 @@ export function App() {
                     </div>
                 </div>
             </div>
-            <div className="text-gray-500 p-2 pt-4">
+            <div className="text-gray-500 pl-2 pr-2 pt-4">
                 <TabRow />
             </div>
 
@@ -59,7 +59,7 @@ export function App() {
             {gui.currentTab === "xsdValidation" ? (
                 <>
                     <div className="flex h-full" style={{ minHeight: "0px" }}>
-                        <div className="flex flex-1   p-1 pb-10">
+                        <div className="flex flex-1 p-1 pb-10">
                             <TabContent></TabContent>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ export function App() {
                             <TabContent></TabContent>
                         </div>
 
-                        <div className="flex basis-1/3 pt-4 pb-10 p-1">
+                        <div className="flex basis-1/3  pb-10 pl-1 pr-1">
                             <Selected />
                         </div>
                     </div>
