@@ -21,7 +21,8 @@ Info/issues/missing/notes :
   - do we have any samples of this ? xml and pdf?
 - hidden layers? (atm I dont show text on layers that contains word "hidden")
 - text alignment atm looks like 100% ok, I use extent to place it/resize it
-   - so text without extent will not work /be skipped.
+   - text with extent, extent is used to adjust size
+   - if no extent - we just use the location, if height is more then 0 and not the same as width I use it
      - width/height should in teory be the same as extent, but looks like they never are on samples Ive looked at
    - slant text not supported yet...
      - since I havent really seen it, I really dont know how to test if I do it correctly.

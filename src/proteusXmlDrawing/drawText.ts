@@ -32,6 +32,8 @@ export function drawtext(
     const Shape = getPaper().Shape;
     const Size = getPaper().Size;
 
+    let hasExtent = true;
+
     if (!ctx.Position[0]?.Location) {
         console.warn(
             "unexpected missing location element on text, skipping text",
@@ -41,12 +43,7 @@ export function drawtext(
         return;
     }
     if (!ctx.Extent[0]?.Max) {
-        console.warn(
-            "unexpected missing Extent element on text, skipping text",
-            ctx?.string?.valueAsString,
-            ctx
-        );
-        return;
+        hasExtent = false;
     }
     if (!ctx.Presentation[0]) {
         console.warn(
@@ -130,10 +127,16 @@ export function drawtext(
         text.rotate(-(sin / (Math.PI / 90)) * Math.PI, point);
     }
 
-    // move text
-    text.bounds.y = shape.bounds.y;
-    text.bounds.x = shape.bounds.x;
-    text.fitBounds(shape.bounds);
+    // move text but only of extent is set
+    if (hasExtent) {
+        text.bounds.y = shape.bounds.y;
+        text.bounds.x = shape.bounds.x;
+        text.fitBounds(shape.bounds);
+    } else {
+        if (ctx.height.valueAsNumber && ctx.height.valueAsNumber !== ctx.width.valueAsNumber) {
+            text.bounds.height = ctx.height.valueAsNumber;
+        }
+    }
 
     text.fillColor = new Color({
         red: ctx.Presentation[0].r.value,
