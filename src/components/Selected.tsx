@@ -79,7 +79,7 @@ export function Selected() {
 
     if (!gui.selected?.elementTagName) {
         return (
-            <div className="border-gray-600 detailView flex flex-col text-xs w-full m-2">
+            <div className="border-gray-600 detailView flex flex-col text-xs w-full ">
                 <span className="pl-1 border-b bg-gray-700 border-b-gray-600 text-lg font-bold">
                     Selected
                 </span>
@@ -95,7 +95,7 @@ export function Selected() {
     let section = -1;
 
     return (
-        <div className="border-gray-600 detailView flex flex-col text-xs m-2 w-full ">
+        <div className="border-gray-600 detailView flex flex-col text-xs w-full ">
             <span className="pl-1 border-b  border-b-gray-600 text-lg font-bold ">
                 Selected Element
             </span>
@@ -137,7 +137,9 @@ export function Selected() {
                                 key={key}
                                 className="border-b bg-gray-700 border-b-gray-400 flex pt-2 pb-1 sticky top-7 text-sm"
                             >
-                                <span className="pl-3 font-semibold flex-1 overflow-x-auto scrollbar">{item.name}</span>
+                                <span className="pl-3 font-semibold flex-1 overflow-x-auto scrollbar">
+                                    {item.name}
+                                </span>
                                 <span className="ml-2  ">{item.value}</span>
                             </span>
                         );
@@ -157,8 +159,12 @@ export function Selected() {
                     }
                     return (
                         <span className="pl-2 border-b border-b-gray-600 flex pr-2" key={key}>
-                            <span className="pl-4 font-semibold flex-1 overflow-x-auto scrollbar">{item.name}:</span>
-                            <span className="ml-2 flex-1 overflow-x-auto scrollbar">{item.value}</span>
+                            <span className="pl-4 font-semibold flex-1 overflow-x-auto scrollbar">
+                                {item.name}:
+                            </span>
+                            <span className="ml-2 flex-1 overflow-x-auto scrollbar">
+                                {item.value}
+                            </span>
                         </span>
                     );
                 })}

@@ -69,11 +69,11 @@ export function App() {
             ) : (
                 <>
                     <div className="flex h-full" style={{ minHeight: "0px" }}>
-                        <div className="flex basis-2/3 p-1 pb-10 ">
+                        <div className="flex basis-1/2 xl:basis-2/3  p-1 pb-10 ">
                             <TabContent></TabContent>
                         </div>
 
-                        <div className="flex basis-1/3  pb-10 pl-1 pr-1">
+                        <div className="flex basis-1/2 xl:basis-1/3 pb-10 pl-1 pr-1">
                             <Selected />
                         </div>
                     </div>

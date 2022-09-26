@@ -10,7 +10,7 @@ export function CanvasContainer(props: { stayHidden: boolean }) {
         if (canvas) {
             canvas.setAttribute("resize", "true");
         }
-    }, []);
+    });
 
     if (!gui.selectedXmlFileName && !props.stayHidden) {
         return (
