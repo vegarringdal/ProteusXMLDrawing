@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.1](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.6.0...v1.6.1) (2022-09-26)
+
+
+### Bug Fixes
+
+* add proteus link and ass missing schema version to xml file info ([1ce14e0](https://github.com/vegarringdal/ProteusXMLDrawing/commits/1ce14e0ae84647cab6b41bc746bfd4e714de2dfb))
+* improve display of text when there is no extent ([8fea8ca](https://github.com/vegarringdal/ProteusXMLDrawing/commits/8fea8cae640f2bb971ef5909851b7c4f2b95e2a4))
+* use white background is nothing is set in file ([5413be7](https://github.com/vegarringdal/ProteusXMLDrawing/commits/5413be7a0d1581170cbfc9be37554e3e2ff4a596))
+
 ## [1.6.0](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.5...v1.6.0) (2022-09-26)
 
 
