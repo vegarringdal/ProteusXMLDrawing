@@ -6,8 +6,8 @@ import { SimpleHtmlGrid } from "./SimpleHtmlGrid";
 export function ValidationListView() {
     return (
         <div className="flex flex-col h-full w-full flex-grow">
-            <div className="pr-2 pl-2 pb-2">
-                <span className="text-gray-400">
+            <div className="pr-2 pl-2 pb-2 ">
+                <span className="text-gray-400 italic text-xs">
                     XML Schema Definition or XSD is a recommendation by the World Wide Web
                     Consortium (W3C) to describe and validate the structure and content of an XML
                     document. An XSD is similar to earlier XML schema languages, such as Document
