@@ -13,7 +13,12 @@ export function ValidationListView() {
                     document. An XSD is similar to earlier XML schema languages, such as Document
                     Type Definition (DTD), but it is a more powerful alternative as it provides
                     greater control over the XML structure.{" "}
-                    <a className="text-indigo-400" href="https://www.w3.org/XML/Schema">
+                    <a
+                        className="text-indigo-400"
+                        href="https://www.w3.org/XML/Schema"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
                         Read more
                     </a>
                 </span>
