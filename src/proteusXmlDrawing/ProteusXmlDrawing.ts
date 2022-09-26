@@ -45,6 +45,17 @@ export class ProteusXmlDrawing {
         return null;
     }
 
+    public getSchemaVersion() {
+        const PlantInformation = this.xml.getElementsByTagName("PlantInformation")[0];
+        if (PlantInformation) {
+            const schemaVersion = PlantInformation.getAttribute("SchemaVersion");
+            if (schemaVersion) {
+                return schemaVersion;
+            }
+        }
+        return null;
+    }
+
     public addEventListener(callable: callable) {
         this.subscribers.add(callable);
     }

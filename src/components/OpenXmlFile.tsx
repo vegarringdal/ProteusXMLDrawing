@@ -99,6 +99,14 @@ export function OpenXmlFile() {
                         conceptualModelController.dataSource.setData(conceptualModelData);
                         conceptualModelController.gridInterFace.autoResizeColumns();
 
+                        const schemaVersion = proteusXmlDrawing.getSchemaVersion() || "unknown";
+
+                        guiState.setState({
+                            selectedXmlFileName: `${
+                                guiState.getState().selectedXmlFileName
+                            } - (Schema Version: ${schemaVersion})`
+                        });
+
                         const schemaLocation = proteusXmlDrawing.getSchemaLocation();
                         if (!schemaLocation) {
                             guiState.setState({

@@ -25,6 +25,16 @@ export function ValidationListView() {
 
                 <div className="flex ">
                     <OpenXsdFile />
+                    <div className="w-96 flex ml-3">
+                        <a
+                            className="text-indigo-400 m-auto"
+                            href="https://github.com/ProteusXML/proteusxml"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Click here to find Proteus XSD files (github).
+                        </a>
+                    </div>
                 </div>
             </div>
             <SimpleHtmlGrid
