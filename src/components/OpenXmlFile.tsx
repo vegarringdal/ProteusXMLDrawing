@@ -6,9 +6,10 @@ import { idListController } from "../state/idListController";
 import { guiState } from "../state/guiState";
 import { conceptualModelController } from "../state/conceptualModelController";
 import { isConceptualModel } from "../utils/isConceptualModel";
-import { setXmlContent } from "../state/xmlContent";
-import { setXsdContent } from "../state/xsdContent";
+import { getXmlContent, setXmlContent } from "../state/xmlContent";
+import { getXsdContent, setXsdContent } from "../state/xsdContent";
 import { validationController } from "../state/validationController";
+import { validate } from "../utils/validate";
 
 export function OpenXmlFile() {
     const gui = guiState();
@@ -22,7 +23,7 @@ export function OpenXmlFile() {
                 accept=".xml"
                 onChange={(e) => {
                     const reader = new FileReader();
-                    reader.onload = () => {
+                    reader.onload = async () => {
                         // save for later
 
                         setXmlContent(reader.result as string);
@@ -97,6 +98,43 @@ export function OpenXmlFile() {
                         conceptualModelController.dataSource.setData([]);
                         conceptualModelController.dataSource.setData(conceptualModelData);
                         conceptualModelController.gridInterFace.autoResizeColumns();
+
+                        const schemaLocation = proteusXmlDrawing.getSchemaLocation();
+                        if (!schemaLocation) {
+                            guiState.setState({
+                                selectedXsdFileName:
+                                    "No schema location found, you need to select file manually"
+                            });
+                        } else {
+                            try {
+                                const response = await fetch(schemaLocation);
+                                if (response.ok) {
+                                    const text = await response.text();
+
+                                    setXsdContent(text as string);
+                                    const errors = await validate(
+                                        "test.xml",
+                                        getXmlContent(),
+                                        "test.xsd",
+                                        getXsdContent()
+                                    );
+
+                                    validationController.dataSource.setData([]);
+                                    validationController.dataSource.setData(errors as []);
+                                    guiState.setState({
+                                        selectedXsdFileName: schemaLocation
+                                    });
+                                } else {
+                                    guiState.setState({
+                                        selectedXsdFileName: "Unable to download: " + schemaLocation
+                                    });
+                                }
+                            } catch (err) {
+                                guiState.setState({
+                                    selectedXsdFileName: "Unable to download: " + schemaLocation
+                                });
+                            }
+                        }
 
                         e.target.value = ""; // reset , so reopen is possible
                     };

@@ -5,7 +5,6 @@ import { GithubIcon } from "./components/GithubIcon";
 import { InfoIcon } from "./components/InfoIcon";
 import { LoadingDialog } from "./components/LoadingDialog";
 import { OpenXmlFile } from "./components/OpenXmlFile";
-import { OpenXsdFile } from "./components/OpenXsdFile";
 import { Selected } from "./components/Selected";
 import { TabContent } from "./components/TabContent";
 import { TabRow } from "./components/TabRow";

@@ -28,6 +28,23 @@ export class ProteusXmlDrawing {
         this.PlantModel = new Component(plantModelElement, false);
     }
 
+    public getSchemaLocation() {
+        const plantModelElement = this.xml.getElementsByTagName("PlantModel")[0];
+        if (plantModelElement) {
+            const schemaLocation = plantModelElement.getAttribute("xsi:schemaLocation");
+            if (schemaLocation) {
+                return schemaLocation;
+            }
+            const noNamespaceSchemaLocation = plantModelElement.getAttribute(
+                "xsi:noNamespaceSchemaLocation"
+            );
+            if (noNamespaceSchemaLocation) {
+                return noNamespaceSchemaLocation;
+            }
+        }
+        return null;
+    }
+
     public addEventListener(callable: callable) {
         this.subscribers.add(callable);
     }
