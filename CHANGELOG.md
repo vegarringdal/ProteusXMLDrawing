@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.5...v1.6.0) (2022-09-26)
+
+
+### Features
+
+* auto download xsd if schemaLocation is in file ([d0e6854](https://github.com/vegarringdal/ProteusXMLDrawing/commits/d0e6854eef6293b96a3ecaf8d37a22440271dc7e))
+
+
+### Bug Fixes
+
+* canvas resize & select to half when smaller screen ([f057a54](https://github.com/vegarringdal/ProteusXMLDrawing/commits/f057a54f99efbccc3db2ee8849eae3f48f11d308))
+* move upload/libXml to bottom ([856a83a](https://github.com/vegarringdal/ProteusXMLDrawing/commits/856a83a26a3f41f7b34dba7671872f11d882592e))
+* move xsd file button to xsd tab and add xml schema info ([892a26b](https://github.com/vegarringdal/ProteusXMLDrawing/commits/892a26b65e18bf16dd55fc100d5bb174a24413be))
+* open url in new tab ([1ed5c94](https://github.com/vegarringdal/ProteusXMLDrawing/commits/1ed5c94faf016a701eaf1b1ea5e97e8518d3b4f8))
+* rename title to proteus xml only ([945e695](https://github.com/vegarringdal/ProteusXMLDrawing/commits/945e6953c890202aed3f2addbb2935d491dd7939))
+* smaller info text ([8eec737](https://github.com/vegarringdal/ProteusXMLDrawing/commits/8eec737ae572dbee2e566f38bd30b8dab03bf036))
+
 ### [1.5.5](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.5.4...v1.5.5) (2022-09-23)
 
 
