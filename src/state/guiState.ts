@@ -1,4 +1,4 @@
-import create from "zustand";
+import {create} from "zustand";
 import { Component } from "../proteusXmlDrawing/Component";
 
 type State = {

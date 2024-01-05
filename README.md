@@ -20,7 +20,7 @@ Info/issues/missing/notes :
 - filled "shape/circle/ellipse, will probably have issues with "hatch" filltype
   - do we have any samples of this ? xml and pdf?
 - hidden layers? (atm I dont show text on layers that contains word "hidden")
-- text alignment atm looks like 100% ok, I use extent to place it/resize it
+- text alignment atm looks like 100% ok, I use extent to place it/resize it (update 05.01.2024 -needs more work..)
    - text with extent, extent is used to adjust size
    - if no extent - we just use the location, if height is more then 0 and not the same as width I use it
      - width/height should in teory be the same as extent, but looks like they never are on samples Ive looked at

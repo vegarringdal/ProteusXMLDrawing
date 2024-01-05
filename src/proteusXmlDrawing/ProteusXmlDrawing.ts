@@ -74,7 +74,7 @@ export class ProteusXmlDrawing {
         getPaper().project.activeLayer.removeChildren();
         getPaper().view.requestUpdate();
 
-        const unitTypesSupported = ["Metre", "mm", "Millimetre"];
+        const unitTypesSupported = ["Metre", "mm", "Millimetre", "m"];
         const PlantInformationUnitType = this.PlantModel.PlantInformation[0].units.value;
 
         if (!unitTypesSupported.includes(PlantInformationUnitType)) {
@@ -87,6 +87,9 @@ export class ProteusXmlDrawing {
         let unit = 1.5;
         switch (true) {
             case PlantInformationUnitType === "Metre":
+                unit = 1500;
+                break;
+            case PlantInformationUnitType === "m":
                 unit = 1500;
                 break;
         }

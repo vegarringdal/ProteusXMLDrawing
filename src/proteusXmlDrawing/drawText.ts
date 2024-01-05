@@ -71,6 +71,7 @@ export function drawtext(
         proteusXmlDrawing
     );
 
+
     const x = (ctx.Position[0].Location[0].x.valueAsNumber + offsetX) * unit;
     const y = pageOriginY * unit - (ctx.Position[0].Location[0].y.valueAsNumber + offsetY) * unit;
     const point = new Point(x, y);
@@ -134,10 +135,18 @@ export function drawtext(
         text.fitBounds(shape.bounds);
     } else {
         if (ctx.height.valueAsNumber && ctx.height.valueAsNumber !== ctx.width.valueAsNumber) {
-            text.bounds.height = ctx.height.valueAsNumber;
+            if(ctx.height.valueAsNumber < 1){
+                // looks like some text also is needing units...
+                // need to look more into this one later
+                text.bounds.height = ctx.height.valueAsNumber * unit;
+            } else {
+                text.bounds.height = ctx.height.valueAsNumber;
+            }
+            
         }
     }
 
+  
     text.fillColor = new Color({
         red: ctx.Presentation[0].r.value,
         green: ctx.Presentation[0].g.value,
