@@ -134,7 +134,7 @@ export function drawtext(
         text.bounds.x = shape.bounds.x;
         text.fitBounds(shape.bounds);
     } else {
-        if (ctx.height.valueAsNumber && ctx.height.valueAsNumber !== ctx.width.valueAsNumber) {
+       /*  if (ctx.height.valueAsNumber && ctx.height.valueAsNumber !== ctx.width.valueAsNumber) {
             if(ctx.height.valueAsNumber < 1){
                 // looks like some text also is needing units...
                 // need to look more into this one later
@@ -143,7 +143,7 @@ export function drawtext(
                 text.bounds.height = ctx.height.valueAsNumber;
             }
             
-        }
+        } */
     }
 
   
@@ -152,6 +152,34 @@ export function drawtext(
         green: ctx.Presentation[0].g.value,
         blue: ctx.Presentation[0].b.value
     });
+
+    if (!hasExtent) {
+        
+        
+        // lets see if we can improve this part
+        // TODO: need to do more testing here, have som weird offsets whe not using extent
+        const justification = ctx.justification.value
+        //console.log(justification, text.content)
+
+        
+        
+        if (justification == "CenterCenter") {
+            text.bounds.x = text.bounds.x - text.bounds.width / 2
+            text.bounds.y = text.bounds.y + (text.bounds.height / 2)
+        }
+
+        if (justification == "RightTop") {
+            text.bounds.x = text.bounds.x - text.bounds.width   
+            text.bounds.y = text.bounds.y + (text.bounds.height )
+        }
+
+        if (justification == "CenterTop") {
+            text.bounds.x = text.bounds.x - text.bounds.width / 2
+            text.bounds.y = text.bounds.y + (text.bounds.height )
+        }
+          
+
+    } 
 
     if (group) {
         group.addChild(text);
