@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.3](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.6.2...v1.6.3) (2024-01-05)
+
+
+### Bug Fixes
+
+* npm audit fix and start on text improvement ([5f865ac](https://github.com/vegarringdal/ProteusXMLDrawing/commits/5f865acae669bb5a5fd63443f552c72e62209582))
+
 ### [1.6.2](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.6.1...v1.6.2) (2024-01-05)
 
 
