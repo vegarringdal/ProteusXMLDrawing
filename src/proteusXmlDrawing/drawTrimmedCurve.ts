@@ -124,8 +124,8 @@ export function drawTrimmedCurve(
             const point = new Point(x * unit, pageOriginY * unit - y * unit);
             const radius = comp.primaryAxis.valueAsNumber * unit;
 
-            const startAngle = -ctx.startAngle?.valueAsNumber || 0;
-            const endAngle = -ctx.endAngle?.valueAsNumber || 0;
+            const startAngle = ctx.startAngle?.valueAsNumber || 0;
+            const endAngle = ctx.endAngle?.valueAsNumber || 0;
 
             // create vec2 with angle 0 and update it
             const from = new Point(radius, 0);
