@@ -1,6 +1,6 @@
 {
     "name": "proteus-xml-drawing",
-    "version": "1.6.3",
+    "version": "1.6.4",
     "author": "vegar.ringdal@gmail.com",
     "scripts": {
         "start": "run-p -s -l start:*",

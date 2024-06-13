@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.6.4](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.6.3...v1.6.4) (2024-06-13)
+
+
+### Bug Fixes
+
+* trimmed curve rotation ([9d5e2be](https://github.com/vegarringdal/ProteusXMLDrawing/commits/9d5e2be196381435cdf9b5bf502b50d700f75676))
+
 ### [1.6.3](https://github.com/vegarringdal/ProteusXMLDrawing/compare/v1.6.2...v1.6.3) (2024-01-05)
 
 
